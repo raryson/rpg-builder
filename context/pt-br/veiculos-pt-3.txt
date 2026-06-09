@@ -1,0 +1,561 @@
+# Veículos — Parte 3
+
+# Andadores
+
+Andadores são veículos terrestres que se locomovem utilizando pernas mecânicas.
+
+Comparados aos veículos repulsores:
+
+* carregam mais blindagem;
+* suportam armamentos maiores;
+* atravessam obstáculos com facilidade;
+* possuem excelente estabilidade.
+
+Por outro lado:
+
+* costumam ser mais lentos;
+* quando caem os resultados normalmente são catastróficos.
+
+---
+
+# AT-AT
+
+## All-Terrain Armored Transport
+
+### Transporte Blindado para Todos os Terrenos
+
+Um gigantesco andador imperial de quatro pernas com aproximadamente **15,5 metros de altura**.
+
+Usado como:
+
+* transporte blindado;
+* plataforma de ataque;
+* veículo de assalto pesado.
+
+Ficou famoso durante a **Batalha de Hoth**.
+
+---
+
+## Estatísticas
+
+### ND
+
+14
+
+### Tipo
+
+Veículo terrestre Colossal (Andador)
+
+### Iniciativa
+
+-2
+
+### Sentidos
+
+Percepção +8
+
+---
+
+## Defesas
+
+| Atributo          | Valor |
+| ----------------- | ----- |
+| Reflexos          | 16    |
+| Reflexos Surpreso | 16    |
+| Fortitude         | 29    |
+| Blindagem         | +16   |
+
+---
+
+## Resistência
+
+| Estatística     | Valor |
+| --------------- | ----- |
+| Pontos de Vida  | 300   |
+| Redução de Dano | 20    |
+| Limite de Dano  | 79    |
+
+---
+
+## Deslocamento
+
+4 quadrados
+
+Velocidade máxima:
+
+**60 km/h**
+
+---
+
+## Armamentos
+
+### Canhões Laser Pesados
+
+(Artilheiro)
+
+Ataque:
+
++7
+
+Dano:
+
+**6d10 ×2**
+
+Área:
+
+2 quadrados de explosão
+
+---
+
+### Canhões Blaster Médios
+
+(Artilheiro)
+
+Ataque:
+
++7
+
+Modo:
+
+Disparo Automático
+
+Dano:
+
+**3d10 ×2**
+
+---
+
+## Combate
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| Base de Ataque | +5    |
+| Prd            | +42   |
+
+---
+
+## Espaço e Cobertura
+
+Espaço ocupado:
+
+6 × 12
+
+Cobertura:
+
+**Total**
+
+---
+
+## Atributos
+
+| Atributo     | Valor |
+| ------------ | ----- |
+| Força        | 48    |
+| Destreza     | 10    |
+| Constituição | —     |
+| Inteligência | 14    |
+
+---
+
+## Perícias
+
+* Iniciativa −2
+* Mecânica +8
+* Percepção +8
+* Pilotar −2
+
+---
+
+## Tripulação
+
+5 especialistas
+
+Passageiros:
+
+40
+
+Carga:
+
+1 tonelada
+
+Provisões:
+
+1 semana
+
+---
+
+## Veículos Transportados
+
+Pode carregar:
+
+* 5 motos speeders
+  OU
+* 2 AT-ST
+
+---
+
+## Disponibilidade
+
+Militar
+
+Custo:
+
+Não disponível para venda
+
+---
+
+# AT-ST
+
+## All-Terrain Scout Transport
+
+### Transporte Batedor para Todos os Terrenos
+
+Andador imperial de reconhecimento.
+
+Altura:
+
+**8,5 metros**
+
+Mais leve e muito mais rápido que o AT-AT.
+
+Usado para:
+
+* reconhecimento;
+* suporte de fogo;
+* combate urbano.
+
+---
+
+## Estatísticas
+
+### ND
+
+8
+
+### Tipo
+
+Veículo terrestre Enorme (Andador)
+
+### Iniciativa
+
++8
+
+### Sentidos
+
+Percepção +8
+
+---
+
+## Defesas
+
+| Atributo          | Valor |
+| ----------------- | ----- |
+| Reflexos          | 14    |
+| Reflexos Surpreso | 12    |
+| Fortitude         | 20    |
+| Blindagem         | +4    |
+
+---
+
+## Resistência
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| PV             | 120   |
+| RD             | 10    |
+| Limite de Dano | 30    |
+
+---
+
+## Deslocamento
+
+6 quadrados
+
+Velocidade máxima:
+
+90 km/h
+
+---
+
+## Armamentos
+
+### Canhão Blaster Duplo
+
+(Piloto)
+
+Ataque:
+
++6
+
+Dano:
+
+**4d10 ×2**
+
+---
+
+### Canhão Blaster Leve Duplo
+
+(Co-piloto)
+
+Ataque:
+
++6
+
+Disparo Automático:
+
++1
+
+Dano:
+
+**3d10 ×2**
+
+---
+
+### Lançador de Granadas
+
+(Co-piloto)
+
+Ataque:
+
++6
+
+Dano:
+
+4d6
+
+Explosão:
+
+2 quadrados
+
+---
+
+## Combate
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| Base de Ataque | +5    |
+| Prd            | +25   |
+
+---
+
+## Espaço e Cobertura
+
+Espaço:
+
+3 × 3
+
+Cobertura:
+
+Total
+
+---
+
+## Atributos
+
+| Atributo     | Valor |
+| ------------ | ----- |
+| Força        | 30    |
+| Destreza     | 14    |
+| Inteligência | 12    |
+
+---
+
+## Perícias
+
+* Iniciativa +8
+* Mecânica +8
+* Percepção +8
+* Pilotar +8
+
+---
+
+## Tripulação
+
+2 especialistas
+
+Passageiros:
+
+Nenhum
+
+Carga:
+
+Nenhuma
+
+Provisões:
+
+2 dias
+
+---
+
+## Munição
+
+12 granadas de fragmentação
+
+---
+
+## Disponibilidade
+
+Militar
+
+Custo:
+
+Não disponível para venda
+
+---
+
+# Speeders
+
+Speeders utilizam motores repulsores para pairar sobre o solo.
+
+São extremamente comuns em mundos desenvolvidos.
+
+Vantagens:
+
+* ignoram terreno difícil;
+* velocidade alta;
+* manutenção relativamente simples.
+
+Usados por:
+
+* civis;
+* militares;
+* comerciantes;
+* exploradores.
+
+---
+
+# Speeder Terrestre SoroSuub X-34
+
+Modelo civil extremamente popular.
+
+Características:
+
+* dois ocupantes;
+* navegação assistida;
+* estabilização automática;
+* excelente mobilidade.
+
+Modelo usado por Luke Skywalker em Tatooine.
+
+---
+
+## Estatísticas
+
+### ND
+
+1
+
+### Tipo
+
+Veículo terrestre Grande (Speeder)
+
+### Iniciativa
+
++8
+
+### Sentidos
+
+Percepção +5
+
+---
+
+## Defesas
+
+| Atributo          | Valor |
+| ----------------- | ----- |
+| Reflexos          | 14    |
+| Reflexos Surpreso | 10    |
+| Fortitude         | 14    |
+| Blindagem         | +1    |
+
+---
+
+## Resistência
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| PV             | 40    |
+| RD             | 5     |
+| Limite de Dano | 19    |
+
+---
+
+## Deslocamento
+
+12 quadrados
+
+Velocidade máxima:
+
+330 km/h
+
+---
+
+## Espaço e Cobertura
+
+Espaço:
+
+2 × 2
+
+Cobertura:
+
++5
+
+---
+
+## Combate
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| Base de Ataque | +0    |
+| Prd            | +15   |
+
+---
+
+## Atributos
+
+| Atributo     | Valor |
+| ------------ | ----- |
+| Força        | 18    |
+| Destreza     | 18    |
+| Inteligência | 12    |
+
+---
+
+## Perícias
+
+* Iniciativa +8
+* Mecânica +5
+* Percepção +5
+* Pilotar +8
+
+---
+
+## Tripulação
+
+1 normal
+
+Passageiros:
+
+1
+
+Carga:
+
+30 kg
+
+Provisões:
+
+1 dia
+
+---
+
+## Disponibilidade
+
+Licenciado
+
+Custo:
+
+10.550 créditos
+
+Usado:
+
+2.500 créditos

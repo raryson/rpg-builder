@@ -813,6 +813,35 @@ textarea {
   padding-left: 20px;
 }
 
+.markdown-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.markdown-table {
+  border-collapse: collapse;
+  min-width: 320px;
+  width: 100%;
+}
+
+.markdown-table th,
+.markdown-table td {
+  border: 1px solid #e1d4bf;
+  padding: 7px 9px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown-table th {
+  background: #263136;
+  color: #fffaf0;
+  font-size: 0.78rem;
+}
+
+.markdown-table td {
+  background: #fffdf7;
+}
+
 .detail-section-label {
   color: #30363a;
   font-size: 0.86rem;

@@ -1,0 +1,610 @@
+# CONTEXTO — DRÓIDES
+
+Este contexto complementa os arquivos anteriores do projeto de fichas de Star Wars RPG Saga Edition.
+
+O objetivo é permitir que o Codex implemente:
+
+* criação de dróides do zero;
+* escolha de modelos prontos;
+* customização de tamanho, locomoção, armadura e acessórios;
+* cálculo automático de custo, peso, defesa, PV, limite de dano e modificadores.
+
+---
+
+# Tabela 11-2: Tamanho dos Dróides
+
+| Tamanho do Dróide | Modificadores de Habilidade | Mod. Tamanho Defesa Reflexos | Mod. Tamanho Furtividade | PV Extras | Bônus Limite de Dano | Capacidade Cargueira | Fator de Custo |
+| ----------------- | --------------------------- | ---------------------------: | -----------------------: | --------: | -------------------: | -------------------: | -------------: |
+| Colossal          | +32 For, -4 Des             |                          -10 |                      -20 |      +100 |                  +50 |                  x20 |            x20 |
+| Imenso            | +24 For, -4 Des             |                           -5 |                      -10 |       +50 |                  +20 |                  x10 |            x10 |
+| Enorme            | +16 For, -4 Des             |                           -2 |                       -5 |       +20 |                  +10 |                   x5 |             x5 |
+| Grande            | +8 For, -2 Des              |                           -1 |                       -2 |       +10 |                   +5 |                   x2 |             x2 |
+| Médio             | Nenhum                      |                            0 |                       -1 |         — |                    — |                   x1 |             x1 |
+| Pequeno           | -2 For, +2 Des              |                           +1 |                       -2 |         — |                    — |                   x2 |             x2 |
+| Miúdo             | -4 For, +4 Des              |                           +2 |                       -5 |         — |                    — |                   x5 |             x5 |
+| Diminuto          | -6 For, +6 Des              |                           +5 |                      -10 |         — |                    — |                  x10 |            x10 |
+| Minúsculo         | -8 For, +8 Des              |                          +10 |                      -20 |         — |                    — |                  x20 |            x20 |
+
+---
+
+# Tabela 11-3: Locomoção de Dróide
+
+| Locomoção  | Até Pequeno |  Médio | Grande ou Maior | Fórmula de Custo                     |
+| ---------- | ----------: | -----: | --------------: | ------------------------------------ |
+| Andante    |       4 qdr |  6 qdr |           8 qdr | 10 × fator de custo × deslocamento²  |
+| De Rodas   |       6 qdr |  8 qdr |          10 qdr | 5 × fator de custo × deslocamento²   |
+| De Esteira |       4 qdr |  6 qdr |           8 qdr | 20 × fator de custo × deslocamento²  |
+| Flutuante  |       6 qdr |  6 qdr |           6 qdr | 100 × fator de custo × deslocamento² |
+| Voador     |       9 qdr | 12 qdr |          12 qdr | 200 × fator de custo × deslocamento² |
+
+---
+
+# Tabela 11-4: Dano dos Anexos de Dróides
+
+| Tamanho do Dróide | Sonda | Instrumento | Ferramenta | Garra | Mão |
+| ----------------- | ----: | ----------: | ---------: | ----: | --: |
+| Minúsculo         |     — |           — |          — |     — |   — |
+| Diminuto          |     — |           — |          — |     1 |   — |
+| Miúdo             |     — |           — |          1 |   1d2 |   1 |
+| Pequeno           |     — |           1 |        1d2 |   1d3 | 1d2 |
+| Médio             |     1 |         1d2 |        1d3 |   1d4 | 1d3 |
+| Grande            |   1d2 |         1d3 |        1d4 |   1d6 | 1d4 |
+| Enorme            |   1d3 |         1d4 |        1d6 |   1d8 | 1d6 |
+| Imenso            |   1d4 |         1d6 |        1d8 |   2d6 | 1d8 |
+| Colossal          |   1d6 |         1d8 |        2d6 |   2d8 | 2d6 |
+
+---
+
+# Tabela 11-5: Acessórios de Dróides
+
+## Anexos
+
+| Equipamento |               Preço |                    Peso | Disponibilidade |
+| ----------- | ------------------: | ----------------------: | --------------- |
+| Garra       | 20 × fator de custo |   5 × fator de custo kg | —               |
+| Mão         | 50 × fator de custo |   5 × fator de custo kg | —               |
+| Instrumento |  5 × fator de custo |   1 × fator de custo kg | —               |
+| Sonda       |  2 × fator de custo | 0,5 × fator de custo kg | —               |
+| Ferramenta  | 10 × fator de custo |   2 × fator de custo kg | —               |
+
+---
+
+## Melhorias de Anexos
+
+| Equipamento              |             Preço |                  Peso | Disponibilidade |
+| ------------------------ | ----------------: | --------------------: | --------------- |
+| Garras para Escalar      | custo do anexo ×2 |                     — | —               |
+| Servomecanismos de Salto | custo do anexo ×2 | 2 × fator de custo kg | —               |
+| Pés Magnéticos           | custo do anexo ×2 |                     — | —               |
+| Anexo Telescópico        | custo do anexo ×2 |        peso normal ×2 | —               |
+
+---
+
+## Comunicação e Diagnóstico
+
+| Equipamento           | Preço |   Peso | Disponibilidade |
+| --------------------- | ----: | -----: | --------------- |
+| Comunicador interno   |   250 | 0,1 kg | —               |
+| Vocabulador           |    50 | 0,5 kg | —               |
+| Pacote de diagnóstico |   250 |   4 kg | —               |
+| Convocador de dróide  |    10 | 0,2 kg | —               |
+
+---
+
+## Sistemas Enrijecidos
+
+| Equipamento             |                  Preço |                    Peso | Disponibilidade |
+| ----------------------- | ---------------------: | ----------------------: | --------------- |
+| Sistemas Enrijecidos x2 | 1.000 × fator de custo | 100 × fator de custo kg | Militar         |
+| Sistemas Enrijecidos x3 | 2.500 × fator de custo | 250 × fator de custo kg | Militar         |
+| Sistemas Enrijecidos x4 | 4.000 × fator de custo | 400 × fator de custo kg | Militar         |
+| Sistemas Enrijecidos x5 | 6.250 × fator de custo | 650 × fator de custo kg | Militar         |
+
+---
+
+## Armazenamento Interno
+
+| Equipamento                     | Preço | Peso | Disponibilidade |
+| ------------------------------- | ----: | ---: | --------------- |
+| Espaço do compartimento, por kg |    50 |    — | —               |
+| Mecanismo de arremesso          |   150 | 3 kg | —               |
+| Acesso travado                  |    50 |    — | Licenciado      |
+
+---
+
+# Tabela 11-6: Armadura de Dróide
+
+## Armadura Leve (-2)
+
+| Armadura                  |                  Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |
+| ------------------------- | ---------------------: | -------------: | ------------: | ---------------------: | --------------- |
+| Corpo de aço plástico     |   400 × fator de custo |             +2 |            +5 |  2 × fator de custo kg | —               |
+| Corpo de quadrânio        |   900 × fator de custo |             +3 |            +4 |  3 × fator de custo kg | —               |
+| Corpo de duraço           | 1.600 × fator de custo |             +4 |            +4 |  8 × fator de custo kg | —               |
+| Revestimento de quadrânio | 2.500 × fator de custo |             +5 |            +3 | 10 × fator de custo kg | Licenciada      |
+| Revestimento de duraço    | 3.600 × fator de custo |             +6 |            +3 | 12 × fator de custo kg | Licenciada      |
+
+---
+
+## Armadura Média (-5)
+
+| Armadura                         |                  Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |
+| -------------------------------- | ---------------------: | -------------: | ------------: | ---------------------: | --------------- |
+| Armadura de batalha de quadrânio | 4.900 × fator de custo |             +7 |            +3 |  7 × fator de custo kg | Restrita        |
+| Revestimento de durânio          | 6.400 × fator de custo |             +8 |            +2 | 16 × fator de custo kg | Restrita        |
+| Armadura de batalha de duraço    | 9.600 × fator de custo |             +8 |            +3 |  8 × fator de custo kg | Restrita        |
+
+---
+
+## Armadura Pesada (-5)
+
+| Armadura                       |                   Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |
+| ------------------------------ | ----------------------: | -------------: | ------------: | ---------------------: | --------------- |
+| Corpo de aço mandaloriano      |  8.100 × fator de custo |             +9 |            +3 |  9 × fator de custo kg | Militar, Rara   |
+| Armadura de batalha de durânio | 10.000 × fator de custo |            +10 |            +2 | 10 × fator de custo kg | Militar         |
+| Revestimento de neutrônio      | 12.100 × fator de custo |            +11 |            +1 | 20 × fator de custo kg | Militar         |
+
+---
+
+# Graus de Dróides
+
+| Grau    | Função Geral                           | Exemplos                      |
+| ------- | -------------------------------------- | ----------------------------- |
+| 1º grau | médicos, científicos e analíticos      | 2-1B                          |
+| 2º grau | técnicos, astromecs e manutenção       | R2                            |
+| 3º grau | protocolo, tradução e interação social | 3PO                           |
+| 4º grau | combate, segurança e guerra            | B1, B2, Droideka, MagnaGuarda |
+| 5º grau | trabalho, carga e funções utilitárias  | ASP                           |
+
+---
+
+# Modelos Prontos de Dróides
+
+Os modelos abaixo devem ser cadastrados como templates selecionáveis.
+
+O jogador deve poder:
+
+1. escolher um modelo pronto;
+2. visualizar sua ficha;
+3. copiar para personagem;
+4. customizar sistemas, armas e acessórios;
+5. recalcular custo e estatísticas.
+
+---
+
+## Dróide Médico 2-1B
+
+| Campo           | Valor                    |
+| --------------- | ------------------------ |
+| ND              | 0                        |
+| Tipo            | Dróide não-heróico Médio |
+| Grau            | 1º grau                  |
+| Nível           | 2                        |
+| Deslocamento    | 6 qdr, andante           |
+| PV              | 5                        |
+| Limite de Dano  | 9                        |
+| Disponibilidade | Licenciado               |
+| Preço           | 4.300 créditos           |
+
+### Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|   8 |  11 |   — |  14 |  15 |   9 |
+
+### Defesas
+
+| Reflexos | Surpreendido | Fortitude | Vontade |
+| -------: | -----------: | --------: | ------: |
+|       10 |           10 |         9 |      12 |
+
+### Perícias
+
+| Perícia                        | Bônus |
+| ------------------------------ | ----: |
+| Conhecimento: Ciências da Vida |   +13 |
+| Percepção                      |    +5 |
+| Tratar Ferimentos              |   +13 |
+| Usar Computador                |    +8 |
+
+### Sistemas
+
+* conjunto de sensores aprimorados
+* locomoção andante
+* processador heurístico
+* vocabulador
+* 2 mãos
+
+### Observações
+
+* possui código médico;
+* não deve recusar ajuda médica;
+* não causa dano deliberadamente a criaturas orgânicas;
+* pode ser usado como herói dróide.
+
+---
+
+## Dróide Astromec Série R2
+
+| Campo           | Valor                                    |
+| --------------- | ---------------------------------------- |
+| ND              | 0                                        |
+| Tipo            | Dróide não-heróico Pequeno               |
+| Grau            | 2º grau                                  |
+| Nível           | 2                                        |
+| Deslocamento    | 6 qdr rodas, 4 qdr andante, 9 qdr voando |
+| PV              | 7                                        |
+| Limite de Dano  | 8                                        |
+| Disponibilidade | Licenciado                               |
+| Preço           | 4.500 créditos                           |
+
+### Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|   9 |  14 |   — |  15 |  10 |   7 |
+
+### Sistemas
+
+* locomoção de rodas
+* locomoção andante
+* locomoção voadora limitada
+* pés magnéticos
+* processador heurístico
+* 6 anexos de ferramentas
+* 1 anexo de garra
+* pacote de diagnóstico
+* armazenamento interno 2 kg
+* conjunto de sensores aprimorados
+* visão no escuro
+
+### Posses
+
+* memória de astronavegação
+* serra circular
+* sonda de eletrochoque
+* extintor de incêndio
+* soldador de arco elétrico
+* hologravador
+* holoprojetor
+
+### Observações
+
+* pode ser usado como herói dróide;
+* pode auxiliar pilotos em caças;
+* usado para astronavegação, reparos e gerenciamento de sistemas.
+
+---
+
+## Dróide de Protocolo Série 3PO
+
+| Campo           | Valor                    |
+| --------------- | ------------------------ |
+| ND              | 0                        |
+| Tipo            | Dróide não-heróico Médio |
+| Grau            | 3º grau                  |
+| Nível           | 1                        |
+| Deslocamento    | 6 qdr, andante           |
+| PV              | 2                        |
+| Limite de Dano  | 9                        |
+| Disponibilidade | Licenciado               |
+| Preço           | 3.000 créditos           |
+
+### Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|   8 |   9 |   — |  13 |  13 |  14 |
+
+### Sistemas
+
+* locomoção andante
+* processador básico
+* unidade tradutora CD 5
+* vocabulador
+* 2 mãos
+
+### Posses
+
+* gravador de áudio
+
+### Observações
+
+* entende milhões de formas de comunicação;
+* programado para comportamento pacífico;
+* pode ser usado como herói dróide.
+
+---
+
+## Dróide de Batalha Série B1
+
+| Campo           | Valor                    |
+| --------------- | ------------------------ |
+| ND              | 1                        |
+| Tipo            | Dróide não-heróico Médio |
+| Grau            | 4º grau                  |
+| Nível           | 3                        |
+| Deslocamento    | 6 qdr, andante           |
+| PV              | 10                       |
+| Limite de Dano  | 11                       |
+| Disponibilidade | Militar                  |
+| Preço           | 1.800 créditos           |
+
+### Sistemas
+
+* comunicador interno
+* locomoção andante
+* receptor remoto
+* vocabulador
+* 2 mãos
+
+### Posses
+
+* carabina blaster
+
+### Observações
+
+* controlado por processador remoto;
+* não pode ser usado como herói dróide.
+
+---
+
+## Super Dróide de Batalha Série B2
+
+| Campo           | Valor                    |
+| --------------- | ------------------------ |
+| ND              | 1                        |
+| Tipo            | Dróide não-heróico Médio |
+| Grau            | 4º grau                  |
+| Nível           | 6                        |
+| Deslocamento    | 6 qdr, andante           |
+| PV              | 21                       |
+| Limite de Dano  | 12                       |
+| Disponibilidade | Militar                  |
+| Preço           | 3.300 créditos           |
+
+### Sistemas
+
+* comunicador interno
+* invólucro de aço plástico
+* locomoção andante
+* processador remoto
+* vocabulador
+* 2 mãos
+
+### Posses
+
+* blasters de pulso, tratados como rifle blaster
+
+### Observações
+
+* possui processador de apoio interno;
+* pode continuar operando sem processador remoto;
+* pode ser usado como herói dróide.
+
+---
+
+## Dróide Destróier Série Droideka
+
+| Campo           | Valor                       |
+| --------------- | --------------------------- |
+| ND              | 4                           |
+| Tipo            | Dróide não-heróico Médio    |
+| Grau            | 4º grau                     |
+| Nível           | 12                          |
+| Deslocamento    | 2 qdr andante, 10 qdr rodas |
+| PV              | 40                          |
+| TE              | 20                          |
+| Limite de Dano  | 18                          |
+| Disponibilidade | Militar                     |
+| Preço           | 21.000 créditos             |
+
+### Sistemas
+
+* comunicador interno
+* gerador de escudo TE 20
+* invólucro de brônzio
+* locomoção andante
+* locomoção de rodas exclusiva
+* receptor remoto
+* 2 mãos
+
+### Posses
+
+* 2 canhões laser, tratados como rifles blaster
+
+### Observações
+
+* modo roda;
+* escudo defletor;
+* não pode ser usado como herói dróide.
+
+---
+
+## Dróide Aranha Anão
+
+| Campo           | Valor                     |
+| --------------- | ------------------------- |
+| ND              | 3                         |
+| Tipo            | Dróide não-heróico Grande |
+| Grau            | 4º grau                   |
+| Nível           | 9                         |
+| Deslocamento    | 8 qdr, andante            |
+| PV              | 32                        |
+| Limite de Dano  | 26                        |
+| Disponibilidade | Militar                   |
+| Preço           | 8.500 créditos            |
+
+### Sistemas
+
+* acesso travado
+* sensores aprimorados
+* locomoção andante com pernas extras
+* garras para escalar
+* pés magnéticos
+* receptor remoto
+* revestimento de quadrânio
+* visão no escuro
+* 1 ferramenta
+
+### Posses
+
+* canhão blaster
+
+### Observações
+
+* estabilidade +5 contra derrubar.
+
+---
+
+## Dróide Caranguejo Batedor
+
+| Campo           | Valor                         |
+| --------------- | ----------------------------- |
+| ND              | 4                             |
+| Tipo            | Dróide não-heróico Grande     |
+| Grau            | 4º grau                       |
+| Nível           | 12                            |
+| Deslocamento    | 6 qdr andante, escalada 3 qdr |
+| PV              | 80                            |
+| Limite de Dano  | 42                            |
+| Disponibilidade | Militar                       |
+| Preço           | 20.000 créditos               |
+
+### Sistemas
+
+* locomoção andante com pernas extras
+* garras para escalar
+* processador heurístico
+* 2 garras
+* sistemas enrijecidos x5
+* armadura de batalha de durânio
+
+### Posses
+
+* blasters duplos, tratados como rifle blaster pesado
+
+### Observações
+
+* estabilidade +5 contra derrubar;
+* usado em ambientes difíceis;
+* não pode ser usado como herói dróide.
+
+---
+
+## Dróide MagnaGuarda Série IG-100
+
+| Campo           | Valor                |
+| --------------- | -------------------- |
+| ND              | 6                    |
+| Tipo            | Dróide soldado Médio |
+| Grau            | 4º grau              |
+| Nível           | Soldado 6            |
+| Deslocamento    | 6 qdr, andante       |
+| PV              | 53                   |
+| Limite de Dano  | 17                   |
+| Disponibilidade | Restrito             |
+| Preço           | 19.000 créditos      |
+
+### Sistemas
+
+* locomoção andante
+* pés magnéticos
+* processador heurístico
+* 2 mãos
+* anexo telescópico
+* visão no escuro
+* sensores aprimorados
+* acesso travado
+* bateria secundária
+
+### Posses
+
+* bastão elétrico
+
+### Observações
+
+* guarda-costas de elite;
+* projetado para proteger seu superior;
+* não pode ser usado como herói dróide.
+
+---
+
+## Dróide Sonda Série Víbora
+
+| Campo           | Valor                 |
+| --------------- | --------------------- |
+| ND              | 1                     |
+| Tipo            | Dróide batedor Grande |
+| Grau            | 4º grau               |
+| Nível           | 1                     |
+| Deslocamento    | 6 qdr, flutuante      |
+| PV              | 34                    |
+| Limite de Dano  | 19                    |
+| Disponibilidade | Restrito              |
+| Preço           | 18.500 créditos       |
+
+### Sistemas
+
+* locomoção flutuante
+* processador básico
+* 2 mãos
+* 2 garras
+* 2 ferramentas
+* sensores aprimorados
+* acesso travado
+* comunicador integrado
+* invólucro de duraço
+
+### Posses
+
+* unidade sensora
+* unidade de gravação de vídeo
+* blaster, tratado como pistola blaster
+
+### Observações
+
+* possui autodestruição;
+* usado para busca, sondagem e reconhecimento;
+* não pode ser usado como herói dróide.
+
+---
+
+## Dróide de Trabalho Série ASP
+
+| Campo          | Valor                    |
+| -------------- | ------------------------ |
+| ND             | 0                        |
+| Tipo           | Dróide não-heróico Médio |
+| Grau           | 5º grau                  |
+| Nível          | 2                        |
+| Deslocamento   | 6 qdr, andante           |
+| PV             | 5                        |
+| Limite de Dano | 13                       |
+
+### Observações
+
+* dróide utilitário comum;
+* usado para manutenção, carga, saneamento e tarefas simples;
+* pode ser usado como herói dróide.
+
+---
+
+# Regras para o Codex
+
+Implementar:
+
+1. cadastro de modelos prontos;
+2. criação de dróide customizado;
+3. cálculo automático por tamanho;
+4. cálculo automático por locomoção;
+5. cálculo automático de armadura;
+6. cálculo automático de anexos;
+7. custo total;
+8. peso total;
+9. sistemas instalados;
+10. posses;
+11. regras especiais;
+12. opção de transformar modelo pronto em ficha editável.
+
+Fim do contexto de dróides.

@@ -1,0 +1,624 @@
+# Veículos — Parte 4
+
+# Transportes Espaciais
+
+Transportes espaciais são espaçonaves projetadas para:
+
+* transporte de carga;
+* transporte de passageiros;
+* suporte militar leve;
+* exploração interestelar.
+
+Características gerais:
+
+* normalmente possuem hiperpropulsor;
+* costumam incluir escudos e armamento básico;
+* variam de naves civis até transportes militares.
+
+---
+
+# Transporte Corelliano YT-1300
+
+## Transporte Espacial Modular
+
+Talvez o cargueiro leve mais famoso da galáxia.
+
+O YT-1300 foi criado pela Corporação de Engenharia Corelliana com estrutura modular para permitir inúmeras configurações.
+
+Usos comuns:
+
+* cargueiro;
+* nave mercante;
+* transporte de passageiros;
+* contrabando;
+* exploração.
+
+A nave mais famosa baseada nessa plataforma foi a **Millennium Falcon**.
+
+---
+
+## Estatísticas
+
+### ND
+
+6
+
+### Tipo
+
+Transporte Espacial Colossal
+
+### Iniciativa
+
+−5
+
+### Sentidos
+
+Percepção +5
+
+---
+
+## Defesas
+
+| Atributo          | Valor |
+| ----------------- | ----- |
+| Reflexos          | 12    |
+| Reflexos Surpreso | 12    |
+| Fortitude         | 26    |
+| Blindagem         | +12   |
+
+---
+
+## Resistência
+
+| Estatística     | Valor |
+| --------------- | ----- |
+| Pontos de Vida  | 120   |
+| Redução de Dano | 15    |
+| Limite de Dano  | 76    |
+
+---
+
+## Deslocamento
+
+Escala personagem:
+
+Voo 12 quadrados
+
+Velocidade máxima:
+
+800 km/h
+
+Escala espaçonave:
+
+Voo 2 quadrados
+
+---
+
+## Armamento
+
+### Canhão Laser
+
+(Artilheiro)
+
+Ataque:
+
++2
+
+Dano:
+
+**4d10 ×2**
+
+---
+
+## Espaço e Cobertura
+
+Espaço ocupado:
+
+12 × 12
+
+Escala espaçonave:
+
+1 quadrado
+
+Cobertura:
+
+Total
+
+---
+
+## Combate
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| Base de Ataque | +0    |
+| Prd            | +36   |
+
+---
+
+## Atributos
+
+| Atributo     | Valor |
+| ------------ | ----- |
+| Força        | 42    |
+| Destreza     | 10    |
+| Inteligência | 14    |
+
+---
+
+## Perícias
+
+* Iniciativa −5
+* Mecânica +5
+* Percepção +5
+* Pilotar −5
+* Usar Computador +5
+
+---
+
+## Tripulação
+
+2 (normal)
+
+Passageiros:
+
+6
+
+Carga:
+
+100 toneladas
+
+Provisões:
+
+2 meses
+
+Veículos transportados:
+
+Nenhum
+
+---
+
+## Sistemas
+
+Hiperpropulsor:
+
+×2
+
+Reserva:
+
+×12
+
+Computador de navegação:
+
+Sim
+
+---
+
+## Disponibilidade
+
+Licenciado
+
+Custo:
+
+100.000 créditos
+
+Usado:
+
+25.000 créditos
+
+---
+
+# Naves Capitais
+
+Naves capitais são gigantescas plataformas espaciais.
+
+Características:
+
+* armamento pesado;
+* enorme capacidade de transporte;
+* hangares internos;
+* operações militares prolongadas.
+
+Normalmente exigem dezenas até milhares de tripulantes.
+
+---
+
+# Corveta Corelliana
+
+A Corveta Corelliana representa o próximo passo após cargueiros como o YT-1300.
+
+Usada como:
+
+* transporte;
+* escolta;
+* nave de tropas;
+* cargueiro pesado.
+
+Muito popular entre:
+
+* governos;
+* corporações;
+* piratas.
+
+---
+
+## Estatísticas
+
+### ND
+
+16
+
+### Tipo
+
+Nave Capital Colossal (Fragata)
+
+### Iniciativa
+
+0
+
+### Sentidos
+
+Percepção +6
+
+---
+
+## Defesas
+
+| Atributo          | Valor |
+| ----------------- | ----- |
+| Reflexos          | 16    |
+| Reflexos Surpreso | 12    |
+| Fortitude         | 38    |
+| Blindagem         | +12   |
+
+---
+
+## Resistência
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| PV             | 1.200 |
+| RD             | 15    |
+| TE             | 100   |
+| Limite de Dano | 138   |
+
+---
+
+## Deslocamento
+
+Escala espaçonave:
+
+Voo 3 quadrados
+
+---
+
+## Armamento
+
+### 3 Baterias Turbolaser
+
+(4 artilheiros)
+
+Ataque:
+
++12
+
+Contra alvos menores que Colossal:
+
+−8
+
+Dano:
+
+**5d10 ×5**
+
+---
+
+## Espaço e Cobertura
+
+Espaço:
+
+1 quadrado
+
+Escala espaçonave
+
+Cobertura:
+
+Total
+
+---
+
+## Combate
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| Base de Ataque | +2    |
+| Prd            | +50   |
+
+---
+
+## Atributos
+
+| Atributo     | Valor |
+| ------------ | ----- |
+| Força        | 66    |
+| Destreza     | 18    |
+| Inteligência | 18    |
+
+---
+
+## Perícias
+
+* Iniciativa +0
+* Mecânica +10
+* Percepção +6
+* Pilotar +0
+* Usar Computador +10
+
+---
+
+## Tripulação
+
+30–165 (peritos)
+
+Passageiros:
+
+600
+
+Carga:
+
+3.000 toneladas
+
+Provisões:
+
+1 ano
+
+---
+
+## Sistemas
+
+Hiperpropulsor:
+
+×2
+
+Computador de navegação:
+
++3
+
+---
+
+## Disponibilidade
+
+Licenciado
+
+Custo:
+
+3.500.000 créditos
+
+Usada:
+
+1.500.000 créditos
+
+---
+
+# Destróier Estelar Classe Imperial I
+
+O símbolo absoluto do poder militar imperial.
+
+Projetado para:
+
+* dominar sistemas inteiros;
+* destruir frotas;
+* transportar exércitos.
+
+Equipado com:
+
+* baterias turbolaser;
+* canhões de íon;
+* defesa de ponto;
+* raios tratores;
+* enormes hangares.
+
+---
+
+## Estatísticas
+
+### ND
+
+20
+
+### Tipo
+
+Nave Capital Colossal (Cruzador)
+
+### Iniciativa
+
+−2
+
+### Sentidos
+
+Percepção +6
+
+---
+
+## Defesas
+
+| Atributo          | Valor |
+| ----------------- | ----- |
+| Reflexos          | 18    |
+| Reflexos Surpreso | 16    |
+| Fortitude         | 56    |
+| Blindagem         | +16   |
+
+---
+
+## Resistência
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| PV             | 2.100 |
+| RD             | 20    |
+| TE             | 150   |
+| Limite de Dano | 256   |
+
+---
+
+## Deslocamento
+
+Escala espaçonave:
+
+Voo 3 quadrados
+
+---
+
+## Armamentos
+
+### 5 Baterias Turbolaser
+
+Ataque:
+
++17
+
+Contra alvos menores que Colossal:
+
+−3
+
+Dano:
+
+**5d10 ×5**
+
+---
+
+### 5 Baterias de Canhões de Íon
+
+Ataque:
+
++17
+
+Contra alvos menores que Colossal:
+
+−3
+
+Dano:
+
+**3d10 ×5 (Íon)**
+
+---
+
+### 10 Baterias Laser de Defesa de Ponto
+
+Ataque:
+
++13
+
+Dano:
+
+**2d10 ×2**
+
+---
+
+### 10 Raios Tratores
+
+Ataque:
+
++7
+
+Contra alvos menores que Colossal:
+
+−13
+
+Efeito:
+
+Agarrar +68
+
+---
+
+## Espaço e Cobertura
+
+Espaço:
+
+2 × 2
+
+Escala espaçonave
+
+Cobertura:
+
+Total
+
+---
+
+## Combate
+
+| Estatística    | Valor |
+| -------------- | ----- |
+| Base de Ataque | +2    |
+| Prd            | +68   |
+
+---
+
+## Atributos
+
+| Atributo     | Valor |
+| ------------ | ----- |
+| Força        | 102   |
+| Destreza     | 14    |
+| Inteligência | 20    |
+
+---
+
+## Perícias
+
+* Iniciativa −2
+* Mecânica +6
+* Percepção +6
+* Pilotar −2
+* Usar Computador +6
+
+---
+
+## Tripulação
+
+37.085 (peritos)
+
+Passageiros:
+
+9.700 tropas
+
+Carga:
+
+36.000 toneladas
+
+Provisões:
+
+6 anos
+
+---
+
+## Veículos Transportados
+
+* 72 Caças TIE
+* 8 Transportes Lambda
+* 20 AT-AT
+* 30 AT-ST
+* Veículos de apoio diversos
+
+---
+
+## Sistemas
+
+Hiperpropulsor:
+
+×2
+
+Reserva:
+
+×8
+
+Computador de navegação
+
+---
+
+## Disponibilidade
+
+Militar
+
+Custo:
+
+Não disponível para venda

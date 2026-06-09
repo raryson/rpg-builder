@@ -1,0 +1,445 @@
+# Veículos — Parte 1
+
+# Tipos de Veículo
+
+O termo **veículo** engloba tanto veículos planetários quanto espaçonaves.
+
+Exemplos de veículos planetários:
+
+* speeders aéreos;
+* speeders terrestres;
+* andadores;
+* veículos de esteira;
+* veículos de rodas.
+
+Exemplos de espaçonaves:
+
+* caças estelares;
+* transportes espaciais;
+* naves capitais;
+* estações espaciais.
+
+A principal diferença entre veículos planetários e espaçonaves é que veículos planetários normalmente não viajam no vácuo do espaço.
+
+---
+
+# Veículos Planetários
+
+Veículos planetários são subdivididos em:
+
+* veículos terrestres;
+* veículos aéreos.
+
+---
+
+## Veículo Terrestre
+
+Veículos terrestres operam na superfície de um planeta ou muito próximo dela.
+
+São os veículos mais básicos do universo de Star Wars.
+
+---
+
+## Speeder
+
+Speeders são comuns em mundos tecnologicamente avançados.
+
+Usam tecnologia repulsora para flutuar acima do solo, em alturas que variam de poucos centímetros a vários metros.
+
+Características:
+
+* ignoram penalidades por terreno difícil;
+* podem alcançar altas velocidades.
+
+---
+
+## Veículo de Esteira
+
+Veículos de esteira usam esteiras ou bitolas girando em torno de várias rodas.
+
+Características:
+
+* excelente tração;
+* menos manobráveis em alta velocidade;
+* muito barulhentos.
+
+Regras:
+
+* ignoram penalidades por terreno difícil;
+* recebem metade do dano por colisões com obstáculos de até uma categoria de tamanho menor.
+
+---
+
+## Andador
+
+Andadores se movem usando duas ou mais pernas.
+
+Eles caminham literalmente sobre o terreno.
+
+Características:
+
+* usam giroscópios para manter equilíbrio;
+* oferecem viagem relativamente estável;
+* podem atravessar obstáculos menores.
+
+Regras:
+
+* ignoram obstáculos de até 3 categorias de tamanho menores;
+* quedas podem ser desastrosas.
+
+---
+
+## Veículo de Rodas
+
+Veículos de rodas se movem sobre uma ou mais rodas.
+
+Geralmente são:
+
+* mais rápidos que veículos de esteira;
+* mais manobráveis que andadores;
+* mais baratos que veículos repulsores.
+
+São comuns em veículos leves e rápidos.
+
+---
+
+## Veículo Aéreo
+
+Veículos aéreos operam acima da superfície planetária, mas dentro da atmosfera.
+
+---
+
+## Speeder Aéreo
+
+Speeders aéreos usam tecnologia repulsora e podem viajar até aproximadamente:
+
+**300 km acima do solo**
+
+Limitação:
+
+* não realizam voo espacial.
+
+Benefícios:
+
+* ignoram terreno;
+* ignoram obstruções;
+* são extremamente manobráveis.
+
+---
+
+# Espaçonaves
+
+Espaçonaves são veículos capazes de viagem interplanetária e interestelar.
+
+São subdivididas em:
+
+* caças estelares;
+* transportes espaciais;
+* naves capitais;
+* estações espaciais.
+
+---
+
+## Caça Estelar
+
+Caças estelares são espaçonaves pequenas e ágeis.
+
+Tamanho:
+
+* Imenso ou menor.
+
+Características:
+
+* podem operar na atmosfera;
+* destacam-se em combate espacial;
+* podem funcionar com apenas um piloto.
+
+---
+
+## Transporte Espacial
+
+Transportes espaciais são espaçonaves médias.
+
+Tamanho:
+
+* Colossal;
+* até Colossal (fragata), com menos de 200 PV.
+
+Funções comuns:
+
+* transporte de passageiros;
+* transporte de carga;
+* canhoneiras;
+* naves de desembarque;
+* transportes de assalto.
+
+---
+
+## Nave Capital
+
+Naves capitais incluem espaçonaves de tamanho:
+
+* Colossal (fragata);
+* ou maior.
+
+Características:
+
+* centenas ou milhares de tripulantes;
+* grande capacidade de passageiros;
+* podem carregar outras naves;
+* geralmente possuem armamento pesado.
+
+Alguns transportes imensos e naves-colônia também entram nessa categoria, mesmo quando não são feitas para combate.
+
+---
+
+## Estação Espacial
+
+Estações espaciais normalmente não possuem locomoção própria, mas usam estatísticas semelhantes às de espaçonaves.
+
+População possível:
+
+* alguns milhares;
+* até milhões de habitantes.
+
+Exceção notável:
+
+* Estrela da Morte.
+
+---
+
+# Tabela 10-1: Tamanho dos Veículos
+
+| Tamanho do Veículo  | Modificador de Tamanho | Exemplos                                                      |
+| ------------------- | ---------------------: | ------------------------------------------------------------- |
+| Colossal (Estação)  |                    -10 | Couraçado Estelar classe Executor, Estrela da Morte           |
+| Colossal (Cruzador) |                    -10 | Destróier Estelar Classe Imperial, Cruzador Mon Calamari MC80 |
+| Colossal (Fragata)  |                    -10 | Corveta Corelliana, Tantive IV, Fragata Nebulon-B             |
+| Colossal            |                    -10 | AT-AT, Cargueiro Leve YT-1300, Millennium Falcon              |
+| Imenso              |                     -5 | Tanque repulsor AAT-1, caça estelar X-wing                    |
+| Enorme              |                     -2 | AT-ST, Caça TIE                                               |
+| Grande              |                     -1 | Moto speeder, speeder terrestre X-34                          |
+
+---
+
+## Nota da Tabela
+
+O modificador de tamanho é aplicado em:
+
+* Defesa de Reflexos do veículo;
+* testes de Iniciativa;
+* testes de Pilotar feitos pelo piloto.
+
+---
+
+# Estatísticas de Combate de Veículos
+
+## Tamanho do Veículo
+
+Veículos usam categorias de tamanho semelhantes às criaturas.
+
+A categoria Colossal é subdividida para diferenciar grandes naves e estações espaciais.
+
+---
+
+## Ataques
+
+Veículos equipados com armas podem atacar inimigos dentro do alcance.
+
+Fórmula:
+
+**1d20 + bônus base de ataque + modificador de Inteligência do veículo + modificador de alcance**
+
+---
+
+### Bônus Base de Ataque
+
+Use o bônus base de ataque do artilheiro.
+
+Em alguns casos, o artilheiro pode ser o piloto.
+
+---
+
+### Modificador de Inteligência
+
+Representa a qualidade do computador de mira do veículo.
+
+---
+
+### Modificador de Alcance
+
+Penalidades:
+
+| Alcance        | Penalidade |
+| -------------- | ---------: |
+| À queima-roupa |          0 |
+| Curto          |         -2 |
+| Médio          |         -5 |
+| Longo          |        -10 |
+
+---
+
+# Tabela 10-2: Alcance das Armas de Veículos
+
+| Tipo de Arma        | Escala Personagem — Q. Roupa |    Curto |     Médio |     Longo | Escala Nave — Q. Roupa | Curto | Médio | Longo |
+| ------------------- | ---------------------------: | -------: | --------: | --------: | ---------------------: | ----: | ----: | ----: |
+| Canhão Blaster      |                        0–120 |  121–240 |   241–600 |  601–1200 |                    0–1 |     2 |   3–4 |   5–8 |
+| Canhão de Íons      |                        0–300 |  301–600 |  601–1500 | 1501–3000 |                    0–2 |   3–4 |  5–10 | 11–20 |
+| Canhão Laser        |                        0–150 |  151–300 |   301–750 |  751–1500 |                    0–1 |     2 |   3–5 |  6–10 |
+| Míssil ou Torpedo   |                        0–450 |  451–900 |  901–2250 | 2251–4500 |                    0–3 |   4–6 |  7–15 | 16–30 |
+| Defensiva de Ponto¹ |                        0–150 |  151–300 |   301–750 |  751–1500 |                    0–1 |     2 |   3–5 |  6–10 |
+| Raio Trator¹        |                        0–150 |  151–300 |   301–750 |  751–1500 |                    0–1 |     2 |   3–5 |  6–10 |
+| Turbolaser          |                        0–600 | 601–1200 | 1201–3000 | 3001–6000 |                    0–4 |   5–8 |  9–20 | 21–40 |
+
+---
+
+## Nota da Tabela
+
+¹ Só pode ser instalada em veículo de tamanho Colossal (fragata) ou maior.
+
+---
+
+## Acerto Decisivo
+
+Um 20 natural em ataque com arma de veículo:
+
+* acerta automaticamente;
+* causa dano dobrado.
+
+---
+
+## Falha Crítica
+
+Um 1 natural em ataque com arma de veículo:
+
+* erra automaticamente.
+
+---
+
+## Dano
+
+Fórmula:
+
+**(dano da arma + metade do nível do personagem + modificadores variados) × multiplicador de dano**
+
+Exemplo:
+
+Uma arma que causa **6d10 × 2** rola 6d10 e depois multiplica o resultado por 2.
+
+---
+
+# Defesas
+
+Veículos não possuem Defesa de Vontade.
+
+Eles possuem:
+
+* Defesa de Reflexos;
+* Defesa de Fortitude.
+
+---
+
+## Defesa de Reflexos
+
+Fórmula:
+
+**10 + modificador de Destreza do veículo + modificador de tamanho + bônus de blindagem do veículo ou nível heroico do piloto**
+
+Use a Defesa de Reflexos para determinar se ataques atingem o veículo.
+
+---
+
+## Defesa de Fortitude
+
+Fórmula:
+
+**10 + modificador de Força do veículo**
+
+Usada principalmente para determinar o limite de dano.
+
+---
+
+## Pontos de Vida
+
+Veículos possuem pontos de vida.
+
+Eles representam:
+
+* estrutura física;
+* robustez;
+* integridade dos sistemas.
+
+---
+
+## Limite de Dano
+
+Fórmula:
+
+**Defesa de Fortitude + modificador de tamanho**
+
+Modificadores:
+
+| Tamanho             | Modificador no Limite de Dano |
+| ------------------- | ----------------------------: |
+| Grande              |                            +5 |
+| Enorme              |                           +10 |
+| Imenso              |                           +20 |
+| Colossal            |                           +50 |
+| Colossal (Fragata)  |                          +100 |
+| Colossal (Cruzador) |                          +200 |
+| Colossal (Estação)  |                          +500 |
+
+Se um ataque causar dano igual ou superior ao Limite de Dano:
+
+* o veículo move -1 passo no marcador de condição.
+
+Se chegar ao final do marcador:
+
+* fica desabilitado;
+* entra em parada total.
+
+Se estiver voando em poço gravitacional:
+
+* cai 150 metros imediatamente;
+* depois 300 metros por rodada.
+
+Se for reduzido a 0 PV por ataque que iguale ou exceda o Limite de Dano:
+
+* é destruído;
+* ocupantes recebem metade do dano do ataque.
+
+---
+
+# Cobertura da Tripulação
+
+Veículos podem conceder cobertura aos ocupantes.
+
+Tipos:
+
+| Cobertura  |             Bônus |
+| ---------- | ----------------: |
+| Nenhuma    |                 — |
+| Normal     |                +5 |
+| Aprimorada |               +10 |
+| Total      | Não pode ser alvo |
+
+---
+
+# Deslocamento
+
+Cada veículo possui deslocamento em quadrados.
+
+O piloto pode mover:
+
+* até o deslocamento com ação de movimento;
+* até 4× o deslocamento com ação de movimento total.
+
+Espaçonaves e speeders aéreos possuem deslocamento separado para escala de espaçonave.
+
+---
+
+## Velocidade Máxima
+
+Representa deslocamento máximo fora do combate tático.
+
+Raramente é usada em combate, pois desloca o veículo para fora do mapa rapidamente.

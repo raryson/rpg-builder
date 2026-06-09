@@ -1,0 +1,328 @@
+# GLOSSÁRIO — DRÓIDES (PARTE 2)
+
+# DRÓIDES MILITARES
+
+Este arquivo contém dróides voltados para combate, segurança e guerra.
+
+Características comuns:
+
+* foco em resistência;
+* sistemas remotos;
+* armamento integrado;
+* maior custo energético;
+* menor flexibilidade social.
+
+---
+
+# 5. DRÓIDE DE BATALHA B1
+
+## Identificação
+
+| Campo           | Valor             |
+| --------------- | ----------------- |
+| ID              | DROID_B1          |
+| Nome            | Dróide de Batalha |
+| Série           | B1                |
+| Grau            | Quarto            |
+| Papel           | Infantaria        |
+| Categoria       | Militar           |
+| Tipo            | Não-heróico       |
+| Tamanho         | Médio             |
+| ND              | 1                 |
+| Nível           | 3                 |
+| Disponibilidade | Militar           |
+| Custo           | 1.800 créditos    |
+| Jogável         | Não               |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor   |
+| -------------- | ------- |
+| PV             | 10      |
+| Limite de Dano | 11      |
+| Deslocamento   | 6 qdr   |
+| Locomoção      | Andante |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|  10 |  13 |   — |   8 |  10 |   6 |
+
+---
+
+## Defesas
+
+| Reflexos | Surpreso | Fortitude | Vontade |
+| -------: | -------: | --------: | ------: |
+|       14 |       12 |        12 |      10 |
+
+---
+
+## Sistemas Instalados
+
+* Comunicador interno
+* Processador remoto
+* Locomoção andante
+* Vocabulador
+* 2 mãos
+
+---
+
+## Equipamentos
+
+* Carabina blaster
+
+---
+
+## Regras Especiais
+
+### Controle Remoto
+
+Recebe comandos externos.
+
+### Produção em Massa
+
+Projetado para custo baixo e grande escala.
+
+### IA Limitada
+
+Capacidade reduzida de improvisação.
+
+---
+
+## Tags
+
+```txt id="c0hhrf"
+b1
+combate
+infantaria
+cis
+```
+
+---
+
+# 6. SUPER DRÓIDE DE BATALHA B2
+
+## Identificação
+
+| Campo           | Valor                   |
+| --------------- | ----------------------- |
+| ID              | DROID_B2                |
+| Nome            | Super Dróide de Batalha |
+| Série           | B2                      |
+| Grau            | Quarto                  |
+| Papel           | Assalto                 |
+| Categoria       | Militar                 |
+| Tipo            | Não-heróico             |
+| Tamanho         | Médio                   |
+| ND              | 1                       |
+| Nível           | 6                       |
+| Disponibilidade | Militar                 |
+| Custo           | 3.300 créditos          |
+| Jogável         | Sim                     |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor |
+| -------------- | ----- |
+| PV             | 21    |
+| Limite de Dano | 12    |
+| Deslocamento   | 6     |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|  15 |  11 |   — |  10 |  10 |   7 |
+
+---
+
+## Defesas
+
+| Reflexos | Surpreso | Fortitude | Vontade |
+| -------: | -------: | --------: | ------: |
+|       15 |       13 |        17 |      12 |
+
+---
+
+## Sistemas Instalados
+
+* Comunicador interno
+* Locomoção andante
+* Processador remoto
+* Invólucro de aço plástico
+* Vocabulador
+* 2 mãos
+
+---
+
+## Equipamentos
+
+* Blasters de pulso embutidos
+
+---
+
+## Regras Especiais
+
+### Blindagem Integrada
+
+Estrutura reforçada.
+
+### Independência Parcial
+
+Continua operando sem rede.
+
+### Plataforma de Supressão
+
+Alta cadência de fogo.
+
+---
+
+## Tags
+
+```txt id="90s2so"
+b2
+assalto
+combate
+blindado
+```
+
+---
+
+# 7. DRÓIDE DESTRÓIER — DROIDEKA
+
+## Identificação
+
+| Campo           | Valor            |
+| --------------- | ---------------- |
+| ID              | DROID_DROIDEKA   |
+| Nome            | Dróide Destróier |
+| Série           | Droideka         |
+| Grau            | Quarto           |
+| Papel           | Supressão        |
+| Categoria       | Militar          |
+| Tipo            | Não-heróico      |
+| Tamanho         | Médio            |
+| ND              | 4                |
+| Nível           | 12               |
+| Disponibilidade | Militar          |
+| Custo           | 21.000 créditos  |
+| Jogável         | Não              |
+
+---
+
+## Estatísticas
+
+| Campo                | Valor |
+| -------------------- | ----- |
+| PV                   | 40    |
+| TE                   | 20    |
+| Limite de Dano       | 18    |
+| Deslocamento Andante | 2     |
+| Deslocamento Roda    | 10    |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|  18 |  16 |   — |  12 |  11 |   5 |
+
+---
+
+## Defesas
+
+| Reflexos | Surpreso | Fortitude | Vontade |
+| -------: | -------: | --------: | ------: |
+|       18 |       16 |        18 |      14 |
+
+---
+
+## Sistemas Instalados
+
+* Comunicador interno
+* Gerador de escudo
+* Locomoção andante
+* Locomoção roda
+* Receptor remoto
+* Invólucro de brônzio
+* 2 mãos
+
+---
+
+## Equipamentos
+
+* Canhão laser esquerdo
+* Canhão laser direito
+
+---
+
+## Regras Especiais
+
+### Modo Roda
+
+Pode alternar:
+
+| Forma      | Movimento |
+| ---------- | --------- |
+| Combate    | 2         |
+| Mobilidade | 10        |
+
+---
+
+### Escudo Defletor
+
+TE 20.
+
+Absorve dano antes dos PV.
+
+---
+
+### Plataforma de Supressão
+
+Especializado em:
+
+* defesa de posição;
+* controle de área;
+* combate frontal.
+
+---
+
+## Tags
+
+```txt id="6v4zwq"
+droideka
+escudo
+supressao
+elite
+```
+
+---
+
+# Comparativo Militar
+
+| Modelo   | Papel      | PV | Escudo | Mobilidade |
+| -------- | ---------- | -: | -----: | ---------- |
+| B1       | Infantaria | 10 |    Não | Média      |
+| B2       | Assalto    | 21 |    Não | Média      |
+| Droideka | Supressão  | 40 |     20 | Alta       |
+
+---
+
+# Catálogo desta Parte
+
+| Modelo   | Grau   | Especialidade |
+| -------- | ------ | ------------- |
+| B1       | Quarto | Infantaria    |
+| B2       | Quarto | Assalto       |
+| Droideka | Quarto | Supressão     |

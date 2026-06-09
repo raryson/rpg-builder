@@ -1,0 +1,430 @@
+# DRÓIDES — CATÁLOGOS E REGRAS GERAIS
+
+# PARTE 4 — ESTRUTURA BASE
+
+Este documento complementa os arquivos anteriores.
+
+Ele NÃO substitui os catálogos de modelos.
+Serve como base para criação procedural de dróides.
+
+---
+
+# TABELA — TAMANHO DOS DRÓIDES
+
+## Objetivo
+
+Define:
+
+* modificadores automáticos;
+* pontos de vida extras;
+* capacidade cargueira;
+* custo base.
+
+---
+
+| Tamanho   | Mod. Atributos   | Reflexos | Furtividade | PV Extra | Limite Dano | Carga | Fator |
+| --------- | ---------------- | -------: | ----------: | -------: | ----------: | ----: | ----: |
+| Colossal  | +32 For / −4 Des |      −10 |         −20 |     +100 |         +50 |   ×20 |   ×20 |
+| Imenso    | +24 For / −4 Des |       −5 |         −10 |      +50 |         +20 |   ×10 |   ×10 |
+| Enorme    | +16 For / −4 Des |       −2 |          −5 |      +20 |         +10 |    ×5 |    ×5 |
+| Grande    | +8 For / −2 Des  |       −1 |          −2 |      +10 |          +5 |    ×2 |    ×2 |
+| Médio     | —                |        0 |          −1 |        — |           — |    ×1 |    ×1 |
+| Pequeno   | −2 For / +2 Des  |       +1 |          −2 |        — |           — |    ×2 |    ×2 |
+| Miúdo     | −4 For / +4 Des  |       +2 |          −5 |        — |           — |    ×5 |    ×5 |
+| Diminuto  | −6 For / +6 Des  |       +5 |         −10 |        — |           — |   ×10 |   ×10 |
+| Minúsculo | −8 For / +8 Des  |      +10 |         −20 |        — |           — |   ×20 |   ×20 |
+
+---
+
+## Regras
+
+### Tamanho influencia:
+
+* custo final;
+* peso;
+* anexos;
+* armadura;
+* capacidade interna;
+* força física.
+
+---
+
+# TABELA — LOCOMOÇÃO
+
+---
+
+| Tipo      | Até Pequeno | Médio | Grande+ | Fórmula               |
+| --------- | ----------: | ----: | ------: | --------------------- |
+| Andante   |           4 |     6 |       8 | 10 × fator × desloc²  |
+| Rodas     |           6 |     8 |      10 | 5 × fator × desloc²   |
+| Esteira   |           4 |     6 |       8 | 20 × fator × desloc²  |
+| Flutuante |           6 |     6 |       6 | 100 × fator × desloc² |
+| Voador    |           9 |    12 |      12 | 200 × fator × desloc² |
+
+---
+
+## Descrição
+
+### Andante
+
+* pernas mecânicas;
+* maior precisão;
+* uso geral.
+
+Exemplo:
+
+```txt
+R2
+Protocolares
+Magnaguarda
+```
+
+---
+
+### Rodas
+
+* barato;
+* rápido;
+* manutenção simples.
+
+Exemplo:
+
+```txt
+GNK
+Mouse Droid
+```
+
+---
+
+### Esteira
+
+* força;
+* carga pesada.
+
+Exemplo:
+
+```txt
+mineradores
+industrial
+```
+
+---
+
+### Flutuante
+
+* repulsão;
+* ignora irregularidades.
+
+Exemplo:
+
+```txt
+sondas
+hospitalares
+```
+
+---
+
+### Voador
+
+* máxima mobilidade;
+* custo elevado.
+
+Exemplo:
+
+```txt
+dróides de reconhecimento
+```
+
+---
+
+# TABELA — TIPOS DE ANEXO
+
+---
+
+| Tipo        |      Preço |        Peso |
+| ----------- | ---------: | ----------: |
+| Garra       | 20 × fator |   5 × fator |
+| Mão         | 50 × fator |   5 × fator |
+| Instrumento |  5 × fator |   1 × fator |
+| Sonda       |  2 × fator | 0,5 × fator |
+| Ferramenta  | 10 × fator |   2 × fator |
+
+---
+
+## Dano dos Anexos
+
+| Tamanho   | Sonda | Instrumento | Ferramenta | Garra | Mão |
+| --------- | ----: | ----------: | ---------: | ----: | --: |
+| Minúsculo |     — |           — |          — |     — |   — |
+| Diminuto  |     — |           — |          — |     1 |   — |
+| Miúdo     |     — |           — |          1 |   1d2 |   1 |
+| Pequeno   |     — |           1 |        1d2 |   1d3 | 1d2 |
+| Médio     |     1 |         1d2 |        1d3 |   1d4 | 1d3 |
+| Grande    |   1d2 |         1d3 |        1d4 |   1d6 | 1d4 |
+| Enorme    |   1d3 |         1d4 |        1d6 |   1d8 | 1d6 |
+| Imenso    |   1d4 |         1d6 |        1d8 |   2d6 | 1d8 |
+| Colossal  |   1d6 |         1d8 |        2d6 |   2d8 | 2d6 |
+
+---
+
+# MELHORIAS ESPECIAIS
+
+---
+
+## Garras para Escalar
+
+```txt
+custo = anexo ×2
+```
+
+Efeito:
+
+```txt
++5 escalar
+```
+
+---
+
+## Servomecanismos de Salto
+
+```txt
+custo = anexo ×2
+```
+
+Efeito:
+
+```txt
+dobrar distância salto
+```
+
+---
+
+## Pés Magnéticos
+
+Permite:
+
+* teto;
+* casco;
+* superfícies metálicas.
+
+---
+
+## Anexo Telescópico
+
+```txt
+custo = anexo ×2
+peso ×2
+```
+
+Efeito:
+
+```txt
+alcance aumentado
+```
+
+---
+
+# SISTEMAS INTERNOS
+
+---
+
+## Comunicador Interno
+
+Preço:
+
+```txt
+250
+```
+
+Permite:
+
+* voz;
+* rádio;
+* integração.
+
+---
+
+## Vocabulador
+
+Preço:
+
+```txt
+50
+```
+
+Permite:
+
+```txt
+fala orgânica
+```
+
+---
+
+## Pacote Diagnóstico
+
+Preço:
+
+```txt
+250
+```
+
+Permite:
+
+```txt
+analisar defeitos
+```
+
+---
+
+## Convocador
+
+Preço:
+
+```txt
+10
+```
+
+Permite:
+
+```txt
+invocar dróide remoto
+```
+
+---
+
+# SISTEMAS ENRIJECIDOS
+
+| Tipo |        Preço |
+| ---- | -----------: |
+| x2   | 1000 × fator |
+| x3   | 2500 × fator |
+| x4   | 4000 × fator |
+| x5   | 6250 × fator |
+
+---
+
+## Efeito
+
+Multiplica resistência estrutural.
+
+Usado em:
+
+* militares;
+* combate;
+* cerco.
+
+---
+
+# ARMAZENAMENTO INTERNO
+
+---
+
+## Compartimentos
+
+```txt
+50 créditos / kg
+```
+
+---
+
+## Mecanismo de Arremesso
+
+Preço:
+
+```txt
+150
+```
+
+Permite:
+
+```txt
+ejetar item
+```
+
+---
+
+## Acesso Travado
+
+Preço:
+
+```txt
+50
+```
+
+Disponibilidade:
+
+```txt
+Licenciado
+```
+
+Impede acesso não autorizado.
+
+---
+
+# REGRAS DE CONSTRUÇÃO
+
+## Passo 1
+
+Escolher tamanho.
+
+↓
+
+## Passo 2
+
+Escolher locomoção.
+
+↓
+
+## Passo 3
+
+Escolher armadura.
+
+↓
+
+## Passo 4
+
+Escolher anexos.
+
+↓
+
+## Passo 5
+
+Escolher sistemas internos.
+
+↓
+
+## Passo 6
+
+Escolher modelo base.
+
+↓
+
+## Passo 7
+
+Calcular custo final.
+
+---
+
+# Fórmula Final
+
+```txt
+Custo Total =
+Chassi
++ Locomoção
++ Armadura
++ Sistemas
++ Equipamentos
+```
+
+---
+
+# Arquivos relacionados
+
+```txt
+droids-part-1
+droids-part-2
+droids-part-3
+vehicles-part-1
+vehicles-part-2
+equipment-part-*
+```

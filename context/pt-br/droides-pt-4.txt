@@ -1,0 +1,392 @@
+# GLOSSÁRIO — DRÓIDES (PARTE 3)
+
+# DRÓIDES ESPECIAIS
+
+Este arquivo contém dróides especializados que normalmente não aparecem como equipamentos comuns.
+
+Características gerais:
+
+* funções altamente especializadas;
+* mobilidade diferenciada;
+* sistemas exclusivos;
+* normalmente restritos ou militares.
+
+---
+
+# 8. MAGNAGUARDA IG-100
+
+## Identificação
+
+| Campo           | Valor           |
+| --------------- | --------------- |
+| ID              | DROID_IG100     |
+| Nome            | MagnaGuarda     |
+| Série           | IG-100          |
+| Grau            | Quarto          |
+| Papel           | Guarda-Costas   |
+| Categoria       | Militar         |
+| Tipo            | Soldado         |
+| Tamanho         | Médio           |
+| ND              | 6               |
+| Classe          | Soldado 6       |
+| Disponibilidade | Restrita        |
+| Custo           | 19.000 créditos |
+| Jogável         | Não             |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor |
+| -------------- | ----- |
+| PV             | 53    |
+| Limite de Dano | 17    |
+| Deslocamento   | 6     |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|  16 |  15 |   — |  13 |  12 |   8 |
+
+---
+
+## Defesas
+
+| Reflexos | Surpreso | Fortitude | Vontade |
+| -------: | -------: | --------: | ------: |
+|       18 |       16 |        17 |      15 |
+
+---
+
+## Sistemas Instalados
+
+* Processador heurístico
+* Locomoção andante
+* Visão no escuro
+* Sensores aprimorados
+* Bateria secundária
+* Comunicador interno
+* Acesso travado
+* Pés magnéticos
+* 2 mãos
+* Anexo telescópico
+
+---
+
+## Equipamentos
+
+* Bastão elétrico
+
+---
+
+## Regras Especiais
+
+### Guarda de Elite
+
+Projetado para proteção direta.
+
+### Continuidade Operacional
+
+Mantém combate mesmo com danos severos.
+
+### Combate Corpo a Corpo
+
+Especialista em combate próximo.
+
+---
+
+## Tags
+
+```txt
+magnaguarda
+elite
+guarda
+grievous
+```
+
+---
+
+# 9. DRÓIDE SONDA — SÉRIE VÍBORA
+
+## Identificação
+
+| Campo           | Valor           |
+| --------------- | --------------- |
+| ID              | DROID_PROBE     |
+| Nome            | Dróide Sonda    |
+| Série           | Víbora          |
+| Grau            | Quarto          |
+| Papel           | Reconhecimento  |
+| Categoria       | Militar         |
+| Tipo            | Batedor         |
+| Tamanho         | Grande          |
+| ND              | 1               |
+| Disponibilidade | Restrita        |
+| Custo           | 18.500 créditos |
+| Jogável         | Não             |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor     |
+| -------------- | --------- |
+| PV             | 34        |
+| Limite de Dano | 19        |
+| Deslocamento   | 6         |
+| Locomoção      | Flutuante |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|  18 |  16 |   — |  12 |  15 |   5 |
+
+---
+
+## Sistemas Instalados
+
+* Locomoção flutuante
+* Sensores aprimorados
+* Visão no escuro
+* Comunicador integrado
+* Processador básico
+* Revestimento de duraço
+* Acesso travado
+* 2 garras
+* 2 ferramentas
+
+---
+
+## Equipamentos
+
+* Unidade sensora
+* Gravador de vídeo
+* Pistola blaster
+
+---
+
+## Regras Especiais
+
+### Vigilância Avançada
+
+Especializado em:
+
+* patrulha;
+* busca;
+* espionagem;
+* reconhecimento.
+
+### Autodestruição
+
+Pode eliminar seus próprios dados.
+
+---
+
+## Tags
+
+```txt
+sonda
+espionagem
+reconhecimento
+imperial
+```
+
+---
+
+# 10. DRÓIDE ARANHA ANÃO
+
+## Identificação
+
+| Campo           | Valor              |
+| --------------- | ------------------ |
+| ID              | DROID_DWARF_SPIDER |
+| Nome            | Dróide Aranha Anão |
+| Grau            | Quarto             |
+| Papel           | Apoio Pesado       |
+| Categoria       | Militar            |
+| Tipo            | Assalto            |
+| Tamanho         | Grande             |
+| ND              | 3                  |
+| Disponibilidade | Militar            |
+| Custo           | 8.500 créditos     |
+| Jogável         | Não                |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor |
+| -------------- | ----- |
+| PV             | 32    |
+| Limite de Dano | 26    |
+| Deslocamento   | 8     |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|  24 |  14 |   — |   8 |  10 |   2 |
+
+---
+
+## Sistemas Instalados
+
+* Sensores aprimorados
+* Garras para escalar
+* Pés magnéticos
+* Locomoção multi-pernas
+* Receptor remoto
+* Revestimento de quadrânio
+* 1 ferramenta
+
+---
+
+## Equipamentos
+
+* Canhão blaster
+
+---
+
+## Regras Especiais
+
+### Estabilidade
+
+Recebe:
+
+```txt
++5 contra derrubar
+```
+
+### Plataforma de Apoio
+
+Projetado para:
+
+* cobertura;
+* ataque estacionário;
+* combate urbano.
+
+---
+
+## Tags
+
+```txt
+aranha
+apoio
+blindado
+cis
+```
+
+---
+
+# 11. DRÓIDE CARANGUEJO
+
+## Identificação
+
+| Campo           | Valor             |
+| --------------- | ----------------- |
+| ID              | DROID_CRAB        |
+| Nome            | Dróide Caranguejo |
+| Grau            | Quarto            |
+| Papel           | Assalto           |
+| Categoria       | Militar           |
+| Tipo            | Blindado          |
+| Tamanho         | Grande            |
+| ND              | 4                 |
+| Disponibilidade | Militar           |
+| Custo           | 20.000 créditos   |
+| Jogável         | Não               |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor |
+| -------------- | ----- |
+| PV             | 80    |
+| Limite de Dano | 42    |
+| Deslocamento   | 6     |
+| Escalada       | 3     |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|  28 |  12 |   — |  10 |  10 |   2 |
+
+---
+
+## Sistemas Instalados
+
+* Processador heurístico
+* Garras para escalar
+* Armadura de batalha durânio
+* Sistemas enrijecidos x5
+* 2 garras
+
+---
+
+## Equipamentos
+
+* Blasters duplos
+
+---
+
+## Regras Especiais
+
+### Escalada Militar
+
+Pode operar em:
+
+* paredes;
+* cavernas;
+* superfícies irregulares.
+
+### Plataforma de Cerco
+
+Projetado para:
+
+* romper linhas;
+* combate prolongado.
+
+---
+
+## Tags
+
+```txt
+caranguejo
+cerco
+blindado
+assalto
+```
+
+---
+
+# Comparativo Especial
+
+| Modelo      | Papel          | PV | Mobilidade | Especial       |
+| ----------- | -------------- | -: | ---------- | -------------- |
+| MagnaGuarda | Guarda         | 53 | Média      | Corpo a corpo  |
+| Sonda       | Reconhecimento | 34 | Flutuante  | Autodestruição |
+| Aranha      | Apoio          | 32 | Escalada   | Estabilidade   |
+| Caranguejo  | Cerco          | 80 | Escalada   | Enrijecido     |
+
+---
+
+# Catálogo desta Parte
+
+| Modelo      | Grau   | Especialidade  |
+| ----------- | ------ | -------------- |
+| MagnaGuarda | Quarto | Elite          |
+| Sonda       | Quarto | Reconhecimento |
+| Aranha      | Quarto | Apoio          |
+| Caranguejo  | Quarto | Cerco          |

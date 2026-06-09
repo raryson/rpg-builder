@@ -1,0 +1,376 @@
+# GLOSSÁRIO — DRÓIDES (PARTE 1)
+
+# DRÓIDES CIVIS
+
+Este arquivo contém modelos completos de dróides civis e utilitários.
+
+Cada modelo deve poder:
+
+* ser selecionado durante criação;
+* virar ficha jogável;
+* ser usado como template;
+* ser customizado depois.
+
+---
+
+# 1. DRÓIDE MÉDICO 2-1B
+
+## Identificação
+
+| Campo           | Valor          |
+| --------------- | -------------- |
+| ID              | DROID_2_1B     |
+| Nome            | Dróide Médico  |
+| Série           | 2-1B           |
+| Grau            | Primeiro       |
+| Papel           | Medicina       |
+| Categoria       | Civil          |
+| Tipo            | Não-heróico    |
+| Tamanho         | Médio          |
+| ND              | 0              |
+| Nível           | 2              |
+| Disponibilidade | Licenciado     |
+| Custo           | 4.300 créditos |
+| Jogável         | Sim            |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor   |
+| -------------- | ------- |
+| PV             | 5       |
+| Limite de Dano | 9       |
+| Deslocamento   | 6 qdr   |
+| Locomoção      | Andante |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|   8 |  11 |   — |  14 |  15 |   9 |
+
+---
+
+## Defesas
+
+| Reflexos | Surpreso | Fortitude | Vontade |
+| -------: | -------: | --------: | ------: |
+|       10 |       10 |         9 |      12 |
+
+---
+
+## Perícias
+
+| Perícia                         | Valor |
+| ------------------------------- | ----: |
+| Conhecimento (Ciências da Vida) |   +13 |
+| Percepção                       |    +5 |
+| Tratar Ferimentos               |   +13 |
+| Usar Computador                 |    +8 |
+
+---
+
+## Sistemas Instalados
+
+* Processador heurístico
+* Vocabulador
+* Sensores aprimorados
+* Locomoção andante
+* 2 mãos
+
+---
+
+## Equipamentos
+
+Nenhum.
+
+---
+
+## Regras Especiais
+
+### Código Médico
+
+Não realiza ações deliberadamente letais contra criaturas orgânicas.
+
+### Especialização Médica
+
+Projetado para:
+
+* cirurgia;
+* estabilização;
+* diagnóstico;
+* recuperação.
+
+---
+
+## Tags
+
+```txt
+medico
+cura
+hospital
+cirurgia
+civil
+```
+
+---
+
+# 2. DRÓIDE ASTROMEC R2
+
+## Identificação
+
+| Campo           | Valor           |
+| --------------- | --------------- |
+| ID              | DROID_R2        |
+| Nome            | Dróide Astromec |
+| Série           | R2              |
+| Grau            | Segundo         |
+| Papel           | Astromec        |
+| Categoria       | Civil           |
+| Tipo            | Não-heróico     |
+| Tamanho         | Pequeno         |
+| ND              | 0               |
+| Nível           | 2               |
+| Disponibilidade | Licenciado      |
+| Custo           | 4.500 créditos  |
+| Jogável         | Sim             |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor   |
+| -------------- | ------- |
+| PV             | 7       |
+| Limite de Dano | 8       |
+| Deslocamento   | 6 rodas |
+| Voo            | 9 qdr   |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|   9 |  14 |   — |  15 |  10 |   7 |
+
+---
+
+## Sistemas Instalados
+
+* Rodas
+* Locomoção andante
+* Locomoção voadora
+* Pés magnéticos
+* Processador heurístico
+* Pacote diagnóstico
+* Sensores aprimorados
+* Visão no escuro
+* Armazenamento interno
+* 6 ferramentas
+* 1 garra
+
+---
+
+## Equipamentos Internos
+
+* Serra circular
+* Extintor
+* Holoprojetor
+* Hologravador
+* Sonda eletrochoque
+* Soldador
+* Memória astronavegação
+
+---
+
+## Regras Especiais
+
+### Suporte Técnico
+
+Recebe vantagens em:
+
+* reparos;
+* computação;
+* pilotagem;
+* navegação.
+
+### Interface Veicular
+
+Pode conectar diretamente em veículos.
+
+---
+
+## Tags
+
+```txt
+astromec
+navegacao
+reparo
+tecnico
+```
+
+---
+
+# 3. DRÓIDE DE PROTOCOLO 3PO
+
+## Identificação
+
+| Campo           | Valor               |
+| --------------- | ------------------- |
+| ID              | DROID_3PO           |
+| Nome            | Dróide de Protocolo |
+| Série           | 3PO                 |
+| Grau            | Terceiro            |
+| Papel           | Tradução            |
+| Categoria       | Civil               |
+| Tipo            | Não-heróico         |
+| Tamanho         | Médio               |
+| ND              | 0                   |
+| Nível           | 1                   |
+| Disponibilidade | Licenciado          |
+| Custo           | 3.000 créditos      |
+| Jogável         | Sim                 |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor |
+| -------------- | ----- |
+| PV             | 2     |
+| Limite de Dano | 9     |
+| Deslocamento   | 6     |
+
+---
+
+## Atributos
+
+| For | Des | Con | Int | Sab | Car |
+| --: | --: | --: | --: | --: | --: |
+|   8 |   9 |   — |  13 |  13 |  14 |
+
+---
+
+## Sistemas Instalados
+
+* Processador básico
+* Vocabulador
+* Tradutor universal
+* Locomoção andante
+* 2 mãos
+
+---
+
+## Equipamentos
+
+* Gravador de áudio
+
+---
+
+## Regras Especiais
+
+### Tradutor Universal
+
+Especializado em:
+
+* negociação;
+* protocolo;
+* idiomas;
+* relações diplomáticas.
+
+---
+
+## Tags
+
+```txt
+traducao
+protocolo
+social
+diplomacia
+```
+
+---
+
+# 4. DRÓIDE DE TRABALHO ASP
+
+## Identificação
+
+| Campo           | Valor              |
+| --------------- | ------------------ |
+| ID              | DROID_ASP          |
+| Nome            | Dróide de Trabalho |
+| Série           | ASP                |
+| Grau            | Quinto             |
+| Papel           | Utilitário         |
+| Categoria       | Civil              |
+| Tipo            | Não-heróico        |
+| Tamanho         | Médio              |
+| ND              | 0                  |
+| Nível           | 2                  |
+| Disponibilidade | Licenciado         |
+| Custo           | Variável           |
+| Jogável         | Sim                |
+
+---
+
+## Estatísticas
+
+| Campo          | Valor |
+| -------------- | ----- |
+| PV             | 5     |
+| Limite de Dano | 13    |
+| Deslocamento   | 6     |
+
+---
+
+## Sistemas Instalados
+
+* Locomoção andante
+* Processador básico
+* Ferramentas internas
+
+---
+
+## Equipamentos
+
+Configurável.
+
+---
+
+## Regras Especiais
+
+### Trabalho Geral
+
+Especializado em:
+
+* manutenção;
+* construção;
+* transporte;
+* limpeza;
+* carga.
+
+---
+
+## Tags
+
+```txt
+trabalho
+utilitario
+operacional
+civil
+```
+
+---
+
+# Catálogo desta Parte
+
+| Modelo | Grau     | Papel      |
+| ------ | -------- | ---------- |
+| 2-1B   | Primeiro | Medicina   |
+| R2     | Segundo  | Astromec   |
+| 3PO    | Terceiro | Protocolo  |
+| ASP    | Quinto   | Utilitário |

@@ -2013,3 +2013,158 @@ export const sagaEquipmentDetailsCatalog = [
     "extra": "Fonte OCR: equipamentos.txt\nCusto: 50\nPeso: 0,1 kg"
   }
 ];
+
+export const sagaVehicleDetailsCatalog = [
+  {
+    "name": "ARC-170",
+    "slug": "arc-170",
+    "summary": "Caça pesado da República com múltiplos tripulantes.",
+    "details": "## Descrição\n\nCaça pesado da República com múltiplos tripulantes.\n\n## Uso típico\n\n* escolta\n* combate prolongado\n\n## Características\n\n* múltiplos operadores\n* hiperpropulsor\n* resistência elevada",
+    "category": "Caças Estelares",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "AT-AT",
+    "slug": "at-at",
+    "summary": "Veículo terrestre Colossal (Andador) | ND 14",
+    "details": "## All-Terrain Armored Transport\n\n### Transporte Blindado para Todos os Terrenos\n\nUm gigantesco andador imperial de quatro pernas com aproximadamente **15,5 metros de altura**.\n\nUsado como:\n\n* transporte blindado;\n* plataforma de ataque;\n* veículo de assalto pesado.\n\nFicou famoso durante a **Batalha de Hoth**.\n\n## Estatísticas\n\n### ND\n\n14\n\n### Tipo\n\nVeículo terrestre Colossal (Andador)\n\n### Iniciativa\n\n-2\n\n### Sentidos\n\nPercepção +8\n\n## Defesas\n\n| Atributo          | Valor |\n| ----------------- | ----- |\n| Reflexos          | 16    |\n| Reflexos Surpreso | 16    |\n| Fortitude         | 29    |\n| Blindagem         | +16   |\n\n## Resistência\n\n| Estatística     | Valor |\n| --------------- | ----- |\n| Pontos de Vida  | 300   |\n| Redução de Dano | 20    |\n| Limite de Dano  | 79    |\n\n## Deslocamento\n\n4 quadrados\n\nVelocidade máxima:\n\n**60 km/h**\n\n## Armamentos\n\n### Canhões Laser Pesados\n\n(Artilheiro)\n\nAtaque:\n\n+7\n\nDano:\n\n**6d10 ×2**\n\nÁrea:\n\n2 quadrados de explosão\n\n### Canhões Blaster Médios\n\n(Artilheiro)\n\nAtaque:\n\n+7\n\nModo:\n\nDisparo Automático\n\nDano:\n\n**3d10 ×2**\n\n## Combate\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| Base de Ataque | +5    |\n| Prd            | +42   |\n\n## Espaço e Cobertura\n\nEspaço ocupado:\n\n6 × 12\n\nCobertura:\n\n**Total**\n\n## Atributos\n\n| Atributo     | Valor |\n| ------------ | ----- |\n| Força        | 48    |\n| Destreza     | 10    |\n| Constituição | —     |\n| Inteligência | 14    |\n\n## Perícias\n\n* Iniciativa −2\n* Mecânica +8\n* Percepção +8\n* Pilotar −2\n\n## Tripulação\n\n5 especialistas\n\nPassageiros:\n\n40\n\nCarga:\n\n1 tonelada\n\nProvisões:\n\n1 semana\n\n## Veículos Transportados\n\nPode carregar:\n\n* 5 motos speeders\n  OU\n* 2 AT-ST\n\n## Disponibilidade\n\nMilitar\n\nCusto:\n\nNão disponível para venda",
+    "category": "Andadores",
+    "extra": "Fonte OCR: veiculos-pt-3.txt"
+  },
+  {
+    "name": "AT-ST",
+    "slug": "at-st",
+    "summary": "Veículo terrestre Enorme (Andador) | ND 8",
+    "details": "## All-Terrain Scout Transport\n\n### Transporte Batedor para Todos os Terrenos\n\nAndador imperial de reconhecimento.\n\nAltura:\n\n**8,5 metros**\n\nMais leve e muito mais rápido que o AT-AT.\n\nUsado para:\n\n* reconhecimento;\n* suporte de fogo;\n* combate urbano.\n\n## Estatísticas\n\n### ND\n\n8\n\n### Tipo\n\nVeículo terrestre Enorme (Andador)\n\n### Iniciativa\n\n+8\n\n### Sentidos\n\nPercepção +8\n\n## Defesas\n\n| Atributo          | Valor |\n| ----------------- | ----- |\n| Reflexos          | 14    |\n| Reflexos Surpreso | 12    |\n| Fortitude         | 20    |\n| Blindagem         | +4    |\n\n## Resistência\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| PV             | 120   |\n| RD             | 10    |\n| Limite de Dano | 30    |\n\n## Deslocamento\n\n6 quadrados\n\nVelocidade máxima:\n\n90 km/h\n\n## Armamentos\n\n### Canhão Blaster Duplo\n\n(Piloto)\n\nAtaque:\n\n+6\n\nDano:\n\n**4d10 ×2**\n\n### Canhão Blaster Leve Duplo\n\n(Co-piloto)\n\nAtaque:\n\n+6\n\nDisparo Automático:\n\n+1\n\nDano:\n\n**3d10 ×2**\n\n### Lançador de Granadas\n\n(Co-piloto)\n\nAtaque:\n\n+6\n\nDano:\n\n4d6\n\nExplosão:\n\n2 quadrados\n\n## Combate\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| Base de Ataque | +5    |\n| Prd            | +25   |\n\n## Espaço e Cobertura\n\nEspaço:\n\n3 × 3\n\nCobertura:\n\nTotal\n\n## Atributos\n\n| Atributo     | Valor |\n| ------------ | ----- |\n| Força        | 30    |\n| Destreza     | 14    |\n| Inteligência | 12    |\n\n## Perícias\n\n* Iniciativa +8\n* Mecânica +8\n* Percepção +8\n* Pilotar +8\n\n## Tripulação\n\n2 especialistas\n\nPassageiros:\n\nNenhum\n\nCarga:\n\nNenhuma\n\nProvisões:\n\n2 dias\n\n## Munição\n\n12 granadas de fragmentação\n\n## Disponibilidade\n\nMilitar\n\nCusto:\n\nNão disponível para venda",
+    "category": "Andadores",
+    "extra": "Fonte OCR: veiculos-pt-3.txt"
+  },
+  {
+    "name": "Banshee",
+    "slug": "banshee",
+    "summary": "Transporte espacial Colossal tratado como Caça Estelar Gargantuesco para armas capitais, dogfighting e manobras de espaçonave.",
+    "category": "Transportes Espaciais",
+    "extra": "Fonte manual: bloco fornecido pelo usuário",
+    "details": "## Estatísticas\n\n### Tipo\n\nTransporte Espacial Colossal*\n\n### Iniciativa\n\n+3\n\n### Sentidos\n\nPercepção +10\n\n### Regra especial\n\n*Esta nave é tratada como um Caça Estelar Gargantuesco para propósitos de ser alvo de armas de Naves Capitais, Dogfighting e uso de Manobras de Espaçonave.*\n\n## Defesas\n\n| Atributo | Valor |\n| --- | --- |\n| Reflexos | 13 |\n| Reflexos Surpreso | 11 |\n| Fortitude | 22 |\n| Blindagem | +11 |\n| Talento aplicado | Combate Veicular |\n\n## Resistência\n\n| Estatística | Valor |\n| --- | --- |\n| Pontos de Vida | 60 |\n| Redução de Dano | 15 |\n| Escudos | 15 |\n| Limite de Dano | 72 |\n\n## Deslocamento\n\nEscala personagem:\n\nVoo 12 quadrados\n\nEscala espaçonave:\n\nVoo 5 quadrados\n\nVelocidade máxima:\n\n1.200 km/h\n\n## Armamentos\n\n### Canhões Laser Leves Duplos\n\nOperador:\n\nSirona Okeefe\n\nAtaque:\n\n+9\n\nDano:\n\n**3d10×2**\n\n### Canhões Laser Quádruplos (2)\n\nOperador:\n\nArtilheiro\n\nAtaque:\n\n+2\n\nDano:\n\n**4d10×2**\n\n## Espaço e Cobertura\n\nEscala personagem:\n\n12 × 12 quadrados\n\nEscala espaçonave:\n\n1 quadrado\n\nCobertura:\n\nTotal\n\n## Combate\n\n| Estatística | Valor |\n| --- | --- |\n| Base de Ataque | +4 |\n| Agarrar | +32 |\n\n## Atributos\n\n| Atributo | Valor |\n| --- | --- |\n| Força | 34 |\n| Destreza | 14 |\n| Constituição | — |\n| Inteligência | 14 |\n\n## Perícias\n\n* Iniciativa +6\n* Mecânica +14\n* Percepção +10\n* Pilotar +11\n* Usar Computador +7\n\n## Tripulação\n\n2:\n\n* Sirona Okeefe como piloto\n* RX-13 como co-piloto\n\nPassageiros:\n\n8\n\nCarga:\n\n35 toneladas\n\nProvisões:\n\n1 mês\n\nVeículos transportados:\n\nNenhum\n\n## Sistemas\n\nHiperpropulsor:\n\nClasse 2\n\nReserva:\n\nClasse 7\n\nComputador de navegação:\n\nSim\n\n## Disponibilidade\n\nÚnica\n\nCusto:\n\nNão disponível para venda"
+  },
+  {
+    "name": "BTL Y-Wing",
+    "slug": "btl-y-wing",
+    "summary": "Bombardeiro resistente e antigo que permaneceu em serviço devido à sua confiabilidade.",
+    "details": "## Descrição\n\nBombardeiro resistente e antigo que permaneceu em serviço devido à sua confiabilidade.\n\n## Uso típico\n\n* ataque pesado\n* bombardeio\n\n## Características\n\n* blindagem elevada\n* carga explosiva pesada\n\n## Armamentos\n\n* canhões laser\n* torpedos\n* torre traseira",
+    "category": "Caças Estelares",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Caça Dróide Abutre",
+    "slug": "caca-droide-abutre",
+    "category": "Caças Dróides",
+    "summary": "Caça automatizado da Confederação, operado sem piloto orgânico e usado em massa.",
+    "details": "## Descrição\n\nCaça automatizado da Confederação. Opera sem piloto orgânico.\n\n## Uso típico\n\n* superioridade numérica\n\n## Características\n\n* IA integrada\n* produção em massa",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Caça TIE/LN",
+    "slug": "caca-tie-ln",
+    "category": "Caças Estelares",
+    "summary": "Caça padrão do Império, produzido em massa e focado em velocidade e superioridade numérica.",
+    "details": "## Descrição\n\nCaça padrão do Império. Produzido em massa e focado em velocidade e quantidade.\n\n## Uso típico\n\n* patrulha\n* interceptação\n\n## Características\n\n* sem hiperpropulsor\n* sem escudos\n* extremamente veloz\n\n## Armamentos\n\n* canhões laser",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Canhoneira LAAT/i",
+    "slug": "canhoneira-laat-i",
+    "summary": "Transporte militar da República usado para desembarque de tropas durante as Guerras Clônicas.",
+    "details": "## Descrição\n\nTransporte militar da República usado para desembarque de tropas durante as Guerras Clônicas.\n\n## Uso típico\n\n* transporte de tropas\n\n* apoio aéreo\n\n* evacuação\n\n## Características\n\n* armamento lateral\n\n* transporte rápido\n\n* inserção de combate",
+    "category": "Transportes Aéreos",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Corveta Corelliana",
+    "slug": "corveta-corelliana",
+    "summary": "Nave Capital Colossal (Fragata) | ND 16",
+    "details": "A Corveta Corelliana representa o próximo passo após cargueiros como o YT-1300.\n\nUsada como:\n\n* transporte;\n* escolta;\n* nave de tropas;\n* cargueiro pesado.\n\nMuito popular entre:\n\n* governos;\n* corporações;\n* piratas.\n\n## Estatísticas\n\n### ND\n\n16\n\n### Tipo\n\nNave Capital Colossal (Fragata)\n\n### Iniciativa\n\n0\n\n### Sentidos\n\nPercepção +6\n\n## Defesas\n\n| Atributo          | Valor |\n| ----------------- | ----- |\n| Reflexos          | 16    |\n| Reflexos Surpreso | 12    |\n| Fortitude         | 38    |\n| Blindagem         | +12   |\n\n## Resistência\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| PV             | 1.200 |\n| RD             | 15    |\n| TE             | 100   |\n| Limite de Dano | 138   |\n\n## Deslocamento\n\nEscala espaçonave:\n\nVoo 3 quadrados\n\n## Armamento\n\n### 3 Baterias Turbolaser\n\n(4 artilheiros)\n\nAtaque:\n\n+12\n\nContra alvos menores que Colossal:\n\n−8\n\nDano:\n\n**5d10 ×5**\n\n## Espaço e Cobertura\n\nEspaço:\n\n1 quadrado\n\nEscala espaçonave\n\nCobertura:\n\nTotal\n\n## Combate\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| Base de Ataque | +2    |\n| Prd            | +50   |\n\n## Atributos\n\n| Atributo     | Valor |\n| ------------ | ----- |\n| Força        | 66    |\n| Destreza     | 18    |\n| Inteligência | 18    |\n\n## Perícias\n\n* Iniciativa +0\n* Mecânica +10\n* Percepção +6\n* Pilotar +0\n* Usar Computador +10\n\n## Tripulação\n\n30–165 (peritos)\n\nPassageiros:\n\n600\n\nCarga:\n\n3.000 toneladas\n\nProvisões:\n\n1 ano\n\n## Sistemas\n\nHiperpropulsor:\n\n×2\n\nComputador de navegação:\n\n+3\n\n## Disponibilidade\n\nLicenciado\n\nCusto:\n\n3.500.000 créditos\n\nUsada:\n\n1.500.000 créditos",
+    "category": "Naves Capitais",
+    "extra": "Fonte OCR: veiculos-pt-4.txt"
+  },
+  {
+    "name": "Destróier Estelar Classe Imperial I",
+    "slug": "destroier-estelar-classe-imperial-i",
+    "summary": "Nave Capital Colossal (Cruzador) | ND 20",
+    "details": "O símbolo absoluto do poder militar imperial.\n\nProjetado para:\n\n* dominar sistemas inteiros;\n* destruir frotas;\n* transportar exércitos.\n\nEquipado com:\n\n* baterias turbolaser;\n* canhões de íon;\n* defesa de ponto;\n* raios tratores;\n* enormes hangares.\n\n## Estatísticas\n\n### ND\n\n20\n\n### Tipo\n\nNave Capital Colossal (Cruzador)\n\n### Iniciativa\n\n−2\n\n### Sentidos\n\nPercepção +6\n\n## Defesas\n\n| Atributo          | Valor |\n| ----------------- | ----- |\n| Reflexos          | 18    |\n| Reflexos Surpreso | 16    |\n| Fortitude         | 56    |\n| Blindagem         | +16   |\n\n## Resistência\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| PV             | 2.100 |\n| RD             | 20    |\n| TE             | 150   |\n| Limite de Dano | 256   |\n\n## Deslocamento\n\nEscala espaçonave:\n\nVoo 3 quadrados\n\n## Armamentos\n\n### 5 Baterias Turbolaser\n\nAtaque:\n\n+17\n\nContra alvos menores que Colossal:\n\n−3\n\nDano:\n\n**5d10 ×5**\n\n### 5 Baterias de Canhões de Íon\n\nAtaque:\n\n+17\n\nContra alvos menores que Colossal:\n\n−3\n\nDano:\n\n**3d10 ×5 (Íon)**\n\n### 10 Baterias Laser de Defesa de Ponto\n\nAtaque:\n\n+13\n\nDano:\n\n**2d10 ×2**\n\n### 10 Raios Tratores\n\nAtaque:\n\n+7\n\nContra alvos menores que Colossal:\n\n−13\n\nEfeito:\n\nAgarrar +68\n\n## Espaço e Cobertura\n\nEspaço:\n\n2 × 2\n\nEscala espaçonave\n\nCobertura:\n\nTotal\n\n## Combate\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| Base de Ataque | +2    |\n| Prd            | +68   |\n\n## Atributos\n\n| Atributo     | Valor |\n| ------------ | ----- |\n| Força        | 102   |\n| Destreza     | 14    |\n| Inteligência | 20    |\n\n## Perícias\n\n* Iniciativa −2\n* Mecânica +6\n* Percepção +6\n* Pilotar −2\n* Usar Computador +6\n\n## Tripulação\n\n37.085 (peritos)\n\nPassageiros:\n\n9.700 tropas\n\nCarga:\n\n36.000 toneladas\n\nProvisões:\n\n6 anos\n\n## Veículos Transportados\n\n* 72 Caças TIE\n* 8 Transportes Lambda\n* 20 AT-AT\n* 30 AT-ST\n* Veículos de apoio diversos\n\n## Sistemas\n\nHiperpropulsor:\n\n×2\n\nReserva:\n\n×8\n\nComputador de navegação\n\n## Disponibilidade\n\nMilitar\n\nCusto:\n\nNão disponível para venda",
+    "category": "Naves Capitais",
+    "extra": "Fonte OCR: veiculos-pt-4.txt"
+  },
+  {
+    "name": "Dróide Tri-Caça",
+    "slug": "droide-tri-caca",
+    "category": "Caças Dróides",
+    "summary": "Versão avançada dos caças dróides tradicionais, voltada para caça de elite e perseguição.",
+    "details": "## Descrição\n\nVersão avançada dos caças dróides tradicionais.\n\n## Uso típico\n\n* caça de elite\n* perseguição\n\n## Características\n\n* velocidade elevada\n* comportamento agressivo",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Eta-2 Actis Interceptor",
+    "slug": "eta-2-actis-interceptor",
+    "summary": "Interceptador Jedi extremamente ágil utilizado no final das Guerras Clônicas.",
+    "details": "## Descrição\n\nInterceptador Jedi extremamente ágil utilizado no final das Guerras Clônicas.\n\n## Uso típico\n\n* combate de precisão\n\n* missões Jedi\n\n## Características\n\n* compatível com dróide astromec\n\n* velocidade extrema",
+    "category": "Caças Estelares",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Incom T-65 X-Wing",
+    "slug": "incom-t-65-x-wing",
+    "summary": "Principal caça da Aliança Rebelde. Equilibra velocidade, resistência e autonomia.",
+    "details": "## Descrição\n\nPrincipal caça da Aliança Rebelde. Equilibra velocidade, resistência e autonomia.\n\n## Uso típico\n\n* superioridade aérea\n\n* interceptação\n\n* escolta\n\n## Características\n\n* escudos defletores\n\n* hiperpropulsor\n\n* suporte para dróide astromec\n\n## Armamentos\n\n* canhões laser\n\n* torpedos de prótons\n\n## Observações\n\n* usado na destruição da Estrela da Morte",
+    "category": "Caças Estelares",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Interceptador TIE",
+    "slug": "interceptador-tie",
+    "summary": "Evolução do TIE tradicional, focado em velocidade e superioridade aérea.",
+    "details": "## Descrição\n\nEvolução do TIE tradicional, focado em velocidade e superioridade aérea.\n\n## Uso típico\n\n* interceptação\n\n* combate contra caças\n\n## Características\n\n* manobrabilidade extrema\n\n* armamento ampliado",
+    "category": "Caças Estelares",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Moto Speeder Aratech 74-Z",
+    "slug": "moto-speeder-aratech-74-z",
+    "summary": "Moto speeder militar usada principalmente pelos batedores imperiais. Leve, extremamente veloz e construída para reconhecimento e perseguição. Seu tamanho reduzido permite",
+    "details": "## Descrição\n\nMoto speeder militar usada principalmente pelos batedores imperiais. Leve, extremamente veloz e construída para reconhecimento e perseguição. Seu tamanho reduzido permite navegar entre obstáculos e terrenos difíceis com facilidade.\n\n## Uso típico\n\n* reconhecimento\n\n* patrulhamento\n\n* perseguição\n\n## Características\n\n* extremamente rápida\n\n* pouca proteção\n\n* operação individual",
+    "category": "Speeders",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Speeder Aéreo Incom T-47",
+    "slug": "speeder-aereo-incom-t-47",
+    "category": "Speeders Aéreos",
+    "summary": "Originalmente civil, adaptado pela Aliança Rebelde para combate atmosférico e famoso na Batalha de Hoth.",
+    "details": "## Descrição\n\nOriginalmente criado para uso civil, o T-47 foi adaptado pela Aliança Rebelde para combate. Tornou-se famoso durante a Batalha de Hoth.\n\n## Uso típico\n\n* ataque rápido\n* reconhecimento\n* combate atmosférico\n\n## Características\n\n* voo atmosférico\n* alta velocidade\n* possibilidade de usar cabo de reboque",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Speeder Terrestre SoroSuub X-34",
+    "slug": "speeder-terrestre-sorosuub-x-34",
+    "summary": "Veículo terrestre Grande (Speeder) | ND 1",
+    "details": "Modelo civil extremamente popular.\n\nCaracterísticas:\n\n* dois ocupantes;\n* navegação assistida;\n* estabilização automática;\n* excelente mobilidade.\n\nModelo usado por Luke Skywalker em Tatooine.\n\n## Estatísticas\n\n### ND\n\n1\n\n### Tipo\n\nVeículo terrestre Grande (Speeder)\n\n### Iniciativa\n\n+8\n\n### Sentidos\n\nPercepção +5\n\n## Defesas\n\n| Atributo          | Valor |\n| ----------------- | ----- |\n| Reflexos          | 14    |\n| Reflexos Surpreso | 10    |\n| Fortitude         | 14    |\n| Blindagem         | +1    |\n\n## Resistência\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| PV             | 40    |\n| RD             | 5     |\n| Limite de Dano | 19    |\n\n## Deslocamento\n\n12 quadrados\n\nVelocidade máxima:\n\n330 km/h\n\n## Espaço e Cobertura\n\nEspaço:\n\n2 × 2\n\nCobertura:\n\n+5\n\n## Combate\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| Base de Ataque | +0    |\n| Prd            | +15   |\n\n## Atributos\n\n| Atributo     | Valor |\n| ------------ | ----- |\n| Força        | 18    |\n| Destreza     | 18    |\n| Inteligência | 12    |\n\n## Perícias\n\n* Iniciativa +8\n* Mecânica +5\n* Percepção +5\n* Pilotar +8\n\n## Tripulação\n\n1 normal\n\nPassageiros:\n\n1\n\nCarga:\n\n30 kg\n\nProvisões:\n\n1 dia\n\n## Disponibilidade\n\nLicenciado\n\nCusto:\n\n10.550 créditos\n\nUsado:\n\n2.500 créditos",
+    "category": "Speeders",
+    "extra": "Fonte OCR: veiculos-pt-3.txt"
+  },
+  {
+    "name": "Tanque Repulsor AAT-1",
+    "slug": "tanque-repulsor-aat-1",
+    "summary": "Veículo blindado da Federação do Comércio usado extensivamente durante as Guerras Clônicas. Utiliza tecnologia repulsora e combina armamento pesado com capacidade de tran",
+    "details": "## Descrição\n\nVeículo blindado da Federação do Comércio usado extensivamente durante as Guerras Clônicas. Utiliza tecnologia repulsora e combina armamento pesado com capacidade de transporte.\n\n## Uso típico\n\n* assalto frontal\n* supressão\n* apoio de infantaria\n\n## Características\n\n* blindagem elevada\n* armamento pesado\n* transporte de tropas",
+    "category": "Veículos militares",
+    "extra": "Fonte OCR: veiculos-pt-5.txt"
+  },
+  {
+    "name": "Transporte Corelliano YT-1300",
+    "slug": "transporte-corelliano-yt-1300",
+    "summary": "Transporte Espacial Colossal | ND 6",
+    "details": "## Transporte Espacial Modular\n\nTalvez o cargueiro leve mais famoso da galáxia.\n\nO YT-1300 foi criado pela Corporação de Engenharia Corelliana com estrutura modular para permitir inúmeras configurações.\n\nUsos comuns:\n\n* cargueiro;\n* nave mercante;\n* transporte de passageiros;\n* contrabando;\n* exploração.\n\nA nave mais famosa baseada nessa plataforma foi a **Millennium Falcon**.\n\n## Estatísticas\n\n### ND\n\n6\n\n### Tipo\n\nTransporte Espacial Colossal\n\n### Iniciativa\n\n−5\n\n### Sentidos\n\nPercepção +5\n\n## Defesas\n\n| Atributo          | Valor |\n| ----------------- | ----- |\n| Reflexos          | 12    |\n| Reflexos Surpreso | 12    |\n| Fortitude         | 26    |\n| Blindagem         | +12   |\n\n## Resistência\n\n| Estatística     | Valor |\n| --------------- | ----- |\n| Pontos de Vida  | 120   |\n| Redução de Dano | 15    |\n| Limite de Dano  | 76    |\n\n## Deslocamento\n\nEscala personagem:\n\nVoo 12 quadrados\n\nVelocidade máxima:\n\n800 km/h\n\nEscala espaçonave:\n\nVoo 2 quadrados\n\n## Armamento\n\n### Canhão Laser\n\n(Artilheiro)\n\nAtaque:\n\n+2\n\nDano:\n\n**4d10 ×2**\n\n## Espaço e Cobertura\n\nEspaço ocupado:\n\n12 × 12\n\nEscala espaçonave:\n\n1 quadrado\n\nCobertura:\n\nTotal\n\n## Combate\n\n| Estatística    | Valor |\n| -------------- | ----- |\n| Base de Ataque | +0    |\n| Prd            | +36   |\n\n## Atributos\n\n| Atributo     | Valor |\n| ------------ | ----- |\n| Força        | 42    |\n| Destreza     | 10    |\n| Inteligência | 14    |\n\n## Perícias\n\n* Iniciativa −5\n* Mecânica +5\n* Percepção +5\n* Pilotar −5\n* Usar Computador +5\n\n## Tripulação\n\n2 (normal)\n\nPassageiros:\n\n6\n\nCarga:\n\n100 toneladas\n\nProvisões:\n\n2 meses\n\nVeículos transportados:\n\nNenhum\n\n## Sistemas\n\nHiperpropulsor:\n\n×2\n\nReserva:\n\n×12\n\nComputador de navegação:\n\nSim\n\n## Disponibilidade\n\nLicenciado\n\nCusto:\n\n100.000 créditos\n\nUsado:\n\n25.000 créditos",
+    "category": "Transportes Espaciais",
+    "extra": "Fonte OCR: veiculos-pt-4.txt"
+  }
+];

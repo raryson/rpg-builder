@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useEffect, useMemo, useState } from 'react';
-import { sagaEquipmentDetailsCatalog, sagaTalentDetailsCatalog } from './starWarsSagaCatalogData';
+import { sagaEquipmentDetailsCatalog, sagaTalentDetailsCatalog, sagaVehicleDetailsCatalog } from './starWarsSagaCatalogData';
 
 type SheetTab =
   | 'summary'
@@ -354,14 +354,7 @@ const forceSecretDetailsCatalog: DetailCatalogItem[] = [
 
 const equipmentDetailsCatalog: DetailCatalogItem[] = [...sagaEquipmentDetailsCatalog];
 
-const vehicleDetailsCatalog: DetailCatalogItem[] = [
-  detailItem('X-wing', 'Caca estelar', 'Caca rebelde versatil com escudos, hiperpropulsor e armamento pesado.', 'Starfighter'),
-  detailItem('TIE Fighter', 'Caca estelar', 'Caca imperial rapido e leve, usado em grande numero.', 'Starfighter'),
-  detailItem('Y-wing', 'Bombardeiro', 'Nave rebelde resistente, boa para ataques contra alvos grandes.', 'Starfighter'),
-  detailItem('Millennium Falcon', 'Cargueiro leve', 'Cargueiro altamente modificado, rapido e versatil.', 'Transport'),
-  detailItem('Speeder bike', 'Veiculo terrestre', 'Veiculo rapido para deslocamento planetario e perseguicoes.', 'Speeder'),
-  detailItem('AT-ST', 'Walker', 'Bipode de combate imperial com armamento de apoio.', 'Walker'),
-];
+const vehicleDetailsCatalog: DetailCatalogItem[] = [...sagaVehicleDetailsCatalog];
 
 const droidSystemDetailsCatalog: DetailCatalogItem[] = [
   detailItem('Locomocao por rodas', 'Sistema de droide', 'Sistema de movimento simples e eficiente para superficies regulares.', 'Locomotion'),
@@ -581,6 +574,36 @@ function renderFormattedText(text: string) {
     const rawLine = lines[index];
     const line = rawLine.trim();
     if (!line || line === '---') continue;
+
+    if (line.startsWith('|') && lines[index + 1]?.trim().startsWith('|') && lines[index + 1]?.includes('---')) {
+      const headers = line.split('|').slice(1, -1).map((cell) => cell.trim());
+      const rows: string[][] = [];
+      index += 2;
+
+      while (index < lines.length && lines[index].trim().startsWith('|')) {
+        rows.push(lines[index].split('|').slice(1, -1).map((cell) => cell.trim()));
+        index += 1;
+      }
+
+      index -= 1;
+      blocks.push(
+        <div className="markdown-table-wrap" key={`table-${index}`}>
+          <table className="markdown-table">
+            <thead>
+              <tr>{headers.map((header) => <th key={header}>{renderInlineMarkdown(header)}</th>)}</tr>
+            </thead>
+            <tbody>
+              {rows.map((row, rowIndex) => (
+                <tr key={`row-${rowIndex}`}>
+                  {row.map((cell, cellIndex) => <td key={`${cell}-${cellIndex}`}>{renderInlineMarkdown(cell)}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>,
+      );
+      continue;
+    }
 
     if (/^#{2,6}\s+/.test(line)) {
       blocks.push(<h4 key={`heading-${index}`}>{renderInlineMarkdown(line.replace(/^#{2,6}\s+/, ''))}</h4>);
@@ -973,7 +996,7 @@ export function App() {
           {activeTab === 'talents' && <TalentsPanel />}
           {activeTab === 'force' && <ForcePanel />}
           {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisao" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
-          {activeTab === 'vehicles' && <RichSelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
+          {activeTab === 'vehicles' && <GroupedRichSelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" groupLabel="Subdivisao" itemLabel="Veiculo" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
           {activeTab === 'droids' && <RichSelectionPanel icon={<CircleDot aria-hidden="true" />} title="Droides" items={droidSystemDetailsCatalog} selected={activeSheet.droidSystems} onChange={(value) => setField('droidSystems', value)} />}
           {(activeTab === 'notes' || activeTab === 'history' || activeTab === 'versions') && (
             <Panel icon={<Save aria-hidden="true" />} title={activeTab === 'versions' ? 'Versoes' : activeTab === 'history' ? 'Historico' : 'Anotacoes'}>

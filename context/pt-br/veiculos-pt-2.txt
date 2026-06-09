@@ -1,0 +1,410 @@
+# Veículos — Parte 2
+
+# Personagens nos Veículos
+
+Um personagem dentro de um veículo ocupa uma função.
+
+A função determina o que ele pode fazer durante o combate.
+
+Um personagem pode ocupar várias funções ao mesmo tempo, mas normalmente cada função só pode ser ocupada por um personagem por vez.
+
+Exemplo:
+
+* em um X-wing, o piloto também pode atuar como comandante e artilheiro;
+* o dróide astromec pode atuar como co-piloto, operador de escudos e engenheiro.
+
+---
+
+## Troca de Funções
+
+Funções podem ser trocadas turno a turno.
+
+Você só pode assumir uma função se nenhum outro tripulante tiver ocupado aquela função desde seu último turno.
+
+---
+
+## Piloto
+
+O piloto controla o movimento do veículo.
+
+Pilotar normalmente exige:
+
+**ação de movimento**
+
+Um veículo só pode ter:
+
+**1 piloto por vez**
+
+O piloto aplica:
+
+* modificador de tamanho do veículo;
+* modificador de Destreza do veículo;
+
+em:
+
+* testes de Iniciativa;
+* testes de Pilotar.
+
+---
+
+## Co-piloto
+
+O co-piloto auxilia o piloto.
+
+Pode usar:
+
+**ação Prestar Auxílio**
+
+Requisitos:
+
+* estar em posição de enxergar à frente do veículo;
+* conseguir se comunicar com o piloto.
+
+Normalmente ocupa a cabine.
+
+Prestar auxílio exige:
+
+**ação padrão**
+
+Um veículo só pode ter:
+
+**1 co-piloto por vez**
+
+---
+
+## Artilheiro
+
+Artilheiros operam armas do veículo que não estejam controladas pelo piloto ou co-piloto.
+
+Um veículo pode ter:
+
+* tantos artilheiros quanto tiver posições de artilharia.
+
+---
+
+## Comandante
+
+O comandante coordena a tripulação.
+
+Funções:
+
+* analisar batalha;
+* coordenar estações;
+* identificar fraquezas inimigas;
+* orientar táticas.
+
+Um veículo só pode ter:
+
+**1 comandante por vez**
+
+---
+
+## Operador de Sistemas
+
+Responsável por:
+
+* escudos;
+* sensores;
+* comunicações.
+
+Um veículo só pode ter:
+
+**1 operador de sistemas por vez**
+
+---
+
+## Engenheiro
+
+O engenheiro-chefe mantém o veículo funcional.
+
+Responsabilidades:
+
+* redirecionar energia;
+* lidar com sistemas danificados;
+* manter a nave ativa;
+* liderar reparos no casco entre batalhas.
+
+Um veículo só pode ter:
+
+**1 engenheiro-chefe por vez**
+
+---
+
+## Outros Tripulantes
+
+Tripulantes adicionais podem atuar em suporte.
+
+Funções possíveis:
+
+* coordenar tropas;
+* coordenar caças;
+* prestar cuidados médicos;
+* proteger áreas vulneráveis;
+* realizar manutenção.
+
+Eles podem auxiliar testes de perícia.
+
+Exemplo:
+
+* equipe de reparos ajudando o engenheiro-chefe.
+
+---
+
+## Passageiros
+
+Todos que não ocupam uma função operacional são passageiros.
+
+Passageiros podem:
+
+* realizar ações dentro do veículo;
+* substituir tripulantes;
+* interagir com equipamentos;
+* agir normalmente conforme a situação permitir.
+
+---
+
+# Começando a Batalha
+
+Entrar em um veículo exige:
+
+**ação de movimento**
+
+Ligar um veículo exige:
+
+**segunda ação de movimento**
+
+---
+
+# Iniciativa em Combate de Veículos
+
+Existem duas formas comuns de determinar Iniciativa.
+
+---
+
+## Opção 1 — Iniciativa Individual
+
+Cada personagem faz sua própria jogada de Iniciativa.
+
+Melhor quando:
+
+* vários personagens estão no mesmo veículo.
+
+Possível problema:
+
+* passageiros podem precisar preparar ou atrasar ações enquanto esperam o piloto agir.
+
+---
+
+## Opção 2 — Iniciativa por Veículo
+
+Cada veículo faz uma única jogada de Iniciativa usando os modificadores do piloto.
+
+Melhor quando:
+
+* personagens estão em veículos separados;
+* há vários veículos envolvidos.
+
+Vantagem:
+
+* todos a bordo de um veículo agem aproximadamente juntos.
+
+---
+
+## Especial — Pilotar no Lugar de Iniciativa
+
+Se treinado em **Pilotar**, o personagem pode fazer:
+
+**teste de Pilotar**
+
+em vez de:
+
+**teste de Iniciativa**
+
+para determinar sua posição na ordem de combate.
+
+Sempre aplique:
+
+* modificador de tamanho do veículo.
+
+---
+
+# Tabela 10-3: Dano por Colisão
+
+| Tamanho do Veículo ou Ameaça | Dano                        |
+| ---------------------------- | --------------------------- |
+| Colossal (Estação Espacial)  | 20d6 + modificador de Força |
+| Colossal (Cruzador)          | 15d6 + modificador de Força |
+| Colossal (Fragata)           | 10d6 + modificador de Força |
+| Colossal                     | 8d6 + modificador de Força  |
+| Imenso                       | 6d6 + modificador de Força  |
+| Enorme                       | 4d6 + modificador de Força  |
+| Grande                       | 2d6 + modificador de Força  |
+
+---
+
+## Nota de Colisão
+
+Dobre o dano se o veículo em colisão estiver usando:
+
+**ação de movimento total**
+
+---
+
+# Estatísticas dos Veículos
+
+Cada veículo possui um conjunto de estatísticas de combate.
+
+Essas estatísticas descrevem:
+
+* resistência;
+* deslocamento;
+* armas;
+* tripulação;
+* carga;
+* provisões;
+* custo;
+* disponibilidade.
+
+---
+
+## Nível de Desafio (ND)
+
+Heróis recebem PE por:
+
+* destruir;
+* desabilitar;
+* capturar;
+
+um veículo com base no ND do veículo.
+
+Normalmente não recebem PE adicional por tripulantes mortos na destruição do veículo.
+
+Exceção:
+
+* se algum ocupante era objetivo relevante da missão.
+
+---
+
+## Velocidade Máxima
+
+Representa o máximo deslocamento que o veículo pode alcançar após usar movimento total por pelo menos uma rodada completa.
+
+Não é usada na escala de espaçonave.
+
+---
+
+## Agarrar (Agr)
+
+Modificador usado principalmente para resistir a tentativas de reter fisicamente o veículo.
+
+Exemplo:
+
+* raio trator.
+
+---
+
+## Espaço de Combate
+
+Define o espaço ocupado pelo veículo.
+
+Pode aparecer em:
+
+* escala de personagem;
+* escala de espaçonave;
+* ambas.
+
+---
+
+## Cobertura
+
+Indica a cobertura oferecida a tripulantes e passageiros.
+
+Valores comuns:
+
+* nenhuma;
+* +5;
+* +10;
+* total.
+
+---
+
+## Tripulação
+
+Número e qualidade da tripulação necessária.
+
+Os modificadores da tripulação já estão incluídos nas estatísticas do veículo.
+
+---
+
+## Passageiros
+
+Número de passageiros, incluindo tropas, que o veículo pode carregar além da tripulação.
+
+---
+
+## Capacidade de Carga
+
+Quantidade de carga que o veículo pode transportar.
+
+---
+
+## Veículos Carregados
+
+Veículos normalmente transportados no interior ou nos hangares.
+
+---
+
+## Provisões
+
+Tempo que o veículo pode operar antes de reabastecer mantimentos.
+
+Inclui:
+
+* comida;
+* água;
+* ar;
+* combustível.
+
+Naves pequenas possuem provisões limitadas.
+
+Naves grandes podem operar por meses ou anos.
+
+---
+
+## Munição
+
+Quantidade disponível de:
+
+* granadas;
+* foguetes;
+* mísseis;
+* torpedos.
+
+Se o veículo não usa munição, essa linha pode não aparecer.
+
+---
+
+## Hiperpropulsor
+
+Multiplicador usado para calcular viagens no hiperespaço.
+
+Se houver hiperpropulsor reserva, aparece entre parênteses.
+
+Exemplo:
+
+**x2 (reserva x12)**
+
+Ausente se o veículo não puder viajar pelo hiperespaço.
+
+---
+
+## Disponibilidade
+
+Segue as regras de itens restritos.
+
+Categorias comuns:
+
+* Licenciado;
+* Restrito;
+* Militar;
+* Ilegal.

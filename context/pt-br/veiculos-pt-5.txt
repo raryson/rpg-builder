@@ -1,0 +1,204 @@
+CONTEXTO COMPLEMENTAR — VEÍCULOS (DESCRIÇÕES AUSENTES)
+
+Este conteúdo complementa os arquivos anteriores.
+Não substituir dados existentes.
+Apenas enriquecer descrições e completar veículos já cadastrados.
+
+Moto Speeder Aratech 74-Z
+
+Descrição:
+Moto speeder militar usada principalmente pelos batedores imperiais. Leve, extremamente veloz e construída para reconhecimento e perseguição. Seu tamanho reduzido permite navegar entre obstáculos e terrenos difíceis com facilidade.
+
+Uso típico:
+
+reconhecimento
+patrulhamento
+perseguição
+
+Características:
+
+extremamente rápida
+pouca proteção
+operação individual
+Tanque Repulsor AAT-1
+
+Descrição:
+Veículo blindado da Federação do Comércio usado extensivamente durante as Guerras Clônicas. Utiliza tecnologia repulsora e combina armamento pesado com capacidade de transporte.
+
+Uso típico:
+
+assalto frontal
+supressão
+apoio de infantaria
+
+Características:
+
+blindagem elevada
+armamento pesado
+transporte de tropas
+Speeder Aéreo Incom T-47
+
+Descrição:
+Originalmente criado para uso civil, o T-47 foi adaptado pela Aliança Rebelde para combate. Tornou-se famoso durante a Batalha de Hoth.
+
+Uso típico:
+
+ataque rápido
+reconhecimento
+combate atmosférico
+
+Características:
+
+voo atmosférico
+alta velocidade
+possibilidade de usar cabo de reboque
+Canhoneira LAAT/i
+
+Descrição:
+Transporte militar da República usado para desembarque de tropas durante as Guerras Clônicas.
+
+Uso típico:
+
+transporte de tropas
+apoio aéreo
+evacuação
+
+Características:
+
+armamento lateral
+transporte rápido
+inserção de combate
+Incom T-65 X-Wing
+
+Descrição:
+Principal caça da Aliança Rebelde. Equilibra velocidade, resistência e autonomia.
+
+Uso típico:
+
+superioridade aérea
+interceptação
+escolta
+
+Características:
+
+escudos defletores
+hiperpropulsor
+suporte para dróide astromec
+
+Armamentos:
+
+canhões laser
+torpedos de prótons
+
+Observações:
+
+usado na destruição da Estrela da Morte
+BTL Y-Wing
+
+Descrição:
+Bombardeiro resistente e antigo que permaneceu em serviço devido à sua confiabilidade.
+
+Uso típico:
+
+ataque pesado
+bombardeio
+
+Características:
+
+blindagem elevada
+carga explosiva pesada
+
+Armamentos:
+
+canhões laser
+torpedos
+torre traseira
+Caça TIE/LN
+
+Descrição:
+Caça padrão do Império. Produzido em massa e focado em velocidade e quantidade.
+
+Uso típico:
+
+patrulha
+interceptação
+
+Características:
+
+sem hiperpropulsor
+sem escudos
+extremamente veloz
+
+Armamentos:
+
+canhões laser
+Interceptador TIE
+
+Descrição:
+Evolução do TIE tradicional, focado em velocidade e superioridade aérea.
+
+Uso típico:
+
+interceptação
+combate contra caças
+
+Características:
+
+manobrabilidade extrema
+armamento ampliado
+Eta-2 Actis Interceptor
+
+Descrição:
+Interceptador Jedi extremamente ágil utilizado no final das Guerras Clônicas.
+
+Uso típico:
+
+combate de precisão
+missões Jedi
+
+Características:
+
+compatível com dróide astromec
+velocidade extrema
+ARC-170
+
+Descrição:
+Caça pesado da República com múltiplos tripulantes.
+
+Uso típico:
+
+escolta
+combate prolongado
+
+Características:
+
+múltiplos operadores
+hiperpropulsor
+resistência elevada
+Caça Dróide Abutre
+
+Descrição:
+Caça automatizado da Confederação. Opera sem piloto orgânico.
+
+Uso típico:
+
+superioridade numérica
+
+Características:
+
+IA integrada
+produção em massa
+Dróide Tri-Caça
+
+Descrição:
+Versão avançada dos caças dróides tradicionais.
+
+Uso típico:
+
+caça de elite
+perseguição
+
+Características:
+
+velocidade elevada
+comportamento agressivo
