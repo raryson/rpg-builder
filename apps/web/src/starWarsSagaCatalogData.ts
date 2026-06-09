@@ -2168,3 +2168,174 @@ export const sagaVehicleDetailsCatalog = [
     "extra": "Fonte OCR: veiculos-pt-4.txt"
   }
 ];
+
+export const sagaDroidDetailsCatalog = [
+  {
+    "name": "Melhorias Especiais",
+    "slug": "droides-melhorias-especiais",
+    "summary": "MELHORIAS ESPECIAIS Garras para Escalar Efeito: Servomecanismos de Salto Efeito: Pés Magnéticos Permite: teto; casco; superfícies metálicas. Anexo Telescópico Efeito:",
+    "details": "# MELHORIAS ESPECIAIS\n\n---\n\n## Garras para Escalar\n\n```txt\ncusto = anexo ×2\n```\n\nEfeito:\n\n```txt\n+5 escalar\n```\n\n---\n\n## Servomecanismos de Salto\n\n```txt\ncusto = anexo ×2\n```\n\nEfeito:\n\n```txt\ndobrar distância salto\n```\n\n---\n\n## Pés Magnéticos\n\nPermite:\n\n* teto;\n* casco;\n* superfícies metálicas.\n\n---\n\n## Anexo Telescópico\n\n```txt\ncusto = anexo ×2\npeso ×2\n```\n\nEfeito:\n\n```txt\nalcance aumentado\n```\n\n---",
+    "category": "Anexos e acessórios",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  },
+  {
+    "name": "Tipos de Anexo",
+    "slug": "droides-tipos-de-anexo",
+    "summary": "TABELA — TIPOS DE ANEXO Dano dos Anexos",
+    "details": "# TABELA — TIPOS DE ANEXO\n\n---\n\n| Tipo        |      Preço |        Peso |\n| ----------- | ---------: | ----------: |\n| Garra       | 20 × fator |   5 × fator |\n| Mão         | 50 × fator |   5 × fator |\n| Instrumento |  5 × fator |   1 × fator |\n| Sonda       |  2 × fator | 0,5 × fator |\n| Ferramenta  | 10 × fator |   2 × fator |\n\n---\n\n## Dano dos Anexos\n\n| Tamanho   | Sonda | Instrumento | Ferramenta | Garra | Mão |\n| --------- | ----: | ----------: | ---------: | ----: | --: |\n| Minúsculo |     — |           — |          — |     — |   — |\n| Diminuto  |     — |           — |          — |     1 |   — |\n| Miúdo     |     — |           — |          1 |   1d2 |   1 |\n| Pequeno   |     — |           1 |        1d2 |   1d3 | 1d2 |\n| Médio     |     1 |         1d2 |        1d3 |   1d4 | 1d3 |\n| Grande    |   1d2 |         1d3 |        1d4 |   1d6 | 1d4 |\n| Enorme    |   1d3 |         1d4 |        1d6 |   1d8 | 1d6 |\n| Imenso    |   1d4 |         1d6 |        1d8 |   2d6 | 1d8 |\n| Colossal  |   1d6 |         1d8 |        2d6 |   2d8 | 2d6 |\n\n---",
+    "category": "Anexos e acessórios",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  },
+  {
+    "name": "Armaduras de Dróide",
+    "slug": "droides-armaduras-de-droide",
+    "summary": "Tabela 11 6: Armadura de Dróide Armadura Leve ( 2) Armadura Média ( 5) Armadura Pesada ( 5)",
+    "details": "# Tabela 11-6: Armadura de Dróide\n\n## Armadura Leve (-2)\n\n| Armadura                  |                  Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |\n| ------------------------- | ---------------------: | -------------: | ------------: | ---------------------: | --------------- |\n| Corpo de aço plástico     |   400 × fator de custo |             +2 |            +5 |  2 × fator de custo kg | —               |\n| Corpo de quadrânio        |   900 × fator de custo |             +3 |            +4 |  3 × fator de custo kg | —               |\n| Corpo de duraço           | 1.600 × fator de custo |             +4 |            +4 |  8 × fator de custo kg | —               |\n| Revestimento de quadrânio | 2.500 × fator de custo |             +5 |            +3 | 10 × fator de custo kg | Licenciada      |\n| Revestimento de duraço    | 3.600 × fator de custo |             +6 |            +3 | 12 × fator de custo kg | Licenciada      |\n\n---\n\n## Armadura Média (-5)\n\n| Armadura                         |                  Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |\n| -------------------------------- | ---------------------: | -------------: | ------------: | ---------------------: | --------------- |\n| Armadura de batalha de quadrânio | 4.900 × fator de custo |             +7 |            +3 |  7 × fator de custo kg | Restrita        |\n| Revestimento de durânio          | 6.400 × fator de custo |             +8 |            +2 | 16 × fator de custo kg | Restrita        |\n| Armadura de batalha de duraço    | 9.600 × fator de custo |             +8 |            +3 |  8 × fator de custo kg | Restrita        |\n\n---\n\n## Armadura Pesada (-5)\n\n| Armadura                       |                   Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |\n| ------------------------------ | ----------------------: | -------------: | ------------: | ---------------------: | --------------- |\n| Corpo de aço mandaloriano      |  8.100 × fator de custo |             +9 |            +3 |  9 × fator de custo kg | Militar, Rara   |\n| Armadura de batalha de durânio | 10.000 × fator de custo |            +10 |            +2 | 10 × fator de custo kg | Militar         |\n| Revestimento de neutrônio      | 12.100 × fator de custo |            +11 |            +1 | 20 × fator de custo kg | Militar         |\n\n---",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Graus de Dróides",
+    "slug": "droides-graus-de-droides",
+    "summary": "Graus de Dróides",
+    "details": "# Graus de Dróides\n\n| Grau    | Função Geral                           | Exemplos                      |\n| ------- | -------------------------------------- | ----------------------------- |\n| 1º grau | médicos, científicos e analíticos      | 2-1B                          |\n| 2º grau | técnicos, astromecs e manutenção       | R2                            |\n| 3º grau | protocolo, tradução e interação social | 3PO                           |\n| 4º grau | combate, segurança e guerra            | B1, B2, Droideka, MagnaGuarda |\n| 5º grau | trabalho, carga e funções utilitárias  | ASP                           |\n\n---",
+    "category": "Construção de dróides",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Locomoção",
+    "slug": "droides-locomocao",
+    "summary": "TABELA — LOCOMOÇÃO Descrição Andante pernas mecânicas; maior precisão; uso geral. Exemplo: Rodas barato; rápido; manutenção simples. Exemplo: Esteira força; carga pesada. Exemplo: ",
+    "details": "# TABELA — LOCOMOÇÃO\n\n---\n\n| Tipo      | Até Pequeno | Médio | Grande+ | Fórmula               |\n| --------- | ----------: | ----: | ------: | --------------------- |\n| Andante   |           4 |     6 |       8 | 10 × fator × desloc²  |\n| Rodas     |           6 |     8 |      10 | 5 × fator × desloc²   |\n| Esteira   |           4 |     6 |       8 | 20 × fator × desloc²  |\n| Flutuante |           6 |     6 |       6 | 100 × fator × desloc² |\n| Voador    |           9 |    12 |      12 | 200 × fator × desloc² |\n\n---\n\n## Descrição\n\n### Andante\n\n* pernas mecânicas;\n* maior precisão;\n* uso geral.\n\nExemplo:\n\n```txt\nR2\nProtocolares\nMagnaguarda\n```\n\n---\n\n### Rodas\n\n* barato;\n* rápido;\n* manutenção simples.\n\nExemplo:\n\n```txt\nGNK\nMouse Droid\n```\n\n---\n\n### Esteira\n\n* força;\n* carga pesada.\n\nExemplo:\n\n```txt\nmineradores\nindustrial\n```\n\n---\n\n### Flutuante\n\n* repulsão;\n* ignora irregularidades.\n\nExemplo:\n\n```txt\nsondas\nhospitalares\n```\n\n---\n\n### Voador\n\n* máxima mobilidade;\n* custo elevado.\n\nExemplo:\n\n```txt\ndróides de reconhecimento\n```\n\n---",
+    "category": "Construção de dróides",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  },
+  {
+    "name": "Regras de Construção",
+    "slug": "droides-regras-de-construcao",
+    "summary": "REGRAS DE CONSTRUÇÃO Passo 1 Escolher tamanho. ↓ Passo 2 Escolher locomoção. ↓ Passo 3 Escolher armadura. ↓ Passo 4 Escolher anexos. ↓ Passo 5 Escolher sistemas internos. ↓ Passo 6",
+    "details": "# REGRAS DE CONSTRUÇÃO\n\n## Passo 1\n\nEscolher tamanho.\n\n↓\n\n## Passo 2\n\nEscolher locomoção.\n\n↓\n\n## Passo 3\n\nEscolher armadura.\n\n↓\n\n## Passo 4\n\nEscolher anexos.\n\n↓\n\n## Passo 5\n\nEscolher sistemas internos.\n\n↓\n\n## Passo 6\n\nEscolher modelo base.\n\n↓\n\n## Passo 7\n\nCalcular custo final.\n\n---\n\n# Fórmula Final\n\n```txt\nCusto Total =\nChassi\n+ Locomoção\n+ Armadura\n+ Sistemas\n+ Equipamentos\n```\n\n---",
+    "category": "Construção de dróides",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  },
+  {
+    "name": "Tamanho dos Dróides",
+    "slug": "droides-tamanho-dos-droides",
+    "summary": "TABELA — TAMANHO DOS DRÓIDES Objetivo Define: modificadores automáticos; pontos de vida extras; capacidade cargueira; custo base. Regras Tamanho influencia: custo final; peso; anex",
+    "details": "# TABELA — TAMANHO DOS DRÓIDES\n\n## Objetivo\n\nDefine:\n\n* modificadores automáticos;\n* pontos de vida extras;\n* capacidade cargueira;\n* custo base.\n\n---\n\n| Tamanho   | Mod. Atributos   | Reflexos | Furtividade | PV Extra | Limite Dano | Carga | Fator |\n| --------- | ---------------- | -------: | ----------: | -------: | ----------: | ----: | ----: |\n| Colossal  | +32 For / −4 Des |      −10 |         −20 |     +100 |         +50 |   ×20 |   ×20 |\n| Imenso    | +24 For / −4 Des |       −5 |         −10 |      +50 |         +20 |   ×10 |   ×10 |\n| Enorme    | +16 For / −4 Des |       −2 |          −5 |      +20 |         +10 |    ×5 |    ×5 |\n| Grande    | +8 For / −2 Des  |       −1 |          −2 |      +10 |          +5 |    ×2 |    ×2 |\n| Médio     | —                |        0 |          −1 |        — |           — |    ×1 |    ×1 |\n| Pequeno   | −2 For / +2 Des  |       +1 |          −2 |        — |           — |    ×2 |    ×2 |\n| Miúdo     | −4 For / +4 Des  |       +2 |          −5 |        — |           — |    ×5 |    ×5 |\n| Diminuto  | −6 For / +6 Des  |       +5 |         −10 |        — |           — |   ×10 |   ×10 |\n| Minúsculo | −8 For / +8 Des  |      +10 |         −20 |        — |           — |   ×20 |   ×20 |\n\n---\n\n## Regras\n\n### Tamanho influencia:\n\n* custo final;\n* peso;\n* anexos;\n* armadura;\n* capacidade interna;\n* força física.\n\n---",
+    "category": "Construção de dróides",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  },
+  {
+    "name": "Dróide Astromec R2",
+    "slug": "droide-astromec-r2",
+    "summary": "Astromec | Civil | ND 0 | Jogável: Sim | 4.500 créditos",
+    "details": "# 2. DRÓIDE ASTROMEC R2\n\n## Identificação\n\n| Campo           | Valor           |\n| --------------- | --------------- |\n| ID              | DROID_R2        |\n| Nome            | Dróide Astromec |\n| Série           | R2              |\n| Grau            | Segundo         |\n| Papel           | Astromec        |\n| Categoria       | Civil           |\n| Tipo            | Não-heróico     |\n| Tamanho         | Pequeno         |\n| ND              | 0               |\n| Nível           | 2               |\n| Disponibilidade | Licenciado      |\n| Custo           | 4.500 créditos  |\n| Jogável         | Sim             |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor   |\n| -------------- | ------- |\n| PV             | 7       |\n| Limite de Dano | 8       |\n| Deslocamento   | 6 rodas |\n| Voo            | 9 qdr   |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|   9 |  14 |   — |  15 |  10 |   7 |\n\n---\n\n## Sistemas Instalados\n\n* Rodas\n* Locomoção andante\n* Locomoção voadora\n* Pés magnéticos\n* Processador heurístico\n* Pacote diagnóstico\n* Sensores aprimorados\n* Visão no escuro\n* Armazenamento interno\n* 6 ferramentas\n* 1 garra\n\n---\n\n## Equipamentos Internos\n\n* Serra circular\n* Extintor\n* Holoprojetor\n* Hologravador\n* Sonda eletrochoque\n* Soldador\n* Memória astronavegação\n\n---\n\n## Regras Especiais\n\n### Suporte Técnico\n\nRecebe vantagens em:\n\n* reparos;\n* computação;\n* pilotagem;\n* navegação.\n\n### Interface Veicular\n\nPode conectar diretamente em veículos.\n\n---\n\n## Tags\n\n```txt\nastromec\nnavegacao\nreparo\ntecnico\n```\n\n---",
+    "category": "Dróides civis",
+    "extra": "Fonte OCR: droides-pt-2.txt"
+  },
+  {
+    "name": "Dróide de Protocolo 3PO",
+    "slug": "droide-de-protocolo-3po",
+    "summary": "Tradução | Civil | ND 0 | Jogável: Sim | 3.000 créditos",
+    "details": "# 3. DRÓIDE DE PROTOCOLO 3PO\n\n## Identificação\n\n| Campo           | Valor               |\n| --------------- | ------------------- |\n| ID              | DROID_3PO           |\n| Nome            | Dróide de Protocolo |\n| Série           | 3PO                 |\n| Grau            | Terceiro            |\n| Papel           | Tradução            |\n| Categoria       | Civil               |\n| Tipo            | Não-heróico         |\n| Tamanho         | Médio               |\n| ND              | 0                   |\n| Nível           | 1                   |\n| Disponibilidade | Licenciado          |\n| Custo           | 3.000 créditos      |\n| Jogável         | Sim                 |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor |\n| -------------- | ----- |\n| PV             | 2     |\n| Limite de Dano | 9     |\n| Deslocamento   | 6     |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|   8 |   9 |   — |  13 |  13 |  14 |\n\n---\n\n## Sistemas Instalados\n\n* Processador básico\n* Vocabulador\n* Tradutor universal\n* Locomoção andante\n* 2 mãos\n\n---\n\n## Equipamentos\n\n* Gravador de áudio\n\n---\n\n## Regras Especiais\n\n### Tradutor Universal\n\nEspecializado em:\n\n* negociação;\n* protocolo;\n* idiomas;\n* relações diplomáticas.\n\n---\n\n## Tags\n\n```txt\ntraducao\nprotocolo\nsocial\ndiplomacia\n```\n\n---",
+    "category": "Dróides civis",
+    "extra": "Fonte OCR: droides-pt-2.txt"
+  },
+  {
+    "name": "Dróide de Trabalho ASP",
+    "slug": "droide-de-trabalho-asp",
+    "summary": "Utilitário | Civil | ND 0 | Jogável: Sim | Variável",
+    "details": "# 4. DRÓIDE DE TRABALHO ASP\n\n## Identificação\n\n| Campo           | Valor              |\n| --------------- | ------------------ |\n| ID              | DROID_ASP          |\n| Nome            | Dróide de Trabalho |\n| Série           | ASP                |\n| Grau            | Quinto             |\n| Papel           | Utilitário         |\n| Categoria       | Civil              |\n| Tipo            | Não-heróico        |\n| Tamanho         | Médio              |\n| ND              | 0                  |\n| Nível           | 2                  |\n| Disponibilidade | Licenciado         |\n| Custo           | Variável           |\n| Jogável         | Sim                |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor |\n| -------------- | ----- |\n| PV             | 5     |\n| Limite de Dano | 13    |\n| Deslocamento   | 6     |\n\n---\n\n## Sistemas Instalados\n\n* Locomoção andante\n* Processador básico\n* Ferramentas internas\n\n---\n\n## Equipamentos\n\nConfigurável.\n\n---\n\n## Regras Especiais\n\n### Trabalho Geral\n\nEspecializado em:\n\n* manutenção;\n* construção;\n* transporte;\n* limpeza;\n* carga.\n\n---\n\n## Tags\n\n```txt\ntrabalho\nutilitario\noperacional\ncivil\n```\n\n---\n\n# Catálogo desta Parte\n\n| Modelo | Grau     | Papel      |\n| ------ | -------- | ---------- |\n| 2-1B   | Primeiro | Medicina   |\n| R2     | Segundo  | Astromec   |\n| 3PO    | Terceiro | Protocolo  |\n| ASP    | Quinto   | Utilitário |",
+    "category": "Dróides civis",
+    "extra": "Fonte OCR: droides-pt-2.txt"
+  },
+  {
+    "name": "Dróide Médico 2-1B",
+    "slug": "droide-medico-2-1b",
+    "summary": "Medicina | Civil | ND 0 | Jogável: Sim | 4.300 créditos",
+    "details": "# 1. DRÓIDE MÉDICO 2-1B\n\n## Identificação\n\n| Campo           | Valor          |\n| --------------- | -------------- |\n| ID              | DROID_2_1B     |\n| Nome            | Dróide Médico  |\n| Série           | 2-1B           |\n| Grau            | Primeiro       |\n| Papel           | Medicina       |\n| Categoria       | Civil          |\n| Tipo            | Não-heróico    |\n| Tamanho         | Médio          |\n| ND              | 0              |\n| Nível           | 2              |\n| Disponibilidade | Licenciado     |\n| Custo           | 4.300 créditos |\n| Jogável         | Sim            |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor   |\n| -------------- | ------- |\n| PV             | 5       |\n| Limite de Dano | 9       |\n| Deslocamento   | 6 qdr   |\n| Locomoção      | Andante |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|   8 |  11 |   — |  14 |  15 |   9 |\n\n---\n\n## Defesas\n\n| Reflexos | Surpreso | Fortitude | Vontade |\n| -------: | -------: | --------: | ------: |\n|       10 |       10 |         9 |      12 |\n\n---\n\n## Perícias\n\n| Perícia                         | Valor |\n| ------------------------------- | ----: |\n| Conhecimento (Ciências da Vida) |   +13 |\n| Percepção                       |    +5 |\n| Tratar Ferimentos               |   +13 |\n| Usar Computador                 |    +8 |\n\n---\n\n## Sistemas Instalados\n\n* Processador heurístico\n* Vocabulador\n* Sensores aprimorados\n* Locomoção andante\n* 2 mãos\n\n---\n\n## Equipamentos\n\nNenhum.\n\n---\n\n## Regras Especiais\n\n### Código Médico\n\nNão realiza ações deliberadamente letais contra criaturas orgânicas.\n\n### Especialização Médica\n\nProjetado para:\n\n* cirurgia;\n* estabilização;\n* diagnóstico;\n* recuperação.\n\n---\n\n## Tags\n\n```txt\nmedico\ncura\nhospital\ncirurgia\ncivil\n```\n\n---",
+    "category": "Dróides civis",
+    "extra": "Fonte OCR: droides-pt-2.txt"
+  },
+  {
+    "name": "Dróide Aranha Anão",
+    "slug": "droide-aranha-anao",
+    "summary": "Apoio Pesado | Militar | ND 3 | Jogável: Não | 8.500 créditos",
+    "details": "# 10. DRÓIDE ARANHA ANÃO\n\n## Identificação\n\n| Campo           | Valor              |\n| --------------- | ------------------ |\n| ID              | DROID_DWARF_SPIDER |\n| Nome            | Dróide Aranha Anão |\n| Grau            | Quarto             |\n| Papel           | Apoio Pesado       |\n| Categoria       | Militar            |\n| Tipo            | Assalto            |\n| Tamanho         | Grande             |\n| ND              | 3                  |\n| Disponibilidade | Militar            |\n| Custo           | 8.500 créditos     |\n| Jogável         | Não                |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor |\n| -------------- | ----- |\n| PV             | 32    |\n| Limite de Dano | 26    |\n| Deslocamento   | 8     |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|  24 |  14 |   — |   8 |  10 |   2 |\n\n---\n\n## Sistemas Instalados\n\n* Sensores aprimorados\n* Garras para escalar\n* Pés magnéticos\n* Locomoção multi-pernas\n* Receptor remoto\n* Revestimento de quadrânio\n* 1 ferramenta\n\n---\n\n## Equipamentos\n\n* Canhão blaster\n\n---\n\n## Regras Especiais\n\n### Estabilidade\n\nRecebe:\n\n```txt\n+5 contra derrubar\n```\n\n### Plataforma de Apoio\n\nProjetado para:\n\n* cobertura;\n* ataque estacionário;\n* combate urbano.\n\n---\n\n## Tags\n\n```txt\naranha\napoio\nblindado\ncis\n```\n\n---",
+    "category": "Dróides especiais",
+    "extra": "Fonte OCR: droides-pt-4.txt"
+  },
+  {
+    "name": "Dróide Caranguejo",
+    "slug": "droide-caranguejo",
+    "summary": "Assalto | Militar | ND 4 | Jogável: Não | 20.000 créditos",
+    "details": "# 11. DRÓIDE CARANGUEJO\n\n## Identificação\n\n| Campo           | Valor             |\n| --------------- | ----------------- |\n| ID              | DROID_CRAB        |\n| Nome            | Dróide Caranguejo |\n| Grau            | Quarto            |\n| Papel           | Assalto           |\n| Categoria       | Militar           |\n| Tipo            | Blindado          |\n| Tamanho         | Grande            |\n| ND              | 4                 |\n| Disponibilidade | Militar           |\n| Custo           | 20.000 créditos   |\n| Jogável         | Não               |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor |\n| -------------- | ----- |\n| PV             | 80    |\n| Limite de Dano | 42    |\n| Deslocamento   | 6     |\n| Escalada       | 3     |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|  28 |  12 |   — |  10 |  10 |   2 |\n\n---\n\n## Sistemas Instalados\n\n* Processador heurístico\n* Garras para escalar\n* Armadura de batalha durânio\n* Sistemas enrijecidos x5\n* 2 garras\n\n---\n\n## Equipamentos\n\n* Blasters duplos\n\n---\n\n## Regras Especiais\n\n### Escalada Militar\n\nPode operar em:\n\n* paredes;\n* cavernas;\n* superfícies irregulares.\n\n### Plataforma de Cerco\n\nProjetado para:\n\n* romper linhas;\n* combate prolongado.\n\n---\n\n## Tags\n\n```txt\ncaranguejo\ncerco\nblindado\nassalto\n```\n\n---\n\n# Comparativo Especial\n\n| Modelo      | Papel          | PV | Mobilidade | Especial       |\n| ----------- | -------------- | -: | ---------- | -------------- |\n| MagnaGuarda | Guarda         | 53 | Média      | Corpo a corpo  |\n| Sonda       | Reconhecimento | 34 | Flutuante  | Autodestruição |\n| Aranha      | Apoio          | 32 | Escalada   | Estabilidade   |\n| Caranguejo  | Cerco          | 80 | Escalada   | Enrijecido     |\n\n---\n\n# Catálogo desta Parte\n\n| Modelo      | Grau   | Especialidade  |\n| ----------- | ------ | -------------- |\n| MagnaGuarda | Quarto | Elite          |\n| Sonda       | Quarto | Reconhecimento |\n| Aranha      | Quarto | Apoio          |\n| Caranguejo  | Quarto | Cerco          |",
+    "category": "Dróides especiais",
+    "extra": "Fonte OCR: droides-pt-4.txt"
+  },
+  {
+    "name": "Dróide Sonda Víbora",
+    "slug": "droide-sonda-vibora",
+    "summary": "Reconhecimento | Militar | ND 1 | Jogável: Não | 18.500 créditos",
+    "details": "# 9. DRÓIDE SONDA — SÉRIE VÍBORA\n\n## Identificação\n\n| Campo           | Valor           |\n| --------------- | --------------- |\n| ID              | DROID_PROBE     |\n| Nome            | Dróide Sonda    |\n| Série           | Víbora          |\n| Grau            | Quarto          |\n| Papel           | Reconhecimento  |\n| Categoria       | Militar         |\n| Tipo            | Batedor         |\n| Tamanho         | Grande          |\n| ND              | 1               |\n| Disponibilidade | Restrita        |\n| Custo           | 18.500 créditos |\n| Jogável         | Não             |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor     |\n| -------------- | --------- |\n| PV             | 34        |\n| Limite de Dano | 19        |\n| Deslocamento   | 6         |\n| Locomoção      | Flutuante |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|  18 |  16 |   — |  12 |  15 |   5 |\n\n---\n\n## Sistemas Instalados\n\n* Locomoção flutuante\n* Sensores aprimorados\n* Visão no escuro\n* Comunicador integrado\n* Processador básico\n* Revestimento de duraço\n* Acesso travado\n* 2 garras\n* 2 ferramentas\n\n---\n\n## Equipamentos\n\n* Unidade sensora\n* Gravador de vídeo\n* Pistola blaster\n\n---\n\n## Regras Especiais\n\n### Vigilância Avançada\n\nEspecializado em:\n\n* patrulha;\n* busca;\n* espionagem;\n* reconhecimento.\n\n### Autodestruição\n\nPode eliminar seus próprios dados.\n\n---\n\n## Tags\n\n```txt\nsonda\nespionagem\nreconhecimento\nimperial\n```\n\n---",
+    "category": "Dróides especiais",
+    "extra": "Fonte OCR: droides-pt-4.txt"
+  },
+  {
+    "name": "MagnaGuarda IG-100",
+    "slug": "magnaguarda-ig-100",
+    "summary": "Guarda-Costas | Militar | ND 6 | Jogável: Não | 19.000 créditos",
+    "details": "# 8. MAGNAGUARDA IG-100\n\n## Identificação\n\n| Campo           | Valor           |\n| --------------- | --------------- |\n| ID              | DROID_IG100     |\n| Nome            | MagnaGuarda     |\n| Série           | IG-100          |\n| Grau            | Quarto          |\n| Papel           | Guarda-Costas   |\n| Categoria       | Militar         |\n| Tipo            | Soldado         |\n| Tamanho         | Médio           |\n| ND              | 6               |\n| Classe          | Soldado 6       |\n| Disponibilidade | Restrita        |\n| Custo           | 19.000 créditos |\n| Jogável         | Não             |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor |\n| -------------- | ----- |\n| PV             | 53    |\n| Limite de Dano | 17    |\n| Deslocamento   | 6     |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|  16 |  15 |   — |  13 |  12 |   8 |\n\n---\n\n## Defesas\n\n| Reflexos | Surpreso | Fortitude | Vontade |\n| -------: | -------: | --------: | ------: |\n|       18 |       16 |        17 |      15 |\n\n---\n\n## Sistemas Instalados\n\n* Processador heurístico\n* Locomoção andante\n* Visão no escuro\n* Sensores aprimorados\n* Bateria secundária\n* Comunicador interno\n* Acesso travado\n* Pés magnéticos\n* 2 mãos\n* Anexo telescópico\n\n---\n\n## Equipamentos\n\n* Bastão elétrico\n\n---\n\n## Regras Especiais\n\n### Guarda de Elite\n\nProjetado para proteção direta.\n\n### Continuidade Operacional\n\nMantém combate mesmo com danos severos.\n\n### Combate Corpo a Corpo\n\nEspecialista em combate próximo.\n\n---\n\n## Tags\n\n```txt\nmagnaguarda\nelite\nguarda\ngrievous\n```\n\n---",
+    "category": "Dróides especiais",
+    "extra": "Fonte OCR: droides-pt-4.txt"
+  },
+  {
+    "name": "Dróide de Batalha B1",
+    "slug": "droide-de-batalha-b1",
+    "summary": "Infantaria | Militar | ND 1 | Jogável: Não | 1.800 créditos",
+    "details": "# 5. DRÓIDE DE BATALHA B1\n\n## Identificação\n\n| Campo           | Valor             |\n| --------------- | ----------------- |\n| ID              | DROID_B1          |\n| Nome            | Dróide de Batalha |\n| Série           | B1                |\n| Grau            | Quarto            |\n| Papel           | Infantaria        |\n| Categoria       | Militar           |\n| Tipo            | Não-heróico       |\n| Tamanho         | Médio             |\n| ND              | 1                 |\n| Nível           | 3                 |\n| Disponibilidade | Militar           |\n| Custo           | 1.800 créditos    |\n| Jogável         | Não               |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor   |\n| -------------- | ------- |\n| PV             | 10      |\n| Limite de Dano | 11      |\n| Deslocamento   | 6 qdr   |\n| Locomoção      | Andante |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|  10 |  13 |   — |   8 |  10 |   6 |\n\n---\n\n## Defesas\n\n| Reflexos | Surpreso | Fortitude | Vontade |\n| -------: | -------: | --------: | ------: |\n|       14 |       12 |        12 |      10 |\n\n---\n\n## Sistemas Instalados\n\n* Comunicador interno\n* Processador remoto\n* Locomoção andante\n* Vocabulador\n* 2 mãos\n\n---\n\n## Equipamentos\n\n* Carabina blaster\n\n---\n\n## Regras Especiais\n\n### Controle Remoto\n\nRecebe comandos externos.\n\n### Produção em Massa\n\nProjetado para custo baixo e grande escala.\n\n### IA Limitada\n\nCapacidade reduzida de improvisação.\n\n---\n\n## Tags\n\n```txt\nb1\ncombate\ninfantaria\ncis\n```\n\n---",
+    "category": "Dróides militares",
+    "extra": "Fonte OCR: droides-pt-3.txt"
+  },
+  {
+    "name": "Dróide Destróier Droideka",
+    "slug": "droide-destroier-droideka",
+    "summary": "Supressão | Militar | ND 4 | Jogável: Não | 21.000 créditos",
+    "details": "# 7. DRÓIDE DESTRÓIER — DROIDEKA\n\n## Identificação\n\n| Campo           | Valor            |\n| --------------- | ---------------- |\n| ID              | DROID_DROIDEKA   |\n| Nome            | Dróide Destróier |\n| Série           | Droideka         |\n| Grau            | Quarto           |\n| Papel           | Supressão        |\n| Categoria       | Militar          |\n| Tipo            | Não-heróico      |\n| Tamanho         | Médio            |\n| ND              | 4                |\n| Nível           | 12               |\n| Disponibilidade | Militar          |\n| Custo           | 21.000 créditos  |\n| Jogável         | Não              |\n\n---\n\n## Estatísticas\n\n| Campo                | Valor |\n| -------------------- | ----- |\n| PV                   | 40    |\n| TE                   | 20    |\n| Limite de Dano       | 18    |\n| Deslocamento Andante | 2     |\n| Deslocamento Roda    | 10    |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|  18 |  16 |   — |  12 |  11 |   5 |\n\n---\n\n## Defesas\n\n| Reflexos | Surpreso | Fortitude | Vontade |\n| -------: | -------: | --------: | ------: |\n|       18 |       16 |        18 |      14 |\n\n---\n\n## Sistemas Instalados\n\n* Comunicador interno\n* Gerador de escudo\n* Locomoção andante\n* Locomoção roda\n* Receptor remoto\n* Invólucro de brônzio\n* 2 mãos\n\n---\n\n## Equipamentos\n\n* Canhão laser esquerdo\n* Canhão laser direito\n\n---\n\n## Regras Especiais\n\n### Modo Roda\n\nPode alternar:\n\n| Forma      | Movimento |\n| ---------- | --------- |\n| Combate    | 2         |\n| Mobilidade | 10        |\n\n---\n\n### Escudo Defletor\n\nTE 20.\n\nAbsorve dano antes dos PV.\n\n---\n\n### Plataforma de Supressão\n\nEspecializado em:\n\n* defesa de posição;\n* controle de área;\n* combate frontal.\n\n---\n\n## Tags\n\n```txt\ndroideka\nescudo\nsupressao\nelite\n```\n\n---\n\n# Comparativo Militar\n\n| Modelo   | Papel      | PV | Escudo | Mobilidade |\n| -------- | ---------- | -: | -----: | ---------- |\n| B1       | Infantaria | 10 |    Não | Média      |\n| B2       | Assalto    | 21 |    Não | Média      |\n| Droideka | Supressão  | 40 |     20 | Alta       |\n\n---\n\n# Catálogo desta Parte\n\n| Modelo   | Grau   | Especialidade |\n| -------- | ------ | ------------- |\n| B1       | Quarto | Infantaria    |\n| B2       | Quarto | Assalto       |\n| Droideka | Quarto | Supressão     |",
+    "category": "Dróides militares",
+    "extra": "Fonte OCR: droides-pt-3.txt"
+  },
+  {
+    "name": "Super Dróide de Batalha B2",
+    "slug": "super-droide-de-batalha-b2",
+    "summary": "Assalto | Militar | ND 1 | Jogável: Sim | 3.300 créditos",
+    "details": "# 6. SUPER DRÓIDE DE BATALHA B2\n\n## Identificação\n\n| Campo           | Valor                   |\n| --------------- | ----------------------- |\n| ID              | DROID_B2                |\n| Nome            | Super Dróide de Batalha |\n| Série           | B2                      |\n| Grau            | Quarto                  |\n| Papel           | Assalto                 |\n| Categoria       | Militar                 |\n| Tipo            | Não-heróico             |\n| Tamanho         | Médio                   |\n| ND              | 1                       |\n| Nível           | 6                       |\n| Disponibilidade | Militar                 |\n| Custo           | 3.300 créditos          |\n| Jogável         | Sim                     |\n\n---\n\n## Estatísticas\n\n| Campo          | Valor |\n| -------------- | ----- |\n| PV             | 21    |\n| Limite de Dano | 12    |\n| Deslocamento   | 6     |\n\n---\n\n## Atributos\n\n| For | Des | Con | Int | Sab | Car |\n| --: | --: | --: | --: | --: | --: |\n|  15 |  11 |   — |  10 |  10 |   7 |\n\n---\n\n## Defesas\n\n| Reflexos | Surpreso | Fortitude | Vontade |\n| -------: | -------: | --------: | ------: |\n|       15 |       13 |        17 |      12 |\n\n---\n\n## Sistemas Instalados\n\n* Comunicador interno\n* Locomoção andante\n* Processador remoto\n* Invólucro de aço plástico\n* Vocabulador\n* 2 mãos\n\n---\n\n## Equipamentos\n\n* Blasters de pulso embutidos\n\n---\n\n## Regras Especiais\n\n### Blindagem Integrada\n\nEstrutura reforçada.\n\n### Independência Parcial\n\nContinua operando sem rede.\n\n### Plataforma de Supressão\n\nAlta cadência de fogo.\n\n---\n\n## Tags\n\n```txt\nb2\nassalto\ncombate\nblindado\n```\n\n---",
+    "category": "Dróides militares",
+    "extra": "Fonte OCR: droides-pt-3.txt"
+  },
+  {
+    "name": "Armazenamento Interno",
+    "slug": "droides-armazenamento-interno",
+    "summary": "ARMAZENAMENTO INTERNO Compartimentos Mecanismo de Arremesso Preço: Permite: Acesso Travado Preço: Disponibilidade: Impede acesso não autorizado.",
+    "details": "# ARMAZENAMENTO INTERNO\n\n---\n\n## Compartimentos\n\n```txt\n50 créditos / kg\n```\n\n---\n\n## Mecanismo de Arremesso\n\nPreço:\n\n```txt\n150\n```\n\nPermite:\n\n```txt\nejetar item\n```\n\n---\n\n## Acesso Travado\n\nPreço:\n\n```txt\n50\n```\n\nDisponibilidade:\n\n```txt\nLicenciado\n```\n\nImpede acesso não autorizado.\n\n---",
+    "category": "Sistemas internos",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  },
+  {
+    "name": "Sistemas Enrijecidos",
+    "slug": "droides-sistemas-enrijecidos",
+    "summary": "SISTEMAS ENRIJECIDOS Efeito Multiplica resistência estrutural. Usado em: militares; combate; cerco.",
+    "details": "# SISTEMAS ENRIJECIDOS\n\n| Tipo |        Preço |\n| ---- | -----------: |\n| x2   | 1000 × fator |\n| x3   | 2500 × fator |\n| x4   | 4000 × fator |\n| x5   | 6250 × fator |\n\n---\n\n## Efeito\n\nMultiplica resistência estrutural.\n\nUsado em:\n\n* militares;\n* combate;\n* cerco.\n\n---",
+    "category": "Sistemas internos",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  },
+  {
+    "name": "Sistemas Internos",
+    "slug": "droides-sistemas-internos",
+    "summary": "SISTEMAS INTERNOS Comunicador Interno Preço: Permite: voz; rádio; integração. Vocabulador Preço: Permite: Pacote Diagnóstico Preço: Permite: Convocador Preço: Permite:",
+    "details": "# SISTEMAS INTERNOS\n\n---\n\n## Comunicador Interno\n\nPreço:\n\n```txt\n250\n```\n\nPermite:\n\n* voz;\n* rádio;\n* integração.\n\n---\n\n## Vocabulador\n\nPreço:\n\n```txt\n50\n```\n\nPermite:\n\n```txt\nfala orgânica\n```\n\n---\n\n## Pacote Diagnóstico\n\nPreço:\n\n```txt\n250\n```\n\nPermite:\n\n```txt\nanalisar defeitos\n```\n\n---\n\n## Convocador\n\nPreço:\n\n```txt\n10\n```\n\nPermite:\n\n```txt\ninvocar dróide remoto\n```\n\n---",
+    "category": "Sistemas internos",
+    "extra": "Fonte OCR: droides-pt-5.txt"
+  }
+];

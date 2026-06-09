@@ -17,7 +17,12 @@ import {
 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useEffect, useMemo, useState } from 'react';
-import { sagaEquipmentDetailsCatalog, sagaTalentDetailsCatalog, sagaVehicleDetailsCatalog } from './starWarsSagaCatalogData';
+import {
+  sagaDroidDetailsCatalog,
+  sagaEquipmentDetailsCatalog,
+  sagaTalentDetailsCatalog,
+  sagaVehicleDetailsCatalog,
+} from './starWarsSagaCatalogData';
 
 type SheetTab =
   | 'summary'
@@ -321,7 +326,6 @@ const baseForcePowerCatalog = [
 ].map(toCatalogItem);
 
 const vehicleCatalog = ['X-wing', 'TIE Fighter', 'Y-wing', 'Millennium Falcon', 'Speeder bike', 'AT-ST'].map(toCatalogItem);
-const droidSystemCatalog = ['Locomocao por rodas', 'Locomocao por pes', 'Processador heuristicos', 'Apêndice manipulador'].map(toCatalogItem);
 
 const talentDetailsCatalog: DetailCatalogItem[] = [...sagaTalentDetailsCatalog];
 
@@ -356,12 +360,7 @@ const equipmentDetailsCatalog: DetailCatalogItem[] = [...sagaEquipmentDetailsCat
 
 const vehicleDetailsCatalog: DetailCatalogItem[] = [...sagaVehicleDetailsCatalog];
 
-const droidSystemDetailsCatalog: DetailCatalogItem[] = [
-  detailItem('Locomocao por rodas', 'Sistema de droide', 'Sistema de movimento simples e eficiente para superficies regulares.', 'Locomotion'),
-  detailItem('Locomocao por pes', 'Sistema de droide', 'Permite ao droide caminhar e lidar melhor com terreno irregular.', 'Locomotion'),
-  detailItem('Processador heuristicos', 'Sistema de droide', 'Processador avancado que permite aprendizado e comportamento adaptavel.', 'Processor'),
-  detailItem('Apendice manipulador', 'Sistema de droide', 'Braco ou ferramenta fisica para manipular objetos e equipamentos.', 'Appendage'),
-];
+const droidSystemDetailsCatalog: DetailCatalogItem[] = [...sagaDroidDetailsCatalog];
 
 const abilityLabels: Record<AbilityKey, string> = {
   strength: 'Forca',
@@ -997,7 +996,7 @@ export function App() {
           {activeTab === 'force' && <ForcePanel />}
           {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisao" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
           {activeTab === 'vehicles' && <GroupedRichSelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" groupLabel="Subdivisao" itemLabel="Veiculo" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
-          {activeTab === 'droids' && <RichSelectionPanel icon={<CircleDot aria-hidden="true" />} title="Droides" items={droidSystemDetailsCatalog} selected={activeSheet.droidSystems} onChange={(value) => setField('droidSystems', value)} />}
+          {activeTab === 'droids' && <GroupedRichSelectionPanel icon={<CircleDot aria-hidden="true" />} title="Droides" groupLabel="Subdivisao" itemLabel="Droide" items={droidSystemDetailsCatalog} selected={activeSheet.droidSystems} onChange={(value) => setField('droidSystems', value)} />}
           {(activeTab === 'notes' || activeTab === 'history' || activeTab === 'versions') && (
             <Panel icon={<Save aria-hidden="true" />} title={activeTab === 'versions' ? 'Versoes' : activeTab === 'history' ? 'Historico' : 'Anotacoes'}>
               <textarea value={activeTab === 'history' ? activeSheet.progressionLog : activeTab === 'versions' ? activeSheet.versionNote : activeSheet.notes} onChange={(event) => setField(activeTab === 'history' ? 'progressionLog' : activeTab === 'versions' ? 'versionNote' : 'notes', event.target.value)} />

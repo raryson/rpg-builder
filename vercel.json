@@ -1,6 +1,6 @@
 {
   "framework": "vite",
-  "installCommand": "npm install --workspaces --include-workspace-root",
+  "installCommand": "npm install --include=dev --workspaces --include-workspace-root",
   "buildCommand": "npm run build --workspace @rpg-builder/web",
   "outputDirectory": "apps/web/dist",
   "rewrites": [
