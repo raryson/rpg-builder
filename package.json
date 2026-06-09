@@ -1,0 +1,15 @@
+{
+  "name": "rpg-builder",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @rpg-builder/web",
+    "dev:web": "npm run dev --workspace @rpg-builder/web",
+    "dev:api": "npm run dev --workspace @rpg-builder/api",
+    "build": "npm run build --workspace @rpg-builder/web && npm run build --workspace @rpg-builder/api",
+    "lint": "npm run lint --workspaces --if-present"
+  }
+}
