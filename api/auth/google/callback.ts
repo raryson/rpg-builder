@@ -2,14 +2,14 @@ import {
   clearStateCookie,
   exchangeGoogleCode,
   getSessionCookie,
-  getWebAppUrl,
+  getSheetBuilderUrl,
   persistGoogleUser,
   validateGoogleState,
 } from '../../_shared/auth';
 import { queryValue } from '../../_shared/http';
 
 export default async function handler(req: any, res: any) {
-  const appUrl = getWebAppUrl(req);
+  const appUrl = getSheetBuilderUrl(req);
 
   try {
     const code = queryValue(req.query?.code);

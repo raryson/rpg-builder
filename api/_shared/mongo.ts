@@ -76,6 +76,33 @@ function getWebUserModel() {
   return mongooseAny.models.WebUser || mongooseAny.model('WebUser', schema);
 }
 
+function getRuleEntryModel() {
+  const mongooseAny = mongoose as any;
+  const schema = new mongooseAny.Schema(
+    {
+      systemSlug: { type: String, required: true, index: true },
+      type: { type: String, required: true, index: true },
+      name: { type: String, required: true, trim: true },
+      slug: { type: String, required: true, trim: true },
+      category: { type: String, default: '', index: true },
+      summary: { type: String, default: '' },
+      content: { type: String, default: '' },
+      stats: { type: mongooseAny.Schema.Types.Mixed, default: {} },
+      tags: { type: [String], default: [], index: true },
+      source: { type: String, default: '' },
+      visibility: { type: String, enum: ['public', 'private'], default: 'public', index: true },
+      status: { type: String, enum: ['draft', 'published', 'archived'], default: 'published', index: true },
+    },
+    { timestamps: true },
+  );
+
+  schema.index({ systemSlug: 1, type: 1, slug: 1 }, { unique: true });
+  schema.index({ systemSlug: 1, visibility: 1, status: 1, type: 1, category: 1, name: 1 });
+  schema.index({ name: 'text', summary: 'text', content: 'text', tags: 'text' });
+
+  return mongooseAny.models.RuleEntry || mongooseAny.model('RuleEntry', schema);
+}
+
 export async function listWebSheets(ownerId: string) {
   await connectToDatabase();
   const sheets = await getWebSheetModel().find({ ownerId, archivedAt: null }).sort({ updatedAt: -1 });
@@ -97,7 +124,7 @@ export async function saveWebSheet(input: { ownerId: string; sheetId: string; na
       },
     },
     {
-      new: true,
+      returnDocument: 'after',
       upsert: true,
       setDefaultsOnInsert: true,
     },
@@ -144,9 +171,111 @@ export async function saveGoogleUser(input: {
       },
     },
     {
-      new: true,
+      returnDocument: 'after',
       upsert: true,
       setDefaultsOnInsert: true,
     },
   );
+}
+
+export async function listRuleEntries(input: {
+  systemSlug?: string;
+  type?: string;
+  category?: string;
+  query?: string;
+  limit?: number;
+}) {
+  await connectToDatabase();
+
+  const filter: Record<string, unknown> = {
+    systemSlug: input.systemSlug ?? 'star-wars-saga',
+    visibility: 'public',
+    status: 'published',
+  };
+
+  if (input.type) filter.type = input.type;
+  if (input.category) filter.category = input.category;
+  if (input.query) filter.$text = { $search: input.query };
+
+  const limit = Math.min(Math.max(input.limit ?? 80, 1), 200);
+  const query = getRuleEntryModel()
+    .find(filter)
+    .sort(input.query ? { score: { $meta: 'textScore' }, name: 1 } : { type: 1, category: 1, name: 1 })
+    .limit(limit);
+
+  if (input.query) {
+    query.select({ score: { $meta: 'textScore' } });
+  }
+
+  const entries = await query.lean();
+
+  return entries.map((entry: any) => ({
+    id: String(entry._id),
+    systemSlug: entry.systemSlug,
+    type: entry.type,
+    name: entry.name,
+    slug: entry.slug,
+    category: entry.category ?? '',
+    summary: entry.summary ?? '',
+    content: entry.content ?? '',
+    stats: entry.stats ?? {},
+    tags: entry.tags ?? [],
+    source: entry.source ?? '',
+    updatedAt: entry.updatedAt,
+  }));
+}
+
+function leanRuleEntry(entry: any) {
+  return {
+    id: String(entry._id),
+    systemSlug: entry.systemSlug,
+    type: entry.type,
+    name: entry.name,
+    slug: entry.slug,
+    category: entry.category ?? '',
+    summary: entry.summary ?? '',
+    content: entry.content ?? '',
+    stats: entry.stats ?? {},
+    tags: entry.tags ?? [],
+    source: entry.source ?? '',
+    updatedAt: entry.updatedAt,
+  };
+}
+
+export async function getRuleEntryWithRelated(systemSlug: string, slug: string) {
+  await connectToDatabase();
+  const model = getRuleEntryModel();
+  const rule = await model.findOne({
+    systemSlug,
+    slug,
+    visibility: 'public',
+    status: 'published',
+  }).lean();
+
+  if (!rule) return null;
+
+  const relatedFilter: Record<string, unknown> = {
+    systemSlug,
+    slug: { $ne: slug },
+    visibility: 'public',
+    status: 'published',
+    $or: [
+      { type: rule.type },
+      { category: rule.category },
+    ],
+  };
+
+  if (Array.isArray(rule.tags) && rule.tags.length > 0) {
+    (relatedFilter.$or as Array<Record<string, unknown>>).push({ tags: { $in: rule.tags.slice(0, 8) } });
+  }
+
+  const related = await model.find(relatedFilter)
+    .sort({ type: 1, category: 1, name: 1 })
+    .limit(8)
+    .lean();
+
+  return {
+    rule: leanRuleEntry(rule),
+    related: related.map(leanRuleEntry),
+  };
 }

@@ -152,6 +152,10 @@ export function getWebAppUrl(request: NextRequest) {
   return process.env.WEB_APP_URL ?? (process.env.NODE_ENV === 'development' ? 'http://localhost:5173' : request.nextUrl.origin);
 }
 
+export function getSheetBuilderUrl(request: NextRequest) {
+  return new URL('/app', getWebAppUrl(request)).toString();
+}
+
 export function getGoogleClientConfig() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;

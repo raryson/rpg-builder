@@ -13,6 +13,7 @@ import {
   LogOut,
   Package,
   Save,
+  Search,
   Shield,
   Sparkles,
   Swords,
@@ -73,6 +74,26 @@ type AuthUser = {
   email: string;
   name: string;
   picture: string;
+};
+
+type WikiRule = {
+  id: string;
+  systemSlug: string;
+  type: string;
+  name: string;
+  slug: string;
+  category: string;
+  summary: string;
+  content: string;
+  stats: Record<string, unknown>;
+  tags: string[];
+  source: string;
+};
+
+type WikiSystem = {
+  slug: string;
+  name: string;
+  shortName: string;
 };
 
 type RuleChip = {
@@ -167,6 +188,13 @@ type CharacterSheet = {
 
 const STORAGE_KEY = 'rpg-builder-star-wars-saga-sheets';
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
+const wikiSystems: WikiSystem[] = [
+  {
+    slug: 'star-wars-saga',
+    name: 'Star Wars Saga Edition',
+    shortName: 'Star Wars Saga',
+  },
+];
 
 const sheetTabs: Array<{ id: SheetTab; label: string }> = [
   { id: 'identity', label: 'Identidade' },
@@ -592,6 +620,52 @@ async function logoutRemoteSession() {
   });
 }
 
+async function readWikiRules(filters: { systemSlug?: string; query?: string; type?: string; limit?: number } = {}) {
+  const params = new URLSearchParams({
+    system: filters.systemSlug ?? 'star-wars-saga',
+    limit: String(filters.limit ?? 120),
+  });
+
+  if (filters.query) params.set('q', filters.query);
+  if (filters.type) params.set('type', filters.type);
+
+  const response = await fetch(apiUrl(`/api/wiki/rules?${params.toString()}`));
+
+  if (!response.ok) {
+    throw new Error('Não foi possível carregar a wiki.');
+  }
+
+  const payload = (await response.json()) as { rules?: WikiRule[] };
+  return payload.rules ?? [];
+}
+
+async function readWikiRule(systemSlug: string, slug: string) {
+  const params = new URLSearchParams({ system: systemSlug });
+  const response = await fetch(apiUrl(`/api/wiki/rules/${encodeURIComponent(slug)}?${params.toString()}`));
+
+  if (response.ok) {
+    return (await response.json()) as { rule: WikiRule; related: WikiRule[] };
+  }
+
+  const rules = await readWikiRules({ systemSlug, limit: 200 });
+  const rule = rules.find((item) => item.slug === slug);
+
+  if (!rule) {
+    throw new Error('Não foi possível carregar esta regra.');
+  }
+
+  const related = rules
+    .filter((item) => item.slug !== slug)
+    .filter((item) =>
+      item.type === rule.type ||
+      item.category === rule.category ||
+      item.tags.some((tag) => rule.tags.includes(tag)),
+    )
+    .slice(0, 8);
+
+  return { rule, related };
+}
+
 function modifier(score: number) {
   return Math.floor((score - 10) / 2);
 }
@@ -879,7 +953,296 @@ function RuleHighlights({ item, text, chips, compact = false }: { item?: Partial
   );
 }
 
+function UserBadge({ user }: { user: AuthUser }) {
+  return (
+    <div className="account-card compact">
+      {user.picture ? <img alt="" src={user.picture} /> : <UserRound aria-hidden="true" />}
+      <div>
+        <span>{user.name}</span>
+        <small>{user.email}</small>
+      </div>
+    </div>
+  );
+}
+
+function WikiApp({
+  authUser,
+  authLoaded,
+  onLogin,
+  onLogout,
+}: {
+  authUser: AuthUser | null;
+  authLoaded: boolean;
+  onLogin: () => void;
+  onLogout: () => void;
+}) {
+  const [rules, setRules] = useState<WikiRule[]>([]);
+  const [query, setQuery] = useState('');
+  const [type, setType] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const routeParts = window.location.pathname.split('/').filter(Boolean);
+  const routeSystemSlug = routeParts[1] ?? 'star-wars-saga';
+  const routeRuleSlug = routeParts[2] ?? '';
+  const activeSystem = wikiSystems.find((system) => system.slug === routeSystemSlug) ?? wikiSystems[0];
+  const ruleTypes = [
+    ['', 'Tudo'],
+    ['equipment', 'Equipamentos'],
+    ['talent', 'Talentos'],
+    ['vehicle', 'Veículos'],
+    ['droid', 'Dróides'],
+  ];
+
+  useEffect(() => {
+    if (window.location.pathname === '/wiki') {
+      window.history.replaceState(null, '', `/wiki/${activeSystem.slug}`);
+    }
+  }, [activeSystem.slug]);
+
+  if (routeRuleSlug) {
+    return (
+      <WikiRuleDetail
+        activeSystem={activeSystem}
+        authLoaded={authLoaded}
+        authUser={authUser}
+        onLogin={onLogin}
+        onLogout={onLogout}
+        slug={routeRuleSlug}
+      />
+    );
+  }
+
+  useEffect(() => {
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      setLoading(true);
+      setError('');
+      readWikiRules({ systemSlug: activeSystem.slug, query, type })
+        .then((nextRules) => {
+          if (!cancelled) setRules(nextRules);
+        })
+        .catch((loadError) => {
+          if (!cancelled) {
+            setError(loadError instanceof Error ? loadError.message : 'Não foi possível carregar a wiki.');
+            setRules([]);
+          }
+        })
+        .finally(() => {
+          if (!cancelled) setLoading(false);
+        });
+    }, 250);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [activeSystem.slug, query, type]);
+
+  return (
+    <main className="wiki-shell">
+      <header className="global-header">
+        <button className="brand-link" type="button" onClick={() => { window.location.href = '/app'; }}>
+          <Dice5 aria-hidden="true" />
+          <span>RPG Builder</span>
+        </button>
+        <nav className="global-nav" aria-label="Navegação principal">
+          <button type="button" onClick={() => { window.location.href = '/app'; }}>Ficha</button>
+          <button className="active" type="button" onClick={() => { window.location.href = `/wiki/${activeSystem.slug}`; }}>Wiki</button>
+        </nav>
+        <div className="global-account">
+          {!authLoaded && <span>Carregando sessão...</span>}
+          {authLoaded && authUser && <UserBadge user={authUser} />}
+          {authLoaded && authUser && <button type="button" onClick={onLogout}>Sair</button>}
+          {authLoaded && !authUser && <button type="button" onClick={onLogin}>Entrar</button>}
+        </div>
+      </header>
+
+      <section className="wiki-topbar">
+        <div>
+          <span>Wiki / {activeSystem.slug}</span>
+          <h1>{activeSystem.name}</h1>
+        </div>
+        <button type="button" onClick={() => { window.location.href = '/app'; }}>Criar ficha</button>
+      </section>
+
+      <section className="wiki-controls" aria-label="Filtros da wiki">
+        <label>
+          <Search aria-hidden="true" />
+          <input value={query} placeholder="Buscar regra, arma, talento..." onChange={(event) => setQuery(event.target.value)} />
+        </label>
+        <div className="wiki-type-tabs">
+          {ruleTypes.map(([value, label]) => (
+            <button className={type === value ? 'active' : ''} key={value || 'all'} type="button" onClick={() => setType(value)}>
+              {label}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {loading && (
+        <div className="wiki-grid" aria-label="Carregando regras">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <article className="wiki-card skeleton-card" key={index}>
+              <span />
+              <strong />
+              <p />
+              <p />
+            </article>
+          ))}
+        </div>
+      )}
+
+      {!loading && error && <p className="wiki-message">{error}</p>}
+      {!loading && !error && rules.length === 0 && <p className="wiki-message">Nenhuma regra encontrada. Rode o seed do catálogo ou ajuste os filtros.</p>}
+
+      {!loading && !error && rules.length > 0 && (
+        <div className="wiki-grid">
+          {rules.map((rule) => (
+            <article className="wiki-card" key={rule.id}>
+              <div className="preview-heading">
+                <strong>{rule.name}</strong>
+                <small>{rule.category || rule.type}</small>
+              </div>
+              <RuleHighlights text={[rule.summary, rule.content, Object.values(rule.stats ?? {}).join(' ')].join(' ')} compact />
+              <p>{rule.summary || 'Sem resumo catalogado.'}</p>
+              <button className="wiki-card-link" type="button" onClick={() => { window.location.href = `/wiki/${activeSystem.slug}/${rule.slug}`; }}>
+                Ver regra
+              </button>
+            </article>
+          ))}
+        </div>
+      )}
+    </main>
+  );
+}
+
+function WikiRuleDetail({
+  activeSystem,
+  authUser,
+  authLoaded,
+  onLogin,
+  onLogout,
+  slug,
+}: {
+  activeSystem: WikiSystem;
+  authUser: AuthUser | null;
+  authLoaded: boolean;
+  onLogin: () => void;
+  onLogout: () => void;
+  slug: string;
+}) {
+  const [rule, setRule] = useState<WikiRule | null>(null);
+  const [related, setRelated] = useState<WikiRule[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError('');
+
+    readWikiRule(activeSystem.slug, slug)
+      .then((payload) => {
+        if (cancelled) return;
+        setRule(payload.rule);
+        setRelated(payload.related ?? []);
+      })
+      .catch((loadError) => {
+        if (!cancelled) {
+          setError(loadError instanceof Error ? loadError.message : 'Não foi possível carregar esta regra.');
+          setRule(null);
+          setRelated([]);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activeSystem.slug, slug]);
+
+  return (
+    <main className="wiki-shell">
+      <header className="global-header">
+        <button className="brand-link" type="button" onClick={() => { window.location.href = '/app'; }}>
+          <Dice5 aria-hidden="true" />
+          <span>RPG Builder</span>
+        </button>
+        <nav className="global-nav" aria-label="Navegação principal">
+          <button type="button" onClick={() => { window.location.href = '/app'; }}>Ficha</button>
+          <button className="active" type="button" onClick={() => { window.location.href = `/wiki/${activeSystem.slug}`; }}>Wiki</button>
+        </nav>
+        <div className="global-account">
+          {!authLoaded && <span>Carregando sessão...</span>}
+          {authLoaded && authUser && <UserBadge user={authUser} />}
+          {authLoaded && authUser && <button type="button" onClick={onLogout}>Sair</button>}
+          {authLoaded && !authUser && <button type="button" onClick={onLogin}>Entrar</button>}
+        </div>
+      </header>
+
+      <section className="wiki-detail-shell">
+        <button className="wiki-back-button" type="button" onClick={() => { window.location.href = `/wiki/${activeSystem.slug}`; }}>
+          Voltar para {activeSystem.shortName}
+        </button>
+
+        {loading && (
+          <article className="wiki-detail-card skeleton-card">
+            <span />
+            <strong />
+            <p />
+            <p />
+            <p />
+          </article>
+        )}
+
+        {!loading && error && <p className="wiki-message">{error}</p>}
+
+        {!loading && !error && rule && (
+          <div className="wiki-detail-layout">
+            <article className="wiki-detail-card">
+              <div className="wiki-detail-heading">
+                <span>{activeSystem.shortName} / {rule.type}</span>
+                <h1>{rule.name}</h1>
+                <small>{rule.category || 'Geral'}</small>
+              </div>
+              <RuleHighlights text={[rule.summary, rule.content, Object.values(rule.stats ?? {}).join(' ')].join(' ')} />
+              {rule.summary && <p className="wiki-detail-summary">{rule.summary}</p>}
+              {renderFormattedText(rule.content)}
+              {Object.keys(rule.stats ?? {}).length > 0 && (
+                <div className="wiki-stat-grid">
+                  {Object.entries(rule.stats).map(([key, value]) => (
+                    <div key={key}>
+                      <span>{key}</span>
+                      <strong>{String(value)}</strong>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {rule.source && <small className="wiki-source">Fonte: {rule.source}</small>}
+            </article>
+
+            <aside className="wiki-related">
+              <h2>Regras relacionadas</h2>
+              {related.length === 0 && <p>Nenhuma relação direta encontrada ainda.</p>}
+              {related.map((relatedRule) => (
+                <button key={relatedRule.id} type="button" onClick={() => { window.location.href = `/wiki/${activeSystem.slug}/${relatedRule.slug}`; }}>
+                  <strong>{relatedRule.name}</strong>
+                  <span>{relatedRule.category || relatedRule.type}</span>
+                </button>
+              ))}
+            </aside>
+          </div>
+        )}
+      </section>
+    </main>
+  );
+}
+
 export function App() {
+  const isWikiRoute = window.location.pathname.startsWith('/wiki');
+  const authError = new URLSearchParams(window.location.search).get('authError');
   const [sheets, setSheets] = useState<CharacterSheet[]>(loadSheets);
   const [activeId, setActiveId] = useState(() => sheets[0]?.id);
   const [activeTab, setActiveTab] = useState<SheetTab>('identity');
@@ -1113,6 +1476,10 @@ export function App() {
     }
   }
 
+  if (isWikiRoute) {
+    return <WikiApp authLoaded={authLoaded} authUser={authUser} onLogin={loginWithGoogle} onLogout={logout} />;
+  }
+
   if (!authLoaded) {
     return (
       <main className="auth-shell">
@@ -1134,8 +1501,12 @@ export function App() {
           <span>RPG Builder</span>
           <h1>Entre para criar fichas</h1>
           <p>Suas fichas ficam salvas no Mongo e separadas pela sua conta Google.</p>
+          {authError && <p className="auth-error">{authError}</p>}
           <button className="google-login-button" type="button" onClick={loginWithGoogle}>
             Entrar com Google
+          </button>
+          <button className="secondary-auth-button" type="button" onClick={() => { window.location.href = '/wiki/star-wars-saga'; }}>
+            Consultar wiki pública
           </button>
         </div>
       </main>
@@ -1160,6 +1531,15 @@ export function App() {
             <small>{authUser.email}</small>
           </div>
         </div>
+
+        <nav className="sidebar-nav" aria-label="Navegação principal">
+          <button className="active" type="button" onClick={() => { window.location.href = '/app'; }}>
+            Fichas
+          </button>
+          <button type="button" onClick={() => { window.location.href = '/wiki/star-wars-saga'; }}>
+            Wiki Star Wars
+          </button>
+        </nav>
 
         <button className="primary-action" type="button" onClick={addSheet}>
           <FilePlus2 aria-hidden="true" />

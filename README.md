@@ -51,6 +51,7 @@ npm install
 npm run dev:web
 npm run dev:api
 npm run build
+npm run seed:rules
 ```
 
 ## Ambiente
@@ -100,6 +101,22 @@ https://rpg-builder-seven.vercel.app
 Authorized redirect URIs:
 https://rpg-builder-seven.vercel.app/api/auth/google/callback
 ```
+
+## Wiki Pública
+
+A área `/wiki` é pública e carrega dados no cliente via `GET /api/wiki/rules`, mostrando skeleton enquanto a API responde. Para popular o Mongo com o catálogo atual de Star Wars Saga:
+
+```bash
+npm run seed:rules
+```
+
+O seed lê `apps/web/src/starWarsSagaCatalogData.ts` e grava entradas estruturadas na coleção `RuleEntry`, com conteúdo markdown e campos como dano, custo, tipo e disponibilidade quando existirem no catálogo.
+
+## Rotas Frontend
+
+- `/wiki/star-wars-saga`: wiki pública de Star Wars Saga, sem login.
+- `/wiki/star-wars-saga/:slug`: página pública de uma regra específica, com regras relacionadas.
+- `/app`: criador/editor de ficha, exige login Google.
 
 ## Endpoints Base
 

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import {
   clearGoogleStateCookie,
   exchangeGoogleCode,
-  getWebAppUrl,
+  getSheetBuilderUrl,
   setSessionCookie,
   validateGoogleState,
 } from '../../../../../lib/auth';
@@ -11,7 +11,7 @@ import { WebUserService } from '../../../../../services/WebUserService';
 const webUserService = new WebUserService();
 
 export async function GET(request: NextRequest) {
-  const appUrl = getWebAppUrl(request);
+  const appUrl = getSheetBuilderUrl(request);
 
   try {
     if (!validateGoogleState(request)) {

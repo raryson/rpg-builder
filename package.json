@@ -19,6 +19,7 @@
     "build:web": "npm run build --workspace @rpg-builder/web",
     "vercel-build": "node scripts/vercel-build-web.mjs",
     "build": "npm run build --workspace @rpg-builder/web && npm run build --workspace @rpg-builder/api",
+    "seed:rules": "node scripts/seed-rule-entries.mjs",
     "lint": "npm run lint --workspaces --if-present"
   }
 }

@@ -76,6 +76,16 @@ button {
   margin: 0;
 }
 
+.auth-panel .auth-error {
+  background: #fff0ea;
+  border: 1px solid #e2a895;
+  border-radius: 8px;
+  color: #8d2b1d;
+  font-weight: 800;
+  padding: 10px 12px;
+  width: 100%;
+}
+
 .google-login-button {
   background: #263136;
   border: 0;
@@ -84,6 +94,391 @@ button {
   font-weight: 900;
   min-height: 44px;
   padding: 0 16px;
+}
+
+.secondary-auth-button {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  color: #30363a;
+  font-weight: 900;
+  min-height: 42px;
+  padding: 0 14px;
+}
+
+.wiki-shell {
+  background: #f4f1e8;
+  color: #1f2529;
+  min-height: 100vh;
+  padding: 26px;
+}
+
+.global-header {
+  align-items: center;
+  background: #20272b;
+  border-radius: 8px;
+  color: #fffaf0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: auto 1fr auto;
+  margin: 0 auto 18px;
+  max-width: 1180px;
+  min-height: 62px;
+  padding: 10px 12px;
+}
+
+.brand-link {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  display: inline-flex;
+  font-weight: 900;
+  gap: 9px;
+  padding: 0;
+}
+
+.brand-link svg {
+  color: #e1ba55;
+  height: 24px;
+  width: 24px;
+}
+
+.global-nav,
+.global-account {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.global-nav {
+  justify-content: center;
+}
+
+.global-account {
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.global-nav button,
+.global-account > button,
+.sidebar-nav button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  font-weight: 900;
+  min-height: 38px;
+  padding: 0 12px;
+}
+
+.global-nav button,
+.sidebar-nav button {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fffaf0;
+}
+
+.global-nav button.active,
+.sidebar-nav button.active {
+  background: #f6f1e5;
+  border-color: #e1ba55;
+  color: #20272b;
+}
+
+.global-account > span {
+  color: #c5cecb;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.global-account > button {
+  background: #d54635;
+  color: #fffaf0;
+}
+
+.wiki-topbar {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  margin: 0 auto 18px;
+  max-width: 1180px;
+}
+
+.wiki-topbar span {
+  color: #7b817c;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.wiki-topbar h1 {
+  font-size: 2rem;
+  line-height: 1;
+  margin: 4px 0 0;
+}
+
+.wiki-topbar button {
+  background: #263136;
+  border: 0;
+  border-radius: 8px;
+  color: #fffaf0;
+  font-weight: 900;
+  min-height: 42px;
+  padding: 0 14px;
+}
+
+.wiki-controls {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  margin: 0 auto 18px;
+  max-width: 1180px;
+}
+
+.wiki-controls label {
+  align-items: center;
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: auto 1fr;
+  min-height: 44px;
+  padding: 0 12px;
+}
+
+.wiki-controls svg {
+  color: #7b817c;
+  height: 18px;
+  width: 18px;
+}
+
+.wiki-controls input {
+  background: transparent;
+  border: 0;
+  color: #30363a;
+  outline: 0;
+  width: 100%;
+}
+
+.wiki-type-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.wiki-type-tabs button {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  color: #30363a;
+  font-weight: 900;
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.wiki-type-tabs button.active {
+  background: #263136;
+  border-color: #263136;
+  color: #fffaf0;
+}
+
+.wiki-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.wiki-card {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 14px;
+}
+
+.wiki-card p {
+  color: #5d645f;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.wiki-card small {
+  color: #7b817c;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.wiki-card-link,
+.wiki-back-button {
+  background: #263136;
+  border: 0;
+  border-radius: 8px;
+  color: #fffaf0;
+  font-weight: 900;
+  min-height: 38px;
+  padding: 0 12px;
+  width: fit-content;
+}
+
+.wiki-message {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  color: #5d645f;
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 16px;
+}
+
+.wiki-detail-shell {
+  display: grid;
+  gap: 14px;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.wiki-detail-layout {
+  align-items: start;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) 310px;
+}
+
+.wiki-detail-card,
+.wiki-related {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+}
+
+.wiki-detail-heading {
+  display: grid;
+  gap: 4px;
+}
+
+.wiki-detail-heading span,
+.wiki-source,
+.wiki-stat-grid span {
+  color: #7b817c;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.wiki-detail-heading h1 {
+  color: #20272b;
+  font-size: 2rem;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.wiki-detail-heading small {
+  color: #5d645f;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.wiki-detail-summary {
+  background: #eef6f2;
+  border: 1px solid #b9d7c7;
+  border-radius: 8px;
+  color: #365548;
+  line-height: 1.45;
+  margin: 0;
+  padding: 12px;
+}
+
+.wiki-stat-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wiki-stat-grid div {
+  background: #f6f0e5;
+  border: 1px solid #e1d4bf;
+  border-radius: 8px;
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+}
+
+.wiki-stat-grid strong {
+  color: #30363a;
+  overflow-wrap: anywhere;
+}
+
+.wiki-related h2 {
+  color: #30363a;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.wiki-related p {
+  color: #5d645f;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.wiki-related button {
+  background: #f6f0e5;
+  border: 1px solid #e1d4bf;
+  border-radius: 8px;
+  color: #30363a;
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  text-align: left;
+}
+
+.wiki-related button strong {
+  font-size: 0.9rem;
+}
+
+.wiki-related button span {
+  color: #7b817c;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.skeleton-card span,
+.skeleton-card strong,
+.skeleton-card p {
+  animation: pulse 1.2s ease-in-out infinite;
+  background: #e8decb;
+  border-radius: 6px;
+  display: block;
+  min-height: 14px;
+}
+
+.skeleton-card strong {
+  min-height: 24px;
+  width: 70%;
+}
+
+.skeleton-card p {
+  min-height: 48px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .shell {
@@ -174,6 +569,23 @@ button {
   color: #9fa9a6;
   font-size: 0.74rem;
   font-weight: 700;
+}
+
+.account-card.compact {
+  background: rgba(255, 255, 255, 0.06);
+  max-width: 270px;
+  padding: 7px;
+}
+
+.account-card.compact img,
+.account-card.compact > svg {
+  height: 30px;
+  width: 30px;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 8px;
 }
 
 .primary-action,
@@ -1359,6 +1771,8 @@ textarea {
   .notes-panel,
   .identity-panel,
   .skills-panel,
+  .wiki-grid,
+  .wiki-detail-layout,
   .summary-grid {
     grid-column: auto;
     grid-template-columns: 1fr;
@@ -1367,13 +1781,29 @@ textarea {
 
 @media (max-width: 720px) {
   .workspace,
-  .sidebar {
+  .sidebar,
+  .wiki-shell {
     padding: 18px;
   }
 
-  .topbar {
+  .topbar,
+  .wiki-topbar,
+  .global-header,
+  .global-account {
     align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .global-nav,
+  .global-account {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .global-nav button,
+  .global-account > button,
+  .account-card.compact {
+    width: 100%;
   }
 
   .flow-heading,
@@ -1408,7 +1838,16 @@ textarea {
   .summary-item,
   .force-dashboard,
   .force-flow,
-  .force-checklist {
+  .force-checklist,
+  .wiki-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-type-tabs {
+    justify-content: flex-start;
+  }
+
+  .wiki-stat-grid {
     grid-template-columns: 1fr;
   }
 

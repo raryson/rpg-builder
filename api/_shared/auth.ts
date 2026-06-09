@@ -95,6 +95,10 @@ export function getWebAppUrl(req: any) {
   return process.env.WEB_APP_URL ?? getOrigin(req);
 }
 
+export function getSheetBuilderUrl(req: any) {
+  return new URL('/app', getWebAppUrl(req)).toString();
+}
+
 export function getGoogleClientConfig() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
