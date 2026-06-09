@@ -2,6 +2,9 @@ import {
   BadgePlus,
   BookOpen,
   Car,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
   CircleDot,
   Copy,
   Dice5,
@@ -152,26 +155,26 @@ type CharacterSheet = {
 const STORAGE_KEY = 'rpg-builder-star-wars-saga-sheets';
 
 const sheetTabs: Array<{ id: SheetTab; label: string }> = [
-  { id: 'summary', label: 'Resumo' },
   { id: 'identity', label: 'Identidade' },
-  { id: 'species', label: 'Especie, Classes e Niveis' },
+  { id: 'species', label: 'Espécie, Classes e Níveis' },
   { id: 'abilities', label: 'Atributos' },
   { id: 'combat', label: 'Combate' },
-  { id: 'skills', label: 'Pericias' },
-  { id: 'feats', label: 'Aptidoes' },
+  { id: 'skills', label: 'Perícias' },
+  { id: 'feats', label: 'Aptidões' },
   { id: 'talents', label: 'Talentos' },
-  { id: 'force', label: 'Forca' },
+  { id: 'force', label: 'Força' },
   { id: 'equipment', label: 'Equipamentos' },
-  { id: 'vehicles', label: 'Veiculos' },
-  { id: 'droids', label: 'Droides' },
-  { id: 'notes', label: 'Anotacoes' },
-  { id: 'history', label: 'Historico' },
-  { id: 'versions', label: 'Versoes' },
+  { id: 'vehicles', label: 'Veículos' },
+  { id: 'droids', label: 'Dróides' },
+  { id: 'notes', label: 'Anotações' },
+  { id: 'history', label: 'Histórico' },
+  { id: 'versions', label: 'Versões' },
+  { id: 'summary', label: 'Resumo final' },
 ];
 
 const eras = [
-  ['rise-of-the-empire', 'Ascensao do Imperio'],
-  ['rebellion-era', 'Era da Rebeliao'],
+  ['rise-of-the-empire', 'Ascensão do Império'],
+  ['rebellion-era', 'Era da Rebelião'],
   ['new-jedi-order', 'Nova Ordem Jedi'],
   ['custom', 'Custom'],
 ] as const;
@@ -188,32 +191,32 @@ const emptyAbilityMods: Record<AbilityKey, number> = {
 const emptyDefenseBonuses: Record<DefenseKey, number> = { reflex: 0, fortitude: 0, will: 0 };
 
 const speciesCatalog: SpeciesCatalogItem[] = [
-  species('Humano', {}, {}, {}, 6, 'Medio', ['Pericia treinada extra no 1º nivel', 'Aptidao extra no 1º nivel'], 'Sem ajuste de habilidade; ganha uma pericia treinada extra e uma aptidao extra no 1º nivel.'),
-  species('Bothan', { dexterity: 2, constitution: -2 }, { will: 2 }, {}, 6, 'Medio', ['Vontade de Ferro', 'Foco em Obter Informacoes se treinado'], '+2 Des, -2 Con; +2 especie em Vontade.'),
-  species('Cereano', { dexterity: -2, intelligence: 2, wisdom: 2 }, {}, {}, 6, 'Medio', ['Refaz Iniciativa', 'Foco em Iniciativa se treinado'], '+2 Int, +2 Sab, -2 Des; refaz testes de Iniciativa.'),
-  species('Devaroniano', { dexterity: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Medio', ['Padrao masculino aplicado', 'Femea: +2 Sab, -2 Des', 'Curiosidade Natural'], '+2 Des, -2 Sab, -2 Car no padrao masculino; ajuste feminino deve ser editado manualmente.'),
-  species('Duros', { dexterity: 2, constitution: -2, intelligence: 2 }, {}, {}, 6, 'Medio', ['Refaz Pilotar'], '+2 Des, +2 Int, -2 Con; piloto experiente.'),
+  species('Humano', {}, {}, {}, 6, 'Médio', ['Perícia treinada extra no 1º nível', 'Aptidão extra no 1º nível'], 'Sem ajuste de habilidade; ganha uma perícia treinada extra e uma aptidão extra no 1º nível.'),
+  species('Bothan', { dexterity: 2, constitution: -2 }, { will: 2 }, {}, 6, 'Médio', ['Vontade de Ferro', 'Foco em Obter Informações se treinado'], '+2 Des, -2 Con; +2 espécie em Vontade.'),
+  species('Cereano', { dexterity: -2, intelligence: 2, wisdom: 2 }, {}, {}, 6, 'Médio', ['Refaz Iniciativa', 'Foco em Iniciativa se treinado'], '+2 Int, +2 Sab, -2 Des; refaz testes de Iniciativa.'),
+  species('Devaroniano', { dexterity: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Médio', ['Padrão masculino aplicado', 'Fêmea: +2 Sab, -2 Des', 'Curiosidade Natural'], '+2 Des, -2 Sab, -2 Car no padrão masculino; ajuste feminino deve ser editado manualmente.'),
+  species('Duros', { dexterity: 2, constitution: -2, intelligence: 2 }, {}, {}, 6, 'Médio', ['Refaz Pilotar'], '+2 Des, +2 Int, -2 Con; piloto experiente.'),
   species('Ewok', { strength: -2, dexterity: 2 }, { reflex: 1 }, { furtividade: 5 }, 4, 'Pequeno', ['Pequeno', 'Primitivo', 'Olfato', 'Refaz Furtividade'], '+2 Des, -2 For; tamanho Pequeno: +1 Reflexos e +5 Furtividade; deslocamento 4.'),
-  species('Gamorreano', { strength: 2, dexterity: -2, intelligence: -2 }, { fortitude: 2 }, {}, 6, 'Medio', ['Primitivo', 'Grande Fortitude', 'Limite de Dano Aprimorado'], '+2 For, -2 Des, -2 Int; +2 especie em Fortitude.'),
-  species('Gungan', { dexterity: 2, intelligence: -2, charisma: -2 }, {}, {}, 6, 'Medio', ['Nado 4', 'Nadador Experiente', 'Prender respiracao'], '+2 Des, -2 Int, -2 Car; deslocamento 6 e nado 4.'),
-  species('Ithoriano', { dexterity: -2, wisdom: 2, charisma: 2 }, { will: 2 }, {}, 6, 'Medio', ['Vontade de Ferro', 'Urrar', 'Refaz Sobrevivencia'], '+2 Sab, +2 Car, -2 Des; +2 especie em Vontade.'),
-  species('Kel Dor', { dexterity: 2, constitution: -2, wisdom: 2 }, {}, {}, 6, 'Medio', ['Senso Apurado da Forca', 'Visao na Penumbra', 'Equipamento especial'], '+2 Des, +2 Sab, -2 Con; refaz certos usos de Usar a Forca.'),
-  species('Mon Calamariano', { constitution: -2, intelligence: 2, wisdom: 2 }, {}, {}, 6, 'Medio', ['Anfibio', 'Nado 4', 'Nadador Experiente'], '+2 Int, +2 Sab, -2 Con; anfibio e nado 4.'),
-  species('Quarren', { constitution: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Medio', ['Aquatico', 'Nado 4', 'Visao na Penumbra', 'Foco em Persuasao se treinado'], '+2 Con, -2 Sab, -2 Car; aquatico e nado 4.'),
-  species('Rodiano', { dexterity: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Medio', ['Cacador nato'], '+2 Des, -2 Sab, -2 Car.'),
-  species('Sullustano', { dexterity: 2, constitution: -2 }, {}, {}, 6, 'Medio', ['Ver no Escuro', 'Escolhe 10 em Escalar', 'Refaz Percepcao'], '+2 Des, -2 Con; ver no escuro e refaz Percepcao.'),
-  species('Trandoshano', { strength: 2, dexterity: -2 }, { reflex: 1 }, {}, 6, 'Medio', ['Ver no Escuro', 'Regeneracao', 'Armadura Natural', 'Vigoroso'], '+2 For, -2 Des; armadura natural +1 Reflexos.'),
-  species("Twi'lek", { wisdom: -2, charisma: 2 }, {}, {}, 6, 'Medio', ['Comunicacao por lekku'], '+2 Car, -2 Sab.'),
-  species('Wookiee', { strength: 4, dexterity: -2, constitution: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Medio', ['Recuperacao Extraordinaria', 'Furia', 'Escolhe 10 em Escalar'], '+4 For, +2 Con, -2 Des, -2 Sab, -2 Car; furia e recuperacao extraordinaria.'),
-  species('Zabrak', {}, {}, {}, 6, 'Medio', ['Sem ajuste de habilidade'], 'Sem ajustes de habilidade na Tabela 2-1.'),
+  species('Gamorreano', { strength: 2, dexterity: -2, intelligence: -2 }, { fortitude: 2 }, {}, 6, 'Médio', ['Primitivo', 'Grande Fortitude', 'Limite de Dano Aprimorado'], '+2 For, -2 Des, -2 Int; +2 espécie em Fortitude.'),
+  species('Gungan', { dexterity: 2, intelligence: -2, charisma: -2 }, {}, {}, 6, 'Médio', ['Nado 4', 'Nadador Experiente', 'Prender respiração'], '+2 Des, -2 Int, -2 Car; deslocamento 6 e nado 4.'),
+  species('Ithoriano', { dexterity: -2, wisdom: 2, charisma: 2 }, { will: 2 }, {}, 6, 'Médio', ['Vontade de Ferro', 'Urrar', 'Refaz Sobrevivência'], '+2 Sab, +2 Car, -2 Des; +2 espécie em Vontade.'),
+  species('Kel Dor', { dexterity: 2, constitution: -2, wisdom: 2 }, {}, {}, 6, 'Médio', ['Senso Apurado da Força', 'Visão na Penumbra', 'Equipamento especial'], '+2 Des, +2 Sab, -2 Con; refaz certos usos de Usar a Força.'),
+  species('Mon Calamariano', { constitution: -2, intelligence: 2, wisdom: 2 }, {}, {}, 6, 'Médio', ['Anfíbio', 'Nado 4', 'Nadador Experiente'], '+2 Int, +2 Sab, -2 Con; anfíbio e nado 4.'),
+  species('Quarren', { constitution: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Médio', ['Aquático', 'Nado 4', 'Visão na Penumbra', 'Foco em Persuasão se treinado'], '+2 Con, -2 Sab, -2 Car; aquático e nado 4.'),
+  species('Rodiano', { dexterity: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Médio', ['Caçador nato'], '+2 Des, -2 Sab, -2 Car.'),
+  species('Sullustano', { dexterity: 2, constitution: -2 }, {}, {}, 6, 'Médio', ['Ver no Escuro', 'Escolhe 10 em Escalar', 'Refaz Percepção'], '+2 Des, -2 Con; ver no escuro e refaz Percepção.'),
+  species('Trandoshano', { strength: 2, dexterity: -2 }, { reflex: 1 }, {}, 6, 'Médio', ['Ver no Escuro', 'Regeneração', 'Armadura Natural', 'Vigoroso'], '+2 For, -2 Des; armadura natural +1 Reflexos.'),
+  species("Twi'lek", { wisdom: -2, charisma: 2 }, {}, {}, 6, 'Médio', ['Comunicação por lekku'], '+2 Car, -2 Sab.'),
+  species('Wookiee', { strength: 4, dexterity: -2, constitution: 2, wisdom: -2, charisma: -2 }, {}, {}, 6, 'Médio', ['Recuperação Extraordinária', 'Fúria', 'Escolhe 10 em Escalar'], '+4 For, +2 Con, -2 Des, -2 Sab, -2 Car; fúria e recuperação extraordinária.'),
+  species('Zabrak', {}, {}, {}, 6, 'Médio', ['Sem ajuste de habilidade'], 'Sem ajustes de habilidade na Tabela 2-1.'),
 ];
 
 const heroicClassCatalog: ClassCatalogItem[] = [
-  heroicClass('Jedi', 30, 'd10', 'full', { reflex: 1, fortitude: 1, will: 1 }, ['Sensivel a Forca', 'Sabre de Luz', 'Armas simples'], '+1 Reflexos, +1 Fortitude, +1 Vontade; BBA completo; PV inicial 30 + Con.'),
+  heroicClass('Jedi', 30, 'd10', 'full', { reflex: 1, fortitude: 1, will: 1 }, ['Sensível à Força', 'Sabre de Luz', 'Armas simples'], '+1 Reflexos, +1 Fortitude, +1 Vontade; BBA completo; PV inicial 30 + Con.'),
   heroicClass('Nobre', 18, 'd6', 'three-quarters', { reflex: 1, fortitude: 0, will: 2 }, ['Linguista', 'Pistolas', 'Armas simples'], '+1 Reflexos, +2 Vontade; BBA 3/4; PV inicial 18 + Con.'),
-  heroicClass('Fora-da-Lei', 18, 'd6', 'three-quarters', { reflex: 2, fortitude: 0, will: 1 }, ['Tiro a Queima Roupa', 'Pistolas', 'Armas simples'], '+2 Reflexos, +1 Vontade; BBA 3/4; PV inicial 18 + Con.'),
-  heroicClass('Batedor', 24, 'd8', 'three-quarters', { reflex: 2, fortitude: 1, will: 0 }, ['Recuperacao Rapida', 'Pistolas', 'Rifles', 'Armas simples'], '+2 Reflexos, +1 Fortitude; BBA 3/4; PV inicial 24 + Con.'),
-  heroicClass('Soldado', 30, 'd10', 'full', { reflex: 1, fortitude: 2, will: 0 }, ['Armas simples', 'Pistolas', 'Rifles', 'Armadura leve', 'Armadura media'], '+1 Reflexos, +2 Fortitude; BBA completo; PV inicial 30 + Con.'),
+  heroicClass('Fora-da-Lei', 18, 'd6', 'three-quarters', { reflex: 2, fortitude: 0, will: 1 }, ['Tiro à Queima-Roupa', 'Pistolas', 'Armas simples'], '+2 Reflexos, +1 Vontade; BBA 3/4; PV inicial 18 + Con.'),
+  heroicClass('Batedor', 24, 'd8', 'three-quarters', { reflex: 2, fortitude: 1, will: 0 }, ['Recuperação Rápida', 'Pistolas', 'Rifles', 'Armas simples'], '+2 Reflexos, +1 Fortitude; BBA 3/4; PV inicial 24 + Con.'),
+  heroicClass('Soldado', 30, 'd10', 'full', { reflex: 1, fortitude: 2, will: 0 }, ['Armas simples', 'Pistolas', 'Rifles', 'Armadura leve', 'Armadura média'], '+1 Reflexos, +2 Fortitude; BBA completo; PV inicial 30 + Con.'),
 ];
 
 const skillRows: Array<[string, AbilityKey, boolean]> = [
@@ -250,11 +253,11 @@ const baseFeatNames = [
   'Ataque Poderoso',
   'Combate Veicular',
   'Esquiva',
-  'Foco em Pericia',
-  'Poderoso na Forca',
+  'Foco em Perícia',
+  'Poderoso na Força',
   'Proficiência com Armas',
-  'Sensitivo a Forca',
-  'Treinamento na Forca',
+  'Sensitivo à Força',
+  'Treinamento na Força',
 ];
 
 const featCatalog: FeatCatalogItem[] = baseFeatNames.map((name) => {
@@ -262,65 +265,65 @@ const featCatalog: FeatCatalogItem[] = baseFeatNames.map((name) => {
   const details: Record<string, Omit<FeatCatalogItem, 'name' | 'slug'>> = {
     'acuidade-com-arma': {
       prerequisites: 'BBA +1',
-      benefit: 'Com arma leve ou sabre de luz, pode usar Destreza no lugar de Forca nas jogadas de ataque corpo a corpo.',
+      benefit: 'Com arma leve ou sabre de luz, pode usar Destreza no lugar de Força nas jogadas de ataque corpo a corpo.',
     },
     'ataque-duplo': {
-      prerequisites: 'BBA +6 e proficiencia com a arma escolhida',
-      benefit: 'Em ataque total, faz um ataque extra com a arma escolhida; todos os ataques sofrem -5 ate seu proximo turno.',
-      normal: 'Normalmente uma acao padrao faz um unico ataque.',
+      prerequisites: 'BBA +6 e proficiência com a arma escolhida',
+      benefit: 'Em ataque total, faz um ataque extra com a arma escolhida; todos os ataques sofrem -5 até seu próximo turno.',
+      normal: 'Normalmente uma ação padrão faz um único ataque.',
       special: 'Pode ser escolhida mais de uma vez para armas ou grupos diferentes.',
     },
     'ataque-poderoso': {
-      prerequisites: 'Forca 13',
-      benefit: 'Troca bonus de ataque por dano extra em ataques corpo a corpo, ate o limite do seu bonus base de ataque.',
+      prerequisites: 'Força 13',
+      benefit: 'Troca bônus de ataque por dano extra em ataques corpo a corpo, até o limite do seu bônus base de ataque.',
     },
     'combate-veicular': {
       prerequisites: 'Treinado em Pilotar',
-      benefit: 'Uma vez por rodada, como reacao, pode negar um acerto contra seu veiculo com um teste de Pilotar contra a jogada de ataque. Tambem conta como proficiente com armas do veiculo operadas pelo piloto.',
+      benefit: 'Uma vez por rodada, como reação, pode negar um acerto contra seu veículo com um teste de Pilotar contra a jogada de ataque. Também conta como proficiente com armas do veículo operadas pelo piloto.',
     },
     esquiva: {
       prerequisites: 'Destreza 13',
-      benefit: 'Escolhe um oponente durante seu turno e recebe +1 de bonus de esquiva na Defesa de Reflexos contra ataques dele.',
+      benefit: 'Escolhe um oponente durante seu turno e recebe +1 de bônus de esquiva na Defesa de Reflexos contra ataques dele.',
     },
     'foco-em-pericia': {
-      prerequisites: 'Pericia treinada escolhida',
-      benefit: 'Uma pericia treinada escolhida recebe +5 de bonus de competencia nos testes.',
-      special: 'Pode ser escolhida varias vezes, cada vez para uma pericia treinada diferente.',
+      prerequisites: 'Perícia treinada escolhida',
+      benefit: 'Uma perícia treinada escolhida recebe +5 de bônus de competência nos testes.',
+      special: 'Pode ser escolhida várias vezes, cada vez para uma perícia treinada diferente.',
     },
     'poderoso-na-forca': {
       prerequisites: 'Nenhum',
-      benefit: 'Quando gastar Ponto da Forca para ajustar ataque, teste de pericia ou teste de habilidade, rola d8 em vez de d6.',
+      benefit: 'Quando gastar Ponto da Força para ajustar ataque, teste de perícia ou teste de habilidade, rola d8 em vez de d6.',
     },
     'proficiencia-com-armas': {
       prerequisites: 'Nenhum',
-      benefit: 'Escolhe um grupo de armas. Voce ignora a penalidade por falta de proficiencia ao atacar com armas daquele grupo.',
-      normal: 'Sem proficiencia, ataques com a arma sofrem penalidade.',
-      special: 'Pode ser escolhida varias vezes para grupos diferentes.',
+      benefit: 'Escolhe um grupo de armas. Você ignora a penalidade por falta de proficiência ao atacar com armas daquele grupo.',
+      normal: 'Sem proficiência, ataques com a arma sofrem penalidade.',
+      special: 'Pode ser escolhida várias vezes para grupos diferentes.',
     },
     'sensitivo-a-forca': {
       prerequisites: 'Nenhum',
-      benefit: 'Torna o personagem sensivel a Forca, permitindo treinar Usar a Forca e acessar opcoes relacionadas a Forca.',
+      benefit: 'Torna o personagem sensível à Força, permitindo treinar Usar a Força e acessar opções relacionadas à Força.',
     },
     'treinamento-na-forca': {
-      prerequisites: 'Sensitivo a Forca e treinado em Usar a Forca',
-      benefit: 'Adiciona ao conjunto de poderes da Forca um numero de poderes igual a 1 + modificador de Sabedoria, minimo 1.',
-      special: 'Pode ser escolhida varias vezes para aprender mais poderes.',
+      prerequisites: 'Sensitivo à Força e treinado em Usar a Força',
+      benefit: 'Adiciona ao conjunto de poderes da Força um número de poderes igual a 1 + modificador de Sabedoria, mínimo 1.',
+      special: 'Pode ser escolhida várias vezes para aprender mais poderes.',
     },
   };
-  return { name, slug, ...(details[slug] ?? { prerequisites: 'Ver manual', benefit: 'Detalhes pendentes de catalogacao.' }) };
+  return { name, slug, ...(details[slug] ?? { prerequisites: 'Ver manual', benefit: 'Detalhes pendentes de catalogação.' }) };
 });
 
 const baseForcePowerCatalog = [
-  'Estrangulamento da Forca',
-  'Desarmar da Forca',
-  'Empurrão da Forca',
-  'Furia Sombria',
+  'Estrangulamento da Força',
+  'Desarmar da Força',
+  'Empurrão da Força',
+  'Fúria Sombria',
   'Impulso',
   'Mover Objeto',
   'Negar Energia',
-  'Relampago da Forca',
-  'Rompimento da Forca',
-  'Transferencia Vital',
+  'Relâmpago da Força',
+  'Rompimento da Força',
+  'Transferência Vital',
   'Truque Mental',
   'Visão Distante',
 ].map(toCatalogItem);
@@ -330,30 +333,30 @@ const vehicleCatalog = ['X-wing', 'TIE Fighter', 'Y-wing', 'Millennium Falcon', 
 const talentDetailsCatalog: DetailCatalogItem[] = [...sagaTalentDetailsCatalog];
 
 const forcePowerDetailsCatalog: DetailCatalogItem[] = [
-  detailItem('Estrangulamento da Forca', 'Poder da Forca', 'Restringe uma criatura e causa dano conforme o teste de Usar a Forca.', 'Lado Negro'),
-  detailItem('Desarmar da Forca', 'Poder da Forca', 'Usa telecinese para desarmar o alvo; pode derrubar o item ou traze-lo para sua mao.', 'Telecinese'),
-  detailItem('Empurrao da Forca', 'Poder da Forca', 'Empurra o alvo para tras com teste resistido e pode causar dano por colisao.', 'Telecinese'),
-  detailItem('Furia Sombria', 'Poder da Forca', 'Concede bonus de furia em ataques e dano corpo a corpo por meio do Lado Negro.', 'Lado Negro'),
-  detailItem('Impulso', 'Poder da Forca', 'Aumenta movimento e saltos usando a Forca.', 'Movimento'),
-  detailItem('Mover Objeto', 'Poder da Forca', 'Move objetos ou criaturas e pode arremessa-los para causar dano.', 'Telecinese'),
-  detailItem('Negar Energia', 'Poder da Forca', 'Reduz ou anula dano de energia recebido, dependendo do teste.', 'Defensivo'),
-  detailItem('Relampago da Forca', 'Poder da Forca', 'Ataque do Lado Negro que causa dano e move o alvo no marcador de condicao.', 'Lado Negro'),
-  detailItem('Rompimento da Forca', 'Poder da Forca', 'Dificulta ou corta temporariamente o acesso de outro usuario a Pontos e poderes da Forca.', 'Lado da Luz'),
-  detailItem('Transferencia Vital', 'Poder da Forca', 'Cura outra criatura viva usando sua propria forca vital.', 'Lado da Luz'),
-  detailItem('Truque Mental', 'Poder da Forca', 'Altera percepcao, cria sugestao, distracao ou medo em uma criatura com mente.', 'Afetar a mente'),
-  detailItem('Visao Distante', 'Poder da Forca', 'Permite receber impressao vaga de eventos envolvendo uma criatura conhecida distante.', 'Percepcao'),
+  detailItem('Estrangulamento da Força', 'Poder da Força', 'Restringe uma criatura e causa dano conforme o teste de Usar a Força.', 'Lado Negro'),
+  detailItem('Desarmar da Força', 'Poder da Força', 'Usa telecinese para desarmar o alvo; pode derrubar o item ou trazê-lo para sua mão.', 'Telecinese'),
+  detailItem('Empurrão da Força', 'Poder da Força', 'Empurra o alvo para trás com teste resistido e pode causar dano por colisão.', 'Telecinese'),
+  detailItem('Fúria Sombria', 'Poder da Força', 'Concede bônus de fúria em ataques e dano corpo a corpo por meio do Lado Negro.', 'Lado Negro'),
+  detailItem('Impulso', 'Poder da Força', 'Aumenta movimento e saltos usando a Força.', 'Movimento'),
+  detailItem('Mover Objeto', 'Poder da Força', 'Move objetos ou criaturas e pode arremessá-los para causar dano.', 'Telecinese'),
+  detailItem('Negar Energia', 'Poder da Força', 'Reduz ou anula dano de energia recebido, dependendo do teste.', 'Defensivo'),
+  detailItem('Relâmpago da Força', 'Poder da Força', 'Ataque do Lado Negro que causa dano e move o alvo no marcador de condição.', 'Lado Negro'),
+  detailItem('Rompimento da Força', 'Poder da Força', 'Dificulta ou corta temporariamente o acesso de outro usuário a Pontos e poderes da Força.', 'Lado da Luz'),
+  detailItem('Transferência Vital', 'Poder da Força', 'Cura outra criatura viva usando sua própria força vital.', 'Lado da Luz'),
+  detailItem('Truque Mental', 'Poder da Força', 'Altera percepção, cria sugestão, distração ou medo em uma criatura com mente.', 'Afetar a mente'),
+  detailItem('Visão Distante', 'Poder da Força', 'Permite receber impressão vaga de eventos envolvendo uma criatura conhecida distante.', 'Percepção'),
 ];
 
 const forceTechniqueDetailsCatalog: DetailCatalogItem[] = [
-  detailItem('Recuperar Ponto da Forca', 'Tecnica da Forca', 'No fim de um encontro, recupera automaticamente 1 Ponto da Forca gasto durante esse encontro.', 'Tecnica'),
-  detailItem('Mestria com Poder da Forca', 'Tecnica da Forca', 'Escolha um poder; voce pode escolher 10 para ativa-lo mesmo sob ameaca.', 'Tecnica'),
-  detailItem('Transe da Forca Aprimorado', 'Tecnica da Forca', 'Melhora a recuperacao de pontos de vida durante transe da Forca.', 'Tecnica'),
+  detailItem('Recuperar Ponto da Força', 'Técnica da Força', 'No fim de um encontro, recupera automaticamente 1 Ponto da Força gasto durante esse encontro.', 'Técnica'),
+  detailItem('Mestria com Poder da Força', 'Técnica da Força', 'Escolha um poder; você pode escolher 10 para ativá-lo mesmo sob ameaça.', 'Técnica'),
+  detailItem('Transe da Força Aprimorado', 'Técnica da Força', 'Melhora a recuperação de pontos de vida durante transe da Força.', 'Técnica'),
 ];
 
 const forceSecretDetailsCatalog: DetailCatalogItem[] = [
-  detailItem('Poder Devastador', 'Segredo da Forca', 'Aprimora um poder da Forca para gerar efeito mais intenso.', 'Segredo'),
-  detailItem('Poder Multialvo', 'Segredo da Forca', 'Permite ampliar um poder para afetar mais de um alvo quando aplicavel.', 'Segredo'),
-  detailItem('Poder Rapido', 'Segredo da Forca', 'Reduz o tempo de ativacao de um poder escolhido quando aplicavel.', 'Segredo'),
+  detailItem('Poder Devastador', 'Segredo da Força', 'Aprimora um poder da Força para gerar efeito mais intenso.', 'Segredo'),
+  detailItem('Poder Multialvo', 'Segredo da Força', 'Permite ampliar um poder para afetar mais de um alvo quando aplicável.', 'Segredo'),
+  detailItem('Poder Rápido', 'Segredo da Força', 'Reduz o tempo de ativação de um poder escolhido quando aplicável.', 'Segredo'),
 ];
 
 const equipmentDetailsCatalog: DetailCatalogItem[] = [...sagaEquipmentDetailsCatalog];
@@ -366,10 +369,10 @@ const readyDroidDetailsCatalog = droidSystemDetailsCatalog.filter((item) => read
 const droidBuilderDetailsCatalog = droidSystemDetailsCatalog.filter((item) => !readyDroidCategories.has(item.category || ''));
 
 const abilityLabels: Record<AbilityKey, string> = {
-  strength: 'Forca',
+  strength: 'Força',
   dexterity: 'Destreza',
-  constitution: 'Constituicao',
-  intelligence: 'Inteligencia',
+  constitution: 'Constituição',
+  intelligence: 'Inteligência',
   wisdom: 'Sabedoria',
   charisma: 'Carisma',
 };
@@ -532,8 +535,8 @@ function SourceLegend() {
   return (
     <div className="source-legend">
       <span className="base-source">Base da ficha</span>
-      <span className="species-source">Bonus de raca</span>
-      <span className="class-source">Bonus de classe</span>
+      <span className="species-source">Bônus de raça</span>
+      <span className="class-source">Bônus de classe</span>
     </div>
   );
 }
@@ -691,10 +694,15 @@ function renderFormattedText(text: string) {
 export function App() {
   const [sheets, setSheets] = useState<CharacterSheet[]>(loadSheets);
   const [activeId, setActiveId] = useState(() => sheets[0]?.id);
-  const [activeTab, setActiveTab] = useState<SheetTab>('summary');
+  const [activeTab, setActiveTab] = useState<SheetTab>('identity');
   const activeSheet = sheets.find((sheet) => sheet.id === activeId) ?? sheets[0];
   const activeSpecies = speciesCatalog.find((item) => item.slug === activeSheet.speciesSlug) ?? speciesCatalog[0];
   const activeClass = heroicClassCatalog.find((item) => item.slug === activeSheet.classSlug) ?? heroicClassCatalog[0];
+  const activeStepIndex = Math.max(0, sheetTabs.findIndex((tab) => tab.id === activeTab));
+  const activeStep = sheetTabs[activeStepIndex];
+  const isFirstStep = activeStepIndex === 0;
+  const isLastStep = activeStepIndex === sheetTabs.length - 1;
+  const progressPercent = ((activeStepIndex + 1) / sheetTabs.length) * 100;
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sheets));
@@ -785,6 +793,7 @@ export function App() {
     const sheet = createSheet();
     setSheets((current) => [sheet, ...current]);
     setActiveId(sheet.id);
+    setActiveTab('identity');
   }
 
   function duplicateSheet() {
@@ -798,6 +807,7 @@ export function App() {
       const sheet = createSheet();
       setSheets([sheet]);
       setActiveId(sheet.id);
+      setActiveTab('identity');
       return;
     }
     const remaining = sheets.filter((sheet) => sheet.id !== activeSheet.id);
@@ -814,6 +824,18 @@ export function App() {
     anchor.download = `${activeSheet.characterName.toLowerCase().replace(/\s+/g, '-')}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
+  }
+
+  function goToPreviousStep() {
+    if (!isFirstStep) {
+      setActiveTab(sheetTabs[activeStepIndex - 1].id);
+    }
+  }
+
+  function goToNextStep() {
+    if (!isLastStep) {
+      setActiveTab(sheetTabs[activeStepIndex + 1].id);
+    }
   }
 
   return (
@@ -859,21 +881,29 @@ export function App() {
 
         <section className="summary-band">
           <div><UserRound aria-hidden="true" /><span>{labelFor(speciesCatalog, activeSheet.speciesSlug)}</span></div>
-          <div><Swords aria-hidden="true" /><span>{labelFor(heroicClassCatalog, activeSheet.classSlug)} nivel {activeSheet.totalLevel}</span></div>
+          <div><Swords aria-hidden="true" /><span>{labelFor(heroicClassCatalog, activeSheet.classSlug)} nível {activeSheet.totalLevel}</span></div>
           <div><Shield aria-hidden="true" /><span>Ref {defenses.reflex} Fort {defenses.fortitude} Von {defenses.will}</span></div>
           <div><CircleDot aria-hidden="true" /><span>BBA +{baseAttackBonus}</span></div>
         </section>
 
-        <nav className="tabs" aria-label="Secoes da ficha">
-          {sheetTabs.map((tab) => (
-            <button className={activeTab === tab.id ? 'tab active' : 'tab'} key={tab.id} type="button" onClick={() => setActiveTab(tab.id)}>
-              {tab.label}
-            </button>
-          ))}
-        </nav>
+        <section className="creation-flow" aria-label="Progresso da criação da ficha">
+          <div className="flow-heading">
+            <div>
+              <p>Passo {activeStepIndex + 1} de {sheetTabs.length}</p>
+              <h2>{activeStep.label}</h2>
+            </div>
+            <div className="flow-heading-actions">
+              <span>{Math.round(progressPercent)}%</span>
+              <StepControls compact />
+            </div>
+          </div>
+          <div className="progress-track" aria-hidden="true">
+            <span style={{ width: `${progressPercent}%` }} />
+          </div>
+        </section>
 
         <div className="grid">
-          {(activeTab === 'summary' || activeTab === 'identity') && (
+          {activeTab === 'identity' && (
             <Panel icon={<BookOpen aria-hidden="true" />} title="Identidade">
               <div className="form-grid">
                 <TextInput label="Nome" value={activeSheet.characterName} onChange={(value) => setField('characterName', value)} />
@@ -881,7 +911,7 @@ export function App() {
                 <TextInput label="Campanha" value={activeSheet.campaignName} onChange={(value) => setField('campaignName', value)} />
                 <label>Era<select value={activeSheet.era} onChange={(event) => setField('era', event.target.value as CharacterSheet['era'])}>{eras.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
                 <TextInput label="Destino" value={activeSheet.destiny} onChange={(value) => setField('destiny', value)} />
-                <TextInput label="Genero" value={activeSheet.gender} onChange={(value) => setField('gender', value)} />
+                <TextInput label="Gênero" value={activeSheet.gender} onChange={(value) => setField('gender', value)} />
                 <TextInput label="Idade" value={activeSheet.age} onChange={(value) => setField('age', value)} />
                 <TextInput label="Altura" value={activeSheet.height} onChange={(value) => setField('height', value)} />
                 <TextInput label="Peso" value={activeSheet.weight} onChange={(value) => setField('weight', value)} />
@@ -894,14 +924,14 @@ export function App() {
             </Panel>
           )}
 
-          {(activeTab === 'summary' || activeTab === 'species') && (
-            <Panel icon={<UserRound aria-hidden="true" />} title="Especie e classes">
+          {activeTab === 'species' && (
+            <Panel icon={<UserRound aria-hidden="true" />} title="Espécie e classes">
               <div className="form-grid">
-                <CatalogSelect label="Especie" value={activeSheet.speciesSlug} items={speciesCatalog} onChange={setSpeciesSlug} />
+                <CatalogSelect label="Espécie" value={activeSheet.speciesSlug} items={speciesCatalog} onChange={setSpeciesSlug} />
                 <CatalogSelect label="Classe heroica" value={activeSheet.classSlug} items={heroicClassCatalog} onChange={setClassSlug} />
-                <NumberInput label="Nivel total" value={activeSheet.totalLevel} min={1} onChange={(value) => setField('totalLevel', value)} />
-                <NumberInput label="Nivel heroico" value={activeSheet.heroicLevel} min={0} onChange={(value) => setField('heroicLevel', value)} />
-                <NumberInput label="Nivel prestigio" value={activeSheet.prestigeLevel} min={0} onChange={(value) => setField('prestigeLevel', value)} />
+                <NumberInput label="Nível total" value={activeSheet.totalLevel} min={1} onChange={(value) => setField('totalLevel', value)} />
+                <NumberInput label="Nível heroico" value={activeSheet.heroicLevel} min={0} onChange={(value) => setField('heroicLevel', value)} />
+                <NumberInput label="Nível prestígio" value={activeSheet.prestigeLevel} min={0} onChange={(value) => setField('prestigeLevel', value)} />
                 <NumberInput label="Deslocamento" value={activeSheet.speed} min={0} onChange={(value) => setField('speed', value)} />
               </div>
               <div className="source-details">
@@ -914,13 +944,13 @@ export function App() {
                 <div className="detail-box class-source">
                   <strong>{activeClass.name}</strong>
                   <p>{activeClass.description}</p>
-                  <small>Aptidoes iniciais: {activeClass.startingFeats.join(', ')}</small>
+                  <small>Aptidões iniciais: {activeClass.startingFeats.join(', ')}</small>
                 </div>
               </div>
             </Panel>
           )}
 
-          {(activeTab === 'summary' || activeTab === 'abilities') && (
+          {activeTab === 'abilities' && (
             <Panel icon={<BadgePlus aria-hidden="true" />} title="Atributos">
               <div className="characteristics">
                 {(Object.keys(activeSheet.abilities) as AbilityKey[]).map((key) => (
@@ -939,16 +969,16 @@ export function App() {
             </Panel>
           )}
 
-          {(activeTab === 'summary' || activeTab === 'combat') && (
+          {activeTab === 'combat' && (
             <Panel icon={<Shield aria-hidden="true" />} title="Combate">
               <div className="condition-grid">
                 <NumberInput label="PV atual" value={activeSheet.hitPointsCurrent} min={0} onChange={(value) => setField('hitPointsCurrent', value)} />
-                <NumberInput label="PV maximo" value={activeSheet.hitPointsMaximum} min={0} onChange={(value) => setField('hitPointsMaximum', value)} />
-                <NumberInput label="PV temporarios" value={activeSheet.hitPointsTemporary} min={0} onChange={(value) => setField('hitPointsTemporary', value)} />
+                <NumberInput label="PV máximo" value={activeSheet.hitPointsMaximum} min={0} onChange={(value) => setField('hitPointsMaximum', value)} />
+                <NumberInput label="PV temporários" value={activeSheet.hitPointsTemporary} min={0} onChange={(value) => setField('hitPointsTemporary', value)} />
                 <NumberInput label="Dano recebido" value={activeSheet.damageTaken} min={0} onChange={(value) => setField('damageTaken', value)} />
-                <NumberInput label="Marcador de condicao" value={activeSheet.conditionStep} min={-5} onChange={(value) => setField('conditionStep', value)} />
+                <NumberInput label="Marcador de condição" value={activeSheet.conditionStep} min={-5} onChange={(value) => setField('conditionStep', value)} />
                 <NumberInput label="Pontos de destino" value={activeSheet.destinyPoints} min={0} onChange={(value) => setField('destinyPoints', value)} />
-                <NumberInput label="Pontos da Forca" value={activeSheet.forcePoints} min={0} onChange={(value) => setField('forcePoints', value)} />
+                <NumberInput label="Pontos da Força" value={activeSheet.forcePoints} min={0} onChange={(value) => setField('forcePoints', value)} />
                 <NumberInput label="Lado Negro" value={activeSheet.darkSideScore} min={0} onChange={(value) => setField('darkSideScore', value)} />
               </div>
               <div className="defense-breakdown">
@@ -959,14 +989,14 @@ export function App() {
                       <b className="base-source">10</b>
                       <b className="base-source">Nv {activeSheet.totalLevel}</b>
                       <b className="base-source">Hab {signed(defenseBreakdown[key].ability)}</b>
-                      <b className="species-source">Raca {signed(defenseBreakdown[key].species)}</b>
+                      <b className="species-source">Raça {signed(defenseBreakdown[key].species)}</b>
                       <b className="class-source">Classe {signed(defenseBreakdown[key].class)}</b>
                     </div>
                   </div>
                 ))}
                 <div className="detail-box class-source">
                   <strong>PV inicial sugerido {expectedStartingHitPoints}</strong>
-                  <p>{activeClass.startingHitPoints} da classe + modificador de Constituicao final.</p>
+                  <p>{activeClass.startingHitPoints} da classe + modificador de Constituição final.</p>
                 </div>
               </div>
               <SourceLegend />
@@ -974,14 +1004,14 @@ export function App() {
           )}
 
           {activeTab === 'skills' && (
-            <Panel className="skills-panel-full" icon={<Dice5 aria-hidden="true" />} title="Pericias">
+            <Panel className="skills-panel-full" icon={<Dice5 aria-hidden="true" />} title="Perícias">
               <div className="skills-table skill-grid-table">
                 <div className="skill-header">
-                  <span>Nome da pericia</span>
-                  <span>Bonus de pericia</span>
-                  <span>1/2 nivel + habilidade</span>
+                  <span>Nome da perícia</span>
+                  <span>Bônus de perícia</span>
+                  <span>1/2 nível + habilidade</span>
                   <span>Treinamento</span>
-                  <span>Foco em pericia</span>
+                  <span>Foco em perícia</span>
                   <span>Outros</span>
                 </div>
                 {activeSheet.skills.map((skill) => {
@@ -1007,10 +1037,10 @@ export function App() {
                         <b>{signed(levelAndAbilityBonus)}</b>
                       </div>
                       <div className="other-bonus-cell">
-                        <input aria-label={`Outros bonus de ${catalog?.name}`} type="number" value={skill.misc} onChange={(event) => updateSkill(skill.skillSlug, { misc: Number(event.target.value) })} />
+                        <input aria-label={`Outros bônus de ${catalog?.name}`} type="number" value={skill.misc} onChange={(event) => updateSkill(skill.skillSlug, { misc: Number(event.target.value) })} />
                         <small>Total outros {signed(otherBonus)}</small>
                       </div>
-                      {speciesSkillBonus !== 0 && <small className="species-note">Raca {signed(speciesSkillBonus)}</small>}
+                      {speciesSkillBonus !== 0 && <small className="species-note">Raça {signed(speciesSkillBonus)}</small>}
                     </div>
                   );
                 })}
@@ -1021,18 +1051,172 @@ export function App() {
           {activeTab === 'feats' && <FeatsPanel />}
           {activeTab === 'talents' && <TalentsPanel />}
           {activeTab === 'force' && <ForcePanel />}
-          {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisao" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
-          {activeTab === 'vehicles' && <GroupedRichSelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" groupLabel="Subdivisao" itemLabel="Veiculo" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
+          {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisão" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
+          {activeTab === 'vehicles' && <GroupedRichSelectionPanel icon={<Car aria-hidden="true" />} title="Veículos" groupLabel="Subdivisão" itemLabel="Veículo" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
           {activeTab === 'droids' && <DroidsPanel />}
           {(activeTab === 'notes' || activeTab === 'history' || activeTab === 'versions') && (
-            <Panel icon={<Save aria-hidden="true" />} title={activeTab === 'versions' ? 'Versoes' : activeTab === 'history' ? 'Historico' : 'Anotacoes'}>
+            <Panel icon={<Save aria-hidden="true" />} title={activeTab === 'versions' ? 'Versões' : activeTab === 'history' ? 'Histórico' : 'Anotações'}>
               <textarea value={activeTab === 'history' ? activeSheet.progressionLog : activeTab === 'versions' ? activeSheet.versionNote : activeSheet.notes} onChange={(event) => setField(activeTab === 'history' ? 'progressionLog' : activeTab === 'versions' ? 'versionNote' : 'notes', event.target.value)} />
             </Panel>
           )}
+          {activeTab === 'summary' && <SummaryPanel />}
         </div>
+
+        <footer className="flow-controls">
+          <StepControls />
+        </footer>
       </section>
     </main>
   );
+
+  function StepControls({ compact = false }: { compact?: boolean }) {
+    return (
+      <div className={compact ? 'step-controls compact' : 'step-controls'}>
+        <button type="button" onClick={goToPreviousStep} disabled={isFirstStep}>
+          <ChevronLeft aria-hidden="true" />
+          Voltar
+        </button>
+        <button className="next-step" type="button" onClick={goToNextStep} disabled={isLastStep}>
+          {isLastStep ? <CheckCircle2 aria-hidden="true" /> : <ChevronRight aria-hidden="true" />}
+          {isLastStep ? 'Resumo aberto' : 'Próximo'}
+        </button>
+      </div>
+    );
+  }
+
+  function SummaryPanel() {
+    const selectedFeats = activeSheet.feats.map((slug) => labelFor(featCatalog, slug));
+    const selectedTalents = activeSheet.talents.map((slug) => labelFor(talentDetailsCatalog, slug));
+    const selectedForcePowers = activeSheet.forcePowers.map((slug) => labelFor(forcePowerDetailsCatalog, slug));
+    const selectedForceTechniques = activeSheet.forceTechniques.map((slug) => labelFor(forceTechniqueDetailsCatalog, slug));
+    const selectedForceSecrets = activeSheet.forceSecrets.map((slug) => labelFor(forceSecretDetailsCatalog, slug));
+    const selectedEquipment = activeSheet.inventory.map((slug) => labelFor(equipmentDetailsCatalog, slug));
+    const selectedVehicles = activeSheet.vehicles.map((slug) => labelFor(vehicleDetailsCatalog, slug));
+    const selectedDroids = activeSheet.droidSystems.map((slug) =>
+      labelFor([...droidBuilderDetailsCatalog, ...readyDroidDetailsCatalog], slug),
+    );
+    const notableSkills = activeSheet.skills
+      .filter((skill) => skill.trained || skill.focused || skill.misc !== 0)
+      .map((skill) => {
+        const catalog = skillCatalog.find((item) => item.slug === skill.skillSlug);
+        const tags = [
+          skill.trained ? 'treinada' : '',
+          skill.focused ? 'foco' : '',
+          skill.misc !== 0 ? `outros ${signed(skill.misc)}` : '',
+        ].filter(Boolean);
+        return `${catalog?.name ?? skill.skillSlug} (${tags.join(', ')})`;
+      });
+
+    return (
+      <Panel className="wide-panel summary-review" icon={<CheckCircle2 aria-hidden="true" />} title="Resumo da ficha">
+        <div className="summary-grid">
+          <SummarySection title="Identidade" items={[
+            ['Nome', activeSheet.characterName],
+            ['Jogador', activeSheet.playerName],
+            ['Campanha', activeSheet.campaignName],
+            ['Era', eras.find(([value]) => value === activeSheet.era)?.[1] ?? activeSheet.era],
+            ['Destino', activeSheet.destiny],
+            ['Gênero', activeSheet.gender],
+            ['Idade', activeSheet.age],
+            ['Altura', activeSheet.height],
+            ['Peso', activeSheet.weight],
+            ['Olhos', activeSheet.eyes],
+            ['Cabelo', activeSheet.hair],
+            ['Pele', activeSheet.skin],
+            ['Mundo natal', activeSheet.homeworld],
+            ['Retrato', activeSheet.portraitUrl],
+          ]} />
+
+          <SummarySection title="Espécie e classe" items={[
+            ['Espécie', activeSpecies.name],
+            ['Classe', activeClass.name],
+            ['Nível total', activeSheet.totalLevel],
+            ['Nível heroico', activeSheet.heroicLevel],
+            ['Nível prestígio', activeSheet.prestigeLevel],
+            ['Deslocamento', activeSheet.speed],
+          ]} />
+
+          <SummarySection title="Atributos" items={(Object.keys(activeSheet.abilities) as AbilityKey[]).map((key) => [
+            abilityLabels[key],
+            `${composedAbilities[key].total} (base ${composedAbilities[key].base}, espécie ${signed(composedAbilities[key].species)}, mod ${signed(modifier(composedAbilities[key].total))})`,
+          ])} />
+
+          <SummarySection title="Combate" items={[
+            ['PV atual', activeSheet.hitPointsCurrent],
+            ['PV máximo', activeSheet.hitPointsMaximum],
+            ['PV temporários', activeSheet.hitPointsTemporary],
+            ['Dano recebido', activeSheet.damageTaken],
+            ['Condição', activeSheet.conditionStep],
+            ['Pontos de destino', activeSheet.destinyPoints],
+            ['Pontos da Força', activeSheet.forcePoints],
+            ['Lado Negro', activeSheet.darkSideScore],
+            ['Reflexos', defenses.reflex],
+            ['Fortitude', defenses.fortitude],
+            ['Vontade', defenses.will],
+            ['BBA', `+${baseAttackBonus}`],
+          ]} />
+
+          <SummaryList title="Perícias destacadas" items={notableSkills} empty="Nenhuma perícia marcada." />
+          <SummaryList title="Aptidões" items={selectedFeats} empty="Nenhuma aptidão adicionada." />
+          <SummaryList title="Talentos" items={selectedTalents} empty="Nenhum talento adicionado." />
+          <SummaryList title="Força" items={[
+            activeSheet.forceSensitivity ? 'Sensível à Força' : 'Não sensível à Força',
+            activeSheet.forceTradition ? `Tradição: ${labelFor(['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem), activeSheet.forceTradition)}` : '',
+            ...selectedForcePowers.map((item) => `Poder: ${item}`),
+            ...selectedForceTechniques.map((item) => `Técnica: ${item}`),
+            ...selectedForceSecrets.map((item) => `Segredo: ${item}`),
+          ].filter(Boolean)} empty="Nenhuma informação da Força adicionada." />
+          <SummaryList title="Equipamentos" items={selectedEquipment} empty="Nenhum equipamento adicionado." />
+          <SummaryList title="Veículos" items={selectedVehicles} empty="Nenhum veículo adicionado." />
+          <SummaryList title="Dróides" items={selectedDroids} empty="Nenhum dróide adicionado." />
+
+          <SummaryText title="Anotações" value={activeSheet.notes} />
+          <SummaryText title="Histórico" value={activeSheet.progressionLog} />
+          <SummaryText title="Versões" value={activeSheet.versionNote} />
+        </div>
+      </Panel>
+    );
+  }
+
+  function SummarySection({ title, items }: { title: string; items: Array<[string, string | number]> }) {
+    return (
+      <section className="summary-section">
+        <h3>{title}</h3>
+        <div className="summary-items">
+          {items.map(([label, value]) => (
+            <div className="summary-item" key={label}>
+              <span>{label}</span>
+              <strong>{String(value || 'Não preenchido')}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  function SummaryList({ title, items, empty }: { title: string; items: string[]; empty: string }) {
+    return (
+      <section className="summary-section">
+        <h3>{title}</h3>
+        {items.length > 0 ? (
+          <div className="summary-list">
+            {items.map((item) => <span key={item}>{item}</span>)}
+          </div>
+        ) : (
+          <p className="summary-empty">{empty}</p>
+        )}
+      </section>
+    );
+  }
+
+  function SummaryText({ title, value }: { title: string; value: string }) {
+    return (
+      <section className="summary-section summary-text">
+        <h3>{title}</h3>
+        <p>{value || 'Nada preenchido ainda.'}</p>
+      </section>
+    );
+  }
 
   function updateSkill(skillSlug: string, patch: Partial<SkillEntry>) {
     updateActiveSheet((sheet) => ({
@@ -1043,14 +1227,14 @@ export function App() {
 
   function ForcePanel() {
     return (
-      <Panel icon={<Sparkles aria-hidden="true" />} title="A Forca">
+      <Panel icon={<Sparkles aria-hidden="true" />} title="A Força">
         <div className="form-grid">
-          <label className="toggle-line"><input checked={activeSheet.forceSensitivity} type="checkbox" onChange={(event) => setField('forceSensitivity', event.target.checked)} /> Sensivel a Forca</label>
-          <CatalogSelect label="Tradicao da Forca" value={activeSheet.forceTradition} items={['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem)} onChange={(value) => setField('forceTradition', value)} />
+          <label className="toggle-line"><input checked={activeSheet.forceSensitivity} type="checkbox" onChange={(event) => setField('forceSensitivity', event.target.checked)} /> Sensível à Força</label>
+          <CatalogSelect label="Tradição da Força" value={activeSheet.forceTradition} items={['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem)} onChange={(value) => setField('forceTradition', value)} />
         </div>
-        <RichSelectionPanel compact title="Poderes da Forca" icon={<Sparkles aria-hidden="true" />} items={forcePowerDetailsCatalog} selected={activeSheet.forcePowers} onChange={(value) => setField('forcePowers', value)} />
-        <RichSelectionPanel compact title="Tecnicas da Forca" icon={<Sparkles aria-hidden="true" />} items={forceTechniqueDetailsCatalog} selected={activeSheet.forceTechniques} onChange={(value) => setField('forceTechniques', value)} />
-        <RichSelectionPanel compact title="Segredos da Forca" icon={<Sparkles aria-hidden="true" />} items={forceSecretDetailsCatalog} selected={activeSheet.forceSecrets} onChange={(value) => setField('forceSecrets', value)} />
+        <RichSelectionPanel compact title="Poderes da Força" icon={<Sparkles aria-hidden="true" />} items={forcePowerDetailsCatalog} selected={activeSheet.forcePowers} onChange={(value) => setField('forcePowers', value)} />
+        <RichSelectionPanel compact title="Técnicas da Força" icon={<Sparkles aria-hidden="true" />} items={forceTechniqueDetailsCatalog} selected={activeSheet.forceTechniques} onChange={(value) => setField('forceTechniques', value)} />
+        <RichSelectionPanel compact title="Segredos da Força" icon={<Sparkles aria-hidden="true" />} items={forceSecretDetailsCatalog} selected={activeSheet.forceSecrets} onChange={(value) => setField('forceSecrets', value)} />
       </Panel>
     );
   }
@@ -1060,9 +1244,9 @@ export function App() {
       <>
         <GroupedRichSelectionPanel
           icon={<CircleDot aria-hidden="true" />}
-          title="Monte seu droide"
-          groupLabel="Configuracao"
-          itemLabel="Opcao"
+          title="Monte seu dróide"
+          groupLabel="Configuração"
+          itemLabel="Opção"
           items={droidBuilderDetailsCatalog}
           selected={activeSheet.droidSystems}
           onChange={(value) => setField('droidSystems', value)}
@@ -1070,9 +1254,9 @@ export function App() {
         />
         <GroupedRichSelectionPanel
           icon={<CircleDot aria-hidden="true" />}
-          title="Droides prontos"
-          groupLabel="Tipo de droide"
-          itemLabel="Droide"
+          title="Dróides prontos"
+          groupLabel="Tipo de dróide"
+          itemLabel="Dróide"
           items={readyDroidDetailsCatalog}
           selected={activeSheet.droidSystems}
           onChange={(value) => setField('droidSystems', value)}
@@ -1095,19 +1279,19 @@ export function App() {
       <Panel icon={<Sparkles aria-hidden="true" />} title="Talentos">
         <div className="rule-note">
           <strong>Regra de classe</strong>
-          <p>Talentos sao escolhidos das arvores da classe em que voce ganhou o nivel. Aptidoes sao gerais, mas aptidoes bonus de classe usam listas especificas da classe.</p>
+          <p>Talentos são escolhidos das árvores da classe em que você ganhou o nível. Aptidões são gerais, mas aptidões bônus de classe usam listas específicas da classe.</p>
         </div>
         {unavailable.length > 0 && (
           <div className="warning-note">
             <strong>Conferir multiclasse</strong>
-            <p>{unavailable.length} talento(s) ja salvo(s) nao pertencem a classe atual e foram ocultados desta lista. Isso pode estar correto se foram ganhos por multiclasse.</p>
+            <p>{unavailable.length} talento(s) já salvo(s) não pertencem à classe atual e foram ocultados desta lista. Isso pode estar correto se foram ganhos por multiclasse.</p>
           </div>
         )}
         <GroupedRichSelectionPanel
           compact
           title={`Talentos de ${labelFor(heroicClassCatalog, selectedClassSlug)}`}
           icon={<Sparkles aria-hidden="true" />}
-          groupLabel="Arvore de talento"
+          groupLabel="Árvore de talento"
           itemLabel="Talento"
           items={availableTalents}
           selected={selectedClassTalents}
@@ -1135,10 +1319,10 @@ export function App() {
     }
 
     return (
-      <Panel icon={<BadgePlus aria-hidden="true" />} title="Aptidoes">
+      <Panel icon={<BadgePlus aria-hidden="true" />} title="Aptidões">
         <div className="feat-picker">
           <label>
-            Aptidao
+            Aptidão
             <select value={choice} onChange={(event) => setChoice(event.target.value)}>
               {featCatalog.map((featItem) => (
                 <option key={featItem.slug} value={featItem.slug}>{featItem.name}</option>
@@ -1151,7 +1335,7 @@ export function App() {
         <div className="feat-preview">
           <strong>{selectedFeat.name}</strong>
           <p>{selectedFeat.benefit}</p>
-          <small>Pre-requisitos: {selectedFeat.prerequisites}</small>
+          <small>Pré-requisitos: {selectedFeat.prerequisites}</small>
         </div>
 
         <div className="feat-list">
@@ -1165,17 +1349,17 @@ export function App() {
                 <button type="button" onClick={() => removeFeat(featItem.slug)}>Remover</button>
               </div>
               <details>
-                <summary>Ver informacoes da aptidao</summary>
+                <summary>Ver informações da aptidão</summary>
                 <div className="feat-details">
-                  <p><b>Pre-requisitos:</b> {featItem.prerequisites}</p>
-                  <p><b>Beneficio:</b> {featItem.benefit}</p>
+                  <p><b>Pré-requisitos:</b> {featItem.prerequisites}</p>
+                  <p><b>Benefício:</b> {featItem.benefit}</p>
                   {featItem.normal && <p><b>Normal:</b> {featItem.normal}</p>}
                   {featItem.special && <p><b>Especial:</b> {featItem.special}</p>}
                 </div>
               </details>
             </article>
           ))}
-          {selectedFeats.length === 0 && <p className="empty-state">Nenhuma aptidao adicionada ainda.</p>}
+          {selectedFeats.length === 0 && <p className="empty-state">Nenhuma aptidão adicionada ainda.</p>}
         </div>
       </Panel>
     );
@@ -1241,13 +1425,13 @@ export function App() {
                 <button type="button" onClick={() => removeItem(item.slug)}>Remover</button>
               </div>
               <details>
-                <summary>Ver informacoes</summary>
+                <summary>Ver informações</summary>
                 <div className="feat-details">
                   {item.category && <p><b>Categoria:</b> {item.category}</p>}
                   {item.classRestriction && item.classRestriction.length > 0 && <p><b>Classe:</b> {item.classRestriction.map((slug) => labelFor(heroicClassCatalog, slug)).join(', ')}</p>}
-                  {item.prerequisites && <p><b>Pre-requisitos:</b> {item.prerequisites}</p>}
+                  {item.prerequisites && <p><b>Pré-requisitos:</b> {item.prerequisites}</p>}
                   <div><b>Efeito:</b>{renderFormattedText(item.details)}</div>
-                  {item.extra && <div><b>Observacao:</b>{renderFormattedText(item.extra)}</div>}
+                  {item.extra && <div><b>Observação:</b>{renderFormattedText(item.extra)}</div>}
                 </div>
               </details>
             </article>
@@ -1338,7 +1522,7 @@ export function App() {
               <strong>{selectedItem.name}</strong>
               {selectedItem.category && <small>{selectedItem.category}</small>}
             </div>
-            {selectedItem.prerequisites && <small>Pre-requisitos: {selectedItem.prerequisites}</small>}
+            {selectedItem.prerequisites && <small>Pré-requisitos: {selectedItem.prerequisites}</small>}
             {renderFormattedText(selectedItem.details)}
           </div>
         )}
@@ -1354,9 +1538,9 @@ export function App() {
                 <button type="button" onClick={() => removeItem(item.slug)}>Remover</button>
               </div>
               <details>
-                <summary>Ver informacoes</summary>
+                <summary>Ver informações</summary>
                 <div className="feat-details">
-                  {item.prerequisites && <p><b>Pre-requisitos:</b> {item.prerequisites}</p>}
+                  {item.prerequisites && <p><b>Pré-requisitos:</b> {item.prerequisites}</p>}
                   {renderFormattedText(item.details)}
                   {item.extra && <div className="detail-extra">{renderFormattedText(item.extra)}</div>}
                 </div>

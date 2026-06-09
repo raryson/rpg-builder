@@ -216,11 +216,74 @@ button {
   color: #fffaf0;
 }
 
+.creation-flow {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+  max-width: 980px;
+}
+
+.flow-heading {
+  align-items: end;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.flow-heading p {
+  color: #6b726d;
+  font-size: 0.78rem;
+  font-weight: 900;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+
+.flow-heading h2 {
+  color: #30363a;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.flow-heading span {
+  background: #fffdf7;
+  border: 1px solid #d9d1bf;
+  border-radius: 6px;
+  color: #30363a;
+  font-size: 0.8rem;
+  font-weight: 900;
+  padding: 6px 9px;
+}
+
+.flow-heading-actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.progress-track {
+  background: #ded4bf;
+  border-radius: 999px;
+  height: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.progress-track span {
+  background: #d54635;
+  display: block;
+  height: 100%;
+  transition: width 160ms ease;
+}
+
 .grid {
   align-items: start;
   display: grid;
   gap: 18px;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr);
+  grid-template-columns: minmax(0, 1fr);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
 }
 
 .panel {
@@ -242,6 +305,60 @@ button {
 .panel-title h2 {
   font-size: 1rem;
   margin: 0;
+}
+
+.flow-controls {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 18px;
+  max-width: 980px;
+}
+
+.step-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step-controls.compact {
+  justify-content: flex-end;
+  width: auto;
+}
+
+.step-controls button {
+  align-items: center;
+  background: #fffdf7;
+  border: 1px solid #d9d1bf;
+  border-radius: 8px;
+  color: #30363a;
+  display: inline-flex;
+  font-weight: 900;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+}
+
+.step-controls.compact button {
+  min-height: 36px;
+  padding: 0 10px;
+}
+
+.step-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.step-controls svg {
+  height: 18px;
+  width: 18px;
+}
+
+.step-controls .next-step {
+  background: #263136;
+  border-color: #263136;
+  color: #fffaf0;
 }
 
 .form-grid,
@@ -898,6 +1015,84 @@ textarea {
   padding: 14px;
 }
 
+.summary-review {
+  grid-column: 1 / -1;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.summary-section {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 14px;
+}
+
+.summary-section h3 {
+  color: #30363a;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.summary-items {
+  display: grid;
+  gap: 7px;
+}
+
+.summary-item {
+  align-items: start;
+  border-top: 1px solid #ece3d3;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(110px, 0.42fr) minmax(0, 1fr);
+  padding-top: 7px;
+}
+
+.summary-item span {
+  color: #7b817c;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.summary-item strong {
+  color: #30363a;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.summary-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.summary-list span {
+  background: #f6f0e5;
+  border: 1px solid #e1d4bf;
+  border-radius: 6px;
+  color: #30363a;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 7px 9px;
+}
+
+.summary-empty,
+.summary-text p {
+  color: #5d645f;
+  line-height: 1.45;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 1120px) {
   .shell {
     grid-template-columns: 1fr;
@@ -916,7 +1111,8 @@ textarea {
   .condition-panel,
   .notes-panel,
   .identity-panel,
-  .skills-panel {
+  .skills-panel,
+  .summary-grid {
     grid-column: auto;
     grid-template-columns: 1fr;
   }
@@ -933,6 +1129,25 @@ textarea {
     flex-direction: column;
   }
 
+  .flow-heading,
+  .flow-heading-actions,
+  .flow-controls,
+  .step-controls,
+  .step-controls.compact {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .step-controls,
+  .step-controls.compact {
+    width: 100%;
+  }
+
+  .step-controls button {
+    justify-content: center;
+    width: 100%;
+  }
+
   .summary-band,
   .form-grid,
   .condition-grid,
@@ -942,7 +1157,8 @@ textarea {
   .feat-card-header,
   .source-details,
   .defense-breakdown,
-  .characteristics {
+  .characteristics,
+  .summary-item {
     grid-template-columns: 1fr;
   }
 
