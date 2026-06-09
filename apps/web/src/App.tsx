@@ -88,6 +88,11 @@ type WikiRule = {
   stats: Record<string, unknown>;
   tags: string[];
   source: string;
+  imageUrl?: string;
+  imageSourceUrl?: string;
+  imageAttribution?: string;
+  imageProvider?: string;
+  imageUpdatedAt?: string | null;
 };
 
 type WikiSystem = {
@@ -640,11 +645,15 @@ async function readWikiRules(filters: { systemSlug?: string; query?: string; typ
 }
 
 async function readWikiRule(systemSlug: string, slug: string) {
-  const params = new URLSearchParams({ system: systemSlug });
-  const response = await fetch(apiUrl(`/api/wiki/rules/${encodeURIComponent(slug)}?${params.toString()}`));
+  const params = new URLSearchParams({ system: systemSlug, slug });
+  const response = await fetch(apiUrl(`/api/wiki/rules?${params.toString()}`));
 
   if (response.ok) {
-    return (await response.json()) as { rule: WikiRule; related: WikiRule[] };
+    const contentType = response.headers.get('content-type') ?? '';
+
+    if (contentType.includes('application/json')) {
+      return (await response.json()) as { rule: WikiRule; related: WikiRule[] };
+    }
   }
 
   const rules = await readWikiRules({ systemSlug, limit: 200 });
@@ -1099,6 +1108,15 @@ function WikiApp({
         <div className="wiki-grid">
           {rules.map((rule) => (
             <article className="wiki-card" key={rule.id}>
+              {rule.imageUrl && (
+                <img
+                  className="wiki-card-image"
+                  src={rule.imageUrl}
+                  alt=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+              )}
               <div className="preview-heading">
                 <strong>{rule.name}</strong>
                 <small>{rule.category || rule.type}</small>
@@ -1207,6 +1225,23 @@ function WikiRuleDetail({
                 <h1>{rule.name}</h1>
                 <small>{rule.category || 'Geral'}</small>
               </div>
+              {rule.imageUrl && (
+                <figure className="wiki-detail-image">
+                  <img src={rule.imageUrl} alt="" loading="lazy" referrerPolicy="no-referrer" />
+                  {(rule.imageSourceUrl || rule.imageAttribution || rule.imageProvider) && (
+                    <figcaption>
+                      Imagem:{' '}
+                      {rule.imageSourceUrl ? (
+                        <a href={rule.imageSourceUrl} target="_blank" rel="noreferrer">
+                          {rule.imageAttribution || rule.imageProvider || 'fonte externa'}
+                        </a>
+                      ) : (
+                        <span>{rule.imageAttribution || rule.imageProvider}</span>
+                      )}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
               <RuleHighlights text={[rule.summary, rule.content, Object.values(rule.stats ?? {}).join(' ')].join(' ')} />
               {rule.summary && <p className="wiki-detail-summary">{rule.summary}</p>}
               {renderFormattedText(rule.content)}

@@ -90,6 +90,11 @@ function getRuleEntryModel() {
       stats: { type: mongooseAny.Schema.Types.Mixed, default: {} },
       tags: { type: [String], default: [], index: true },
       source: { type: String, default: '' },
+      imageUrl: { type: String, default: '' },
+      imageSourceUrl: { type: String, default: '' },
+      imageAttribution: { type: String, default: '' },
+      imageProvider: { type: String, default: '' },
+      imageUpdatedAt: { type: Date, default: null },
       visibility: { type: String, enum: ['public', 'private'], default: 'public', index: true },
       status: { type: String, enum: ['draft', 'published', 'archived'], default: 'published', index: true },
     },
@@ -221,6 +226,11 @@ export async function listRuleEntries(input: {
     stats: entry.stats ?? {},
     tags: entry.tags ?? [],
     source: entry.source ?? '',
+    imageUrl: entry.imageUrl ?? '',
+    imageSourceUrl: entry.imageSourceUrl ?? '',
+    imageAttribution: entry.imageAttribution ?? '',
+    imageProvider: entry.imageProvider ?? '',
+    imageUpdatedAt: entry.imageUpdatedAt ?? null,
     updatedAt: entry.updatedAt,
   }));
 }
@@ -238,6 +248,11 @@ function leanRuleEntry(entry: any) {
     stats: entry.stats ?? {},
     tags: entry.tags ?? [],
     source: entry.source ?? '',
+    imageUrl: entry.imageUrl ?? '',
+    imageSourceUrl: entry.imageSourceUrl ?? '',
+    imageAttribution: entry.imageAttribution ?? '',
+    imageProvider: entry.imageProvider ?? '',
+    imageUpdatedAt: entry.imageUpdatedAt ?? null,
     updatedAt: entry.updatedAt,
   };
 }

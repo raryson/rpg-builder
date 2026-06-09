@@ -20,6 +20,11 @@ export type SaveRuleEntryInput = {
   stats?: Record<string, unknown>;
   tags?: string[];
   source?: string;
+  imageUrl?: string;
+  imageSourceUrl?: string;
+  imageAttribution?: string;
+  imageProvider?: string;
+  imageUpdatedAt?: Date | null;
   visibility?: 'public' | 'private';
   status?: 'draft' | 'published' | 'archived';
 };
@@ -37,6 +42,11 @@ function leanRuleEntry(entry: any) {
     stats: entry.stats ?? {},
     tags: entry.tags ?? [],
     source: entry.source ?? '',
+    imageUrl: entry.imageUrl ?? '',
+    imageSourceUrl: entry.imageSourceUrl ?? '',
+    imageAttribution: entry.imageAttribution ?? '',
+    imageProvider: entry.imageProvider ?? '',
+    imageUpdatedAt: entry.imageUpdatedAt ?? null,
     updatedAt: entry.updatedAt,
   };
 }
