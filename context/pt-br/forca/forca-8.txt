@@ -1,0 +1,389 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 8)
+# PONTOS DA FORÇA, LADO NEGRO E CORRUPÇÃO
+
+OBJETIVO
+
+Este documento define como funcionam:
+
+- Pontos da Força
+- Valor do Lado Negro
+- corrupção
+- bloqueio de talentos
+- uso moral da Força
+
+==================================================
+PONTOS DA FORÇA
+==================================================
+
+Pontos da Força são recurso especial.
+
+Representam:
+
+- sorte
+- destino
+- conexão com a Força
+- esforço sobrenatural
+
+Podem ser usados por:
+
+- usuários da Força
+- não usuários da Força
+
+Diferença:
+
+usuário da Força
+→ entende o que está acontecendo
+
+não usuário
+→ interpreta como sorte ou destino
+
+==================================================
+MODELO
+==================================================
+
+interface ForcePointPool {
+
+ current
+
+ maximum
+
+ spentThisEncounter
+
+ recoveredThisEncounter
+
+}
+
+==================================================
+USOS COMUNS
+==================================================
+
+Pontos da Força podem:
+
+- modificar jogadas
+- ativar talentos
+- ativar segredos
+- recuperar poderes
+- remover condições
+- melhorar ataques
+
+==================================================
+GASTO EM JOGADAS
+==================================================
+
+Ao gastar ponto da força:
+
+adicionar dado bônus
+
+ao resultado.
+
+Modelo:
+
+interface ForcePointRoll {
+
+ baseRoll
+
+ forceDie
+
+ finalResult
+
+}
+
+==================================================
+LIMITES
+==================================================
+
+Respeitar limites normais:
+
+- gasto por rodada
+- gasto por encontro
+- gasto por efeito
+
+Nunca permitir gasto infinito.
+
+==================================================
+RECUPERAÇÃO DE PONTOS
+==================================================
+
+Métodos conhecidos:
+
+- fim de encontro
+- técnicas específicas
+- regras de classe
+- descanso
+- progressão
+
+==================================================
+TÉCNICA RELACIONADA
+RECUPERAR PONTO DA FORÇA
+==================================================
+
+Ao final de encontro:
+
+recupera 1 ponto gasto.
+
+Pode acumular.
+
+Cada vez que escolher:
+
++1 ponto recuperado.
+
+==================================================
+LADO NEGRO
+==================================================
+
+O Lado Negro mede corrupção espiritual.
+
+Modelo:
+
+darkSideScore
+
+Representa:
+
+- medo
+- raiva
+- ódio
+- crueldade
+- uso egoísta da Força
+
+==================================================
+VALOR DO LADO NEGRO
+==================================================
+
+interface DarkSideState {
+
+ score
+
+ threshold
+
+ corrupted
+
+ fallen
+
+}
+
+score:
+
+valor atual
+
+threshold:
+
+limite narrativo ou mecânico
+
+corrupted:
+
+personagem sob influência
+
+fallen:
+
+personagem caiu totalmente
+
+==================================================
+GANHO DE LADO NEGRO
+==================================================
+
+Ações que podem aumentar:
+
+- usar ódio como combustível
+- cometer crueldade
+- matar indefesos
+- usar poderes destrutivos de forma egoísta
+- ativar certos talentos
+
+==================================================
+EXEMPLO MECÂNICO
+==================================================
+
+Talento:
+
+Poder do Lado Negro
+
+Efeito:
+
+ao gastar ponto da força
+para modificar ataque
+
+pode rolar dado extra
+
+e escolher melhor resultado
+
+Consequência:
+
+darkSideScore += 1
+
+==================================================
+ÁRVORE DO LADO NEGRO
+==================================================
+
+Requisito geral:
+
+darkSideScore >= 1
+
+Se:
+
+darkSideScore == 0
+
+Então:
+
+bloquear talentos da árvore
+
+Importante:
+
+não apagar talentos adquiridos
+
+apenas impedir uso.
+
+==================================================
+MODELO DE BLOQUEIO
+==================================================
+
+interface TalentAvailability {
+
+ talentId
+
+ known
+
+ usable
+
+ blockedReason
+
+}
+
+blockedReason:
+
+darkSideScoreTooLow
+
+==================================================
+TALENTOS RELACIONADOS
+==================================================
+
+Poder do Lado Negro
+
+Presença Sombria
+
+Vingança
+
+Poder Rápido
+
+==================================================
+CORRUPÇÃO
+==================================================
+
+Corrupção não é apenas número.
+
+Ela pode alterar:
+
+- interpretação do personagem
+- acesso a talentos
+- decisões narrativas
+- reação de NPCs
+- relação com Jedi e Sith
+
+==================================================
+ESTADOS SUGERIDOS
+==================================================
+
+LIGHT
+
+darkSideScore = 0
+
+----------------
+
+TOUCHED
+
+darkSideScore >= 1
+
+----------------
+
+CORRUPTED
+
+darkSideScore alto
+
+----------------
+
+FALLEN
+
+personagem dominado pelo lado negro
+
+==================================================
+REDUÇÃO DO LADO NEGRO
+==================================================
+
+Possível por:
+
+- redenção
+- atos altruístas
+- sacrifício
+- julgamento narrativo do mestre
+
+Quando reduzido para 0:
+
+desativa talentos do Lado Negro.
+
+==================================================
+PERTURBAÇÕES E LADO NEGRO
+==================================================
+
+Uso intenso da Força pode gerar perturbação.
+
+Uso do Lado Negro:
+
+gera perturbações mais fortes.
+
+Modelo:
+
+disturbance += basePowerIntensity
+
+if darkSideUsed:
+
+disturbance += darkSideBonus
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Lado Negro deve ser persistido
+
+2. Talentos bloqueados não devem ser removidos
+
+3. Pontos da Força são recurso limitado
+
+4. Não usuários também usam Pontos da Força
+
+5. Corrupção deve afetar narrativa e regra
+
+6. Redenção pode remover acesso ao Lado Negro
+
+==================================================
+MODELAGEM PERSONAGEM
+==================================================
+
+interface CharacterForceMorality {
+
+ forcePoints
+
+ maxForcePoints
+
+ darkSideScore
+
+ moralityState
+
+ darkSideTalentsBlocked
+
+}
+
+==================================================
+OBSERVAÇÃO IMPLEMENTAÇÃO
+==================================================
+
+Separar:
+
+forcePoints
+
+de
+
+darkSideScore
+
+Nunca misturar recurso mecânico
+com corrupção moral.
+
+FIM DO CONTEXTO

@@ -1,0 +1,397 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 2)
+# PERÍCIA USAR A FORÇA
+
+OBJETIVO
+
+Este documento define o funcionamento da perícia
+USAR A FORÇA.
+
+Essa perícia é o núcleo mecânico de qualquer
+personagem usuário da Força.
+
+==================================================
+VISÃO GERAL
+==================================================
+
+Usar a Força é uma perícia especial.
+
+Ela permite:
+
+- ativar poderes
+- detectar presenças
+- sentir distúrbios
+- manipular objetos
+- perceber eventos
+- comunicar pensamentos
+- realizar ações sobrenaturais
+
+A perícia substitui diversas perícias normais
+quando talentos específicos forem adquiridos.
+
+==================================================
+ESTRUTURA DA PERÍCIA
+==================================================
+
+interface UseForceSkill {
+
+ modifier
+
+ trained
+
+ miscBonus
+
+ temporaryBonus
+
+}
+
+Resultado:
+
+useForceResult =
+d20
++ modifier
++ bonuses
+- penalties
+
+==================================================
+ATIVAÇÃO DE PODERES
+==================================================
+
+Grande parte dos poderes exige:
+
+1 Executar ação
+
+2 Testar Usar a Força
+
+3 Comparar resultado
+
+Fluxo:
+
+attemptPower()
+
+↓
+
+consumeAction()
+
+↓
+
+rollUseForce()
+
+↓
+
+resolveEffect()
+
+↓
+
+storeCooldown()
+
+==================================================
+SENTIR A FORÇA
+==================================================
+
+Permite perceber presença da Força.
+
+Pode identificar:
+
+- seres vivos
+- usuários da Força
+- locais poderosos
+- perturbações
+
+Entradas:
+
+range
+
+lineOfEffect
+
+concentration
+
+Saída:
+
+ForcePresence[]
+
+Modelo:
+
+interface ForcePresence {
+
+ strength
+
+ location
+
+ sourceType
+
+ confidence
+
+}
+
+==================================================
+SENTIR ARREDORES
+==================================================
+
+Permite detectar perigos próximos.
+
+Detecta:
+
+- criaturas
+- movimento
+- presença hostil
+
+Usado para:
+
+- antecipação
+- exploração
+- alerta
+
+Modelo:
+
+interface ForceAwareness {
+
+ nearbyEnemies
+
+ hiddenEntities
+
+ hazardLevel
+
+}
+
+==================================================
+TELEPATIA
+==================================================
+
+Permite comunicação mental.
+
+Regras:
+
+- exige alvo válido
+- necessita concentração
+- não transmite conhecimento complexo
+
+Modelo:
+
+interface Telepathy {
+
+ source
+
+ target
+
+ duration
+
+ successful
+
+}
+
+==================================================
+TRANSE DA FORÇA
+==================================================
+
+Estado meditativo.
+
+Objetivos:
+
+- descanso
+- recuperação
+- introspecção
+
+Durante transe:
+
+- personagem permanece consciente
+- reduz atividade corporal
+
+Modelo:
+
+interface ForceTrance {
+
+ active
+
+ elapsedTime
+
+ recoveredResources
+
+}
+
+==================================================
+VISÃO DISTANTE
+==================================================
+
+Permite observar local ou alvo distante.
+
+Pode visualizar:
+
+- pessoas
+- objetos
+- eventos
+
+Restrições:
+
+- alcance limitado
+- qualidade depende do teste
+
+Modelo:
+
+interface RemoteVision {
+
+ target
+
+ distance
+
+ clarity
+
+ duration
+
+}
+
+==================================================
+MOVER OBJETO
+==================================================
+
+Manipulação telecinética.
+
+Permite:
+
+- levantar
+- empurrar
+- puxar
+- lançar
+
+Propriedades:
+
+interface MoveObject {
+
+ weight
+
+ range
+
+ speed
+
+ collisionDamage
+
+}
+
+Possíveis usos:
+
+- abrir portas
+- desarmar inimigos
+- atacar
+- mover cobertura
+
+==================================================
+SUBSTITUIÇÕES DE PERÍCIA
+==================================================
+
+Talentos podem permitir:
+
+Usar a Força → Percepção
+
+Usar a Força → Pilotar
+
+Usar a Força → outras perícias
+
+Sistema:
+
+interface ForceSkillOverride {
+
+ originalSkill
+
+ substituteSkill
+
+ requirements
+
+}
+
+==================================================
+FALHAS
+==================================================
+
+Falhar em Usar a Força pode:
+
+- cancelar efeito
+
+- desperdiçar ação
+
+- gastar recurso
+
+- produzir efeito parcial
+
+Modelo:
+
+interface ForceFailure {
+
+ severity
+
+ resourceLoss
+
+ partialEffect
+
+}
+
+==================================================
+PERTURBAÇÃO GERADA
+==================================================
+
+Sempre que usar:
+
+useForce()
+
+Executar:
+
+generateDisturbance()
+
+Escala sugerida:
+
+Pequeno Poder
++1
+
+Poder Médio
++2
+
+Poder Forte
++4
+
+Segredo da Força
++6
+
+Evento Catastrófico
++10
+
+Modelo:
+
+forceDisturbance += value
+
+==================================================
+INTERFACE RECOMENDADA
+==================================================
+
+interface ForceAction {
+
+ id
+
+ name
+
+ actionType
+
+ difficulty
+
+ rollResult
+
+ success
+
+ consequences
+
+}
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Nem todo uso exige combate
+
+2. Alguns efeitos exigem linha de visão
+
+3. Concentração pode ser interrompida
+
+4. Testes altos melhoram qualidade
+
+5. Perturbações podem ser detectadas
+
+6. Poderes podem reutilizar esta estrutura
+
+FIM DO CONTEXTO

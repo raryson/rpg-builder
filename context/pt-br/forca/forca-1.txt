@@ -1,0 +1,324 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 1)
+# FUNDAMENTOS E MECÂNICAS GERAIS
+
+OBJETIVO
+Este documento define como a Força funciona dentro do sistema.
+Todas funcionalidades relacionadas à Força devem seguir estas regras.
+
+==================================================
+O QUE É A FORÇA
+==================================================
+
+A Força é um campo de energia místico criado por todos os seres vivos.
+
+Características:
+- conecta toda a galáxia
+- flui através dos seres vivos
+- pode ser sentida e manipulada
+- influencia destino e acontecimentos
+
+Nem todos conseguem utilizá-la conscientemente.
+
+Para utilizar a Força normalmente é necessário:
+
+- Aptidão Sensível à Força
+- Perícia Usar a Força
+- Conhecimento de Poderes da Força
+
+==================================================
+USUÁRIOS DA FORÇA
+==================================================
+
+Um usuário da Força é qualquer personagem capaz de manipular energia da Força conscientemente.
+
+Exemplos de tradições:
+
+- Jedi
+- Sith
+- Jensaarai
+- Bruxas de Dathomir
+- Outras tradições
+
+Cada tradição pode fornecer:
+
+- talentos exclusivos
+- progressões especiais
+- filosofia própria
+- modificadores narrativos
+
+==================================================
+LADO LUMINOSO
+==================================================
+
+Representa:
+
+- equilíbrio
+- serenidade
+- disciplina
+- proteção
+- conhecimento
+
+Princípios:
+
+- agir sem ódio
+- evitar violência desnecessária
+- buscar soluções pacíficas
+- servir aos outros
+
+==================================================
+LADO NEGRO
+==================================================
+
+Representa:
+
+- paixão
+- medo
+- raiva
+- desejo
+- dominação
+
+Características:
+
+- acesso rápido ao poder
+- maior risco de corrupção
+- aumento de agressividade
+
+Uso excessivo pode aumentar:
+
+darkSideScore
+
+==================================================
+PONTOS DA FORÇA
+==================================================
+
+Pontos da Força representam momentos de esforço sobrenatural.
+
+Usos:
+
+- aumentar testes
+- melhorar ataques
+- recuperar recursos
+- ativar técnicas
+- potencializar poderes
+
+Modelo:
+
+interface ForcePool {
+
+  currentPoints
+
+  maximumPoints
+
+}
+
+==================================================
+GASTO DE PONTOS DA FORÇA
+==================================================
+
+Ações conhecidas:
+
+EQUILIBRIUM
+
+Tipo:
+Ação Rápida
+
+Efeito:
+- remove todas condições debilitantes
+- retorna ao estado normal
+
+Consome:
+1 ponto da força
+
+--------------------------------------------------
+
+FOCO DA FORÇA
+
+Tipo:
+Ação Completa
+
+Executa:
+
+Usar a Força CD 15
+
+Sucesso:
+
+Recupera:
+1 Poder da Força gasto
+
+--------------------------------------------------
+
+RECUPERAÇÃO PELA FORÇA
+
+Ativação:
+Segundo Fôlego
+
+Efeito:
+
+Cura:
+1d6 × Pontos da Força disponíveis
+
+Limite:
+10d6
+
+Pré requisito:
+Equilibrium
+
+==================================================
+PODERES DA FORÇA
+==================================================
+
+Poderes são habilidades especiais ativadas pela perícia:
+
+Usar a Força
+
+Todo poder possui:
+
+interface ForcePower {
+
+ id
+
+ name
+
+ description
+
+ activationType
+
+ range
+
+ duration
+
+ target
+
+ useForceDC
+
+ expendable
+
+}
+
+activationType:
+
+- swift
+- move
+- standard
+- full
+
+==================================================
+USAR A FORÇA
+==================================================
+
+Perícia principal de usuários.
+
+Pode substituir outras perícias dependendo dos talentos.
+
+Exemplos:
+
+- percepção
+- pilotagem
+- telepatia
+- sensoriamento
+- movimentação
+
+Modelo:
+
+interface UseForceCheck {
+
+ roll
+
+ modifier
+
+ bonuses
+
+ penalties
+
+ total
+
+}
+
+==================================================
+PERTURBAÇÕES NA FORÇA
+==================================================
+
+Toda utilização da Força gera perturbação.
+
+Escala:
+
+Baixa
+→ praticamente imperceptível
+
+Moderada
+→ detectável
+
+Alta
+→ facilmente localizada
+
+Consequências:
+
+- outros usuários sentem
+- localização aproximada
+- atenção de entidades poderosas
+
+Sistema opcional:
+
+forceDisturbance += intensity
+
+==================================================
+FILOSOFIA DA FORÇA
+==================================================
+
+A Força não é apenas combate.
+
+Também influencia:
+
+- percepção
+- destino
+- narrativa
+- decisões
+- crescimento pessoal
+
+Usuários avançados podem:
+
+- prever eventos
+- sentir perigos
+- alterar ambientes
+
+==================================================
+MODELAGEM SUGERIDA
+==================================================
+
+interface ForceUser {
+
+ sensitive
+
+ forcePoints
+
+ knownPowers
+
+ darkSideScore
+
+ traditions
+
+ forceTechniques
+
+ forceSecrets
+
+ useForceModifier
+
+}
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Nem todo Sensível à Força é usuário ativo
+
+2. Poderes normalmente exigem teste
+
+3. Pontos da Força são limitados
+
+4. Lado Negro altera progressão
+
+5. Técnicas e Segredos são conteúdo avançado
+
+6. Tradições liberam talentos exclusivos
+
+FIM DO CONTEXTO

@@ -1,0 +1,508 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 3)
+# PODERES DA FORÇA
+
+OBJETIVO
+
+Este documento define o modelo de funcionamento dos
+PODERES DA FORÇA.
+
+Poderes são habilidades especiais utilizadas através
+da perícia Usar a Força.
+
+Eles NÃO são magias.
+Eles representam manipulação direta da Força.
+
+==================================================
+VISÃO GERAL
+==================================================
+
+Poderes da Força são recursos limitados.
+
+Para usar:
+
+1 Selecionar poder
+
+2 Executar ação necessária
+
+3 Realizar teste Usar a Força
+
+4 Resolver efeitos
+
+5 Marcar poder como gasto
+
+Fluxo:
+
+activatePower()
+
+↓
+
+rollUseForce()
+
+↓
+
+resolve()
+
+↓
+
+markExpended()
+
+==================================================
+ESTRUTURA BASE
+==================================================
+
+interface ForcePower {
+
+ id
+
+ name
+
+ description
+
+ actionType
+
+ targetType
+
+ range
+
+ duration
+
+ useForceDC
+
+ expendable
+
+ tags
+
+}
+
+==================================================
+ATRIBUTOS DO PODER
+==================================================
+
+id
+
+Identificador único
+
+Ex:
+
+move-object
+
+-------------
+
+name
+
+Nome exibido
+
+Ex:
+
+Mover Objeto
+
+-------------
+
+actionType
+
+Tipo de ação exigida
+
+Valores:
+
+swift
+move
+standard
+full
+
+-------------
+
+targetType
+
+Valores:
+
+self
+
+ally
+
+enemy
+
+object
+
+area
+
+multiple
+
+-------------
+
+range
+
+Valores:
+
+touch
+
+close
+
+medium
+
+long
+
+special
+
+-------------
+
+duration
+
+Valores:
+
+instant
+
+round
+
+concentration
+
+encounter
+
+permanent
+
+-------------
+
+useForceDC
+
+CD do teste
+
+-------------
+
+expendable
+
+Define se o poder fica indisponível após uso
+
+==================================================
+ESTADO DO PODER
+==================================================
+
+interface CharacterPower {
+
+ powerId
+
+ available
+
+ uses
+
+ expended
+
+ recovered
+
+}
+
+Estados:
+
+AVAILABLE
+
+↓
+
+USED
+
+↓
+
+RECOVERED
+
+==================================================
+CONHECER PODERES
+==================================================
+
+Usuários não possuem acesso total.
+
+Cada personagem possui:
+
+knownPowers[]
+
+Exemplo:
+
+knownPowers:
+
+[
+ "move-object",
+ "mind-trick",
+ "surge"
+]
+
+==================================================
+USO DE PODER
+==================================================
+
+interface PowerActivation {
+
+ actor
+
+ power
+
+ roll
+
+ success
+
+ result
+
+ consumed
+
+}
+
+Exemplo:
+
+usar Mover Objeto
+
+↓
+
+teste Usar Força
+
+↓
+
+resultado 28
+
+↓
+
+efeito aplicado
+
+↓
+
+poder gasto
+
+==================================================
+RECUPERAÇÃO DE PODERES
+==================================================
+
+Normalmente poderes gastos não retornam imediatamente.
+
+Métodos conhecidos:
+
+FOCO DA FORÇA
+
+Ação Completa
+
+Teste:
+
+Usar a Força CD 15
+
+Sucesso:
+
+Recupera:
+
+1 poder gasto
+
+--------------------------------------------------
+
+Outras habilidades futuras
+podem recuperar múltiplos.
+
+==================================================
+MODIFICADORES DE PODER
+==================================================
+
+Poderes podem ser alterados por:
+
+- Pontos da Força
+- Técnicas da Força
+- Segredos da Força
+- Talentos
+- Tradição
+
+Modelo:
+
+interface PowerModifier {
+
+ source
+
+ property
+
+ value
+
+}
+
+==================================================
+CATEGORIAS DE PODER
+==================================================
+
+Categorias sugeridas:
+
+MOVIMENTO
+
+Ex:
+Mover Objeto
+
+----------------
+
+PERCEPÇÃO
+
+Ex:
+Sentir Presença
+
+----------------
+
+MENTE
+
+Ex:
+Telepatia
+
+----------------
+
+COMBATE
+
+Ex:
+Golpe da Força
+
+----------------
+
+SUPORTE
+
+Ex:
+Proteções
+
+----------------
+
+MOBILIDADE
+
+Ex:
+Impulso
+
+==================================================
+PODERES DE ÁREA
+==================================================
+
+interface AreaPower {
+
+ shape
+
+ radius
+
+ length
+
+ targets
+
+}
+
+Shapes:
+
+cone
+
+line
+
+burst
+
+single
+
+==================================================
+CUSTOS
+==================================================
+
+interface ForceCost {
+
+ forcePoints
+
+ destinyPoints
+
+ consumePower
+
+}
+
+Nem todo poder gasta:
+
+- Pontos da Força
+
+Mas quase todos:
+
+- ficam gastos
+
+==================================================
+RESOLUÇÃO
+==================================================
+
+interface PowerResolution {
+
+ damage
+
+ healing
+
+ movement
+
+ conditions
+
+ secondaryEffects
+
+}
+
+==================================================
+PODERES E PERTURBAÇÃO
+==================================================
+
+Todo poder gera perturbação.
+
+Exemplo:
+
+Leve
++1
+
+Moderado
++2
+
+Forte
++4
+
+Massivo
++8
+
+Modelo:
+
+forceDisturbance += powerIntensity
+
+==================================================
+MODELAGEM DO PERSONAGEM
+==================================================
+
+interface ForceCharacter {
+
+ knownPowers
+
+ expendedPowers
+
+ recoveredPowers
+
+ forceModifier
+
+ forcePoints
+
+}
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Poder ≠ magia
+
+2. Poder normalmente exige teste
+
+3. Poder pode falhar
+
+4. Poder usado normalmente fica gasto
+
+5. Poder pode ser recuperado
+
+6. Poder pode ser alterado por talentos
+
+7. Poderes devem ser expansíveis
+
+==================================================
+OBSERVAÇÃO PARA IMPLEMENTAÇÃO
+==================================================
+
+Poderes NÃO devem ser hardcoded.
+
+Criar estrutura baseada em:
+
+metadata
+
++
+
+engine de resolução
+
++
+
+efeitos compostos
+
+Isso permitirá adicionar novos poderes
+sem alterar código.
+
+FIM DO CONTEXTO

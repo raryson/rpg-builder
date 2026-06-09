@@ -1,0 +1,651 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 10)
+# ARQUITETURA FINAL — IMPLEMENTAÇÃO
+
+OBJETIVO
+
+Este documento define como implementar
+todo o sistema da Força.
+
+Meta:
+
+- MongoDB
+- Frontend React
+- Backend Next
+- Engine extensível
+
+Não criar regras hardcoded.
+
+==================================================
+PRINCÍPIOS
+==================================================
+
+A Força deve ser:
+
+DATA DRIVEN
+
+Toda regra deve existir como:
+
+dados
+
++
+
+modificadores
+
++
+
+resolução
+
+Evitar:
+
+if classe == jedi
+
+if poder == mover_objeto
+
+==================================================
+VISÃO GERAL
+==================================================
+
+Character
+
+↓
+
+ForceProfile
+
+↓
+
+Powers
+
+↓
+
+Talents
+
+↓
+
+Techniques
+
+↓
+
+Secrets
+
+↓
+
+Traditions
+
+↓
+
+Modifiers
+
+==================================================
+COLEÇÃO
+characters
+==================================================
+
+{
+
+ _id
+
+ name
+
+ species
+
+ class
+
+ level
+
+ attributes
+
+ skills
+
+ forceProfileId
+
+}
+
+==================================================
+COLEÇÃO
+force_profiles
+==================================================
+
+{
+
+ _id
+
+ characterId
+
+ sensitive
+
+ useForceModifier
+
+ forcePoints
+
+ maxForcePoints
+
+ darkSideScore
+
+ moralityState
+
+ forceExposure
+
+ forceDisturbance
+
+}
+
+==================================================
+COLEÇÃO
+force_powers
+==================================================
+
+{
+
+ _id
+
+ name
+
+ description
+
+ actionType
+
+ targetType
+
+ duration
+
+ range
+
+ useForceDC
+
+ tags
+
+ expendable
+
+}
+
+==================================================
+COLEÇÃO
+character_force_powers
+==================================================
+
+{
+
+ characterId
+
+ powerId
+
+ available
+
+ uses
+
+ expended
+
+}
+
+==================================================
+COLEÇÃO
+force_talents
+==================================================
+
+{
+
+ _id
+
+ treeId
+
+ name
+
+ description
+
+ prerequisites
+
+ passive
+
+ effects
+
+}
+
+==================================================
+COLEÇÃO
+character_force_talents
+==================================================
+
+{
+
+ characterId
+
+ talentId
+
+ blocked
+
+ active
+
+}
+
+==================================================
+COLEÇÃO
+force_techniques
+==================================================
+
+{
+
+ _id
+
+ name
+
+ stackable
+
+ modifiers
+
+}
+
+==================================================
+COLEÇÃO
+character_force_techniques
+==================================================
+
+{
+
+ characterId
+
+ techniqueId
+
+}
+
+==================================================
+COLEÇÃO
+force_secrets
+==================================================
+
+{
+
+ _id
+
+ name
+
+ costType
+
+ effects
+
+}
+
+==================================================
+COLEÇÃO
+character_force_secrets
+==================================================
+
+{
+
+ characterId
+
+ secretId
+
+}
+
+==================================================
+COLEÇÃO
+force_traditions
+==================================================
+
+{
+
+ _id
+
+ name
+
+ description
+
+ restrictions
+
+ talentTrees
+
+}
+
+==================================================
+COLEÇÃO
+character_traditions
+==================================================
+
+{
+
+ characterId
+
+ traditionId
+
+ rank
+
+ mentorId
+
+}
+
+==================================================
+COLEÇÃO
+force_modifiers
+==================================================
+
+{
+
+ source
+
+ sourceId
+
+ target
+
+ operation
+
+ value
+
+ priority
+
+}
+
+==================================================
+ENGINE DE RESOLUÇÃO
+==================================================
+
+resolveForce()
+
+↓
+
+collectCharacter()
+
+↓
+
+loadModifiers()
+
+↓
+
+calculate()
+
+↓
+
+apply()
+
+↓
+
+persist()
+
+==================================================
+ORDEM DE PROCESSAMENTO
+==================================================
+
+Base Character
+
+↓
+
+Poder
+
+↓
+
+Talentos
+
+↓
+
+Técnicas
+
+↓
+
+Segredos
+
+↓
+
+Tradição
+
+↓
+
+Pontos da Força
+
+↓
+
+Resultado Final
+
+==================================================
+ENGINE DE MODIFICADORES
+==================================================
+
+Operações:
+
+add
+
+subtract
+
+multiply
+
+replace
+
+override
+
+append
+
+Modelo:
+
+interface Modifier {
+
+ target
+
+ operation
+
+ value
+
+ priority
+
+}
+
+==================================================
+CACHE RECOMENDADO
+==================================================
+
+cache:
+
+forcePowers
+
+forceTalents
+
+forceTrees
+
+forceTraditions
+
+Evitar:
+
+consultar Mongo
+a cada ação
+
+==================================================
+UI — CRIAÇÃO DE PERSONAGEM
+==================================================
+
+PASSO 1
+
+Classe
+
+↓
+
+PASSO 2
+
+Sensível à Força
+
+↓
+
+PASSO 3
+
+Tradição
+
+↓
+
+PASSO 4
+
+Poderes
+
+↓
+
+PASSO 5
+
+Talentos
+
+↓
+
+PASSO 6
+
+Finalizar
+
+==================================================
+UI — ABA FORÇA
+==================================================
+
+Exibir:
+
+Pontos da Força
+
+-----------
+
+Valor Lado Negro
+
+-----------
+
+Tradições
+
+-----------
+
+Poderes
+
+-----------
+
+Talentos
+
+-----------
+
+Técnicas
+
+-----------
+
+Segredos
+
+-----------
+
+Perturbação
+
+==================================================
+TELA PODERES
+==================================================
+
+Categorias
+
+↓
+
+Lista
+
+↓
+
+Detalhes
+
+↓
+
+Usar
+
+↓
+
+Marcar gasto
+
+↓
+
+Recuperar
+
+==================================================
+TELA TALENTOS
+==================================================
+
+Árvore
+
+↓
+
+Descrição
+
+↓
+
+Talentos
+
+↓
+
+Pré requisitos
+
+↓
+
+Selecionar
+
+==================================================
+EVENTOS IMPORTANTES
+==================================================
+
+ON_POWER_USED
+
+ON_FORCE_POINT_SPENT
+
+ON_DARK_SIDE_GAINED
+
+ON_TALENT_SELECTED
+
+ON_SECRET_USED
+
+ON_TRADITION_CHANGED
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Tudo deve ser extensível
+
+2. Não hardcodar poderes
+
+3. Não hardcodar talentos
+
+4. Persistir histórico
+
+5. Permitir múltiplas tradições
+
+6. Separar narrativa e mecânica
+
+7. Separar personagem de Força
+
+==================================================
+ROADMAP RECOMENDADO
+==================================================
+
+FASE 1
+
+Ficha
+
+↓
+
+FASE 2
+
+Poderes
+
+↓
+
+FASE 3
+
+Talentos
+
+↓
+
+FASE 4
+
+Combate
+
+↓
+
+FASE 5
+
+Segredos
+
+↓
+
+FASE 6
+
+Campanha
+
+↓
+
+FASE 7
+
+Automação
+
+==================================================
+FIM DO MÓDULO
+A FORÇA
+VERSÃO 1

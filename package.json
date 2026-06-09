@@ -13,7 +13,7 @@
     "lucide-react": "^0.468.0"
   },
   "scripts": {
-    "dev": "npm run dev --workspace @rpg-builder/web",
+    "dev": "node scripts/dev.mjs",
     "dev:web": "npm run dev --workspace @rpg-builder/web",
     "dev:api": "npm run dev --workspace @rpg-builder/api",
     "build:web": "npm run build --workspace @rpg-builder/web",

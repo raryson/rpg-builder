@@ -1,0 +1,564 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 5)
+# TÉCNICAS DA FORÇA E SEGREDOS DA FORÇA
+
+OBJETIVO
+
+Este documento define sistemas avançados
+de progressão para usuários da Força.
+
+Existem dois níveis avançados:
+
+Técnicas da Força
+→ refinamento
+
+Segredos da Força
+→ manipulação excepcional
+
+Esses sistemas normalmente aparecem
+em níveis mais elevados.
+
+==================================================
+TÉCNICAS DA FORÇA
+==================================================
+
+Representam domínio refinado.
+
+São aprendidas individualmente.
+
+Características:
+
+- permanentes
+- modificam regras
+- não são poderes
+- normalmente não exigem ativação
+
+Uma técnica escolhida:
+
+não pode ser trocada
+
+==================================================
+ESTRUTURA BASE
+==================================================
+
+interface ForceTechnique {
+
+ id
+
+ name
+
+ description
+
+ passive
+
+ stackable
+
+ requirements
+
+ modifiers
+
+}
+
+==================================================
+REGRAS GERAIS
+==================================================
+
+Toda técnica:
+
+- aplica efeito permanente
+
+- pode alterar ações
+
+- pode reduzir custos
+
+- pode aumentar consistência
+
+Modelo:
+
+learnTechnique()
+
+↓
+
+validateRequirements()
+
+↓
+
+persist()
+
+↓
+
+applyEffects()
+
+==================================================
+TÉCNICA
+RECUPERAR PONTO DA FORÇA
+==================================================
+
+Descrição:
+
+Ao final do encontro:
+
+recupera
+1 ponto da força
+
+Pode ser escolhida múltiplas vezes.
+
+Cada aquisição:
+
++1 recuperação
+
+Modelo:
+
+{
+ id: "recover-force-point"
+}
+
+==================================================
+TÉCNICA
+MESTRIA COM PODER DA FORÇA
+==================================================
+
+Descrição:
+
+Escolha um poder.
+
+Pode escolher 10
+em testes Usar a Força.
+
+Funciona mesmo:
+
+- distraído
+- ameaçado
+
+Pode repetir.
+
+Cada aquisição:
+
+novo poder
+
+Modelo:
+
+interface ForceMastery {
+
+ powerId
+
+ chooseTen
+
+}
+
+==================================================
+TÉCNICA
+TRANSE DA FORÇA APRIMORADO
+==================================================
+
+Descrição:
+
+Enquanto em transe:
+
+cura
+
+2 × nível
+
+por hora
+
+Modelo:
+
+{
+ id: "enhanced-force-trance"
+}
+
+==================================================
+TÉCNICA
+MOVER OBJETO LEVE APRIMORADO
+==================================================
+
+Descrição:
+
+Mover objeto leve:
+
+ação rápida
+
+Lançar objeto:
+
+ação movimento
+
+Modelo:
+
+{
+ id: "improved-move-object"
+}
+
+==================================================
+TÉCNICA
+SENTIR A FORÇA APRIMORADO
+==================================================
+
+Descrição:
+
+Sentir a Força
+
+ação movimento
+
+ao invés de
+
+rodada completa
+
+Modelo:
+
+{
+ id: "improved-sense-force"
+}
+
+==================================================
+TÉCNICA
+SENTIR ARREDORES APRIMORADO
+==================================================
+
+Descrição:
+
+Sentir arredores
+
+ação livre
+
+ao invés de
+
+ação rápida
+
+Modelo:
+
+{
+ id: "improved-awareness"
+}
+
+==================================================
+TÉCNICA
+TELEPATIA APRIMORADA
+==================================================
+
+Descrição:
+
+Ao usar telepatia:
+
+refaz teste
+
+mantém melhor
+
+Modelo:
+
+{
+ id: "improved-telepathy"
+}
+
+==================================================
+MODELAGEM TÉCNICAS
+==================================================
+
+interface CharacterTechniques {
+
+ learned[]
+
+ active[]
+
+}
+
+==================================================
+SEGREDOS DA FORÇA
+==================================================
+
+Representam domínio extraordinário.
+
+Permitem modificar
+poderes além do normal.
+
+Normalmente acessível para:
+
+- Discípulo da Força
+- Mestre Jedi
+- Lorde Sith
+
+==================================================
+REGRAS GERAIS
+==================================================
+
+Ativar segredo custa:
+
+Ponto da Força
+
+OU
+
+Ponto de Destino
+
+Segredos:
+
+não substituem poderes
+
+eles alteram poderes
+
+Modelo:
+
+interface ForceSecret {
+
+ id
+
+ costType
+
+ modifiers
+
+}
+
+==================================================
+ATIVAÇÃO
+==================================================
+
+activateSecret()
+
+↓
+
+consumeResource()
+
+↓
+
+modifyPower()
+
+↓
+
+execute()
+
+==================================================
+SEGREDO
+PODER DEVASTADOR
+==================================================
+
+Descrição:
+
+Poder causa dano
+
+↓
+
+gastar ponto da força
+
+↓
+
++50% dados
+
+OU
+
+gastar destino
+
+↓
+
+dobrar dados
+
+Modelo:
+
+{
+ id: "devastating-power"
+}
+
+==================================================
+SEGREDO
+PODER DISTANTE
+==================================================
+
+Descrição:
+
+Multiplica alcance.
+
+Ponto da força:
+
+×10 alcance
+
+Ponto destino:
+
+qualquer ponto
+do sistema estelar
+
+Não remove:
+
+linha de visão
+
+Modelo:
+
+{
+ id: "distant-power"
+}
+
+==================================================
+SEGREDO
+PODER MULTI ALVOS
+==================================================
+
+Descrição:
+
+Poder alvo único
+
+↓
+
+adicionar alvo
+
+Ponto força:
+
++1 alvo
+
+Ponto destino:
+
+1 alvo
+por 4 níveis
+
+Modelo:
+
+{
+ id: "multi-target-power"
+}
+
+==================================================
+SEGREDO
+PODER ACELERADO
+==================================================
+
+Descrição:
+
+Transforma ativação.
+
+Ponto força:
+
+ação rápida
+
+Ponto destino:
+
+reação
+
+Modelo:
+
+{
+ id: "accelerated-power"
+}
+
+==================================================
+SEGREDO
+PODER MODIFICADO
+==================================================
+
+Descrição:
+
+Altera geometria.
+
+Cone
+
+↓
+
+Linha
+
+OU
+
+Área personalizada
+
+Ponto destino:
+
+escolher alvos
+
+Modelo:
+
+interface PowerGeometry {
+
+ originalShape
+
+ modifiedShape
+
+}
+
+==================================================
+SISTEMA DE MODIFICAÇÃO
+==================================================
+
+interface ForceModification {
+
+ source
+
+ targetPower
+
+ property
+
+ operation
+
+}
+
+Operações:
+
+multiply
+
+replace
+
+extend
+
+append
+
+override
+
+==================================================
+ORDEM DE EXECUÇÃO
+==================================================
+
+Power Base
+
+↓
+
+Talentos
+
+↓
+
+Técnicas
+
+↓
+
+Segredos
+
+↓
+
+Resultado Final
+
+==================================================
+MODELAGEM PERSONAGEM
+==================================================
+
+interface CharacterForceAdvanced {
+
+ techniques[]
+
+ secrets[]
+
+ destinyPoints
+
+}
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Técnicas são permanentes
+
+2. Segredos exigem custo
+
+3. Segredos modificam poderes
+
+4. Técnicas alteram regras
+
+5. Técnicas podem acumular
+
+6. Segredos obedecem limites
+
+7. Aplicar modificações em cadeia
+
+==================================================
+OBSERVAÇÃO IMPLEMENTAÇÃO
+==================================================
+
+Criar sistema baseado em:
+
+modifiers[]
+
+e NÃO em if/else.
+
+Toda habilidade avançada
+deve ser plugável.
+
+FIM DO CONTEXTO

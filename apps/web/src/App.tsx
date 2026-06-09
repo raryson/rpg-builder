@@ -19,7 +19,7 @@ import {
   UserRound,
 } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   sagaDroidDetailsCatalog,
   sagaEquipmentDetailsCatalog,
@@ -66,6 +66,12 @@ type DetailCatalogItem = CatalogItem & {
   category?: string;
   classRestriction?: string[];
   extra?: string;
+};
+
+type RuleChip = {
+  label: string;
+  value: string;
+  tone: 'damage' | 'roll' | 'action' | 'range' | 'cost';
 };
 
 type DefenseKey = 'reflex' | 'fortitude' | 'will';
@@ -153,6 +159,8 @@ type CharacterSheet = {
 };
 
 const STORAGE_KEY = 'rpg-builder-star-wars-saga-sheets';
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
+const OWNER_ID = import.meta.env.VITE_OWNER_ID ?? 'development-owner';
 
 const sheetTabs: Array<{ id: SheetTab; label: string }> = [
   { id: 'identity', label: 'Identidade' },
@@ -359,6 +367,60 @@ const forceSecretDetailsCatalog: DetailCatalogItem[] = [
   detailItem('Poder Rápido', 'Segredo da Força', 'Reduz o tempo de ativação de um poder escolhido quando aplicável.', 'Segredo'),
 ];
 
+const forceTraditionCatalog: CatalogItem[] = [
+  toCatalogItem('Sem tradição'),
+  toCatalogItem('Jedi'),
+  toCatalogItem('Sith'),
+  toCatalogItem('Jensaarai'),
+  toCatalogItem('Bruxas de Dathomir'),
+  toCatalogItem('Outra tradição'),
+];
+
+const forceActionSummaries = [
+  {
+    title: 'Ativar poder',
+    meta: 'Ação do poder',
+    text: 'Escolha o poder, consuma a ação indicada, teste Usar a Força, resolva o efeito e marque o poder como gasto no encontro.',
+    highlights: [
+      { label: 'Rolagem', value: 'Usar a Força', tone: 'roll' },
+      { label: 'Ação', value: 'Conforme o poder', tone: 'action' },
+    ],
+  },
+  {
+    title: 'Sentir a Força',
+    meta: 'Percepção mística',
+    text: 'Detecta seres vivos, usuários da Força, locais poderosos e perturbações, conforme alcance, linha de efeito e concentração.',
+    highlights: [{ label: 'Rolagem', value: 'Usar a Força', tone: 'roll' }],
+  },
+  {
+    title: 'Sentir arredores',
+    meta: 'Alerta',
+    text: 'Ajuda a perceber perigos próximos, presenças hostis, criaturas escondidas e movimento ao redor do personagem.',
+    highlights: [{ label: 'Rolagem', value: 'Usar a Força', tone: 'roll' }],
+  },
+  {
+    title: 'Telepatia',
+    meta: 'Comunicação mental',
+    text: 'Permite contato mental simples com alvo válido; exige concentração e não transmite conhecimento complexo.',
+    highlights: [{ label: 'Rolagem', value: 'Usar a Força', tone: 'roll' }],
+  },
+  {
+    title: 'Transe da Força',
+    meta: 'Meditação',
+    text: 'Estado meditativo usado para descanso, recuperação e introspecção, mantendo o personagem consciente.',
+    highlights: [{ label: 'Rolagem', value: 'Usar a Força', tone: 'roll' }],
+  },
+  {
+    title: 'Foco da Força',
+    meta: 'Ação completa, CD 15',
+    text: 'Com um teste de Usar a Força CD 15, recupera 1 poder da Força gasto.',
+    highlights: [
+      { label: 'Rolagem', value: 'Usar a Força CD 15', tone: 'roll' },
+      { label: 'Ação', value: 'Ação completa', tone: 'action' },
+    ],
+  },
+] satisfies Array<{ title: string; meta: string; text: string; highlights: RuleChip[] }>;
+
 const equipmentDetailsCatalog: DetailCatalogItem[] = [...sagaEquipmentDetailsCatalog];
 
 const vehicleDetailsCatalog: DetailCatalogItem[] = [...sagaVehicleDetailsCatalog];
@@ -459,6 +521,53 @@ function normalizeSheet(sheet: CharacterSheet): CharacterSheet {
     ...sheet,
     skills: skillCatalog.map((skill) => existingSkills.get(skill.slug) ?? { skillSlug: skill.slug, trained: false, focused: false, misc: 0 }),
   };
+}
+
+function apiUrl(path: string) {
+  return `${API_BASE_URL}${path}`;
+}
+
+async function readRemoteSheets() {
+  const response = await fetch(apiUrl('/api/web-sheets'), {
+    headers: {
+      'x-owner-id': OWNER_ID,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Não foi possível carregar fichas do Mongo.');
+  }
+
+  const payload = (await response.json()) as { sheets?: CharacterSheet[] };
+  return (payload.sheets ?? []).map(normalizeSheet);
+}
+
+async function saveRemoteSheet(sheet: CharacterSheet) {
+  const response = await fetch(apiUrl(`/api/web-sheets/${encodeURIComponent(sheet.id)}`), {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+      'x-owner-id': OWNER_ID,
+    },
+    body: JSON.stringify({ sheet }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Não foi possível salvar ficha no Mongo.');
+  }
+}
+
+async function archiveRemoteSheet(sheetId: string) {
+  const response = await fetch(apiUrl(`/api/web-sheets/${encodeURIComponent(sheetId)}`), {
+    method: 'DELETE',
+    headers: {
+      'x-owner-id': OWNER_ID,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Não foi possível arquivar ficha no Mongo.');
+  }
 }
 
 function modifier(score: number) {
@@ -691,10 +800,69 @@ function renderFormattedText(text: string) {
   return blocks.length > 0 ? <div className="formatted-text">{blocks}</div> : <p>Nenhuma descrição catalogada.</p>;
 }
 
+function stripRuleText(text: string) {
+  return text
+    .replace(/\*\*/g, '')
+    .replace(/`/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function uniqueRuleChips(chips: RuleChip[]) {
+  const seen = new Set<string>();
+  return chips.filter((chip) => {
+    const key = `${chip.label}:${chip.value}`.toLocaleLowerCase('pt-BR');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function collectRuleHighlights(text: string): RuleChip[] {
+  const normalized = stripRuleText(text);
+  const chips: RuleChip[] = [];
+
+  const pushMatches = (regex: RegExp, label: string, tone: RuleChip['tone'], limit = 4) => {
+    const matches = Array.from(normalized.matchAll(regex)).map((match) => stripRuleText(match[0]));
+    uniqueRuleChips(matches.map((value) => ({ label, value, tone }))).slice(0, limit).forEach((chip) => chips.push(chip));
+  };
+
+  pushMatches(/(?:[+-]\s*)?\d+d(?:2|3|4|6|8|10|12|20)(?:\s*(?:x|×)\s*\d+)?(?:\s*(?:[+-])\s*\d+)?\*?(?:\s*\([^)]{1,24}\))?/gi, 'Dano', 'damage', 5);
+  pushMatches(/\b(?:CD|ND)\s*\d+\b/gi, 'Teste', 'roll', 4);
+  pushMatches(/\b(?:Usar a Força|Mecânica|Acrobacia|Força|Percepção|Iniciativa)\s+(?:CD|ND)\s*\d+\b/gi, 'Rolagem', 'roll', 4);
+  pushMatches(/\b(?:ação rápida|ação padrão|ação de movimento|ação completa|ação de rodada completa|ação livre|reação)\b/gi, 'Ação', 'action', 3);
+  pushMatches(/\b(?:até|raio de explosão de|raio de)\s+\d+\s+quadrados?\b/gi, 'Alcance', 'range', 3);
+  pushMatches(/\b\d+\s+pontos?\s+da força\b/gi, 'Custo', 'cost', 3);
+
+  return uniqueRuleChips(chips).slice(0, 10);
+}
+
+function RuleHighlights({ item, text, chips, compact = false }: { item?: Partial<DetailCatalogItem> & Partial<FeatCatalogItem>; text?: string; chips?: RuleChip[]; compact?: boolean }) {
+  const sourceText = text ?? [item?.summary, item?.details, item?.extra, item?.meta, item?.benefit, item?.normal, item?.special]
+    .filter(Boolean)
+    .join(' ');
+  const highlights = chips ?? collectRuleHighlights(sourceText);
+
+  if (highlights.length === 0) return null;
+
+  return (
+    <div className={compact ? 'rule-chip-list compact' : 'rule-chip-list'} aria-label="Dados, dano e rolagens importantes">
+      {highlights.map((chip) => (
+        <span className={`rule-chip ${chip.tone}`} key={`${chip.label}-${chip.value}`}>
+          <b>{chip.label}</b>
+          {chip.value}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function App() {
   const [sheets, setSheets] = useState<CharacterSheet[]>(loadSheets);
   const [activeId, setActiveId] = useState(() => sheets[0]?.id);
   const [activeTab, setActiveTab] = useState<SheetTab>('identity');
+  const [remoteLoaded, setRemoteLoaded] = useState(false);
+  const syncTimerRef = useRef<number | null>(null);
   const activeSheet = sheets.find((sheet) => sheet.id === activeId) ?? sheets[0];
   const activeSpecies = speciesCatalog.find((item) => item.slug === activeSheet.speciesSlug) ?? speciesCatalog[0];
   const activeClass = heroicClassCatalog.find((item) => item.slug === activeSheet.classSlug) ?? heroicClassCatalog[0];
@@ -707,6 +875,52 @@ export function App() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sheets));
   }, [sheets]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    readRemoteSheets()
+      .then((remoteSheets) => {
+        if (cancelled) return;
+
+        if (remoteSheets.length > 0) {
+          setSheets(remoteSheets);
+          setActiveId(remoteSheets[0].id);
+        }
+      })
+      .catch(() => {
+        // Mantém o cache local quando a API ou o Mongo estiverem indisponíveis.
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setRemoteLoaded(true);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!remoteLoaded) return;
+
+    if (syncTimerRef.current) {
+      window.clearTimeout(syncTimerRef.current);
+    }
+
+    syncTimerRef.current = window.setTimeout(() => {
+      void Promise.all(sheets.map((sheet) => saveRemoteSheet(sheet))).catch(() => {
+        // O localStorage continua preservando a edição se o Mongo falhar momentaneamente.
+      });
+    }, 700);
+
+    return () => {
+      if (syncTimerRef.current) {
+        window.clearTimeout(syncTimerRef.current);
+      }
+    };
+  }, [remoteLoaded, sheets]);
 
   const baseAttackBonus = useMemo(() => {
     return activeClass.baseAttackProgression === 'three-quarters'
@@ -803,6 +1017,10 @@ export function App() {
   }
 
   function deleteSheet() {
+    void archiveRemoteSheet(activeSheet.id).catch(() => {
+      // A remoção local acontece mesmo se o Mongo estiver temporariamente indisponível.
+    });
+
     if (sheets.length === 1) {
       const sheet = createSheet();
       setSheets([sheet]);
@@ -1226,12 +1444,104 @@ export function App() {
   }
 
   function ForcePanel() {
+    const useForceSkill = activeSheet.skills.find((skill) => skill.skillSlug === 'usar-a-forca');
+    const halfLevelBonus = Math.floor(activeSheet.totalLevel / 2);
+    const charismaModifier = modifier(composedAbilities.charisma.total);
+    const trainingBonus = useForceSkill?.trained ? 5 : 0;
+    const focusBonus = useForceSkill?.focused ? 5 : 0;
+    const miscBonus = useForceSkill?.misc ?? 0;
+    const useForceTotal = halfLevelBonus + charismaModifier + trainingBonus + focusBonus + miscBonus;
+    const sensitivoFeatSlug = slugify('Sensitivo à Força');
+    const treinamentoFeatSlug = slugify('Treinamento na Força');
+    const hasSensitiveFeat = activeSheet.feats.includes(sensitivoFeatSlug);
+    const hasTrainingFeat = activeSheet.feats.includes(treinamentoFeatSlug);
+    const isActiveForceUser = activeSheet.forceSensitivity && Boolean(useForceSkill?.trained) && hasTrainingFeat && activeSheet.forcePowers.length > 0;
+    const suggestedPowerSlots = hasTrainingFeat ? Math.max(1, 1 + modifier(composedAbilities.wisdom.total)) : 0;
+    const darkSideState = activeSheet.darkSideScore <= 0 ? 'Equilibrado' : activeSheet.darkSideScore < 6 ? 'Sob influência' : 'Risco alto';
+
+    function addForceFeat(slug: string) {
+      if (!activeSheet.feats.includes(slug)) {
+        setField('feats', [...activeSheet.feats, slug]);
+      }
+
+      if (slug === sensitivoFeatSlug) {
+        setField('forceSensitivity', true);
+      }
+    }
+
     return (
       <Panel icon={<Sparkles aria-hidden="true" />} title="A Força">
-        <div className="form-grid">
-          <label className="toggle-line"><input checked={activeSheet.forceSensitivity} type="checkbox" onChange={(event) => setField('forceSensitivity', event.target.checked)} /> Sensível à Força</label>
-          <CatalogSelect label="Tradição da Força" value={activeSheet.forceTradition} items={['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem)} onChange={(value) => setField('forceTradition', value)} />
+        <div className="force-dashboard">
+          <article className={isActiveForceUser ? 'force-card ready' : 'force-card'}>
+            <span>Perfil</span>
+            <strong>{isActiveForceUser ? 'Usuário ativo da Força' : activeSheet.forceSensitivity ? 'Sensível em treinamento' : 'Não iniciado'}</strong>
+            <p>Para usar poderes normalmente, a ficha precisa de Sensível à Força, Usar a Força treinada e Treinamento na Força.</p>
+          </article>
+          <article className="force-card">
+            <span>Usar a Força</span>
+            <strong>{signed(useForceTotal)}</strong>
+            <div className="formula-strip">
+              <b className="base-source">Nv {signed(halfLevelBonus)}</b>
+              <b className="base-source">Car {signed(charismaModifier)}</b>
+              <b>{useForceSkill?.trained ? 'Treino +5' : 'Sem treino'}</b>
+              <b>{useForceSkill?.focused ? 'Foco +5' : 'Sem foco'}</b>
+              {miscBonus !== 0 && <b>{signed(miscBonus)} misc</b>}
+            </div>
+          </article>
+          <article className="force-card">
+            <span>Pontos da Força</span>
+            <strong>{activeSheet.forcePoints}</strong>
+            <p>Podem modificar jogadas, ativar talentos/segredos, recuperar poderes, remover condições e reforçar ataques.</p>
+          </article>
+          <article className={activeSheet.darkSideScore > 0 ? 'force-card dark' : 'force-card'}>
+            <span>Lado Negro</span>
+            <strong>{activeSheet.darkSideScore} · {darkSideState}</strong>
+            <p>Medo, raiva, crueldade e uso egoísta da Força podem aumentar este valor.</p>
+          </article>
         </div>
+
+        <div className="force-setup">
+          <div className="form-grid">
+            <label className="toggle-line"><input checked={activeSheet.forceSensitivity} type="checkbox" onChange={(event) => setField('forceSensitivity', event.target.checked)} /> Sensível à Força</label>
+            <CatalogSelect label="Tradição da Força" value={activeSheet.forceTradition} items={forceTraditionCatalog} onChange={(value) => setField('forceTradition', value)} />
+            <NumberInput label="Pontos da Força" value={activeSheet.forcePoints} min={0} onChange={(value) => setField('forcePoints', value)} />
+            <NumberInput label="Valor do Lado Negro" value={activeSheet.darkSideScore} min={0} onChange={(value) => setField('darkSideScore', value)} />
+          </div>
+
+          <div className="force-checklist">
+            <div className={activeSheet.forceSensitivity || hasSensitiveFeat ? 'force-check complete' : 'force-check'}>
+              <strong>Sensível à Força</strong>
+              <p>Aptidão base para perceber e manipular a Força conscientemente.</p>
+              {!hasSensitiveFeat && <button type="button" onClick={() => addForceFeat(sensitivoFeatSlug)}>Adicionar aptidão</button>}
+            </div>
+            <div className={useForceSkill?.trained ? 'force-check complete' : 'force-check'}>
+              <strong>Usar a Força treinada</strong>
+              <p>Perícia principal para ativar poderes, sentir presenças, telepatia, transe e percepção ampliada.</p>
+              <label className="toggle-line"><input checked={Boolean(useForceSkill?.trained)} type="checkbox" onChange={(event) => updateSkill('usar-a-forca', { trained: event.target.checked })} /> Treinada</label>
+            </div>
+            <div className={hasTrainingFeat ? 'force-check complete' : 'force-check'}>
+              <strong>Treinamento na Força</strong>
+              <p>Libera poderes conhecidos. Sugestão atual: {suggestedPowerSlots} poder(es) pela Sabedoria.</p>
+              {!hasTrainingFeat && <button type="button" onClick={() => addForceFeat(treinamentoFeatSlug)}>Adicionar aptidão</button>}
+            </div>
+            <div className={activeSheet.forcePowers.length > 0 ? 'force-check complete' : 'force-check'}>
+              <strong>Poderes conhecidos</strong>
+              <p>{activeSheet.forcePowers.length} poder(es) selecionado(s). Poderes são recursos limitados e normalmente ficam gastos após uso.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="force-flow">
+          {forceActionSummaries.map((item) => (
+            <article className="force-rule-card" key={item.title}>
+              <span>{item.meta}</span>
+              <strong>{item.title}</strong>
+              <RuleHighlights chips={item.highlights} compact />
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+
         <RichSelectionPanel compact title="Poderes da Força" icon={<Sparkles aria-hidden="true" />} items={forcePowerDetailsCatalog} selected={activeSheet.forcePowers} onChange={(value) => setField('forcePowers', value)} />
         <RichSelectionPanel compact title="Técnicas da Força" icon={<Sparkles aria-hidden="true" />} items={forceTechniqueDetailsCatalog} selected={activeSheet.forceTechniques} onChange={(value) => setField('forceTechniques', value)} />
         <RichSelectionPanel compact title="Segredos da Força" icon={<Sparkles aria-hidden="true" />} items={forceSecretDetailsCatalog} selected={activeSheet.forceSecrets} onChange={(value) => setField('forceSecrets', value)} />
@@ -1334,6 +1644,7 @@ export function App() {
 
         <div className="feat-preview">
           <strong>{selectedFeat.name}</strong>
+          <RuleHighlights item={selectedFeat} />
           <p>{selectedFeat.benefit}</p>
           <small>Pré-requisitos: {selectedFeat.prerequisites}</small>
         </div>
@@ -1344,6 +1655,7 @@ export function App() {
               <div className="feat-card-header">
                 <div>
                   <strong>{featItem.name}</strong>
+                  <RuleHighlights item={featItem} compact />
                   <small>{featItem.benefit}</small>
                 </div>
                 <button type="button" onClick={() => removeFeat(featItem.slug)}>Remover</button>
@@ -1406,6 +1718,7 @@ export function App() {
         {selectedItem && (
           <div className="feat-preview">
             <strong>{selectedItem.name}</strong>
+            <RuleHighlights item={selectedItem} />
             {renderFormattedText(selectedItem.details)}
             {selectedItem.category && <small>Categoria: {selectedItem.category}</small>}
             {selectedItem.classRestriction && selectedItem.classRestriction.length > 0 && (
@@ -1420,6 +1733,7 @@ export function App() {
               <div className="feat-card-header">
                 <div>
                   <strong>{item.name}</strong>
+                  <RuleHighlights item={item} compact />
                   <small>{item.summary}</small>
                 </div>
                 <button type="button" onClick={() => removeItem(item.slug)}>Remover</button>
@@ -1522,6 +1836,7 @@ export function App() {
               <strong>{selectedItem.name}</strong>
               {selectedItem.category && <small>{selectedItem.category}</small>}
             </div>
+            <RuleHighlights item={selectedItem} />
             {selectedItem.prerequisites && <small>Pré-requisitos: {selectedItem.prerequisites}</small>}
             {renderFormattedText(selectedItem.details)}
           </div>
@@ -1533,6 +1848,7 @@ export function App() {
               <div className="feat-card-header">
                 <div>
                   <strong>{item.name}</strong>
+                  <RuleHighlights item={item} compact />
                   <small>{item.category || item.summary}</small>
                 </div>
                 <button type="button" onClick={() => removeItem(item.slug)}>Remover</button>

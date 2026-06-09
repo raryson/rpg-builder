@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_DB = process.env.MONGODB_DB ?? 'rpg-builder';
 
 type MongooseCache = {
   connection: typeof mongoose | null;
@@ -29,6 +30,7 @@ export async function connectToDatabase() {
 
   cache.promise ??= mongoose.connect(MONGODB_URI!, {
     bufferCommands: false,
+    dbName: MONGODB_DB,
   });
 
   cache.connection = await cache.promise;

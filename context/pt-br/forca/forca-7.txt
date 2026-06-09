@@ -1,0 +1,591 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 7)
+# ÁRVORES EXCLUSIVAS DAS TRADIÇÕES
+
+OBJETIVO
+
+Este documento define árvores exclusivas
+das tradições da Força.
+
+Esses talentos:
+
+- exigem afiliação
+- possuem regras próprias
+- podem modificar sistemas base
+
+==================================================
+ESTRUTURA BASE
+==================================================
+
+interface TraditionTalent {
+
+ id
+
+ tradition
+
+ name
+
+ description
+
+ prerequisites
+
+ effects
+
+ activation
+
+}
+
+==================================================
+ÁRVORE
+DEFENSOR JENSAARAI
+==================================================
+
+ID:
+
+JENSAARAI_DEFENDER
+
+Descrição:
+
+Talentos focados em:
+
+- armaduras
+- proteção
+- manipulação defensiva
+- combate híbrido
+
+Restrição:
+
+tradition == JENSAARAI
+
+==================================================
+TALENTO
+HARMONIZAR ARMADURA
+==================================================
+
+ID:
+
+harmonize-armor
+
+Tipo:
+
+Ativo
+
+Ativação:
+
+Rodada Completa
+
+Custo:
+
+1 ponto da força
+
+Descrição:
+
+Conecta armadura ao usuário.
+
+Efeitos:
+
+armorBonus += 2
+
+dexterityCap += 1
+
+Restrições:
+
+- permanente
+- apenas criador recebe bônus
+
+Modelo:
+
+interface HarmonizedArmor {
+
+ ownerId
+
+ armorId
+
+ armorBonus
+
+ dexCap
+
+}
+
+Regras:
+
+não acumula
+
+==================================================
+TALENTO
+MANTO DA FORÇA
+==================================================
+
+ID:
+
+force-cloak
+
+Tipo:
+
+Ativo
+
+Ativação:
+
+Ação Rápida
+
+Descrição:
+
+Cria campo invisível.
+
+Efeitos:
+
+- bloqueia sensores
+- bloqueia rastreamento
+- bloqueia comunicação
+- protege equipamentos
+
+Duração:
+
+enquanto concentrado
+
+Consome:
+
+ação padrão por turno
+
+Modelo:
+
+interface ForceCloak {
+
+ active
+
+ radius
+
+ blocksSensors
+
+ blocksCommunication
+
+}
+
+==================================================
+TALENTO
+MAESTRIA COM MANTO DA FORÇA
+==================================================
+
+ID:
+
+master-force-cloak
+
+Pré requisito:
+
+Manto da Força
+
+Tipo:
+
+Passivo
+
+Descrição:
+
+Expande proteção.
+
+Quantidade:
+
+nível do personagem
+
+Modelo:
+
+targets =
+characterLevel
+
+==================================================
+TALENTO
+DEFESA CONECTADA
+==================================================
+
+ID:
+
+linked-defense
+
+Tipo:
+
+Ativo
+
+Ativação:
+
+Ação Rápida
+
+Descrição:
+
+Transfere defesa.
+
+Regras:
+
+escolher penalidade:
+
+0 até 5
+
+↓
+
+ataque reduzido
+
+↓
+
+mesmo valor em defesa aliado
+
+Limite:
+
+não exceder BAB
+
+Duração:
+
+início próximo turno
+
+Modelo:
+
+interface LinkedDefense {
+
+ attackPenalty
+
+ allyDefenseBonus
+
+ target
+
+}
+
+==================================================
+ÁRVORE
+BRUXA DE DATHOMIR
+==================================================
+
+ID:
+
+DATHOMIR_WITCH
+
+Descrição:
+
+Talentos focados em:
+
+- ritual
+- controle
+- criaturas
+- mobilidade
+
+Restrição:
+
+tradition == DATHOMIR
+
+==================================================
+TALENTO
+CONJURADOR ADEPTO
+==================================================
+
+ID:
+
+adept-caster
+
+Tipo:
+
+Passivo
+
+Descrição:
+
+Permite repetir ativação.
+
+Regras:
+
+ação:
+
+rápida
+movimento
+padrão
+
+↓
+
+ação completa
+
+Benefício:
+
+refazer teste
+
+Obrigatório:
+
+usar segunda rolagem
+
+Modelo:
+
+interface AdeptCasting {
+
+ reroll
+
+ forcedResult
+
+}
+
+==================================================
+TALENTO
+ENCANTAR BESTA
+==================================================
+
+ID:
+
+beast-charm
+
+Tipo:
+
+Passivo
+
+Descrição:
+
+Substitui Persuasão.
+
+Executa:
+
+Usar Força
+
+↓
+
+Persuasão
+
+Restrições:
+
+criatura
+
+INT <= 2
+
+Ignora:
+
+penalidade idioma
+
+Modelo:
+
+interface BeastCharm {
+
+ targetIntelligence
+
+ useForceInstead
+
+}
+
+==================================================
+TALENTO
+COMANDAR BESTA
+==================================================
+
+ID:
+
+beast-command
+
+Pré requisito:
+
+Encantar Besta
+
+Tipo:
+
+Passivo
+
+Descrição:
+
+Transforma criatura.
+
+Estados:
+
+não domesticada
+
+↓
+
+indiferente
+
+↓
+
+amigável
+
+↓
+
+controlável
+
+Benefícios:
+
+- usar montaria
+- obedecer comandos
+
+Modelo:
+
+interface BeastControl {
+
+ beastId
+
+ loyalty
+
+ mountable
+
+}
+
+Restrições:
+
+criatura deve ser maior
+
+==================================================
+TALENTO
+VÔO
+==================================================
+
+ID:
+
+witch-flight
+
+Tipo:
+
+Ativo
+
+Ativação:
+
+Ação Rápida
+
+Custo:
+
+1 ponto da força
+
+Descrição:
+
+Permite voar.
+
+Velocidade:
+
+igual deslocamento terrestre
+
+Subida:
+
+50%
+
+Descida:
+
+200%
+
+Duração:
+
+até início próximo turno
+
+Condição:
+
+se ainda voando
+
+↓
+
+cai
+
+Modelo:
+
+interface ForceFlight {
+
+ active
+
+ speed
+
+ ascendSpeed
+
+ descendSpeed
+
+}
+
+==================================================
+SISTEMA DE TALENTOS EXCLUSIVOS
+==================================================
+
+interface TraditionTree {
+
+ tradition
+
+ talents
+
+ unlocked
+
+}
+
+Validação:
+
+possuiTradição()
+
+↓
+
+possuiPréRequisitos()
+
+↓
+
+desbloquear()
+
+==================================================
+UI RECOMENDADA
+==================================================
+
+Selecionar Tradição
+
+↓
+
+Mostrar descrição
+
+↓
+
+Mostrar árvore
+
+↓
+
+Mostrar talentos
+
+↓
+
+Exibir requisitos
+
+↓
+
+Selecionar
+
+==================================================
+MODELAGEM PERSONAGEM
+==================================================
+
+interface CharacterTraditionTalents {
+
+ tradition
+
+ selectedTalents
+
+ activeEffects
+
+}
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Talentos exclusivos exigem tradição
+
+2. Tradição removida bloqueia uso
+
+3. Efeitos permanentes persistem
+
+4. Árvores são independentes
+
+5. Não compartilhar IDs
+
+6. Validar requisitos em runtime
+
+==================================================
+OBSERVAÇÃO IMPLEMENTAÇÃO
+==================================================
+
+Criar sistema:
+
+Tradition
+
+↓
+
+TalentTree
+
+↓
+
+Talent
+
+↓
+
+Effects
+
+↓
+
+Runtime
+
+Evitar lógica espalhada.
+
+FIM DO CONTEXTO

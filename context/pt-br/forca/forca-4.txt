@@ -1,0 +1,572 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 4)
+# TALENTOS DA FORÇA
+
+OBJETIVO
+
+Este documento define como funcionam os
+TALENTOS DA FORÇA.
+
+Talentos representam técnicas permanentes,
+treinamentos e formas avançadas de manipular
+a Força.
+
+Diferente dos Poderes da Força:
+
+Poder
+→ recurso utilizável
+
+Talento
+→ habilidade permanente
+
+==================================================
+VISÃO GERAL
+==================================================
+
+Talentos:
+
+- ficam sempre ativos
+- podem alterar regras
+- podem liberar ações
+- podem modificar poderes
+- podem substituir perícias
+- podem criar novas mecânicas
+
+Origem:
+
+- classe
+- tradição
+- progressão
+- árvores específicas
+
+==================================================
+ESTRUTURA BASE
+==================================================
+
+interface ForceTalent {
+
+ id
+
+ name
+
+ description
+
+ tree
+
+ prerequisites
+
+ effects
+
+ activationType
+
+ passive
+
+}
+
+==================================================
+ÁRVORES DE TALENTO
+==================================================
+
+Talentos são organizados em árvores.
+
+Cada árvore:
+
+- possui tema
+- possui progressão
+- possui requisitos
+
+Modelo:
+
+interface TalentTree {
+
+ id
+
+ name
+
+ description
+
+ talents[]
+
+}
+
+==================================================
+SISTEMA DE DESBLOQUEIO
+==================================================
+
+interface TalentUnlock {
+
+ characterLevel
+
+ requirementsMet
+
+ available
+
+ selected
+
+}
+
+Fluxo:
+
+abrir árvore
+
+↓
+
+validar requisitos
+
+↓
+
+listar talentos
+
+↓
+
+selecionar
+
+↓
+
+persistir
+
+==================================================
+PRÉ REQUISITOS
+==================================================
+
+Talentos podem exigir:
+
+- nível
+- atributo
+- tradição
+- outro talento
+- lado negro
+- perícia
+
+Modelo:
+
+interface TalentRequirement {
+
+ type
+
+ value
+
+}
+
+Tipos:
+
+LEVEL
+
+ATTRIBUTE
+
+TALENT
+
+CLASS
+
+TRADITION
+
+DARK_SIDE
+
+SKILL
+
+==================================================
+TALENTOS PASSIVOS
+==================================================
+
+Aplicam efeitos constantes.
+
+Exemplos:
+
+- bônus
+- substituições
+- redução de custo
+
+Modelo:
+
+interface PassiveEffect {
+
+ property
+
+ operation
+
+ value
+
+}
+
+==================================================
+TALENTOS ATIVOS
+==================================================
+
+Exigem ativação.
+
+Exemplos:
+
+- ação rápida
+- ação padrão
+- gasto de recurso
+
+Modelo:
+
+interface ActiveTalent {
+
+ actionType
+
+ cooldown
+
+ resourceCost
+
+}
+
+==================================================
+ÁRVORE — SENTIR
+==================================================
+
+Tema:
+
+Percepção ampliada pela Força.
+
+Permite:
+
+- detectar presença
+- prever eventos
+- substituir perícias
+
+ID:
+
+FORCE_SENSE
+
+==================================================
+TALENTO
+PERCEPÇÃO DA FORÇA
+==================================================
+
+Descrição:
+
+Permite usar Usar a Força no lugar de Percepção.
+
+Aplicações:
+
+- evitar surpresa
+- notar inimigos
+- detectar trapaças
+- perceber influência
+
+Regras:
+
+considerado treinado em Percepção
+
+Pode repetir:
+
+novo teste Usar a Força
+
+Modelo:
+
+{
+ id: "force-perception"
+}
+
+==================================================
+TALENTO
+PILOTAR DA FORÇA
+==================================================
+
+Descrição:
+
+Substitui Pilotar por Usar a Força.
+
+Benefícios:
+
+- considera treinado
+- pode repetir usando Força
+
+Modelo:
+
+{
+ id: "force-pilot"
+}
+
+==================================================
+TALENTO
+PREVISÃO
+==================================================
+
+Descrição:
+
+Gastar ponto da força para repetir iniciativa.
+
+Resultado:
+
+mantém melhor resultado
+
+Exceção:
+
+20 natural
+→ recupera ponto gasto
+
+Pré requisito:
+
+Percepção da Força
+
+Modelo:
+
+{
+ id: "force-foresight"
+}
+
+==================================================
+TALENTO
+MEDIR POTENCIAL DA FORÇA
+==================================================
+
+Descrição:
+
+Analisa conexão de alvo com Força.
+
+Ação:
+
+Padrão
+
+Executa:
+
+Usar Força
+VS
+Defesa de Vontade
+
+Descobre:
+
+- sensível à força
+- quantidade de poderes
+- pontos atuais
+
+Pré requisito:
+
+Percepção da Força
+
+Modelo:
+
+{
+ id: "measure-force"
+}
+
+==================================================
+TALENTO
+VISÕES
+==================================================
+
+Descrição:
+
+Permite observar passado ou futuro.
+
+Requer:
+
+Visão Distante
+
+Gasta:
+
+1 ponto da força
+
+Limite:
+
+1 ano × nível
+
+Pré requisitos:
+
+Percepção da Força
+
+Visão Distante
+
+Modelo:
+
+{
+ id: "visions"
+}
+
+==================================================
+ÁRVORE — LADO NEGRO
+==================================================
+
+Tema:
+
+Poder através da corrupção.
+
+Restrição:
+
+darkSideScore >= 1
+
+Se voltar para:
+
+0
+
+Todos talentos ficam bloqueados.
+
+ID:
+
+DARK_SIDE
+
+==================================================
+TALENTO
+PODER DO LADO NEGRO
+==================================================
+
+Descrição:
+
+Ao gastar ponto da força em ataque:
+
+rola dado extra
+
+mantém melhor
+
+Consequência:
+
+darkSideScore += 1
+
+Modelo:
+
+{
+ id: "dark-power"
+}
+
+==================================================
+TALENTO
+PRESENÇA SOMBRIA
+==================================================
+
+Descrição:
+
+Concede bônus em defesas.
+
+Área:
+
+6 quadrados
+
+Condição:
+
+enquanto consciente
+
+Pré requisitos:
+
+Carisma >= 13
+
+Poder do Lado Negro
+
+Modelo:
+
+{
+ id: "dark-presence"
+}
+
+==================================================
+TALENTO
+VINGANÇA
+==================================================
+
+Descrição:
+
+Aliado cai
+
+↓
+
+recebe bônus
+
+Ataque:
++2
+
+Dano:
++2
+
+Duração:
+
+encontro
+
+Pré requisitos:
+
+Presença Sombria
+
+Poder do Lado Negro
+
+Modelo:
+
+{
+ id: "vengeance"
+}
+
+==================================================
+TALENTO
+PODER RÁPIDO
+==================================================
+
+Descrição:
+
+1 vez por dia
+
+converter:
+
+ação padrão
+
+↓
+
+ação rápida
+
+Pré requisito:
+
+Poder do Lado Negro
+
+Modelo:
+
+{
+ id: "quick-power"
+}
+
+==================================================
+MODELAGEM DO PERSONAGEM
+==================================================
+
+interface CharacterTalents {
+
+ selected[]
+
+ unlocked[]
+
+ available[]
+
+}
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Talento não consome slot de poder
+
+2. Talentos possuem dependências
+
+3. Árvores devem ser navegáveis
+
+4. Não remover talento adquirido
+
+5. Talentos bloqueados permanecem salvos
+
+6. Lado Negro altera disponibilidade
+
+==================================================
+OBSERVAÇÃO IMPLEMENTAÇÃO
+==================================================
+
+Criar seleção em cascata:
+
+Selecionar Árvore
+
+↓
+
+Mostrar descrição
+
+↓
+
+Listar talentos
+
+↓
+
+Selecionar talento
+
+↓
+
+Aplicar requisitos
+
+↓
+
+Persistir
+
+FIM DO CONTEXTO

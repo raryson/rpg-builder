@@ -796,6 +796,84 @@ textarea {
   margin: 0;
 }
 
+.force-dashboard,
+.force-flow,
+.force-checklist {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.force-setup {
+  display: grid;
+  gap: 16px;
+}
+
+.force-card,
+.force-rule-card,
+.force-check {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.force-card.ready {
+  background: #eef6f2;
+  border-color: #b9d7c7;
+}
+
+.force-card.dark {
+  background: #fff0ea;
+  border-color: #e2a895;
+}
+
+.force-card span,
+.force-rule-card span {
+  color: #7b817c;
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.force-card strong,
+.force-rule-card strong,
+.force-check strong {
+  color: #30363a;
+}
+
+.force-card p,
+.force-rule-card p,
+.force-check p {
+  color: #5d645f;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.force-check {
+  border-left: 4px solid #d7cdb9;
+}
+
+.force-check.complete {
+  border-left-color: #2c836a;
+}
+
+.force-check button {
+  background: #263136;
+  border: 0;
+  border-radius: 6px;
+  color: #fffaf0;
+  font-weight: 800;
+  min-height: 36px;
+  padding: 0 12px;
+  width: fit-content;
+}
+
 .feat-picker {
   align-items: end;
   display: grid;
@@ -889,6 +967,72 @@ textarea {
 .feat-card-header div {
   display: grid;
   gap: 5px;
+}
+
+.rule-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0 4px;
+}
+
+.rule-chip {
+  align-items: center;
+  background: #f6f0e5;
+  border: 1px solid #d7cdb9;
+  border-radius: 6px;
+  color: #30363a;
+  display: inline-flex;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  font-weight: 800;
+  gap: 5px;
+  line-height: 1.2;
+  min-height: 28px;
+  padding: 5px 8px;
+}
+
+.rule-chip b {
+  color: inherit;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.rule-chip.damage {
+  background: #fff0ea;
+  border-color: #e2a895;
+  color: #8d2b1d;
+}
+
+.rule-chip.roll {
+  background: #eef6f2;
+  border-color: #b9d7c7;
+  color: #24614f;
+}
+
+.rule-chip.action {
+  background: #eef3f7;
+  border-color: #b7ccd8;
+  color: #27556f;
+}
+
+.rule-chip.range,
+.rule-chip.cost {
+  background: #fff4df;
+  border-color: #e4c174;
+  color: #755319;
+}
+
+.rule-chip-list.compact {
+  gap: 5px;
+  margin: 0;
+}
+
+.rule-chip-list.compact .rule-chip {
+  font-size: 0.72rem;
+  min-height: 24px;
+  padding: 4px 6px;
 }
 
 .feat-card details {
@@ -1158,7 +1302,10 @@ textarea {
   .source-details,
   .defense-breakdown,
   .characteristics,
-  .summary-item {
+  .summary-item,
+  .force-dashboard,
+  .force-flow,
+  .force-checklist {
     grid-template-columns: 1fr;
   }
 

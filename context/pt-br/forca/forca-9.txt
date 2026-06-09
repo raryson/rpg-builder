@@ -1,0 +1,484 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 9)
+# PERTURBAÇÕES NA FORÇA E DETECÇÃO
+
+OBJETIVO
+
+Este documento define:
+
+- perturbações na Força
+- rastreamento de usuários
+- percepção por outros usuários
+- intensidade de eventos
+- consequências narrativas
+
+Esse sistema é opcional,
+mas altamente recomendado.
+
+==================================================
+VISÃO GERAL
+==================================================
+
+Toda vida gera presença na Força.
+
+Toda utilização da Força
+gera perturbação.
+
+Quanto maior o uso:
+
+↓
+
+mais fácil detectar.
+
+Conceito:
+
+Força usada
+
+↓
+
+gera onda
+
+↓
+
+outros sentem
+
+==================================================
+INTENSIDADE NATURAL
+==================================================
+
+Ser comum:
+
+presença fraca
+
+----------------
+
+Sensível à Força:
+
+presença moderada
+
+----------------
+
+Usuário treinado:
+
+presença forte
+
+----------------
+
+Grande Mestre:
+
+presença extremamente intensa
+
+==================================================
+ESTRUTURA BASE
+==================================================
+
+interface ForceSignature {
+
+ source
+
+ intensity
+
+ duration
+
+ position
+
+ detectable
+
+}
+
+==================================================
+GERAÇÃO DE PERTURBAÇÃO
+==================================================
+
+Sempre executar:
+
+generateDisturbance()
+
+Após:
+
+- usar poder
+- gastar ponto da força
+- usar segredo
+- evento extremo
+
+Modelo:
+
+interface DisturbanceEvent {
+
+ actor
+
+ origin
+
+ intensity
+
+ timestamp
+
+}
+
+==================================================
+ESCALA SUGERIDA
+==================================================
+
+Pequeno uso
+
++1
+
+Exemplos:
+
+- percepção
+- telepatia
+
+----------------
+
+Uso moderado
+
++2
+
+Exemplos:
+
+- mover objeto
+- impulso
+
+----------------
+
+Uso intenso
+
++4
+
+Exemplos:
+
+- combate
+- múltiplos alvos
+
+----------------
+
+Uso extremo
+
++8
+
+Exemplos:
+
+- segredos
+- explosões
+
+----------------
+
+Evento galáctico
+
++20
+
+Exemplos:
+
+- destruição planetária
+
+==================================================
+DETECÇÃO
+==================================================
+
+Usuários podem sentir:
+
+- presença
+- direção
+- intensidade
+
+Não necessariamente:
+
+identidade
+
+Modelo:
+
+interface Detection {
+
+ detected
+
+ confidence
+
+ source
+
+ approximateLocation
+
+}
+
+==================================================
+ALCANCE DE DETECÇÃO
+==================================================
+
+Baixa perturbação
+
+local
+
+----------------
+
+Moderada
+
+setor próximo
+
+----------------
+
+Alta
+
+grandes distâncias
+
+----------------
+
+Extrema
+
+escala galáctica
+
+==================================================
+QUALIDADE DA DETECÇÃO
+==================================================
+
+Teste baixo
+
+↓
+
+algo aconteceu
+
+----------------
+
+Teste médio
+
+↓
+
+origem aproximada
+
+----------------
+
+Teste alto
+
+↓
+
+natureza do evento
+
+----------------
+
+Teste excepcional
+
+↓
+
+identificação parcial
+
+==================================================
+PERTURBAÇÕES EM MASSA
+==================================================
+
+Eventos emocionais extremos
+podem gerar efeitos enormes.
+
+Exemplos:
+
+- genocídio
+
+- destruição planetária
+
+- morte coletiva
+
+- catástrofes
+
+Esses eventos:
+
+não exigem usuário da força.
+
+==================================================
+ASSINATURA DE USUÁRIO
+==================================================
+
+Cada usuário pode possuir
+assinatura própria.
+
+Modelo:
+
+interface ForceProfile {
+
+ alignment
+
+ emotionalPattern
+
+ knownEvents
+
+}
+
+Exemplo:
+
+Jedi
+
+↓
+
+calma
+
+controle
+
+----------------
+
+Sith
+
+↓
+
+agressividade
+
+pressão
+
+==================================================
+USO CONSTANTE
+==================================================
+
+Utilizar muito a Força:
+
+aumenta exposição.
+
+Modelo:
+
+forceExposure += disturbance
+
+Quanto maior:
+
+mais fácil rastrear.
+
+==================================================
+OCULTAÇÃO
+==================================================
+
+Métodos possíveis:
+
+- treinamento
+
+- talentos
+
+- técnicas
+
+- itens
+
+- Manto da Força
+
+Modelo:
+
+interface Concealment {
+
+ reduction
+
+ active
+
+}
+
+==================================================
+RASTREAMENTO
+==================================================
+
+Fluxo:
+
+detect()
+
+↓
+
+acquireSignature()
+
+↓
+
+follow()
+
+↓
+
+identify()
+
+Modelo:
+
+interface ForceTracking {
+
+ target
+
+ lockStrength
+
+ progress
+
+}
+
+==================================================
+REAÇÕES NARRATIVAS
+==================================================
+
+Perturbações podem gerar:
+
+- interesse Jedi
+
+- interesse Sith
+
+- investigação
+
+- perseguição
+
+- sonhos
+
+- visões
+
+- encontros
+
+==================================================
+MECÂNICA OPCIONAL
+==================================================
+
+interface ForceHeat {
+
+ current
+
+ threshold
+
+ consequences
+
+}
+
+Exemplo:
+
+0–10
+
+seguro
+
+-----------
+
+11–30
+
+detectável
+
+-----------
+
+31–60
+
+procurado
+
+-----------
+
+60+
+
+evento importante
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Toda força deixa rastros
+
+2. Grandes eventos geram ondas
+
+3. Perturbação não revela identidade automaticamente
+
+4. Ocultação deve existir
+
+5. Lado Negro tende a gerar mais impacto
+
+6. Perturbação é narrativa + mecânica
+
+==================================================
+OBSERVAÇÃO IMPLEMENTAÇÃO
+==================================================
+
+Persistir separado:
+
+forceDisturbance
+
+forceExposure
+
+forceProfile
+
+Nunca misturar
+com Pontos da Força.
+
+FIM DO CONTEXTO

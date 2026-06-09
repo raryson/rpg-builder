@@ -1,0 +1,587 @@
+# STAR WARS RPG — CONTEXTO — A FORÇA (PARTE 6)
+# TRADIÇÕES DA FORÇA
+
+OBJETIVO
+
+Este documento define as TRADIÇÕES DA FORÇA.
+
+Tradições representam escolas, filosofias e
+organizações que ensinam diferentes formas
+de utilizar a Força.
+
+Toda tradição possui:
+
+- regras de entrada
+- identidade própria
+- progressão
+- talentos exclusivos
+- impacto narrativo
+
+==================================================
+VISÃO GERAL
+==================================================
+
+Nem todo usuário da Força é Jedi.
+
+Toda tradição interpreta a Força de maneira
+diferente.
+
+Exemplos:
+
+- Jedi
+- Sith
+- Jensaarai
+- Bruxas de Dathomir
+
+==================================================
+ESTRUTURA BASE
+==================================================
+
+interface ForceTradition {
+
+ id
+
+ name
+
+ description
+
+ requirements
+
+ philosophies
+
+ talentTrees
+
+ restrictions
+
+}
+
+==================================================
+AFILIAÇÃO
+==================================================
+
+Personagens podem:
+
+não pertencer
+
+↓
+
+ou
+
+pertencer a uma ou mais tradições
+
+Modelo:
+
+interface CharacterTraditions {
+
+ active[]
+
+ unlocked[]
+
+ former[]
+
+}
+
+Regras:
+
+- múltiplas tradições permitidas
+- extremamente incomum
+- pode gerar conflitos
+
+==================================================
+TRADIÇÃO — JEDI
+==================================================
+
+ID:
+
+JEDI
+
+Descrição:
+
+Guardiões da paz e justiça.
+
+Princípios:
+
+- disciplina
+- equilíbrio
+- autocontrole
+- proteção
+
+==================================================
+CÓDIGO JEDI
+==================================================
+
+Não existe emoção;
+existe paz.
+
+Não existe ignorância;
+existe conhecimento.
+
+Não existe paixão;
+existe serenidade.
+
+Não existe morte;
+existe a Força.
+
+==================================================
+FILOSOFIA JEDI
+==================================================
+
+Jedi devem:
+
+- proteger
+- mediar
+- ensinar
+- preservar vida
+
+Devem evitar:
+
+- ódio
+- agressão
+- ambição
+
+Prioridade:
+
+persuasão
+
+↓
+
+diplomacia
+
+↓
+
+combate
+
+==================================================
+AFILIAÇÃO JEDI
+==================================================
+
+Requisitos:
+
+Sensível à Força
+
++
+
+aceito por:
+
+Cavaleiro Jedi
+
+OU
+
+Mestre Jedi
+
+Modelo:
+
+{
+ id: "jedi"
+}
+
+==================================================
+PROGRESSÃO JEDI
+==================================================
+
+Padawan
+
+↓
+
+Cavaleiro Jedi
+
+↓
+
+Mestre Jedi
+
+↓
+
+Membro do Conselho
+
+==================================================
+ERA DA REPÚBLICA
+==================================================
+
+Treinamento:
+
+infância
+
+Padawans:
+
+normalmente possuem mestre
+
+Modelo:
+
+mentorId
+
+==================================================
+ERA DA REBELIÃO
+==================================================
+
+Treinamento:
+
+fragmentado
+
+aprendizado:
+
+experiência
+
+menos estrutura
+
+==================================================
+TRADIÇÃO — SITH
+==================================================
+
+ID:
+
+SITH
+
+Descrição:
+
+Ordem dedicada ao Lado Negro.
+
+Princípios:
+
+- paixão
+- força
+- conquista
+
+==================================================
+CÓDIGO SITH
+==================================================
+
+Paz é mentira.
+
+Existe apenas paixão.
+
+Através da paixão:
+
+ganho força.
+
+Através da força:
+
+ganho poder.
+
+Através do poder:
+
+ganho vitória.
+
+Através da vitória:
+
+minhas correntes se quebram.
+
+A Força me libertará.
+
+==================================================
+FILOSOFIA SITH
+==================================================
+
+Sith acreditam:
+
+emoção
+
+↓
+
+força
+
+↓
+
+poder
+
+↓
+
+dominação
+
+Controle emocional
+não é objetivo.
+
+==================================================
+AFILIAÇÃO SITH
+==================================================
+
+Requisitos:
+
+Sensível à Força
+
++
+
+aceito por
+
+Lorde Sith
+
+Modelo:
+
+{
+ id: "sith"
+}
+
+==================================================
+REGRA DOS DOIS
+==================================================
+
+Durante certas eras:
+
+apenas:
+
+1 Mestre
+
++
+
+1 Aprendiz
+
+Sistema:
+
+interface RuleOfTwo {
+
+ master
+
+ apprentice
+
+}
+
+==================================================
+PROGRESSÃO SITH
+==================================================
+
+Aprendiz
+
+↓
+
+Lorde Sith
+
+↓
+
+Mestre Sith
+
+==================================================
+TRADIÇÃO — JENSAARAI
+==================================================
+
+ID:
+
+JENSAARAI
+
+Descrição:
+
+Mistura entre
+ensinamentos Jedi e Sith.
+
+Filosofia:
+
+equilíbrio através
+de pragmatismo.
+
+==================================================
+PRINCÍPIOS
+==================================================
+
+- disciplina
+- força
+- sobrevivência
+- responsabilidade
+
+Características:
+
+- armaduras
+- combate direto
+- foco defensivo
+
+==================================================
+AFILIAÇÃO JENSAARAI
+==================================================
+
+Requisitos:
+
+Sensível à Força
+
++
+
+treinamento
+
+OU
+
+origem específica
+
+Modelo:
+
+{
+ id: "jensaarai"
+}
+
+==================================================
+ÁRVORE EXCLUSIVA
+==================================================
+
+DEFENSOR JENSAARAI
+
+Talentos:
+
+- Harmonizar Armadura
+
+- Manto da Força
+
+- Maestria Manto da Força
+
+- Defesa Conectada
+
+==================================================
+TRADIÇÃO — BRUXAS DE DATHOMIR
+==================================================
+
+ID:
+
+DATHOMIR
+
+Descrição:
+
+Usuárias primitivas
+e extremamente poderosas.
+
+Foco:
+
+- natureza
+- controle animal
+- magia ritual
+
+==================================================
+FILOSOFIA
+==================================================
+
+Princípios:
+
+- tradição
+- comunidade
+- domínio natural
+
+Características:
+
+- montarias
+- encantamentos
+- controle de bestas
+
+==================================================
+AFILIAÇÃO
+==================================================
+
+Requisitos:
+
+nativa
+
++
+
+Sensível à Força
+
++
+
+sexo feminino
+
+Modelo:
+
+{
+ id: "dathomir"
+}
+
+==================================================
+ÁRVORE EXCLUSIVA
+==================================================
+
+BRUXA DE DATHOMIR
+
+Talentos:
+
+- Conjurador Adepto
+
+- Encantar Besta
+
+- Comandar Besta
+
+- Vôo
+
+==================================================
+RELACIONAMENTO ENTRE TRADIÇÕES
+==================================================
+
+Jedi
+
+↔
+
+Sith
+
+Hostil
+
+----------------
+
+Jensaarai
+
+↔
+
+Jedi
+
+Tenso
+
+----------------
+
+Dathomir
+
+↔
+
+Jedi
+
+Neutro
+
+==================================================
+MODELAGEM PERSONAGEM
+==================================================
+
+interface ForceAffiliation {
+
+ traditions[]
+
+ rank
+
+ mentor
+
+ alignment
+
+}
+
+==================================================
+REGRAS IMPORTANTES
+==================================================
+
+1. Tradição ≠ Classe
+
+2. Tradição pode liberar talentos
+
+3. Pode alterar narrativa
+
+4. Nem toda tradição usa sabre
+
+5. Progressão depende da era
+
+6. Tradições não substituem poderes
+
+==================================================
+OBSERVAÇÃO IMPLEMENTAÇÃO
+==================================================
+
+Separar:
+
+Classe
+
+↓
+
+Tradição
+
+↓
+
+Talentos
+
+↓
+
+Poderes
+
+↓
+
+Progressão
+
+Nunca misturar
+classe Jedi
+com tradição Jedi.
+
+FIM DO CONTEXTO
