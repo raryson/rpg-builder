@@ -2,6 +2,10 @@
   "name": "rpg-builder",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@10.9.0",
+  "engines": {
+    "node": ">=20"
+  },
   "workspaces": [
     "apps/*"
   ],
@@ -13,6 +17,7 @@
     "dev:web": "npm run dev --workspace @rpg-builder/web",
     "dev:api": "npm run dev --workspace @rpg-builder/api",
     "build:web": "npm run build --workspace @rpg-builder/web",
+    "vercel-build": "node scripts/vercel-build-web.mjs",
     "build": "npm run build --workspace @rpg-builder/web && npm run build --workspace @rpg-builder/api",
     "lint": "npm run lint --workspaces --if-present"
   }
