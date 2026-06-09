@@ -1,7 +1,16 @@
 import { NextResponse } from 'next/server';
+import { getSessionFromRequest } from '../../lib/auth';
 
 export function getOwnerId(request: Request) {
-  return request.headers.get('x-owner-id') ?? 'development-owner';
+  const session = getSessionFromRequest(request);
+
+  if (!session) {
+    const error = new Error('Faça login com Google para acessar suas fichas.') as Error & { status?: number };
+    error.status = 401;
+    throw error;
+  }
+
+  return `google:${session.sub}`;
 }
 
 export async function readJson<T>(request: Request): Promise<T> {
@@ -18,11 +27,14 @@ export function ok(data: unknown, init?: ResponseInit) {
 
 export function errorResponse(error: unknown, status = 400) {
   const message = error instanceof Error ? error.message : 'Unexpected API error.';
+  const responseStatus = typeof error === 'object' && error && 'status' in error && typeof error.status === 'number'
+    ? error.status
+    : status;
 
   return NextResponse.json(
     {
       error: message,
     },
-    { status },
+    { status: responseStatus },
   );
 }

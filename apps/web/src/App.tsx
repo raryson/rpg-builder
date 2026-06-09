@@ -10,6 +10,7 @@ import {
   Dice5,
   Download,
   FilePlus2,
+  LogOut,
   Package,
   Save,
   Shield,
@@ -66,6 +67,12 @@ type DetailCatalogItem = CatalogItem & {
   category?: string;
   classRestriction?: string[];
   extra?: string;
+};
+
+type AuthUser = {
+  email: string;
+  name: string;
+  picture: string;
 };
 
 type RuleChip = {
@@ -160,7 +167,6 @@ type CharacterSheet = {
 
 const STORAGE_KEY = 'rpg-builder-star-wars-saga-sheets';
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
-const OWNER_ID = import.meta.env.VITE_OWNER_ID ?? 'development-owner';
 
 const sheetTabs: Array<{ id: SheetTab; label: string }> = [
   { id: 'identity', label: 'Identidade' },
@@ -529,9 +535,7 @@ function apiUrl(path: string) {
 
 async function readRemoteSheets() {
   const response = await fetch(apiUrl('/api/web-sheets'), {
-    headers: {
-      'x-owner-id': OWNER_ID,
-    },
+    credentials: 'include',
   });
 
   if (!response.ok) {
@@ -545,9 +549,9 @@ async function readRemoteSheets() {
 async function saveRemoteSheet(sheet: CharacterSheet) {
   const response = await fetch(apiUrl(`/api/web-sheets/${encodeURIComponent(sheet.id)}`), {
     method: 'PUT',
+    credentials: 'include',
     headers: {
       'content-type': 'application/json',
-      'x-owner-id': OWNER_ID,
     },
     body: JSON.stringify({ sheet }),
   });
@@ -560,14 +564,32 @@ async function saveRemoteSheet(sheet: CharacterSheet) {
 async function archiveRemoteSheet(sheetId: string) {
   const response = await fetch(apiUrl(`/api/web-sheets/${encodeURIComponent(sheetId)}`), {
     method: 'DELETE',
-    headers: {
-      'x-owner-id': OWNER_ID,
-    },
+    credentials: 'include',
   });
 
   if (!response.ok) {
     throw new Error('Não foi possível arquivar ficha no Mongo.');
   }
+}
+
+async function readAuthSession() {
+  const response = await fetch(apiUrl('/api/auth/me'), {
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    return null;
+  }
+
+  const payload = (await response.json()) as { user?: AuthUser | null };
+  return payload.user ?? null;
+}
+
+async function logoutRemoteSession() {
+  await fetch(apiUrl('/api/auth/logout'), {
+    method: 'POST',
+    credentials: 'include',
+  });
 }
 
 function modifier(score: number) {
@@ -862,6 +884,8 @@ export function App() {
   const [activeId, setActiveId] = useState(() => sheets[0]?.id);
   const [activeTab, setActiveTab] = useState<SheetTab>('identity');
   const [remoteLoaded, setRemoteLoaded] = useState(false);
+  const [authUser, setAuthUser] = useState<AuthUser | null>(null);
+  const [authLoaded, setAuthLoaded] = useState(false);
   const syncTimerRef = useRef<number | null>(null);
   const activeSheet = sheets.find((sheet) => sheet.id === activeId) ?? sheets[0];
   const activeSpecies = speciesCatalog.find((item) => item.slug === activeSheet.speciesSlug) ?? speciesCatalog[0];
@@ -878,6 +902,29 @@ export function App() {
 
   useEffect(() => {
     let cancelled = false;
+
+    readAuthSession()
+      .then((user) => {
+        if (!cancelled) {
+          setAuthUser(user);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setAuthLoaded(true);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!authLoaded || !authUser) return;
+
+    let cancelled = false;
+    setRemoteLoaded(false);
 
     readRemoteSheets()
       .then((remoteSheets) => {
@@ -900,10 +947,10 @@ export function App() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [authLoaded, authUser]);
 
   useEffect(() => {
-    if (!remoteLoaded) return;
+    if (!authUser || !remoteLoaded) return;
 
     if (syncTimerRef.current) {
       window.clearTimeout(syncTimerRef.current);
@@ -920,7 +967,7 @@ export function App() {
         window.clearTimeout(syncTimerRef.current);
       }
     };
-  }, [remoteLoaded, sheets]);
+  }, [authUser, remoteLoaded, sheets]);
 
   const baseAttackBonus = useMemo(() => {
     return activeClass.baseAttackProgression === 'three-quarters'
@@ -1044,6 +1091,16 @@ export function App() {
     URL.revokeObjectURL(url);
   }
 
+  function loginWithGoogle() {
+    window.location.href = apiUrl('/api/auth/google/start');
+  }
+
+  async function logout() {
+    await logoutRemoteSession();
+    setAuthUser(null);
+    setRemoteLoaded(false);
+  }
+
   function goToPreviousStep() {
     if (!isFirstStep) {
       setActiveTab(sheetTabs[activeStepIndex - 1].id);
@@ -1056,6 +1113,35 @@ export function App() {
     }
   }
 
+  if (!authLoaded) {
+    return (
+      <main className="auth-shell">
+        <div className="auth-panel">
+          <Dice5 aria-hidden="true" />
+          <span>RPG Builder</span>
+          <h1>Carregando sessão</h1>
+          <p>Conferindo seu login antes de abrir suas fichas.</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (!authUser) {
+    return (
+      <main className="auth-shell">
+        <div className="auth-panel">
+          <Dice5 aria-hidden="true" />
+          <span>RPG Builder</span>
+          <h1>Entre para criar fichas</h1>
+          <p>Suas fichas ficam salvas no Mongo e separadas pela sua conta Google.</p>
+          <button className="google-login-button" type="button" onClick={loginWithGoogle}>
+            Entrar com Google
+          </button>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="shell">
       <aside className="sidebar">
@@ -1064,6 +1150,14 @@ export function App() {
           <div>
             <span>RPG Builder</span>
             <strong>Saga Edition</strong>
+          </div>
+        </div>
+
+        <div className="account-card">
+          {authUser.picture ? <img alt="" src={authUser.picture} /> : <UserRound aria-hidden="true" />}
+          <div>
+            <span>{authUser.name}</span>
+            <small>{authUser.email}</small>
           </div>
         </div>
 
@@ -1094,6 +1188,7 @@ export function App() {
             <button type="button" onClick={duplicateSheet} title="Duplicar ficha"><Copy aria-hidden="true" /></button>
             <button type="button" onClick={exportSheet} title="Exportar JSON"><Download aria-hidden="true" /></button>
             <button type="button" onClick={deleteSheet} title="Excluir ficha"><Trash2 aria-hidden="true" /></button>
+            <button type="button" onClick={logout} title="Sair"><LogOut aria-hidden="true" /></button>
           </div>
         </header>
 

@@ -27,6 +27,65 @@ button {
   cursor: pointer;
 }
 
+.auth-shell {
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(241, 233, 211, 0.92), rgba(244, 241, 232, 1)),
+    radial-gradient(circle at 80% 16%, rgba(213, 70, 53, 0.16), transparent 30%);
+  display: grid;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.auth-panel {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  margin: 0 auto;
+  max-width: 430px;
+  padding: 24px;
+  width: 100%;
+}
+
+.auth-panel svg {
+  color: #d54635;
+  height: 34px;
+  width: 34px;
+}
+
+.auth-panel span {
+  color: #7b817c;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.auth-panel h1 {
+  color: #20272b;
+  font-size: 1.8rem;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.auth-panel p {
+  color: #5d645f;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.google-login-button {
+  background: #263136;
+  border: 0;
+  border-radius: 8px;
+  color: #fffaf0;
+  font-weight: 900;
+  min-height: 44px;
+  padding: 0 16px;
+}
+
 .shell {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -71,6 +130,50 @@ button {
 .brand strong {
   display: block;
   font-size: 1.3rem;
+}
+
+.account-card {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 36px minmax(0, 1fr);
+  padding: 10px;
+}
+
+.account-card img,
+.account-card > svg {
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+
+.account-card > svg {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e1ba55;
+  padding: 8px;
+}
+
+.account-card span,
+.account-card small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-card span {
+  color: #fffaf0;
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.account-card small {
+  color: #9fa9a6;
+  font-size: 0.74rem;
+  font-weight: 700;
 }
 
 .primary-action,

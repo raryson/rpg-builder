@@ -59,6 +59,46 @@ Crie um `.env.local` em `apps/api` com:
 
 ```bash
 MONGODB_URI=mongodb://localhost:27017/rpg-builder
+MONGODB_DB=rpg-builder
+AUTH_SESSION_SECRET=troque-por-uma-string-com-32-caracteres-ou-mais
+GOOGLE_CLIENT_ID=seu-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=seu-client-secret
+GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback
+WEB_APP_URL=http://localhost:5173
+```
+
+No Google Cloud Console, configure o OAuth Client como aplicação web e adicione este redirect em desenvolvimento:
+
+```text
+http://localhost:3000/api/auth/google/callback
+```
+
+Em produção, adicione também o domínio real da API, por exemplo:
+
+```text
+https://rpg-builder-seven.vercel.app/api/auth/google/callback
+```
+
+Na Vercel, configure as variáveis de ambiente de produção:
+
+```bash
+MONGODB_URI=sua-uri-do-mongodb
+MONGODB_DB=rpg-builder
+AUTH_SESSION_SECRET=troque-por-uma-string-com-32-caracteres-ou-mais
+GOOGLE_CLIENT_ID=seu-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=seu-client-secret
+GOOGLE_REDIRECT_URI=https://rpg-builder-seven.vercel.app/api/auth/google/callback
+WEB_APP_URL=https://rpg-builder-seven.vercel.app
+```
+
+No OAuth Client do Google, adicione também estes valores de produção:
+
+```text
+Authorized JavaScript origins:
+https://rpg-builder-seven.vercel.app
+
+Authorized redirect URIs:
+https://rpg-builder-seven.vercel.app/api/auth/google/callback
 ```
 
 ## Endpoints Base
