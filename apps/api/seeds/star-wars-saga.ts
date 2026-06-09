@@ -291,6 +291,7 @@ const skillSeedRows: Array<[string, string, boolean, boolean]> = [
   ['Percepção', 'wisdom', false, false],
   ['Persuasão', 'charisma', false, false],
   ['Pilotar', 'dexterity', false, false],
+  ['Resistência', 'constitution', false, false],
   ['Saltar', 'strength', false, true],
   ['Sobrevivência', 'wisdom', false, false],
   ['Tratar Ferimentos', 'wisdom', false, false],

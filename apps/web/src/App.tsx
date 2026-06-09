@@ -210,6 +210,7 @@ const skillRows: Array<[string, AbilityKey, boolean]> = [
   ['Percepção', 'wisdom', false],
   ['Persuasão', 'charisma', false],
   ['Pilotar', 'dexterity', false],
+  ['Resistência', 'constitution', false],
   ['Saltar', 'strength', true],
   ['Sobrevivência', 'wisdom', false],
   ['Tratar Ferimentos', 'wisdom', false],
@@ -356,10 +357,18 @@ function loadSheets(): CharacterSheet[] {
   if (!raw) return [createSheet()];
   try {
     const parsed = JSON.parse(raw) as CharacterSheet[];
-    return parsed.length ? parsed : [createSheet()];
+    return parsed.length ? parsed.map(normalizeSheet) : [createSheet()];
   } catch {
     return [createSheet()];
   }
+}
+
+function normalizeSheet(sheet: CharacterSheet): CharacterSheet {
+  const existingSkills = new Map(sheet.skills.map((skill) => [skill.skillSlug, skill]));
+  return {
+    ...sheet,
+    skills: skillCatalog.map((skill) => existingSkills.get(skill.slug) ?? { skillSlug: skill.slug, trained: false, focused: false, misc: 0 }),
+  };
 }
 
 function modifier(score: number) {
@@ -731,19 +740,42 @@ export function App() {
           )}
 
           {activeTab === 'skills' && (
-            <Panel icon={<Dice5 aria-hidden="true" />} title="Pericias">
-              <div className="skills-table">
+            <Panel className="skills-panel-full" icon={<Dice5 aria-hidden="true" />} title="Pericias">
+              <div className="skills-table skill-grid-table">
+                <div className="skill-header">
+                  <span>Nome da pericia</span>
+                  <span>Bonus de pericia</span>
+                  <span>1/2 nivel + habilidade</span>
+                  <span>Treinamento</span>
+                  <span>Foco em pericia</span>
+                  <span>Outros</span>
+                </div>
                 {activeSheet.skills.map((skill) => {
                   const catalog = skillCatalog.find((item) => item.slug === skill.skillSlug);
                   const ability = catalog?.ability ?? 'strength';
                   const speciesSkillBonus = activeSpecies.skillBonuses[skill.skillSlug] ?? 0;
-                  const total = modifier(composedAbilities[ability].total) + Math.floor(activeSheet.totalLevel / 2) + (skill.trained ? 5 : 0) + (skill.focused ? 5 : 0) + speciesSkillBonus + skill.misc;
+                  const halfLevelBonus = Math.floor(activeSheet.totalLevel / 2);
+                  const abilityModifier = modifier(composedAbilities[ability].total);
+                  const levelAndAbilityBonus = halfLevelBonus + abilityModifier;
+                  const trainingBonus = skill.trained ? 5 : 0;
+                  const focusBonus = skill.focused ? 5 : 0;
+                  const otherBonus = speciesSkillBonus + skill.misc;
+                  const total = levelAndAbilityBonus + trainingBonus + focusBonus + otherBonus;
                   return (
                     <div className="skill-row" key={skill.skillSlug}>
-                      <label className="career-toggle" title="Treinada"><input checked={skill.trained} type="checkbox" onChange={(event) => updateSkill(skill.skillSlug, { trained: event.target.checked })} /></label>
+                      <label className="career-toggle skill-check skill-training" title="Treinada"><input checked={skill.trained} type="checkbox" onChange={(event) => updateSkill(skill.skillSlug, { trained: event.target.checked })} /><span>{signed(trainingBonus)}</span></label>
                       <div><strong>{catalog?.name}</strong><small>{abilityLabels[ability]}{catalog?.armor ? ' · penalidade de armadura' : ''}</small></div>
-                      <label className="career-toggle" title="Foco"><input checked={skill.focused} type="checkbox" onChange={(event) => updateSkill(skill.skillSlug, { focused: event.target.checked })} /></label>
-                      <span className="dice-pool">{signed(total)}</span>
+                      <label className="career-toggle skill-check skill-focus" title="Foco"><input checked={skill.focused} type="checkbox" onChange={(event) => updateSkill(skill.skillSlug, { focused: event.target.checked })} /><span>{signed(focusBonus)}</span></label>
+                      <span className="dice-pool skill-total-cell">{signed(total)}</span>
+                      <div className="formula-strip skill-formula">
+                        <b className="base-source">Nv {signed(halfLevelBonus)}</b>
+                        <b className="base-source">{abilityLabels[ability]} {signed(abilityModifier)}</b>
+                        <b>{signed(levelAndAbilityBonus)}</b>
+                      </div>
+                      <div className="other-bonus-cell">
+                        <input aria-label={`Outros bonus de ${catalog?.name}`} type="number" value={skill.misc} onChange={(event) => updateSkill(skill.skillSlug, { misc: Number(event.target.value) })} />
+                        <small>Total outros {signed(otherBonus)}</small>
+                      </div>
                       {speciesSkillBonus !== 0 && <small className="species-note">Raca {signed(speciesSkillBonus)}</small>}
                     </div>
                   );
@@ -806,9 +838,9 @@ export function App() {
   }
 }
 
-function Panel({ title, icon, children }: { title: string; icon: ReactNode; children: ReactNode }) {
+function Panel({ title, icon, children, className = '' }: { title: string; icon: ReactNode; children: ReactNode; className?: string }) {
   return (
-    <section className="panel identity-panel">
+    <section className={`panel identity-panel ${className}`.trim()}>
       <div className="panel-title">{icon}<h2>{title}</h2></div>
       {children}
     </section>
