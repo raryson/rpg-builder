@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useEffect, useMemo, useState } from 'react';
+import { sagaEquipmentDetailsCatalog, sagaTalentDetailsCatalog } from './starWarsSagaCatalogData';
 
 type SheetTab =
   | 'summary'
@@ -304,16 +305,6 @@ const featCatalog: FeatCatalogItem[] = baseFeatNames.map((name) => {
   return { name, slug, ...(details[slug] ?? { prerequisites: 'Ver manual', benefit: 'Detalhes pendentes de catalogacao.' }) };
 });
 
-const baseTalentCatalog = [
-  ['Bloqueio', 'Jedi'],
-  ['Deflexão', 'Jedi'],
-  ['Ataque Furtivo', 'Fora-da-Lei'],
-  ['Inspirar Confianca', 'Nobre'],
-  ['Sentidos Agudos', 'Batedor'],
-  ['Especialista em Armadura', 'Soldado'],
-  ['Poder do Lado Negro', 'Forca'],
-].map(([name, meta]) => ({ ...toCatalogItem(name), meta }));
-
 const baseForcePowerCatalog = [
   'Estrangulamento da Forca',
   'Desarmar da Forca',
@@ -329,140 +320,10 @@ const baseForcePowerCatalog = [
   'Visão Distante',
 ].map(toCatalogItem);
 
-const baseEquipmentCatalog = [
-  'Sabre de luz',
-  'Pistola blaster',
-  'Rifle blaster',
-  'Granada de fragmentacao',
-  'Armadura de combate',
-  'Traje de voo',
-  'Kit de ferramentas',
-  'Medpac',
-  'Comlink',
-  'Computador portatil',
-].map(toCatalogItem);
-
 const vehicleCatalog = ['X-wing', 'TIE Fighter', 'Y-wing', 'Millennium Falcon', 'Speeder bike', 'AT-ST'].map(toCatalogItem);
 const droidSystemCatalog = ['Locomocao por rodas', 'Locomocao por pes', 'Processador heuristicos', 'Apêndice manipulador'].map(toCatalogItem);
 
-const talentClassNames: Record<string, string> = {
-  jedi: 'Jedi',
-  nobre: 'Nobre',
-  'fora-da-lei': 'Fora-da-Lei',
-  batedor: 'Batedor',
-  soldado: 'Soldado',
-};
-
-const talentDetailsCatalog: DetailCatalogItem[] = [
-  ...[
-    ['Negociador Especialista', 'Consul Jedi'],
-    ['Persuasao da Forca', 'Consul Jedi'],
-    ['Negociador Mestre', 'Consul Jedi'],
-    ['Conselheiro Habilidoso', 'Consul Jedi'],
-    ['Meditacao de Batalha', 'Guardiao Jedi'],
-    ['Alvo Elusivo', 'Guardiao Jedi'],
-    ['Intuicao da Forca', 'Guardiao Jedi'],
-    ['Resiliente', 'Guardiao Jedi'],
-    ['Limpar a Mente', 'Sentinela Jedi'],
-    ['Flagelo do Lado Negro', 'Sentinela Jedi'],
-    ['Sentir o Lado Negro', 'Sentinela Jedi'],
-    ['Nevoa da Forca', 'Sentinela Jedi'],
-    ['Resistir ao Lado Negro', 'Sentinela Jedi'],
-    ['Arremessar Sabre de Luz', 'Combate com Sabre de Luz'],
-    ['Bloquear', 'Combate com Sabre de Luz'],
-    ['Defesa com Sabre de Luz', 'Combate com Sabre de Luz'],
-    ['Defletir', 'Combate com Sabre de Luz'],
-    ['Especializacao em Arma (sabres de luz)', 'Combate com Sabre de Luz'],
-    ['Redirecionar Disparo', 'Combate com Sabre de Luz'],
-  ].map(([name, tree]) => classTalent(name, tree, 'jedi')),
-  ...[
-    ['Enfraquecer a Determinacao Aprimorada', 'Influencia'],
-    ['Exigir Rendicao', 'Influencia'],
-    ['Presenca', 'Influencia'],
-    ['Enfraquecer a Determinacao', 'Influencia'],
-    ['Fortalecer Aliado', 'Inspiracao'],
-    ['Incitar Fervor', 'Inspiracao'],
-    ['Inspirar Confianca', 'Inspiracao'],
-    ['Inspirar Rapidez', 'Inspiracao'],
-    ['Inspirar Ardor', 'Inspiracao'],
-    ['Lider Nato', 'Lideranca'],
-    ['Coordenar', 'Lideranca'],
-    ['Comandar a Distancia', 'Lideranca'],
-    ['Lider Destemido', 'Lideranca'],
-    ['Reorganizar as Tropas', 'Lideranca'],
-    ['Confianca', 'Lideranca'],
-    ['Conexoes', 'Linhagem'],
-    ['Instruido', 'Linhagem'],
-    ['Habilidade Espontanea', 'Linhagem'],
-    ['Riqueza', 'Linhagem'],
-  ].map(([name, tree]) => classTalent(name, tree, 'nobre')),
-  ...[
-    ['Sorte do Tolo', 'Sorte'],
-    ['Favorecido pela Sorte', 'Sorte'],
-    ['Jogador', 'Sorte'],
-    ['Talentoso', 'Sorte'],
-    ['Tiro de Sorte', 'Sorte'],
-    ['Ataque Vil', 'Ma Sorte'],
-    ['Semear Confusao', 'Ma Sorte'],
-    ['Combatente', 'Ma Sorte'],
-    ['Ataque Furtivo', 'Ma Sorte'],
-    ['Desconcertar', 'Ma Sorte'],
-    ['Invasao Relampago', 'Hacker'],
-    ['Hacker Mestre', 'Hacker'],
-    ['Tracar', 'Hacker'],
-    ['Hiperguiado', 'Espaconauta'],
-    ['Habituado com o Espaco', 'Espaconauta'],
-    ['Cavaleiro Espacial', 'Espaconauta'],
-    ['Guerreiro Estelar', 'Espaconauta'],
-    ['Reparos Rapidos', 'Tecnico Fora-da-Lei'],
-    ['Ligacao Direta', 'Tecnico Fora-da-Lei'],
-    ['Paliativo', 'Tecnico Fora-da-Lei'],
-    ['Modificacoes Personalizadas', 'Tecnico Fora-da-Lei'],
-  ].map(([name, tree]) => classTalent(name, tree, 'fora-da-lei')),
-  ...[
-    ['Sentidos Agudos', 'Consciencia'],
-    ['Rastreador Experiente', 'Consciencia'],
-    ['Iniciativa Aprimorada', 'Consciencia'],
-    ['Tiro Apurado', 'Consciencia'],
-    ['Esquiva Extraordinaria I', 'Consciencia'],
-    ['Esquiva Extraordinaria II', 'Consciencia'],
-    ['Camuflagem', 'Camuflagem'],
-    ['Movimento Encoberto', 'Camuflagem'],
-    ['Furtividade Aprimorada', 'Camuflagem'],
-    ['Camuflagem Total', 'Camuflagem'],
-    ['Barganha', 'Improvisador'],
-    ['Sabedoria de Improvisador', 'Improvisador'],
-    ['Engembrador', 'Improvisador'],
-    ['Passo-Largo', 'Improvisador'],
-    ['Evasao', 'Sobrevivente'],
-    ['Esforco Extremo', 'Sobrevivente'],
-    ['Corredor', 'Sobrevivente'],
-    ['Passo Firme', 'Sobrevivente'],
-  ].map(([name, tree]) => classTalent(name, tree, 'batedor')),
-  ...[
-    ['Especialista em Armaduras', 'Especialista em Armaduras'],
-    ['Maestria com Armadura', 'Especialista em Armaduras'],
-    ['Defesa Blindada', 'Especialista em Armaduras'],
-    ['Defesa Blindada Aprimorada', 'Especialista em Armaduras'],
-    ['Juggernaut', 'Especialista em Armaduras'],
-    ['Segunda Pele', 'Especialista em Armaduras'],
-    ['Especialista em Imobilizacao', 'Brigao'],
-    ['Coronhada', 'Brigao'],
-    ['Golpe Duro', 'Brigao'],
-    ['Ataque Atordoante', 'Brigao'],
-    ['Desequilibrar Oponente', 'Brigao'],
-    ['Analise da Batalha', 'Comando'],
-    ['Tiro de Cobertura', 'Comando'],
-    ['Demolidor', 'Comando'],
-    ['Atrair Disparos', 'Comando'],
-    ['Interpor-se', 'Comando'],
-    ['Indomavel', 'Comando'],
-    ['Duro de matar', 'Comando'],
-    ['Ataque Devastador', 'Especialista em Armas'],
-    ['Ataque Penetrante', 'Especialista em Armas'],
-    ['Especializacao em Arma', 'Especialista em Armas'],
-  ].map(([name, tree]) => classTalent(name, tree, 'soldado')),
-];
+const talentDetailsCatalog: DetailCatalogItem[] = [...sagaTalentDetailsCatalog];
 
 const forcePowerDetailsCatalog: DetailCatalogItem[] = [
   detailItem('Estrangulamento da Forca', 'Poder da Forca', 'Restringe uma criatura e causa dano conforme o teste de Usar a Forca.', 'Lado Negro'),
@@ -491,18 +352,7 @@ const forceSecretDetailsCatalog: DetailCatalogItem[] = [
   detailItem('Poder Rapido', 'Segredo da Forca', 'Reduz o tempo de ativacao de um poder escolhido quando aplicavel.', 'Segredo'),
 ];
 
-const equipmentDetailsCatalog: DetailCatalogItem[] = [
-  detailItem('Sabre de luz', 'Arma', 'Arma de energia associada aos Jedi e Sith; exige proficiencia especifica.', 'Weapon'),
-  detailItem('Pistola blaster', 'Arma', 'Arma a distancia comum, leve e facil de portar.', 'Weapon'),
-  detailItem('Rifle blaster', 'Arma', 'Arma a distancia de maior alcance e impacto que pistolas.', 'Weapon'),
-  detailItem('Granada de fragmentacao', 'Explosivo', 'Explosivo de area usado contra grupos ou cobertura.', 'Explosive'),
-  detailItem('Armadura de combate', 'Armadura', 'Protecao corporal que pode conceder bonus de defesa, sujeita a limites e penalidades.', 'Armor'),
-  detailItem('Traje de voo', 'Armadura', 'Traje usado por pilotos; pode incluir suporte de vida e protecao leve.', 'Armor'),
-  detailItem('Kit de ferramentas', 'Equipamento geral', 'Ferramentas usadas em testes de Mecanica e reparos.', 'Gear'),
-  detailItem('Medpac', 'Equipamento geral', 'Aparato medico usado com Tratar Ferimentos para primeiros socorros.', 'Gear'),
-  detailItem('Comlink', 'Equipamento geral', 'Comunicador portatil para contato a distancia.', 'Gear'),
-  detailItem('Computador portatil', 'Equipamento geral', 'Interface para Usar Computador, pesquisa, redes e sistemas.', 'Gear'),
-];
+const equipmentDetailsCatalog: DetailCatalogItem[] = [...sagaEquipmentDetailsCatalog];
 
 const vehicleDetailsCatalog: DetailCatalogItem[] = [
   detailItem('X-wing', 'Caca estelar', 'Caca rebelde versatil com escudos, hiperpropulsor e armamento pesado.', 'Starfighter'),
@@ -637,17 +487,6 @@ function detailItem(
   };
 }
 
-function classTalent(name: string, tree: string, classSlug: string): DetailCatalogItem {
-  const className = talentClassNames[classSlug] ?? classSlug;
-  return detailItem(
-    name,
-    `Arvore ${tree}`,
-    `Talento da arvore ${tree} da classe ${className}. Use os pre-requisitos e o efeito detalhado do manual ao selecionar este talento.`,
-    tree,
-    [classSlug],
-  );
-}
-
 function species(
   name: string,
   abilityModifiers: Partial<Record<AbilityKey, number>>,
@@ -722,6 +561,82 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }).format(
     new Date(value),
   );
+}
+
+function renderInlineMarkdown(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <b key={`${part}-${index}`}>{part.slice(2, -2)}</b>;
+    }
+
+    return part;
+  });
+}
+
+function renderFormattedText(text: string) {
+  const lines = text.split('\n');
+  const blocks: ReactNode[] = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const rawLine = lines[index];
+    const line = rawLine.trim();
+    if (!line || line === '---') continue;
+
+    if (/^#{2,6}\s+/.test(line)) {
+      blocks.push(<h4 key={`heading-${index}`}>{renderInlineMarkdown(line.replace(/^#{2,6}\s+/, ''))}</h4>);
+      continue;
+    }
+
+    if (/^[-*]\s+/.test(line)) {
+      const items: string[] = [];
+      while (index < lines.length && /^[-*]\s+/.test(lines[index].trim())) {
+        items.push(lines[index].trim().replace(/^[-*]\s+/, ''));
+        index += 1;
+      }
+      index -= 1;
+      blocks.push(
+        <ul key={`list-${index}`}>
+          {items.map((item, itemIndex) => <li key={`${item}-${itemIndex}`}>{renderInlineMarkdown(item)}</li>)}
+        </ul>,
+      );
+      continue;
+    }
+
+    if (/^\d+\.\s+/.test(line)) {
+      const items: string[] = [];
+      while (index < lines.length && /^\d+\.\s+/.test(lines[index].trim())) {
+        items.push(lines[index].trim().replace(/^\d+\.\s+/, ''));
+        index += 1;
+      }
+      index -= 1;
+      blocks.push(
+        <ol key={`numbered-${index}`}>
+          {items.map((item, itemIndex) => <li key={`${item}-${itemIndex}`}>{renderInlineMarkdown(item)}</li>)}
+        </ol>,
+      );
+      continue;
+    }
+
+    const stat = line.match(/^([^:]{2,42}):\s+(.+)$/);
+    if (stat) {
+      blocks.push(
+        <div className="detail-stat-line" key={`stat-${index}`}>
+          <b>{renderInlineMarkdown(stat[1])}</b>
+          <span>{renderInlineMarkdown(stat[2])}</span>
+        </div>,
+      );
+      continue;
+    }
+
+    if (line.endsWith(':')) {
+      blocks.push(<strong className="detail-section-label" key={`label-${index}`}>{renderInlineMarkdown(line)}</strong>);
+      continue;
+    }
+
+    blocks.push(<p key={`paragraph-${index}`}>{renderInlineMarkdown(line)}</p>);
+  }
+
+  return blocks.length > 0 ? <div className="formatted-text">{blocks}</div> : <p>Nenhuma descrição catalogada.</p>;
 }
 
 export function App() {
@@ -1057,7 +972,7 @@ export function App() {
           {activeTab === 'feats' && <FeatsPanel />}
           {activeTab === 'talents' && <TalentsPanel />}
           {activeTab === 'force' && <ForcePanel />}
-          {activeTab === 'equipment' && <RichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
+          {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisao" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
           {activeTab === 'vehicles' && <RichSelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
           {activeTab === 'droids' && <RichSelectionPanel icon={<CircleDot aria-hidden="true" />} title="Droides" items={droidSystemDetailsCatalog} selected={activeSheet.droidSystems} onChange={(value) => setField('droidSystems', value)} />}
           {(activeTab === 'notes' || activeTab === 'history' || activeTab === 'versions') && (
@@ -1112,7 +1027,16 @@ export function App() {
             <p>{unavailable.length} talento(s) ja salvo(s) nao pertencem a classe atual e foram ocultados desta lista. Isso pode estar correto se foram ganhos por multiclasse.</p>
           </div>
         )}
-        <RichSelectionPanel compact title={`Talentos de ${labelFor(heroicClassCatalog, selectedClassSlug)}`} icon={<Sparkles aria-hidden="true" />} items={availableTalents} selected={selectedClassTalents} onChange={(value) => setField('talents', value)} />
+        <GroupedRichSelectionPanel
+          compact
+          title={`Talentos de ${labelFor(heroicClassCatalog, selectedClassSlug)}`}
+          icon={<Sparkles aria-hidden="true" />}
+          groupLabel="Arvore de talento"
+          itemLabel="Talento"
+          items={availableTalents}
+          selected={selectedClassTalents}
+          onChange={(value) => setField('talents', [...unavailable.map((item) => item.slug), ...value])}
+        />
       </Panel>
     );
   }
@@ -1222,7 +1146,7 @@ export function App() {
         {selectedItem && (
           <div className="feat-preview">
             <strong>{selectedItem.name}</strong>
-            <p>{selectedItem.details}</p>
+            {renderFormattedText(selectedItem.details)}
             {selectedItem.category && <small>Categoria: {selectedItem.category}</small>}
             {selectedItem.classRestriction && selectedItem.classRestriction.length > 0 && (
               <small>Classe: {selectedItem.classRestriction.map((slug) => labelFor(heroicClassCatalog, slug)).join(', ')}</small>
@@ -1246,8 +1170,117 @@ export function App() {
                   {item.category && <p><b>Categoria:</b> {item.category}</p>}
                   {item.classRestriction && item.classRestriction.length > 0 && <p><b>Classe:</b> {item.classRestriction.map((slug) => labelFor(heroicClassCatalog, slug)).join(', ')}</p>}
                   {item.prerequisites && <p><b>Pre-requisitos:</b> {item.prerequisites}</p>}
-                  <p><b>Efeito:</b> {item.details}</p>
-                  {item.extra && <p><b>Observacao:</b> {item.extra}</p>}
+                  <div><b>Efeito:</b>{renderFormattedText(item.details)}</div>
+                  {item.extra && <div><b>Observacao:</b>{renderFormattedText(item.extra)}</div>}
+                </div>
+              </details>
+            </article>
+          ))}
+          {selectedItems.length === 0 && <p className="empty-state">Nenhum item adicionado ainda.</p>}
+        </div>
+      </section>
+    );
+  }
+
+  function GroupedRichSelectionPanel({
+    title,
+    icon,
+    groupLabel,
+    itemLabel,
+    items,
+    selected,
+    onChange,
+    compact = false,
+  }: {
+    title: string;
+    icon: ReactNode;
+    groupLabel: string;
+    itemLabel: string;
+    items: DetailCatalogItem[];
+    selected: string[];
+    onChange: (value: string[]) => void;
+    compact?: boolean;
+  }) {
+    const groups = useMemo(
+      () => Array.from(new Set(items.map((item) => item.category || 'Geral'))).sort((a, b) => a.localeCompare(b, 'pt-BR')),
+      [items],
+    );
+    const [group, setGroup] = useState(groups[0] ?? '');
+    const groupedItems = items.filter((item) => (item.category || 'Geral') === group);
+    const [choice, setChoice] = useState(groupedItems[0]?.slug ?? '');
+    const selectedItem = groupedItems.find((item) => item.slug === choice) ?? groupedItems[0];
+    const selectedItems = selected
+      .map((slug) => items.find((item) => item.slug === slug))
+      .filter((item): item is DetailCatalogItem => Boolean(item));
+
+    useEffect(() => {
+      if (groups.length > 0 && !groups.includes(group)) {
+        setGroup(groups[0]);
+      }
+    }, [group, groups]);
+
+    useEffect(() => {
+      if (groupedItems.length > 0 && !groupedItems.some((item) => item.slug === choice)) {
+        setChoice(groupedItems[0].slug);
+      }
+    }, [choice, groupedItems]);
+
+    function addItem() {
+      if (choice && !selected.includes(choice)) {
+        onChange([...selected, choice]);
+      }
+    }
+
+    function removeItem(slug: string) {
+      onChange(selected.filter((selectedSlug) => selectedSlug !== slug));
+    }
+
+    return (
+      <section className={compact ? 'embedded-panel' : 'panel identity-panel'}>
+        <div className="panel-title">{icon}<h2>{title}</h2></div>
+        <div className="grouped-picker">
+          <label>
+            {groupLabel}
+            <select value={group} onChange={(event) => setGroup(event.target.value)}>
+              {groups.map((groupName) => <option key={groupName} value={groupName}>{groupName}</option>)}
+            </select>
+          </label>
+          <label>
+            {itemLabel}
+            <select value={choice} onChange={(event) => setChoice(event.target.value)}>
+              {groupedItems.map((item) => <option key={item.slug} value={item.slug}>{item.name}</option>)}
+            </select>
+          </label>
+          <button type="button" onClick={addItem}>Adicionar</button>
+        </div>
+
+        {selectedItem && (
+          <div className="feat-preview">
+            <div className="preview-heading">
+              <strong>{selectedItem.name}</strong>
+              {selectedItem.category && <small>{selectedItem.category}</small>}
+            </div>
+            {selectedItem.prerequisites && <small>Pre-requisitos: {selectedItem.prerequisites}</small>}
+            {renderFormattedText(selectedItem.details)}
+          </div>
+        )}
+
+        <div className="feat-list">
+          {selectedItems.map((item) => (
+            <article className="feat-card" key={item.slug}>
+              <div className="feat-card-header">
+                <div>
+                  <strong>{item.name}</strong>
+                  <small>{item.category || item.summary}</small>
+                </div>
+                <button type="button" onClick={() => removeItem(item.slug)}>Remover</button>
+              </div>
+              <details>
+                <summary>Ver informacoes</summary>
+                <div className="feat-details">
+                  {item.prerequisites && <p><b>Pre-requisitos:</b> {item.prerequisites}</p>}
+                  {renderFormattedText(item.details)}
+                  {item.extra && <div className="detail-extra">{renderFormattedText(item.extra)}</div>}
                 </div>
               </details>
             </article>
