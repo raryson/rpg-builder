@@ -5,6 +5,9 @@
   "workspaces": [
     "apps/*"
   ],
+  "dependencies": {
+    "lucide-react": "^0.468.0"
+  },
   "scripts": {
     "dev": "npm run dev --workspace @rpg-builder/web",
     "dev:web": "npm run dev --workspace @rpg-builder/web",
