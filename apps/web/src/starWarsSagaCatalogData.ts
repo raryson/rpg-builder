@@ -2171,59 +2171,187 @@ export const sagaVehicleDetailsCatalog = [
 
 export const sagaDroidDetailsCatalog = [
   {
-    "name": "Melhorias Especiais",
-    "slug": "droides-melhorias-especiais",
-    "summary": "MELHORIAS ESPECIAIS Garras para Escalar Efeito: Servomecanismos de Salto Efeito: Pés Magnéticos Permite: teto; casco; superfícies metálicas. Anexo Telescópico Efeito:",
-    "details": "# MELHORIAS ESPECIAIS\n\n---\n\n## Garras para Escalar\n\n```txt\ncusto = anexo ×2\n```\n\nEfeito:\n\n```txt\n+5 escalar\n```\n\n---\n\n## Servomecanismos de Salto\n\n```txt\ncusto = anexo ×2\n```\n\nEfeito:\n\n```txt\ndobrar distância salto\n```\n\n---\n\n## Pés Magnéticos\n\nPermite:\n\n* teto;\n* casco;\n* superfícies metálicas.\n\n---\n\n## Anexo Telescópico\n\n```txt\ncusto = anexo ×2\npeso ×2\n```\n\nEfeito:\n\n```txt\nalcance aumentado\n```\n\n---",
-    "category": "Anexos e acessórios",
-    "extra": "Fonte OCR: droides-pt-5.txt"
+    "name": "Ferramenta",
+    "slug": "droides-ferramenta",
+    "summary": "Preço: 10 × fator de custo | Peso: 2 × fator de custo kg | Disponibilidade: —",
+    "details": "## Ferramenta\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Ferramenta |\n| Preço | 10 × fator de custo |\n| Peso | 2 × fator de custo kg |\n| Disponibilidade | — |",
+    "category": "Anexos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
   },
   {
-    "name": "Tipos de Anexo",
-    "slug": "droides-tipos-de-anexo",
-    "summary": "TABELA — TIPOS DE ANEXO Dano dos Anexos",
-    "details": "# TABELA — TIPOS DE ANEXO\n\n---\n\n| Tipo        |      Preço |        Peso |\n| ----------- | ---------: | ----------: |\n| Garra       | 20 × fator |   5 × fator |\n| Mão         | 50 × fator |   5 × fator |\n| Instrumento |  5 × fator |   1 × fator |\n| Sonda       |  2 × fator | 0,5 × fator |\n| Ferramenta  | 10 × fator |   2 × fator |\n\n---\n\n## Dano dos Anexos\n\n| Tamanho   | Sonda | Instrumento | Ferramenta | Garra | Mão |\n| --------- | ----: | ----------: | ---------: | ----: | --: |\n| Minúsculo |     — |           — |          — |     — |   — |\n| Diminuto  |     — |           — |          — |     1 |   — |\n| Miúdo     |     — |           — |          1 |   1d2 |   1 |\n| Pequeno   |     — |           1 |        1d2 |   1d3 | 1d2 |\n| Médio     |     1 |         1d2 |        1d3 |   1d4 | 1d3 |\n| Grande    |   1d2 |         1d3 |        1d4 |   1d6 | 1d4 |\n| Enorme    |   1d3 |         1d4 |        1d6 |   1d8 | 1d6 |\n| Imenso    |   1d4 |         1d6 |        1d8 |   2d6 | 1d8 |\n| Colossal  |   1d6 |         1d8 |        2d6 |   2d8 | 2d6 |\n\n---",
-    "category": "Anexos e acessórios",
-    "extra": "Fonte OCR: droides-pt-5.txt"
+    "name": "Garra",
+    "slug": "droides-garra",
+    "summary": "Preço: 20 × fator de custo | Peso: 5 × fator de custo kg | Disponibilidade: —",
+    "details": "## Garra\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Garra |\n| Preço | 20 × fator de custo |\n| Peso | 5 × fator de custo kg |\n| Disponibilidade | — |",
+    "category": "Anexos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
   },
   {
-    "name": "Armaduras de Dróide",
-    "slug": "droides-armaduras-de-droide",
-    "summary": "Tabela 11 6: Armadura de Dróide Armadura Leve ( 2) Armadura Média ( 5) Armadura Pesada ( 5)",
-    "details": "# Tabela 11-6: Armadura de Dróide\n\n## Armadura Leve (-2)\n\n| Armadura                  |                  Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |\n| ------------------------- | ---------------------: | -------------: | ------------: | ---------------------: | --------------- |\n| Corpo de aço plástico     |   400 × fator de custo |             +2 |            +5 |  2 × fator de custo kg | —               |\n| Corpo de quadrânio        |   900 × fator de custo |             +3 |            +4 |  3 × fator de custo kg | —               |\n| Corpo de duraço           | 1.600 × fator de custo |             +4 |            +4 |  8 × fator de custo kg | —               |\n| Revestimento de quadrânio | 2.500 × fator de custo |             +5 |            +3 | 10 × fator de custo kg | Licenciada      |\n| Revestimento de duraço    | 3.600 × fator de custo |             +6 |            +3 | 12 × fator de custo kg | Licenciada      |\n\n---\n\n## Armadura Média (-5)\n\n| Armadura                         |                  Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |\n| -------------------------------- | ---------------------: | -------------: | ------------: | ---------------------: | --------------- |\n| Armadura de batalha de quadrânio | 4.900 × fator de custo |             +7 |            +3 |  7 × fator de custo kg | Restrita        |\n| Revestimento de durânio          | 6.400 × fator de custo |             +8 |            +2 | 16 × fator de custo kg | Restrita        |\n| Armadura de batalha de duraço    | 9.600 × fator de custo |             +8 |            +3 |  8 × fator de custo kg | Restrita        |\n\n---\n\n## Armadura Pesada (-5)\n\n| Armadura                       |                   Preço | Bônus Reflexos | Máx. Destreza |                   Peso | Disponibilidade |\n| ------------------------------ | ----------------------: | -------------: | ------------: | ---------------------: | --------------- |\n| Corpo de aço mandaloriano      |  8.100 × fator de custo |             +9 |            +3 |  9 × fator de custo kg | Militar, Rara   |\n| Armadura de batalha de durânio | 10.000 × fator de custo |            +10 |            +2 | 10 × fator de custo kg | Militar         |\n| Revestimento de neutrônio      | 12.100 × fator de custo |            +11 |            +1 | 20 × fator de custo kg | Militar         |\n\n---",
+    "name": "Instrumento",
+    "slug": "droides-instrumento",
+    "summary": "Preço: 5 × fator de custo | Peso: 1 × fator de custo kg | Disponibilidade: —",
+    "details": "## Instrumento\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Instrumento |\n| Preço | 5 × fator de custo |\n| Peso | 1 × fator de custo kg |\n| Disponibilidade | — |",
+    "category": "Anexos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Mão",
+    "slug": "droides-mao",
+    "summary": "Preço: 50 × fator de custo | Peso: 5 × fator de custo kg | Disponibilidade: —",
+    "details": "## Mão\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Mão |\n| Preço | 50 × fator de custo |\n| Peso | 5 × fator de custo kg |\n| Disponibilidade | — |",
+    "category": "Anexos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Sonda",
+    "slug": "droides-sonda",
+    "summary": "Preço: 2 × fator de custo | Peso: 0,5 × fator de custo kg | Disponibilidade: —",
+    "details": "## Sonda\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Sonda |\n| Preço | 2 × fator de custo |\n| Peso | 0,5 × fator de custo kg |\n| Disponibilidade | — |",
+    "category": "Anexos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Leve (-2): Corpo de aço plástico",
+    "slug": "droides-armadura-leve-2-corpo-de-aco-plastico",
+    "summary": "Preço: 400 × fator de custo | Bônus Reflexos: +2 | Máx. Destreza: +5 | Peso: 2 × fator de custo kg | Disponibilidade: —",
+    "details": "## Armadura Leve (-2): Corpo de aço plástico\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Corpo de aço plástico |\n| Preço | 400 × fator de custo |\n| Bônus Reflexos | +2 |\n| Máx. Destreza | +5 |\n| Peso | 2 × fator de custo kg |\n| Disponibilidade | — |",
     "category": "Armaduras de dróide",
     "extra": "Fonte OCR: droides-pt-1.txt"
   },
   {
+    "name": "Armadura Leve (-2): Corpo de duraço",
+    "slug": "droides-armadura-leve-2-corpo-de-duraco",
+    "summary": "Preço: 1.600 × fator de custo | Bônus Reflexos: +4 | Máx. Destreza: +4 | Peso: 8 × fator de custo kg | Disponibilidade: —",
+    "details": "## Armadura Leve (-2): Corpo de duraço\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Corpo de duraço |\n| Preço | 1.600 × fator de custo |\n| Bônus Reflexos | +4 |\n| Máx. Destreza | +4 |\n| Peso | 8 × fator de custo kg |\n| Disponibilidade | — |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Leve (-2): Corpo de quadrânio",
+    "slug": "droides-armadura-leve-2-corpo-de-quadranio",
+    "summary": "Preço: 900 × fator de custo | Bônus Reflexos: +3 | Máx. Destreza: +4 | Peso: 3 × fator de custo kg | Disponibilidade: —",
+    "details": "## Armadura Leve (-2): Corpo de quadrânio\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Corpo de quadrânio |\n| Preço | 900 × fator de custo |\n| Bônus Reflexos | +3 |\n| Máx. Destreza | +4 |\n| Peso | 3 × fator de custo kg |\n| Disponibilidade | — |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Leve (-2): Revestimento de duraço",
+    "slug": "droides-armadura-leve-2-revestimento-de-duraco",
+    "summary": "Preço: 3.600 × fator de custo | Bônus Reflexos: +6 | Máx. Destreza: +3 | Peso: 12 × fator de custo kg | Disponibilidade: Licenciada",
+    "details": "## Armadura Leve (-2): Revestimento de duraço\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Revestimento de duraço |\n| Preço | 3.600 × fator de custo |\n| Bônus Reflexos | +6 |\n| Máx. Destreza | +3 |\n| Peso | 12 × fator de custo kg |\n| Disponibilidade | Licenciada |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Leve (-2): Revestimento de quadrânio",
+    "slug": "droides-armadura-leve-2-revestimento-de-quadranio",
+    "summary": "Preço: 2.500 × fator de custo | Bônus Reflexos: +5 | Máx. Destreza: +3 | Peso: 10 × fator de custo kg | Disponibilidade: Licenciada",
+    "details": "## Armadura Leve (-2): Revestimento de quadrânio\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Revestimento de quadrânio |\n| Preço | 2.500 × fator de custo |\n| Bônus Reflexos | +5 |\n| Máx. Destreza | +3 |\n| Peso | 10 × fator de custo kg |\n| Disponibilidade | Licenciada |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Média (-5): Armadura de batalha de duraço",
+    "slug": "droides-armadura-media-5-armadura-de-batalha-de-duraco",
+    "summary": "Preço: 9.600 × fator de custo | Bônus Reflexos: +8 | Máx. Destreza: +3 | Peso: 8 × fator de custo kg | Disponibilidade: Restrita",
+    "details": "## Armadura Média (-5): Armadura de batalha de duraço\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Armadura de batalha de duraço |\n| Preço | 9.600 × fator de custo |\n| Bônus Reflexos | +8 |\n| Máx. Destreza | +3 |\n| Peso | 8 × fator de custo kg |\n| Disponibilidade | Restrita |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Média (-5): Armadura de batalha de quadrânio",
+    "slug": "droides-armadura-media-5-armadura-de-batalha-de-quadranio",
+    "summary": "Preço: 4.900 × fator de custo | Bônus Reflexos: +7 | Máx. Destreza: +3 | Peso: 7 × fator de custo kg | Disponibilidade: Restrita",
+    "details": "## Armadura Média (-5): Armadura de batalha de quadrânio\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Armadura de batalha de quadrânio |\n| Preço | 4.900 × fator de custo |\n| Bônus Reflexos | +7 |\n| Máx. Destreza | +3 |\n| Peso | 7 × fator de custo kg |\n| Disponibilidade | Restrita |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Média (-5): Revestimento de durânio",
+    "slug": "droides-armadura-media-5-revestimento-de-duranio",
+    "summary": "Preço: 6.400 × fator de custo | Bônus Reflexos: +8 | Máx. Destreza: +2 | Peso: 16 × fator de custo kg | Disponibilidade: Restrita",
+    "details": "## Armadura Média (-5): Revestimento de durânio\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Revestimento de durânio |\n| Preço | 6.400 × fator de custo |\n| Bônus Reflexos | +8 |\n| Máx. Destreza | +2 |\n| Peso | 16 × fator de custo kg |\n| Disponibilidade | Restrita |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Pesada (-5): Armadura de batalha de durânio",
+    "slug": "droides-armadura-pesada-5-armadura-de-batalha-de-duranio",
+    "summary": "Preço: 10.000 × fator de custo | Bônus Reflexos: +10 | Máx. Destreza: +2 | Peso: 10 × fator de custo kg | Disponibilidade: Militar",
+    "details": "## Armadura Pesada (-5): Armadura de batalha de durânio\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Armadura de batalha de durânio |\n| Preço | 10.000 × fator de custo |\n| Bônus Reflexos | +10 |\n| Máx. Destreza | +2 |\n| Peso | 10 × fator de custo kg |\n| Disponibilidade | Militar |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Pesada (-5): Corpo de aço mandaloriano",
+    "slug": "droides-armadura-pesada-5-corpo-de-aco-mandaloriano",
+    "summary": "Preço: 8.100 × fator de custo | Bônus Reflexos: +9 | Máx. Destreza: +3 | Peso: 9 × fator de custo kg | Disponibilidade: Militar, Rara",
+    "details": "## Armadura Pesada (-5): Corpo de aço mandaloriano\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Corpo de aço mandaloriano |\n| Preço | 8.100 × fator de custo |\n| Bônus Reflexos | +9 |\n| Máx. Destreza | +3 |\n| Peso | 9 × fator de custo kg |\n| Disponibilidade | Militar, Rara |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Armadura Pesada (-5): Revestimento de neutrônio",
+    "slug": "droides-armadura-pesada-5-revestimento-de-neutronio",
+    "summary": "Preço: 12.100 × fator de custo | Bônus Reflexos: +11 | Máx. Destreza: +1 | Peso: 20 × fator de custo kg | Disponibilidade: Militar",
+    "details": "## Armadura Pesada (-5): Revestimento de neutrônio\n\n| Campo | Valor |\n| ----- | ----- |\n| Armadura | Revestimento de neutrônio |\n| Preço | 12.100 × fator de custo |\n| Bônus Reflexos | +11 |\n| Máx. Destreza | +1 |\n| Peso | 20 × fator de custo kg |\n| Disponibilidade | Militar |",
+    "category": "Armaduras de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Acesso travado",
+    "slug": "droides-acesso-travado",
+    "summary": "Preço: 50 | Peso: — | Disponibilidade: Licenciado",
+    "details": "## Acesso travado\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Acesso travado |\n| Preço | 50 |\n| Peso | — |\n| Disponibilidade | Licenciado |\n\n## Detalhes\n\nPreço:\n\n```txt\n50\n```\n\nDisponibilidade:\n\n```txt\nLicenciado\n```\n\nImpede acesso não autorizado.\n\n---",
+    "category": "Armazenamento interno",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Espaço do compartimento, por kg",
+    "slug": "droides-espaco-do-compartimento-por-kg",
+    "summary": "Preço: 50 | Peso: — | Disponibilidade: —",
+    "details": "## Espaço do compartimento, por kg\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Espaço do compartimento, por kg |\n| Preço | 50 |\n| Peso | — |\n| Disponibilidade | — |",
+    "category": "Armazenamento interno",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Mecanismo de arremesso",
+    "slug": "droides-mecanismo-de-arremesso",
+    "summary": "Preço: 150 | Peso: 3 kg | Disponibilidade: —",
+    "details": "## Mecanismo de arremesso\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Mecanismo de arremesso |\n| Preço | 150 |\n| Peso | 3 kg |\n| Disponibilidade | — |\n\n## Detalhes\n\nPreço:\n\n```txt\n150\n```\n\nPermite:\n\n```txt\nejetar item\n```\n\n---",
+    "category": "Armazenamento interno",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
     "name": "Graus de Dróides",
-    "slug": "droides-graus-de-droides",
+    "slug": "droides-doc-graus-de-droides",
     "summary": "Graus de Dróides",
     "details": "# Graus de Dróides\n\n| Grau    | Função Geral                           | Exemplos                      |\n| ------- | -------------------------------------- | ----------------------------- |\n| 1º grau | médicos, científicos e analíticos      | 2-1B                          |\n| 2º grau | técnicos, astromecs e manutenção       | R2                            |\n| 3º grau | protocolo, tradução e interação social | 3PO                           |\n| 4º grau | combate, segurança e guerra            | B1, B2, Droideka, MagnaGuarda |\n| 5º grau | trabalho, carga e funções utilitárias  | ASP                           |\n\n---",
-    "category": "Construção de dróides",
+    "category": "Documentação de dróides",
     "extra": "Fonte OCR: droides-pt-1.txt"
   },
   {
     "name": "Locomoção",
-    "slug": "droides-locomocao",
+    "slug": "droides-doc-locomocao",
     "summary": "TABELA — LOCOMOÇÃO Descrição Andante pernas mecânicas; maior precisão; uso geral. Exemplo: Rodas barato; rápido; manutenção simples. Exemplo: Esteira força; carga pesada. Exemplo: ",
     "details": "# TABELA — LOCOMOÇÃO\n\n---\n\n| Tipo      | Até Pequeno | Médio | Grande+ | Fórmula               |\n| --------- | ----------: | ----: | ------: | --------------------- |\n| Andante   |           4 |     6 |       8 | 10 × fator × desloc²  |\n| Rodas     |           6 |     8 |      10 | 5 × fator × desloc²   |\n| Esteira   |           4 |     6 |       8 | 20 × fator × desloc²  |\n| Flutuante |           6 |     6 |       6 | 100 × fator × desloc² |\n| Voador    |           9 |    12 |      12 | 200 × fator × desloc² |\n\n---\n\n## Descrição\n\n### Andante\n\n* pernas mecânicas;\n* maior precisão;\n* uso geral.\n\nExemplo:\n\n```txt\nR2\nProtocolares\nMagnaguarda\n```\n\n---\n\n### Rodas\n\n* barato;\n* rápido;\n* manutenção simples.\n\nExemplo:\n\n```txt\nGNK\nMouse Droid\n```\n\n---\n\n### Esteira\n\n* força;\n* carga pesada.\n\nExemplo:\n\n```txt\nmineradores\nindustrial\n```\n\n---\n\n### Flutuante\n\n* repulsão;\n* ignora irregularidades.\n\nExemplo:\n\n```txt\nsondas\nhospitalares\n```\n\n---\n\n### Voador\n\n* máxima mobilidade;\n* custo elevado.\n\nExemplo:\n\n```txt\ndróides de reconhecimento\n```\n\n---",
-    "category": "Construção de dróides",
+    "category": "Documentação de dróides",
     "extra": "Fonte OCR: droides-pt-5.txt"
   },
   {
     "name": "Regras de Construção",
-    "slug": "droides-regras-de-construcao",
+    "slug": "droides-doc-regras-de-construcao",
     "summary": "REGRAS DE CONSTRUÇÃO Passo 1 Escolher tamanho. ↓ Passo 2 Escolher locomoção. ↓ Passo 3 Escolher armadura. ↓ Passo 4 Escolher anexos. ↓ Passo 5 Escolher sistemas internos. ↓ Passo 6",
     "details": "# REGRAS DE CONSTRUÇÃO\n\n## Passo 1\n\nEscolher tamanho.\n\n↓\n\n## Passo 2\n\nEscolher locomoção.\n\n↓\n\n## Passo 3\n\nEscolher armadura.\n\n↓\n\n## Passo 4\n\nEscolher anexos.\n\n↓\n\n## Passo 5\n\nEscolher sistemas internos.\n\n↓\n\n## Passo 6\n\nEscolher modelo base.\n\n↓\n\n## Passo 7\n\nCalcular custo final.\n\n---\n\n# Fórmula Final\n\n```txt\nCusto Total =\nChassi\n+ Locomoção\n+ Armadura\n+ Sistemas\n+ Equipamentos\n```\n\n---",
-    "category": "Construção de dróides",
+    "category": "Documentação de dróides",
     "extra": "Fonte OCR: droides-pt-5.txt"
   },
   {
     "name": "Tamanho dos Dróides",
-    "slug": "droides-tamanho-dos-droides",
+    "slug": "droides-doc-tamanho-dos-droides",
     "summary": "TABELA — TAMANHO DOS DRÓIDES Objetivo Define: modificadores automáticos; pontos de vida extras; capacidade cargueira; custo base. Regras Tamanho influencia: custo final; peso; anex",
     "details": "# TABELA — TAMANHO DOS DRÓIDES\n\n## Objetivo\n\nDefine:\n\n* modificadores automáticos;\n* pontos de vida extras;\n* capacidade cargueira;\n* custo base.\n\n---\n\n| Tamanho   | Mod. Atributos   | Reflexos | Furtividade | PV Extra | Limite Dano | Carga | Fator |\n| --------- | ---------------- | -------: | ----------: | -------: | ----------: | ----: | ----: |\n| Colossal  | +32 For / −4 Des |      −10 |         −20 |     +100 |         +50 |   ×20 |   ×20 |\n| Imenso    | +24 For / −4 Des |       −5 |         −10 |      +50 |         +20 |   ×10 |   ×10 |\n| Enorme    | +16 For / −4 Des |       −2 |          −5 |      +20 |         +10 |    ×5 |    ×5 |\n| Grande    | +8 For / −2 Des  |       −1 |          −2 |      +10 |          +5 |    ×2 |    ×2 |\n| Médio     | —                |        0 |          −1 |        — |           — |    ×1 |    ×1 |\n| Pequeno   | −2 For / +2 Des  |       +1 |          −2 |        — |           — |    ×2 |    ×2 |\n| Miúdo     | −4 For / +4 Des  |       +2 |          −5 |        — |           — |    ×5 |    ×5 |\n| Diminuto  | −6 For / +6 Des  |       +5 |         −10 |        — |           — |   ×10 |   ×10 |\n| Minúsculo | −8 For / +8 Des  |      +10 |         −20 |        — |           — |   ×20 |   ×20 |\n\n---\n\n## Regras\n\n### Tamanho influencia:\n\n* custo final;\n* peso;\n* anexos;\n* armadura;\n* capacidade interna;\n* força física.\n\n---",
-    "category": "Construção de dróides",
+    "category": "Documentação de dróides",
     "extra": "Fonte OCR: droides-pt-5.txt"
   },
   {
@@ -2315,27 +2443,251 @@ export const sagaDroidDetailsCatalog = [
     "extra": "Fonte OCR: droides-pt-3.txt"
   },
   {
-    "name": "Armazenamento Interno",
-    "slug": "droides-armazenamento-interno",
-    "summary": "ARMAZENAMENTO INTERNO Compartimentos Mecanismo de Arremesso Preço: Permite: Acesso Travado Preço: Disponibilidade: Impede acesso não autorizado.",
-    "details": "# ARMAZENAMENTO INTERNO\n\n---\n\n## Compartimentos\n\n```txt\n50 créditos / kg\n```\n\n---\n\n## Mecanismo de Arremesso\n\nPreço:\n\n```txt\n150\n```\n\nPermite:\n\n```txt\nejetar item\n```\n\n---\n\n## Acesso Travado\n\nPreço:\n\n```txt\n50\n```\n\nDisponibilidade:\n\n```txt\nLicenciado\n```\n\nImpede acesso não autorizado.\n\n---",
-    "category": "Sistemas internos",
-    "extra": "Fonte OCR: droides-pt-5.txt"
+    "name": "1º grau",
+    "slug": "droides-1-grau",
+    "summary": "Função Geral: médicos, científicos e analíticos | Exemplos: 2-1B",
+    "details": "## 1º grau\n\n| Campo | Valor |\n| ----- | ----- |\n| Grau | 1º grau |\n| Função Geral | médicos, científicos e analíticos |\n| Exemplos | 2-1B |",
+    "category": "Graus de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
   },
   {
-    "name": "Sistemas Enrijecidos",
-    "slug": "droides-sistemas-enrijecidos",
-    "summary": "SISTEMAS ENRIJECIDOS Efeito Multiplica resistência estrutural. Usado em: militares; combate; cerco.",
-    "details": "# SISTEMAS ENRIJECIDOS\n\n| Tipo |        Preço |\n| ---- | -----------: |\n| x2   | 1000 × fator |\n| x3   | 2500 × fator |\n| x4   | 4000 × fator |\n| x5   | 6250 × fator |\n\n---\n\n## Efeito\n\nMultiplica resistência estrutural.\n\nUsado em:\n\n* militares;\n* combate;\n* cerco.\n\n---",
-    "category": "Sistemas internos",
-    "extra": "Fonte OCR: droides-pt-5.txt"
+    "name": "2º grau",
+    "slug": "droides-2-grau",
+    "summary": "Função Geral: técnicos, astromecs e manutenção | Exemplos: R2",
+    "details": "## 2º grau\n\n| Campo | Valor |\n| ----- | ----- |\n| Grau | 2º grau |\n| Função Geral | técnicos, astromecs e manutenção |\n| Exemplos | R2 |",
+    "category": "Graus de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
   },
   {
-    "name": "Sistemas Internos",
-    "slug": "droides-sistemas-internos",
-    "summary": "SISTEMAS INTERNOS Comunicador Interno Preço: Permite: voz; rádio; integração. Vocabulador Preço: Permite: Pacote Diagnóstico Preço: Permite: Convocador Preço: Permite:",
-    "details": "# SISTEMAS INTERNOS\n\n---\n\n## Comunicador Interno\n\nPreço:\n\n```txt\n250\n```\n\nPermite:\n\n* voz;\n* rádio;\n* integração.\n\n---\n\n## Vocabulador\n\nPreço:\n\n```txt\n50\n```\n\nPermite:\n\n```txt\nfala orgânica\n```\n\n---\n\n## Pacote Diagnóstico\n\nPreço:\n\n```txt\n250\n```\n\nPermite:\n\n```txt\nanalisar defeitos\n```\n\n---\n\n## Convocador\n\nPreço:\n\n```txt\n10\n```\n\nPermite:\n\n```txt\ninvocar dróide remoto\n```\n\n---",
+    "name": "3º grau",
+    "slug": "droides-3-grau",
+    "summary": "Função Geral: protocolo, tradução e interação social | Exemplos: 3PO",
+    "details": "## 3º grau\n\n| Campo | Valor |\n| ----- | ----- |\n| Grau | 3º grau |\n| Função Geral | protocolo, tradução e interação social |\n| Exemplos | 3PO |",
+    "category": "Graus de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "4º grau",
+    "slug": "droides-4-grau",
+    "summary": "Função Geral: combate, segurança e guerra | Exemplos: B1, B2, Droideka, MagnaGuarda",
+    "details": "## 4º grau\n\n| Campo | Valor |\n| ----- | ----- |\n| Grau | 4º grau |\n| Função Geral | combate, segurança e guerra |\n| Exemplos | B1, B2, Droideka, MagnaGuarda |",
+    "category": "Graus de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "5º grau",
+    "slug": "droides-5-grau",
+    "summary": "Função Geral: trabalho, carga e funções utilitárias | Exemplos: ASP",
+    "details": "## 5º grau\n\n| Campo | Valor |\n| ----- | ----- |\n| Grau | 5º grau |\n| Função Geral | trabalho, carga e funções utilitárias |\n| Exemplos | ASP |",
+    "category": "Graus de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Andante",
+    "slug": "droides-andante",
+    "summary": "Até Pequeno: 4 qdr | Médio: 6 qdr | Grande ou Maior: 8 qdr | Fórmula de Custo: 10 × fator de custo × deslocamento²",
+    "details": "## Andante\n\n| Campo | Valor |\n| ----- | ----- |\n| Locomoção | Andante |\n| Até Pequeno | 4 qdr |\n| Médio | 6 qdr |\n| Grande ou Maior | 8 qdr |\n| Fórmula de Custo | 10 × fator de custo × deslocamento² |",
+    "category": "Locomoções de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "De Esteira",
+    "slug": "droides-de-esteira",
+    "summary": "Até Pequeno: 4 qdr | Médio: 6 qdr | Grande ou Maior: 8 qdr | Fórmula de Custo: 20 × fator de custo × deslocamento²",
+    "details": "## De Esteira\n\n| Campo | Valor |\n| ----- | ----- |\n| Locomoção | De Esteira |\n| Até Pequeno | 4 qdr |\n| Médio | 6 qdr |\n| Grande ou Maior | 8 qdr |\n| Fórmula de Custo | 20 × fator de custo × deslocamento² |",
+    "category": "Locomoções de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "De Rodas",
+    "slug": "droides-de-rodas",
+    "summary": "Até Pequeno: 6 qdr | Médio: 8 qdr | Grande ou Maior: 10 qdr | Fórmula de Custo: 5 × fator de custo × deslocamento²",
+    "details": "## De Rodas\n\n| Campo | Valor |\n| ----- | ----- |\n| Locomoção | De Rodas |\n| Até Pequeno | 6 qdr |\n| Médio | 8 qdr |\n| Grande ou Maior | 10 qdr |\n| Fórmula de Custo | 5 × fator de custo × deslocamento² |",
+    "category": "Locomoções de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Flutuante",
+    "slug": "droides-flutuante",
+    "summary": "Até Pequeno: 6 qdr | Médio: 6 qdr | Grande ou Maior: 6 qdr | Fórmula de Custo: 100 × fator de custo × deslocamento²",
+    "details": "## Flutuante\n\n| Campo | Valor |\n| ----- | ----- |\n| Locomoção | Flutuante |\n| Até Pequeno | 6 qdr |\n| Médio | 6 qdr |\n| Grande ou Maior | 6 qdr |\n| Fórmula de Custo | 100 × fator de custo × deslocamento² |",
+    "category": "Locomoções de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Voador",
+    "slug": "droides-voador",
+    "summary": "Até Pequeno: 9 qdr | Médio: 12 qdr | Grande ou Maior: 12 qdr | Fórmula de Custo: 200 × fator de custo × deslocamento²",
+    "details": "## Voador\n\n| Campo | Valor |\n| ----- | ----- |\n| Locomoção | Voador |\n| Até Pequeno | 9 qdr |\n| Médio | 12 qdr |\n| Grande ou Maior | 12 qdr |\n| Fórmula de Custo | 200 × fator de custo × deslocamento² |",
+    "category": "Locomoções de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Anexo Telescópico",
+    "slug": "droides-anexo-telescopico",
+    "summary": "Preço: custo do anexo ×2 | Peso: peso normal ×2 | Disponibilidade: —",
+    "details": "## Anexo Telescópico\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Anexo Telescópico |\n| Preço | custo do anexo ×2 |\n| Peso | peso normal ×2 |\n| Disponibilidade | — |\n\n## Detalhes\n\n```txt\ncusto = anexo ×2\npeso ×2\n```\n\nEfeito:\n\n```txt\nalcance aumentado\n```\n\n---",
+    "category": "Melhorias de anexos",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Garras para Escalar",
+    "slug": "droides-garras-para-escalar",
+    "summary": "Preço: custo do anexo ×2 | Peso: — | Disponibilidade: —",
+    "details": "## Garras para Escalar\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Garras para Escalar |\n| Preço | custo do anexo ×2 |\n| Peso | — |\n| Disponibilidade | — |\n\n## Detalhes\n\n```txt\ncusto = anexo ×2\n```\n\nEfeito:\n\n```txt\n+5 escalar\n```\n\n---",
+    "category": "Melhorias de anexos",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Pés Magnéticos",
+    "slug": "droides-pes-magneticos",
+    "summary": "Preço: custo do anexo ×2 | Peso: — | Disponibilidade: —",
+    "details": "## Pés Magnéticos\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Pés Magnéticos |\n| Preço | custo do anexo ×2 |\n| Peso | — |\n| Disponibilidade | — |\n\n## Detalhes\n\nPermite:\n\n* teto;\n* casco;\n* superfícies metálicas.\n\n---",
+    "category": "Melhorias de anexos",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Servomecanismos de Salto",
+    "slug": "droides-servomecanismos-de-salto",
+    "summary": "Preço: custo do anexo ×2 | Peso: 2 × fator de custo kg | Disponibilidade: —",
+    "details": "## Servomecanismos de Salto\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Servomecanismos de Salto |\n| Preço | custo do anexo ×2 |\n| Peso | 2 × fator de custo kg |\n| Disponibilidade | — |\n\n## Detalhes\n\n```txt\ncusto = anexo ×2\n```\n\nEfeito:\n\n```txt\ndobrar distância salto\n```\n\n---",
+    "category": "Melhorias de anexos",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Sistemas Enrijecidos x2",
+    "slug": "droides-sistemas-enrijecidos-x2",
+    "summary": "Preço: 1.000 × fator de custo | Peso: 100 × fator de custo kg | Disponibilidade: Militar",
+    "details": "## Sistemas Enrijecidos x2\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Sistemas Enrijecidos x2 |\n| Preço | 1.000 × fator de custo |\n| Peso | 100 × fator de custo kg |\n| Disponibilidade | Militar |",
+    "category": "Sistemas enrijecidos",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Sistemas Enrijecidos x3",
+    "slug": "droides-sistemas-enrijecidos-x3",
+    "summary": "Preço: 2.500 × fator de custo | Peso: 250 × fator de custo kg | Disponibilidade: Militar",
+    "details": "## Sistemas Enrijecidos x3\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Sistemas Enrijecidos x3 |\n| Preço | 2.500 × fator de custo |\n| Peso | 250 × fator de custo kg |\n| Disponibilidade | Militar |",
+    "category": "Sistemas enrijecidos",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Sistemas Enrijecidos x4",
+    "slug": "droides-sistemas-enrijecidos-x4",
+    "summary": "Preço: 4.000 × fator de custo | Peso: 400 × fator de custo kg | Disponibilidade: Militar",
+    "details": "## Sistemas Enrijecidos x4\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Sistemas Enrijecidos x4 |\n| Preço | 4.000 × fator de custo |\n| Peso | 400 × fator de custo kg |\n| Disponibilidade | Militar |",
+    "category": "Sistemas enrijecidos",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Sistemas Enrijecidos x5",
+    "slug": "droides-sistemas-enrijecidos-x5",
+    "summary": "Preço: 6.250 × fator de custo | Peso: 650 × fator de custo kg | Disponibilidade: Militar",
+    "details": "## Sistemas Enrijecidos x5\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Sistemas Enrijecidos x5 |\n| Preço | 6.250 × fator de custo |\n| Peso | 650 × fator de custo kg |\n| Disponibilidade | Militar |",
+    "category": "Sistemas enrijecidos",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Comunicador interno",
+    "slug": "droides-comunicador-interno",
+    "summary": "Preço: 250 | Peso: 0,1 kg | Disponibilidade: —",
+    "details": "## Comunicador interno\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Comunicador interno |\n| Preço | 250 |\n| Peso | 0,1 kg |\n| Disponibilidade | — |\n\n## Detalhes\n\nPreço:\n\n```txt\n250\n```\n\nPermite:\n\n* voz;\n* rádio;\n* integração.\n\n---",
     "category": "Sistemas internos",
-    "extra": "Fonte OCR: droides-pt-5.txt"
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Convocador de dróide",
+    "slug": "droides-convocador-de-droide",
+    "summary": "Preço: 10 | Peso: 0,2 kg | Disponibilidade: —",
+    "details": "## Convocador de dróide\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Convocador de dróide |\n| Preço | 10 |\n| Peso | 0,2 kg |\n| Disponibilidade | — |\n\n## Detalhes\n\nPreço:\n\n```txt\n10\n```\n\nPermite:\n\n```txt\ninvocar dróide remoto\n```\n\n---",
+    "category": "Sistemas internos",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Pacote de diagnóstico",
+    "slug": "droides-pacote-de-diagnostico",
+    "summary": "Preço: 250 | Peso: 4 kg | Disponibilidade: —",
+    "details": "## Pacote de diagnóstico\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Pacote de diagnóstico |\n| Preço | 250 |\n| Peso | 4 kg |\n| Disponibilidade | — |\n\n## Detalhes\n\nPreço:\n\n```txt\n250\n```\n\nPermite:\n\n```txt\nanalisar defeitos\n```\n\n---",
+    "category": "Sistemas internos",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Vocabulador",
+    "slug": "droides-vocabulador",
+    "summary": "Preço: 50 | Peso: 0,5 kg | Disponibilidade: —",
+    "details": "## Vocabulador\n\n| Campo | Valor |\n| ----- | ----- |\n| Equipamento | Vocabulador |\n| Preço | 50 |\n| Peso | 0,5 kg |\n| Disponibilidade | — |\n\n## Detalhes\n\nPreço:\n\n```txt\n50\n```\n\nPermite:\n\n```txt\nfala orgânica\n```\n\n---",
+    "category": "Sistemas internos",
+    "extra": "Fonte OCR: droides-pt-1.txt + droides-pt-5.txt"
+  },
+  {
+    "name": "Colossal",
+    "slug": "droides-colossal",
+    "summary": "Modificadores de Habilidade: +32 For, -4 Des | Mod. Tamanho Defesa Reflexos: -10 | Mod. Tamanho Furtividade: -20 | PV Extras: +100 | Bônus Limite de Dano: +50 | Capacidade Cargueira: x20 | Fator de Custo: x20",
+    "details": "## Colossal\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Colossal |\n| Modificadores de Habilidade | +32 For, -4 Des |\n| Mod. Tamanho Defesa Reflexos | -10 |\n| Mod. Tamanho Furtividade | -20 |\n| PV Extras | +100 |\n| Bônus Limite de Dano | +50 |\n| Capacidade Cargueira | x20 |\n| Fator de Custo | x20 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Diminuto",
+    "slug": "droides-diminuto",
+    "summary": "Modificadores de Habilidade: -6 For, +6 Des | Mod. Tamanho Defesa Reflexos: +5 | Mod. Tamanho Furtividade: -10 | PV Extras: — | Bônus Limite de Dano: — | Capacidade Cargueira: x10 | Fator de Custo: x10",
+    "details": "## Diminuto\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Diminuto |\n| Modificadores de Habilidade | -6 For, +6 Des |\n| Mod. Tamanho Defesa Reflexos | +5 |\n| Mod. Tamanho Furtividade | -10 |\n| PV Extras | — |\n| Bônus Limite de Dano | — |\n| Capacidade Cargueira | x10 |\n| Fator de Custo | x10 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Enorme",
+    "slug": "droides-enorme",
+    "summary": "Modificadores de Habilidade: +16 For, -4 Des | Mod. Tamanho Defesa Reflexos: -2 | Mod. Tamanho Furtividade: -5 | PV Extras: +20 | Bônus Limite de Dano: +10 | Capacidade Cargueira: x5 | Fator de Custo: x5",
+    "details": "## Enorme\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Enorme |\n| Modificadores de Habilidade | +16 For, -4 Des |\n| Mod. Tamanho Defesa Reflexos | -2 |\n| Mod. Tamanho Furtividade | -5 |\n| PV Extras | +20 |\n| Bônus Limite de Dano | +10 |\n| Capacidade Cargueira | x5 |\n| Fator de Custo | x5 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Grande",
+    "slug": "droides-grande",
+    "summary": "Modificadores de Habilidade: +8 For, -2 Des | Mod. Tamanho Defesa Reflexos: -1 | Mod. Tamanho Furtividade: -2 | PV Extras: +10 | Bônus Limite de Dano: +5 | Capacidade Cargueira: x2 | Fator de Custo: x2",
+    "details": "## Grande\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Grande |\n| Modificadores de Habilidade | +8 For, -2 Des |\n| Mod. Tamanho Defesa Reflexos | -1 |\n| Mod. Tamanho Furtividade | -2 |\n| PV Extras | +10 |\n| Bônus Limite de Dano | +5 |\n| Capacidade Cargueira | x2 |\n| Fator de Custo | x2 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Imenso",
+    "slug": "droides-imenso",
+    "summary": "Modificadores de Habilidade: +24 For, -4 Des | Mod. Tamanho Defesa Reflexos: -5 | Mod. Tamanho Furtividade: -10 | PV Extras: +50 | Bônus Limite de Dano: +20 | Capacidade Cargueira: x10 | Fator de Custo: x10",
+    "details": "## Imenso\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Imenso |\n| Modificadores de Habilidade | +24 For, -4 Des |\n| Mod. Tamanho Defesa Reflexos | -5 |\n| Mod. Tamanho Furtividade | -10 |\n| PV Extras | +50 |\n| Bônus Limite de Dano | +20 |\n| Capacidade Cargueira | x10 |\n| Fator de Custo | x10 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Médio",
+    "slug": "droides-medio",
+    "summary": "Modificadores de Habilidade: Nenhum | Mod. Tamanho Defesa Reflexos: 0 | Mod. Tamanho Furtividade: -1 | PV Extras: — | Bônus Limite de Dano: — | Capacidade Cargueira: x1 | Fator de Custo: x1",
+    "details": "## Médio\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Médio |\n| Modificadores de Habilidade | Nenhum |\n| Mod. Tamanho Defesa Reflexos | 0 |\n| Mod. Tamanho Furtividade | -1 |\n| PV Extras | — |\n| Bônus Limite de Dano | — |\n| Capacidade Cargueira | x1 |\n| Fator de Custo | x1 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Minúsculo",
+    "slug": "droides-minusculo",
+    "summary": "Modificadores de Habilidade: -8 For, +8 Des | Mod. Tamanho Defesa Reflexos: +10 | Mod. Tamanho Furtividade: -20 | PV Extras: — | Bônus Limite de Dano: — | Capacidade Cargueira: x20 | Fator de Custo: x20",
+    "details": "## Minúsculo\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Minúsculo |\n| Modificadores de Habilidade | -8 For, +8 Des |\n| Mod. Tamanho Defesa Reflexos | +10 |\n| Mod. Tamanho Furtividade | -20 |\n| PV Extras | — |\n| Bônus Limite de Dano | — |\n| Capacidade Cargueira | x20 |\n| Fator de Custo | x20 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Miúdo",
+    "slug": "droides-miudo",
+    "summary": "Modificadores de Habilidade: -4 For, +4 Des | Mod. Tamanho Defesa Reflexos: +2 | Mod. Tamanho Furtividade: -5 | PV Extras: — | Bônus Limite de Dano: — | Capacidade Cargueira: x5 | Fator de Custo: x5",
+    "details": "## Miúdo\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Miúdo |\n| Modificadores de Habilidade | -4 For, +4 Des |\n| Mod. Tamanho Defesa Reflexos | +2 |\n| Mod. Tamanho Furtividade | -5 |\n| PV Extras | — |\n| Bônus Limite de Dano | — |\n| Capacidade Cargueira | x5 |\n| Fator de Custo | x5 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
+  },
+  {
+    "name": "Pequeno",
+    "slug": "droides-pequeno",
+    "summary": "Modificadores de Habilidade: -2 For, +2 Des | Mod. Tamanho Defesa Reflexos: +1 | Mod. Tamanho Furtividade: -2 | PV Extras: — | Bônus Limite de Dano: — | Capacidade Cargueira: x2 | Fator de Custo: x2",
+    "details": "## Pequeno\n\n| Campo | Valor |\n| ----- | ----- |\n| Tamanho do Dróide | Pequeno |\n| Modificadores de Habilidade | -2 For, +2 Des |\n| Mod. Tamanho Defesa Reflexos | +1 |\n| Mod. Tamanho Furtividade | -2 |\n| PV Extras | — |\n| Bônus Limite de Dano | — |\n| Capacidade Cargueira | x2 |\n| Fator de Custo | x2 |",
+    "category": "Tamanhos de dróide",
+    "extra": "Fonte OCR: droides-pt-1.txt"
   }
 ];

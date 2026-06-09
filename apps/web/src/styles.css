@@ -291,6 +291,10 @@ textarea:focus {
   grid-column: 1;
 }
 
+.wide-panel {
+  grid-column: 1 / -1;
+}
+
 .characteristics {
   display: grid;
   gap: 10px;

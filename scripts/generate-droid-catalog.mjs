@@ -27,6 +27,30 @@ const textSummary = (markdown) =>
     .trim()
     .slice(0, 180);
 
+const lookupKey = (text) =>
+  text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/\b(d[aeo]s?|de)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+const sectionDetails = (section) => section.body.replace(/^##\s+.+\n+/, '## Detalhes\n\n');
+
+const sectionMap = (sections) => new Map(sections.map((section) => [lookupKey(section.title), sectionDetails(section)]));
+
+const findExtraDetails = (detailsMap, name) => {
+  const key = lookupKey(name);
+  if (detailsMap.has(key)) return detailsMap.get(key);
+  for (const [candidate, details] of detailsMap) {
+    if (candidate.length > 4 && (key.includes(candidate) || candidate.includes(key))) {
+      return details;
+    }
+  }
+  return undefined;
+};
+
 const parseTableFields = (section) => {
   const fields = {};
   for (const line of section.split('\n')) {
@@ -41,6 +65,68 @@ const parseTableFields = (section) => {
     fields[key] = value;
   }
   return fields;
+};
+
+const parseMarkdownTable = (markdown) => {
+  const lines = markdown.split('\n').filter((line) => line.trim().startsWith('|'));
+  if (lines.length < 2) return [];
+  const parseRow = (line) =>
+    line
+      .split('|')
+      .slice(1, -1)
+      .map((cell) => cell.trim());
+  const headers = parseRow(lines[0]);
+  return lines.slice(2).map((line) => {
+    const cells = parseRow(line);
+    return Object.fromEntries(headers.map((header, index) => [header, cells[index] || '']));
+  });
+};
+
+const markdownTableFromObject = (row) => {
+  const entries = Object.entries(row).filter(([, value]) => value);
+  return ['| Campo | Valor |', '| ----- | ----- |', ...entries.map(([key, value]) => `| ${key} | ${value} |`)].join('\n');
+};
+
+const addCatalogItem = ({ name, category, details, summary, extra, slugPrefix = 'droides' }) => {
+  catalog.push({
+    name,
+    slug: `${slugPrefix}-${slugify(name)}`,
+    summary: summary || textSummary(details),
+    details,
+    category,
+    extra,
+  });
+};
+
+const splitH2Sections = (markdown) => {
+  const matches = [...markdown.matchAll(/^##\s+(.+)$/gm)];
+  return matches.map((match, index) => {
+    const start = match.index;
+    const end = index + 1 < matches.length ? matches[index + 1].index : markdown.length;
+    return {
+      title: match[1].trim(),
+      body: markdown.slice(start, end).trim(),
+    };
+  });
+};
+
+const addRowsFromTable = ({ markdown, nameKey, category, source, titlePrefix = '', extraDetails = new Map() }) => {
+  for (const row of parseMarkdownTable(markdown)) {
+    const name = row[nameKey];
+    if (!name || /^-+$/.test(name)) continue;
+    const details = [`## ${titlePrefix}${name}`, markdownTableFromObject(row), findExtraDetails(extraDetails, name)].filter(Boolean).join('\n\n');
+    const summary = Object.entries(row)
+      .filter(([key]) => key !== nameKey)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(' | ');
+    addCatalogItem({
+      name: `${titlePrefix}${name}`,
+      category,
+      summary,
+      details,
+      extra: `Fonte OCR: ${source}`,
+    });
+  }
 };
 
 const modelFiles = [
@@ -90,7 +176,7 @@ const addReference = ({ name, category, file, startPattern, endPattern }) => {
   if (!details) return;
   catalog.push({
     name,
-    slug: `droides-${slugify(name)}`,
+    slug: `droides-doc-${slugify(name)}`,
     summary: textSummary(details),
     details,
     category,
@@ -100,74 +186,115 @@ const addReference = ({ name, category, file, startPattern, endPattern }) => {
 
 addReference({
   name: 'Tamanho dos Dróides',
-  category: 'Construção de dróides',
+  category: 'Documentação de dróides',
   file: 'droides-pt-5.txt',
   startPattern: /^# TABELA — TAMANHO DOS DRÓIDES$/m,
   endPattern: /^# TABELA — LOCOMOÇÃO$/m,
 });
 addReference({
   name: 'Locomoção',
-  category: 'Construção de dróides',
+  category: 'Documentação de dróides',
   file: 'droides-pt-5.txt',
   startPattern: /^# TABELA — LOCOMOÇÃO$/m,
   endPattern: /^# TABELA — TIPOS DE ANEXO$/m,
 });
 addReference({
-  name: 'Tipos de Anexo',
-  category: 'Anexos e acessórios',
-  file: 'droides-pt-5.txt',
-  startPattern: /^# TABELA — TIPOS DE ANEXO$/m,
-  endPattern: /^# MELHORIAS ESPECIAIS$/m,
-});
-addReference({
-  name: 'Melhorias Especiais',
-  category: 'Anexos e acessórios',
-  file: 'droides-pt-5.txt',
-  startPattern: /^# MELHORIAS ESPECIAIS$/m,
-  endPattern: /^# SISTEMAS INTERNOS$/m,
-});
-addReference({
-  name: 'Sistemas Internos',
-  category: 'Sistemas internos',
-  file: 'droides-pt-5.txt',
-  startPattern: /^# SISTEMAS INTERNOS$/m,
-  endPattern: /^# SISTEMAS ENRIJECIDOS$/m,
-});
-addReference({
-  name: 'Sistemas Enrijecidos',
-  category: 'Sistemas internos',
-  file: 'droides-pt-5.txt',
-  startPattern: /^# SISTEMAS ENRIJECIDOS$/m,
-  endPattern: /^# ARMAZENAMENTO INTERNO$/m,
-});
-addReference({
-  name: 'Armazenamento Interno',
-  category: 'Sistemas internos',
-  file: 'droides-pt-5.txt',
-  startPattern: /^# ARMAZENAMENTO INTERNO$/m,
-  endPattern: /^# REGRAS DE CONSTRUÇÃO$/m,
-});
-addReference({
   name: 'Regras de Construção',
-  category: 'Construção de dróides',
+  category: 'Documentação de dróides',
   file: 'droides-pt-5.txt',
   startPattern: /^# REGRAS DE CONSTRUÇÃO$/m,
   endPattern: /^# Arquivos relacionados$/m,
 });
 addReference({
-  name: 'Armaduras de Dróide',
-  category: 'Armaduras de dróide',
-  file: 'droides-pt-1.txt',
-  startPattern: /^# Tabela 11-6: Armadura de Dróide$/m,
-  endPattern: /^# Graus de Dróides$/m,
-});
-addReference({
   name: 'Graus de Dróides',
-  category: 'Construção de dróides',
+  category: 'Documentação de dróides',
   file: 'droides-pt-1.txt',
   startPattern: /^# Graus de Dróides$/m,
   endPattern: /^# Modelos Prontos de Dróides$/m,
 });
+
+const droidTables = read('droides-pt-1.txt');
+const droidReference = read('droides-pt-5.txt');
+
+const sizeTable = extractBetween(droidTables, /^# Tabela 11-2: Tamanho dos Dróides$/m, /^# Tabela 11-3: Locomoção de Dróide$/m);
+const locomotionTable = extractBetween(droidTables, /^# Tabela 11-3: Locomoção de Dróide$/m, /^# Tabela 11-4: Dano dos Anexos de Dróides$/m);
+const gradeTable = extractBetween(droidTables, /^# Graus de Dróides$/m, /^# Modelos Prontos de Dróides$/m);
+const accessoryTable = extractBetween(droidTables, /^# Tabela 11-5: Acessórios de Dróides$/m, /^# Tabela 11-6: Armadura de Dróide$/m);
+const annexesTable = extractBetween(accessoryTable, /^## Anexos$/m, /^## Melhorias de Anexos$/m);
+const annexImprovementsTable = extractBetween(accessoryTable, /^## Melhorias de Anexos$/m, /^## Comunicação e Diagnóstico$/m);
+const communicationTable = extractBetween(accessoryTable, /^## Comunicação e Diagnóstico$/m, /^## Sistemas Enrijecidos$/m);
+const hardenedTable = extractBetween(accessoryTable, /^## Sistemas Enrijecidos$/m, /^## Armazenamento Interno$/m);
+const storageTable = extractBetween(accessoryTable, /^## Armazenamento Interno$/m, /^---$/m);
+
+const improvementsReference = extractBetween(droidReference, /^# MELHORIAS ESPECIAIS$/m, /^# SISTEMAS INTERNOS$/m);
+const improvementDetails = sectionMap(splitH2Sections(improvementsReference));
+const internalSystemsReference = extractBetween(droidReference, /^# SISTEMAS INTERNOS$/m, /^# SISTEMAS ENRIJECIDOS$/m);
+const internalSystemDetails = sectionMap(splitH2Sections(internalSystemsReference));
+const storageReference = extractBetween(droidReference, /^# ARMAZENAMENTO INTERNO$/m, /^# REGRAS DE CONSTRUÇÃO$/m);
+const storageDetails = sectionMap(splitH2Sections(storageReference));
+
+addRowsFromTable({
+  markdown: sizeTable,
+  nameKey: 'Tamanho do Dróide',
+  category: 'Tamanhos de dróide',
+  source: 'droides-pt-1.txt',
+});
+addRowsFromTable({
+  markdown: locomotionTable,
+  nameKey: 'Locomoção',
+  category: 'Locomoções de dróide',
+  source: 'droides-pt-1.txt',
+});
+addRowsFromTable({
+  markdown: gradeTable,
+  nameKey: 'Grau',
+  category: 'Graus de dróide',
+  source: 'droides-pt-1.txt',
+});
+addRowsFromTable({
+  markdown: annexesTable,
+  nameKey: 'Equipamento',
+  category: 'Anexos de dróide',
+  source: 'droides-pt-1.txt',
+});
+addRowsFromTable({
+  markdown: annexImprovementsTable,
+  nameKey: 'Equipamento',
+  category: 'Melhorias de anexos',
+  source: 'droides-pt-1.txt + droides-pt-5.txt',
+  extraDetails: improvementDetails,
+});
+addRowsFromTable({
+  markdown: communicationTable,
+  nameKey: 'Equipamento',
+  category: 'Sistemas internos',
+  source: 'droides-pt-1.txt + droides-pt-5.txt',
+  extraDetails: internalSystemDetails,
+});
+addRowsFromTable({
+  markdown: hardenedTable,
+  nameKey: 'Equipamento',
+  category: 'Sistemas enrijecidos',
+  source: 'droides-pt-1.txt',
+});
+addRowsFromTable({
+  markdown: storageTable,
+  nameKey: 'Equipamento',
+  category: 'Armazenamento interno',
+  source: 'droides-pt-1.txt + droides-pt-5.txt',
+  extraDetails: storageDetails,
+});
+
+const armorBlock = extractBetween(droidTables, /^# Tabela 11-6: Armadura de Dróide$/m, /^# Graus de Dróides$/m);
+for (const section of splitH2Sections(armorBlock)) {
+  addRowsFromTable({
+    markdown: section.body,
+    nameKey: 'Armadura',
+    category: 'Armaduras de dróide',
+    source: 'droides-pt-1.txt',
+    titlePrefix: `${section.title}: `,
+  });
+}
 
 catalog.sort((a, b) => a.category.localeCompare(b.category, 'pt-BR') || a.name.localeCompare(b.name, 'pt-BR'));
 

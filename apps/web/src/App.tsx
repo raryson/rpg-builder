@@ -361,6 +361,9 @@ const equipmentDetailsCatalog: DetailCatalogItem[] = [...sagaEquipmentDetailsCat
 const vehicleDetailsCatalog: DetailCatalogItem[] = [...sagaVehicleDetailsCatalog];
 
 const droidSystemDetailsCatalog: DetailCatalogItem[] = [...sagaDroidDetailsCatalog];
+const readyDroidCategories = new Set(['Dróides civis', 'Dróides militares', 'Dróides especiais']);
+const readyDroidDetailsCatalog = droidSystemDetailsCatalog.filter((item) => readyDroidCategories.has(item.category || ''));
+const droidBuilderDetailsCatalog = droidSystemDetailsCatalog.filter((item) => !readyDroidCategories.has(item.category || ''));
 
 const abilityLabels: Record<AbilityKey, string> = {
   strength: 'Forca',
@@ -996,7 +999,7 @@ export function App() {
           {activeTab === 'force' && <ForcePanel />}
           {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisao" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
           {activeTab === 'vehicles' && <GroupedRichSelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" groupLabel="Subdivisao" itemLabel="Veiculo" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
-          {activeTab === 'droids' && <GroupedRichSelectionPanel icon={<CircleDot aria-hidden="true" />} title="Droides" groupLabel="Subdivisao" itemLabel="Droide" items={droidSystemDetailsCatalog} selected={activeSheet.droidSystems} onChange={(value) => setField('droidSystems', value)} />}
+          {activeTab === 'droids' && <DroidsPanel />}
           {(activeTab === 'notes' || activeTab === 'history' || activeTab === 'versions') && (
             <Panel icon={<Save aria-hidden="true" />} title={activeTab === 'versions' ? 'Versoes' : activeTab === 'history' ? 'Historico' : 'Anotacoes'}>
               <textarea value={activeTab === 'history' ? activeSheet.progressionLog : activeTab === 'versions' ? activeSheet.versionNote : activeSheet.notes} onChange={(event) => setField(activeTab === 'history' ? 'progressionLog' : activeTab === 'versions' ? 'versionNote' : 'notes', event.target.value)} />
@@ -1025,6 +1028,33 @@ export function App() {
         <RichSelectionPanel compact title="Tecnicas da Forca" icon={<Sparkles aria-hidden="true" />} items={forceTechniqueDetailsCatalog} selected={activeSheet.forceTechniques} onChange={(value) => setField('forceTechniques', value)} />
         <RichSelectionPanel compact title="Segredos da Forca" icon={<Sparkles aria-hidden="true" />} items={forceSecretDetailsCatalog} selected={activeSheet.forceSecrets} onChange={(value) => setField('forceSecrets', value)} />
       </Panel>
+    );
+  }
+
+  function DroidsPanel() {
+    return (
+      <>
+        <GroupedRichSelectionPanel
+          icon={<CircleDot aria-hidden="true" />}
+          title="Monte seu droide"
+          groupLabel="Configuracao"
+          itemLabel="Opcao"
+          items={droidBuilderDetailsCatalog}
+          selected={activeSheet.droidSystems}
+          onChange={(value) => setField('droidSystems', value)}
+          wide
+        />
+        <GroupedRichSelectionPanel
+          icon={<CircleDot aria-hidden="true" />}
+          title="Droides prontos"
+          groupLabel="Tipo de droide"
+          itemLabel="Droide"
+          items={readyDroidDetailsCatalog}
+          selected={activeSheet.droidSystems}
+          onChange={(value) => setField('droidSystems', value)}
+          wide
+        />
+      </>
     );
   }
 
@@ -1213,6 +1243,7 @@ export function App() {
     selected,
     onChange,
     compact = false,
+    wide = false,
   }: {
     title: string;
     icon: ReactNode;
@@ -1222,6 +1253,7 @@ export function App() {
     selected: string[];
     onChange: (value: string[]) => void;
     compact?: boolean;
+    wide?: boolean;
   }) {
     const groups = useMemo(
       () => Array.from(new Set(items.map((item) => item.category || 'Geral'))).sort((a, b) => a.localeCompare(b, 'pt-BR')),
@@ -1258,7 +1290,7 @@ export function App() {
     }
 
     return (
-      <section className={compact ? 'embedded-panel' : 'panel identity-panel'}>
+      <section className={compact ? 'embedded-panel' : `panel ${wide ? 'wide-panel' : 'identity-panel'}`}>
         <div className="panel-title">{icon}<h2>{title}</h2></div>
         <div className="grouped-picker">
           <label>
