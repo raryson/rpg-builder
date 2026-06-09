@@ -846,6 +846,26 @@ textarea {
   background: #fffdf7;
 }
 
+.markdown-code-block {
+  background: #f6f0e5;
+  border: 1px solid #e1d4bf;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+}
+
+.markdown-code-block code {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 6px;
+  color: #30363a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 7px;
+}
+
 .detail-section-label {
   color: #30363a;
   font-size: 0.86rem;

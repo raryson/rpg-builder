@@ -571,13 +571,37 @@ function renderInlineMarkdown(text: string) {
 function renderFormattedText(text: string) {
   const lines = text.split('\n');
   const blocks: ReactNode[] = [];
+  const isMarkdownTableSeparator = (value: string) => {
+    const cells = value.split('|').slice(1, -1).map((cell) => cell.trim());
+    return cells.length > 0 && cells.every((cell) => /^:?-{2,}:?$/.test(cell));
+  };
 
   for (let index = 0; index < lines.length; index += 1) {
     const rawLine = lines[index];
     const line = rawLine.trim();
     if (!line || line === '---') continue;
 
-    if (line.startsWith('|') && lines[index + 1]?.trim().startsWith('|') && lines[index + 1]?.includes('---')) {
+    if (line.startsWith('```')) {
+      const codeLines: string[] = [];
+      index += 1;
+      while (index < lines.length && !lines[index].trim().startsWith('```')) {
+        if (lines[index].trim()) {
+          codeLines.push(lines[index].trim());
+        }
+        index += 1;
+      }
+
+      if (codeLines.length > 0) {
+        blocks.push(
+          <div className="markdown-code-block" key={`code-${index}`}>
+            {codeLines.map((codeLine, codeIndex) => <code key={`${codeLine}-${codeIndex}`}>{renderInlineMarkdown(codeLine)}</code>)}
+          </div>,
+        );
+      }
+      continue;
+    }
+
+    if (line.startsWith('|') && lines[index + 1]?.trim().startsWith('|') && isMarkdownTableSeparator(lines[index + 1].trim())) {
       const headers = line.split('|').slice(1, -1).map((cell) => cell.trim());
       const rows: string[][] = [];
       index += 2;
