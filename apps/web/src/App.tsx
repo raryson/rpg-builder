@@ -22,7 +22,6 @@ type SheetTab =
   | 'summary'
   | 'identity'
   | 'species'
-  | 'classes'
   | 'abilities'
   | 'combat'
   | 'skills'
@@ -42,6 +41,22 @@ type CatalogItem = {
   name: string;
   slug: string;
   meta?: string;
+};
+
+type FeatCatalogItem = CatalogItem & {
+  prerequisites: string;
+  benefit: string;
+  normal?: string;
+  special?: string;
+};
+
+type DetailCatalogItem = CatalogItem & {
+  summary: string;
+  details: string;
+  prerequisites?: string;
+  category?: string;
+  classRestriction?: string[];
+  extra?: string;
 };
 
 type DefenseKey = 'reflex' | 'fortitude' | 'will';
@@ -133,8 +148,7 @@ const STORAGE_KEY = 'rpg-builder-star-wars-saga-sheets';
 const sheetTabs: Array<{ id: SheetTab; label: string }> = [
   { id: 'summary', label: 'Resumo' },
   { id: 'identity', label: 'Identidade' },
-  { id: 'species', label: 'Especie' },
-  { id: 'classes', label: 'Classes e Niveis' },
+  { id: 'species', label: 'Especie, Classes e Niveis' },
   { id: 'abilities', label: 'Atributos' },
   { id: 'combat', label: 'Combate' },
   { id: 'skills', label: 'Pericias' },
@@ -224,7 +238,7 @@ const skillCatalog: Array<CatalogItem & { ability: AbilityKey; armor: boolean }>
   armor,
 }));
 
-const featCatalog = [
+const baseFeatNames = [
   'Acuidade com Arma',
   'Ataque Duplo',
   'Ataque Poderoso',
@@ -235,9 +249,62 @@ const featCatalog = [
   'Proficiência com Armas',
   'Sensitivo a Forca',
   'Treinamento na Forca',
-].map(toCatalogItem);
+];
 
-const talentCatalog = [
+const featCatalog: FeatCatalogItem[] = baseFeatNames.map((name) => {
+  const slug = slugify(name);
+  const details: Record<string, Omit<FeatCatalogItem, 'name' | 'slug'>> = {
+    'acuidade-com-arma': {
+      prerequisites: 'BBA +1',
+      benefit: 'Com arma leve ou sabre de luz, pode usar Destreza no lugar de Forca nas jogadas de ataque corpo a corpo.',
+    },
+    'ataque-duplo': {
+      prerequisites: 'BBA +6 e proficiencia com a arma escolhida',
+      benefit: 'Em ataque total, faz um ataque extra com a arma escolhida; todos os ataques sofrem -5 ate seu proximo turno.',
+      normal: 'Normalmente uma acao padrao faz um unico ataque.',
+      special: 'Pode ser escolhida mais de uma vez para armas ou grupos diferentes.',
+    },
+    'ataque-poderoso': {
+      prerequisites: 'Forca 13',
+      benefit: 'Troca bonus de ataque por dano extra em ataques corpo a corpo, ate o limite do seu bonus base de ataque.',
+    },
+    'combate-veicular': {
+      prerequisites: 'Treinado em Pilotar',
+      benefit: 'Uma vez por rodada, como reacao, pode negar um acerto contra seu veiculo com um teste de Pilotar contra a jogada de ataque. Tambem conta como proficiente com armas do veiculo operadas pelo piloto.',
+    },
+    esquiva: {
+      prerequisites: 'Destreza 13',
+      benefit: 'Escolhe um oponente durante seu turno e recebe +1 de bonus de esquiva na Defesa de Reflexos contra ataques dele.',
+    },
+    'foco-em-pericia': {
+      prerequisites: 'Pericia treinada escolhida',
+      benefit: 'Uma pericia treinada escolhida recebe +5 de bonus de competencia nos testes.',
+      special: 'Pode ser escolhida varias vezes, cada vez para uma pericia treinada diferente.',
+    },
+    'poderoso-na-forca': {
+      prerequisites: 'Nenhum',
+      benefit: 'Quando gastar Ponto da Forca para ajustar ataque, teste de pericia ou teste de habilidade, rola d8 em vez de d6.',
+    },
+    'proficiencia-com-armas': {
+      prerequisites: 'Nenhum',
+      benefit: 'Escolhe um grupo de armas. Voce ignora a penalidade por falta de proficiencia ao atacar com armas daquele grupo.',
+      normal: 'Sem proficiencia, ataques com a arma sofrem penalidade.',
+      special: 'Pode ser escolhida varias vezes para grupos diferentes.',
+    },
+    'sensitivo-a-forca': {
+      prerequisites: 'Nenhum',
+      benefit: 'Torna o personagem sensivel a Forca, permitindo treinar Usar a Forca e acessar opcoes relacionadas a Forca.',
+    },
+    'treinamento-na-forca': {
+      prerequisites: 'Sensitivo a Forca e treinado em Usar a Forca',
+      benefit: 'Adiciona ao conjunto de poderes da Forca um numero de poderes igual a 1 + modificador de Sabedoria, minimo 1.',
+      special: 'Pode ser escolhida varias vezes para aprender mais poderes.',
+    },
+  };
+  return { name, slug, ...(details[slug] ?? { prerequisites: 'Ver manual', benefit: 'Detalhes pendentes de catalogacao.' }) };
+});
+
+const baseTalentCatalog = [
   ['Bloqueio', 'Jedi'],
   ['Deflexão', 'Jedi'],
   ['Ataque Furtivo', 'Fora-da-Lei'],
@@ -247,7 +314,7 @@ const talentCatalog = [
   ['Poder do Lado Negro', 'Forca'],
 ].map(([name, meta]) => ({ ...toCatalogItem(name), meta }));
 
-const forcePowerCatalog = [
+const baseForcePowerCatalog = [
   'Estrangulamento da Forca',
   'Desarmar da Forca',
   'Empurrão da Forca',
@@ -262,7 +329,7 @@ const forcePowerCatalog = [
   'Visão Distante',
 ].map(toCatalogItem);
 
-const equipmentCatalog = [
+const baseEquipmentCatalog = [
   'Sabre de luz',
   'Pistola blaster',
   'Rifle blaster',
@@ -277,6 +344,181 @@ const equipmentCatalog = [
 
 const vehicleCatalog = ['X-wing', 'TIE Fighter', 'Y-wing', 'Millennium Falcon', 'Speeder bike', 'AT-ST'].map(toCatalogItem);
 const droidSystemCatalog = ['Locomocao por rodas', 'Locomocao por pes', 'Processador heuristicos', 'Apêndice manipulador'].map(toCatalogItem);
+
+const talentClassNames: Record<string, string> = {
+  jedi: 'Jedi',
+  nobre: 'Nobre',
+  'fora-da-lei': 'Fora-da-Lei',
+  batedor: 'Batedor',
+  soldado: 'Soldado',
+};
+
+const talentDetailsCatalog: DetailCatalogItem[] = [
+  ...[
+    ['Negociador Especialista', 'Consul Jedi'],
+    ['Persuasao da Forca', 'Consul Jedi'],
+    ['Negociador Mestre', 'Consul Jedi'],
+    ['Conselheiro Habilidoso', 'Consul Jedi'],
+    ['Meditacao de Batalha', 'Guardiao Jedi'],
+    ['Alvo Elusivo', 'Guardiao Jedi'],
+    ['Intuicao da Forca', 'Guardiao Jedi'],
+    ['Resiliente', 'Guardiao Jedi'],
+    ['Limpar a Mente', 'Sentinela Jedi'],
+    ['Flagelo do Lado Negro', 'Sentinela Jedi'],
+    ['Sentir o Lado Negro', 'Sentinela Jedi'],
+    ['Nevoa da Forca', 'Sentinela Jedi'],
+    ['Resistir ao Lado Negro', 'Sentinela Jedi'],
+    ['Arremessar Sabre de Luz', 'Combate com Sabre de Luz'],
+    ['Bloquear', 'Combate com Sabre de Luz'],
+    ['Defesa com Sabre de Luz', 'Combate com Sabre de Luz'],
+    ['Defletir', 'Combate com Sabre de Luz'],
+    ['Especializacao em Arma (sabres de luz)', 'Combate com Sabre de Luz'],
+    ['Redirecionar Disparo', 'Combate com Sabre de Luz'],
+  ].map(([name, tree]) => classTalent(name, tree, 'jedi')),
+  ...[
+    ['Enfraquecer a Determinacao Aprimorada', 'Influencia'],
+    ['Exigir Rendicao', 'Influencia'],
+    ['Presenca', 'Influencia'],
+    ['Enfraquecer a Determinacao', 'Influencia'],
+    ['Fortalecer Aliado', 'Inspiracao'],
+    ['Incitar Fervor', 'Inspiracao'],
+    ['Inspirar Confianca', 'Inspiracao'],
+    ['Inspirar Rapidez', 'Inspiracao'],
+    ['Inspirar Ardor', 'Inspiracao'],
+    ['Lider Nato', 'Lideranca'],
+    ['Coordenar', 'Lideranca'],
+    ['Comandar a Distancia', 'Lideranca'],
+    ['Lider Destemido', 'Lideranca'],
+    ['Reorganizar as Tropas', 'Lideranca'],
+    ['Confianca', 'Lideranca'],
+    ['Conexoes', 'Linhagem'],
+    ['Instruido', 'Linhagem'],
+    ['Habilidade Espontanea', 'Linhagem'],
+    ['Riqueza', 'Linhagem'],
+  ].map(([name, tree]) => classTalent(name, tree, 'nobre')),
+  ...[
+    ['Sorte do Tolo', 'Sorte'],
+    ['Favorecido pela Sorte', 'Sorte'],
+    ['Jogador', 'Sorte'],
+    ['Talentoso', 'Sorte'],
+    ['Tiro de Sorte', 'Sorte'],
+    ['Ataque Vil', 'Ma Sorte'],
+    ['Semear Confusao', 'Ma Sorte'],
+    ['Combatente', 'Ma Sorte'],
+    ['Ataque Furtivo', 'Ma Sorte'],
+    ['Desconcertar', 'Ma Sorte'],
+    ['Invasao Relampago', 'Hacker'],
+    ['Hacker Mestre', 'Hacker'],
+    ['Tracar', 'Hacker'],
+    ['Hiperguiado', 'Espaconauta'],
+    ['Habituado com o Espaco', 'Espaconauta'],
+    ['Cavaleiro Espacial', 'Espaconauta'],
+    ['Guerreiro Estelar', 'Espaconauta'],
+    ['Reparos Rapidos', 'Tecnico Fora-da-Lei'],
+    ['Ligacao Direta', 'Tecnico Fora-da-Lei'],
+    ['Paliativo', 'Tecnico Fora-da-Lei'],
+    ['Modificacoes Personalizadas', 'Tecnico Fora-da-Lei'],
+  ].map(([name, tree]) => classTalent(name, tree, 'fora-da-lei')),
+  ...[
+    ['Sentidos Agudos', 'Consciencia'],
+    ['Rastreador Experiente', 'Consciencia'],
+    ['Iniciativa Aprimorada', 'Consciencia'],
+    ['Tiro Apurado', 'Consciencia'],
+    ['Esquiva Extraordinaria I', 'Consciencia'],
+    ['Esquiva Extraordinaria II', 'Consciencia'],
+    ['Camuflagem', 'Camuflagem'],
+    ['Movimento Encoberto', 'Camuflagem'],
+    ['Furtividade Aprimorada', 'Camuflagem'],
+    ['Camuflagem Total', 'Camuflagem'],
+    ['Barganha', 'Improvisador'],
+    ['Sabedoria de Improvisador', 'Improvisador'],
+    ['Engembrador', 'Improvisador'],
+    ['Passo-Largo', 'Improvisador'],
+    ['Evasao', 'Sobrevivente'],
+    ['Esforco Extremo', 'Sobrevivente'],
+    ['Corredor', 'Sobrevivente'],
+    ['Passo Firme', 'Sobrevivente'],
+  ].map(([name, tree]) => classTalent(name, tree, 'batedor')),
+  ...[
+    ['Especialista em Armaduras', 'Especialista em Armaduras'],
+    ['Maestria com Armadura', 'Especialista em Armaduras'],
+    ['Defesa Blindada', 'Especialista em Armaduras'],
+    ['Defesa Blindada Aprimorada', 'Especialista em Armaduras'],
+    ['Juggernaut', 'Especialista em Armaduras'],
+    ['Segunda Pele', 'Especialista em Armaduras'],
+    ['Especialista em Imobilizacao', 'Brigao'],
+    ['Coronhada', 'Brigao'],
+    ['Golpe Duro', 'Brigao'],
+    ['Ataque Atordoante', 'Brigao'],
+    ['Desequilibrar Oponente', 'Brigao'],
+    ['Analise da Batalha', 'Comando'],
+    ['Tiro de Cobertura', 'Comando'],
+    ['Demolidor', 'Comando'],
+    ['Atrair Disparos', 'Comando'],
+    ['Interpor-se', 'Comando'],
+    ['Indomavel', 'Comando'],
+    ['Duro de matar', 'Comando'],
+    ['Ataque Devastador', 'Especialista em Armas'],
+    ['Ataque Penetrante', 'Especialista em Armas'],
+    ['Especializacao em Arma', 'Especialista em Armas'],
+  ].map(([name, tree]) => classTalent(name, tree, 'soldado')),
+];
+
+const forcePowerDetailsCatalog: DetailCatalogItem[] = [
+  detailItem('Estrangulamento da Forca', 'Poder da Forca', 'Restringe uma criatura e causa dano conforme o teste de Usar a Forca.', 'Lado Negro'),
+  detailItem('Desarmar da Forca', 'Poder da Forca', 'Usa telecinese para desarmar o alvo; pode derrubar o item ou traze-lo para sua mao.', 'Telecinese'),
+  detailItem('Empurrao da Forca', 'Poder da Forca', 'Empurra o alvo para tras com teste resistido e pode causar dano por colisao.', 'Telecinese'),
+  detailItem('Furia Sombria', 'Poder da Forca', 'Concede bonus de furia em ataques e dano corpo a corpo por meio do Lado Negro.', 'Lado Negro'),
+  detailItem('Impulso', 'Poder da Forca', 'Aumenta movimento e saltos usando a Forca.', 'Movimento'),
+  detailItem('Mover Objeto', 'Poder da Forca', 'Move objetos ou criaturas e pode arremessa-los para causar dano.', 'Telecinese'),
+  detailItem('Negar Energia', 'Poder da Forca', 'Reduz ou anula dano de energia recebido, dependendo do teste.', 'Defensivo'),
+  detailItem('Relampago da Forca', 'Poder da Forca', 'Ataque do Lado Negro que causa dano e move o alvo no marcador de condicao.', 'Lado Negro'),
+  detailItem('Rompimento da Forca', 'Poder da Forca', 'Dificulta ou corta temporariamente o acesso de outro usuario a Pontos e poderes da Forca.', 'Lado da Luz'),
+  detailItem('Transferencia Vital', 'Poder da Forca', 'Cura outra criatura viva usando sua propria forca vital.', 'Lado da Luz'),
+  detailItem('Truque Mental', 'Poder da Forca', 'Altera percepcao, cria sugestao, distracao ou medo em uma criatura com mente.', 'Afetar a mente'),
+  detailItem('Visao Distante', 'Poder da Forca', 'Permite receber impressao vaga de eventos envolvendo uma criatura conhecida distante.', 'Percepcao'),
+];
+
+const forceTechniqueDetailsCatalog: DetailCatalogItem[] = [
+  detailItem('Recuperar Ponto da Forca', 'Tecnica da Forca', 'No fim de um encontro, recupera automaticamente 1 Ponto da Forca gasto durante esse encontro.', 'Tecnica'),
+  detailItem('Mestria com Poder da Forca', 'Tecnica da Forca', 'Escolha um poder; voce pode escolher 10 para ativa-lo mesmo sob ameaca.', 'Tecnica'),
+  detailItem('Transe da Forca Aprimorado', 'Tecnica da Forca', 'Melhora a recuperacao de pontos de vida durante transe da Forca.', 'Tecnica'),
+];
+
+const forceSecretDetailsCatalog: DetailCatalogItem[] = [
+  detailItem('Poder Devastador', 'Segredo da Forca', 'Aprimora um poder da Forca para gerar efeito mais intenso.', 'Segredo'),
+  detailItem('Poder Multialvo', 'Segredo da Forca', 'Permite ampliar um poder para afetar mais de um alvo quando aplicavel.', 'Segredo'),
+  detailItem('Poder Rapido', 'Segredo da Forca', 'Reduz o tempo de ativacao de um poder escolhido quando aplicavel.', 'Segredo'),
+];
+
+const equipmentDetailsCatalog: DetailCatalogItem[] = [
+  detailItem('Sabre de luz', 'Arma', 'Arma de energia associada aos Jedi e Sith; exige proficiencia especifica.', 'Weapon'),
+  detailItem('Pistola blaster', 'Arma', 'Arma a distancia comum, leve e facil de portar.', 'Weapon'),
+  detailItem('Rifle blaster', 'Arma', 'Arma a distancia de maior alcance e impacto que pistolas.', 'Weapon'),
+  detailItem('Granada de fragmentacao', 'Explosivo', 'Explosivo de area usado contra grupos ou cobertura.', 'Explosive'),
+  detailItem('Armadura de combate', 'Armadura', 'Protecao corporal que pode conceder bonus de defesa, sujeita a limites e penalidades.', 'Armor'),
+  detailItem('Traje de voo', 'Armadura', 'Traje usado por pilotos; pode incluir suporte de vida e protecao leve.', 'Armor'),
+  detailItem('Kit de ferramentas', 'Equipamento geral', 'Ferramentas usadas em testes de Mecanica e reparos.', 'Gear'),
+  detailItem('Medpac', 'Equipamento geral', 'Aparato medico usado com Tratar Ferimentos para primeiros socorros.', 'Gear'),
+  detailItem('Comlink', 'Equipamento geral', 'Comunicador portatil para contato a distancia.', 'Gear'),
+  detailItem('Computador portatil', 'Equipamento geral', 'Interface para Usar Computador, pesquisa, redes e sistemas.', 'Gear'),
+];
+
+const vehicleDetailsCatalog: DetailCatalogItem[] = [
+  detailItem('X-wing', 'Caca estelar', 'Caca rebelde versatil com escudos, hiperpropulsor e armamento pesado.', 'Starfighter'),
+  detailItem('TIE Fighter', 'Caca estelar', 'Caca imperial rapido e leve, usado em grande numero.', 'Starfighter'),
+  detailItem('Y-wing', 'Bombardeiro', 'Nave rebelde resistente, boa para ataques contra alvos grandes.', 'Starfighter'),
+  detailItem('Millennium Falcon', 'Cargueiro leve', 'Cargueiro altamente modificado, rapido e versatil.', 'Transport'),
+  detailItem('Speeder bike', 'Veiculo terrestre', 'Veiculo rapido para deslocamento planetario e perseguicoes.', 'Speeder'),
+  detailItem('AT-ST', 'Walker', 'Bipode de combate imperial com armamento de apoio.', 'Walker'),
+];
+
+const droidSystemDetailsCatalog: DetailCatalogItem[] = [
+  detailItem('Locomocao por rodas', 'Sistema de droide', 'Sistema de movimento simples e eficiente para superficies regulares.', 'Locomotion'),
+  detailItem('Locomocao por pes', 'Sistema de droide', 'Permite ao droide caminhar e lidar melhor com terreno irregular.', 'Locomotion'),
+  detailItem('Processador heuristicos', 'Sistema de droide', 'Processador avancado que permite aprendizado e comportamento adaptavel.', 'Processor'),
+  detailItem('Apendice manipulador', 'Sistema de droide', 'Braco ou ferramenta fisica para manipular objetos e equipamentos.', 'Appendage'),
+];
 
 const abilityLabels: Record<AbilityKey, string> = {
   strength: 'Forca',
@@ -377,6 +619,33 @@ function modifier(score: number) {
 
 function toCatalogItem(name: string): CatalogItem {
   return { name, slug: slugify(name) };
+}
+
+function detailItem(
+  name: string,
+  summary: string,
+  details: string,
+  category?: string,
+  classRestriction?: string[],
+): DetailCatalogItem {
+  return {
+    ...toCatalogItem(name),
+    summary,
+    details,
+    category,
+    classRestriction,
+  };
+}
+
+function classTalent(name: string, tree: string, classSlug: string): DetailCatalogItem {
+  const className = talentClassNames[classSlug] ?? classSlug;
+  return detailItem(
+    name,
+    `Arvore ${tree}`,
+    `Talento da arvore ${tree} da classe ${className}. Use os pre-requisitos e o efeito detalhado do manual ao selecionar este talento.`,
+    tree,
+    [classSlug],
+  );
 }
 
 function species(
@@ -542,6 +811,7 @@ export function App() {
     updateActiveSheet((sheet) => ({
       ...sheet,
       classSlug: value,
+      talents: sheet.talents.filter((slug) => talentDetailsCatalog.find((item) => item.slug === slug)?.classRestriction?.includes(value)),
       hitPointsMaximum: sheet.hitPointsMaximum === 0 ? suggestedHitPoints : sheet.hitPointsMaximum,
       hitPointsCurrent: sheet.hitPointsCurrent === 0 ? suggestedHitPoints : sheet.hitPointsCurrent,
     }));
@@ -660,7 +930,7 @@ export function App() {
             </Panel>
           )}
 
-          {(activeTab === 'summary' || activeTab === 'species' || activeTab === 'classes') && (
+          {(activeTab === 'summary' || activeTab === 'species') && (
             <Panel icon={<UserRound aria-hidden="true" />} title="Especie e classes">
               <div className="form-grid">
                 <CatalogSelect label="Especie" value={activeSheet.speciesSlug} items={speciesCatalog} onChange={setSpeciesSlug} />
@@ -784,12 +1054,12 @@ export function App() {
             </Panel>
           )}
 
-          {activeTab === 'feats' && <SelectionPanel icon={<BadgePlus aria-hidden="true" />} title="Aptidoes" items={featCatalog} selected={activeSheet.feats} onChange={(value) => setField('feats', value)} />}
-          {activeTab === 'talents' && <SelectionPanel icon={<Sparkles aria-hidden="true" />} title="Talentos" items={talentCatalog} selected={activeSheet.talents} onChange={(value) => setField('talents', value)} />}
+          {activeTab === 'feats' && <FeatsPanel />}
+          {activeTab === 'talents' && <TalentsPanel />}
           {activeTab === 'force' && <ForcePanel />}
-          {activeTab === 'equipment' && <SelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" items={equipmentCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
-          {activeTab === 'vehicles' && <SelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" items={vehicleCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
-          {activeTab === 'droids' && <SelectionPanel icon={<CircleDot aria-hidden="true" />} title="Droides" items={droidSystemCatalog} selected={activeSheet.droidSystems} onChange={(value) => setField('droidSystems', value)} />}
+          {activeTab === 'equipment' && <RichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
+          {activeTab === 'vehicles' && <RichSelectionPanel icon={<Car aria-hidden="true" />} title="Veiculos" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
+          {activeTab === 'droids' && <RichSelectionPanel icon={<CircleDot aria-hidden="true" />} title="Droides" items={droidSystemDetailsCatalog} selected={activeSheet.droidSystems} onChange={(value) => setField('droidSystems', value)} />}
           {(activeTab === 'notes' || activeTab === 'history' || activeTab === 'versions') && (
             <Panel icon={<Save aria-hidden="true" />} title={activeTab === 'versions' ? 'Versoes' : activeTab === 'history' ? 'Historico' : 'Anotacoes'}>
               <textarea value={activeTab === 'history' ? activeSheet.progressionLog : activeTab === 'versions' ? activeSheet.versionNote : activeSheet.notes} onChange={(event) => setField(activeTab === 'history' ? 'progressionLog' : activeTab === 'versions' ? 'versionNote' : 'notes', event.target.value)} />
@@ -814,8 +1084,177 @@ export function App() {
           <label className="toggle-line"><input checked={activeSheet.forceSensitivity} type="checkbox" onChange={(event) => setField('forceSensitivity', event.target.checked)} /> Sensivel a Forca</label>
           <CatalogSelect label="Tradicao da Forca" value={activeSheet.forceTradition} items={['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem)} onChange={(value) => setField('forceTradition', value)} />
         </div>
-        <SelectionPanel compact title="Poderes da Forca" icon={<Sparkles aria-hidden="true" />} items={forcePowerCatalog} selected={activeSheet.forcePowers} onChange={(value) => setField('forcePowers', value)} />
+        <RichSelectionPanel compact title="Poderes da Forca" icon={<Sparkles aria-hidden="true" />} items={forcePowerDetailsCatalog} selected={activeSheet.forcePowers} onChange={(value) => setField('forcePowers', value)} />
+        <RichSelectionPanel compact title="Tecnicas da Forca" icon={<Sparkles aria-hidden="true" />} items={forceTechniqueDetailsCatalog} selected={activeSheet.forceTechniques} onChange={(value) => setField('forceTechniques', value)} />
+        <RichSelectionPanel compact title="Segredos da Forca" icon={<Sparkles aria-hidden="true" />} items={forceSecretDetailsCatalog} selected={activeSheet.forceSecrets} onChange={(value) => setField('forceSecrets', value)} />
       </Panel>
+    );
+  }
+
+  function TalentsPanel() {
+    const selectedClassSlug = activeSheet.classSlug;
+    const availableTalents = talentDetailsCatalog.filter((item) => item.classRestriction?.includes(selectedClassSlug));
+    const selectedClassTalents = activeSheet.talents.filter((slug) => availableTalents.some((item) => item.slug === slug));
+    const unavailable = activeSheet.talents
+      .map((slug) => talentDetailsCatalog.find((item) => item.slug === slug))
+      .filter((item): item is DetailCatalogItem => Boolean(item))
+      .filter((item) => item.classRestriction && item.classRestriction.length > 0 && !item.classRestriction.includes(selectedClassSlug));
+
+    return (
+      <Panel icon={<Sparkles aria-hidden="true" />} title="Talentos">
+        <div className="rule-note">
+          <strong>Regra de classe</strong>
+          <p>Talentos sao escolhidos das arvores da classe em que voce ganhou o nivel. Aptidoes sao gerais, mas aptidoes bonus de classe usam listas especificas da classe.</p>
+        </div>
+        {unavailable.length > 0 && (
+          <div className="warning-note">
+            <strong>Conferir multiclasse</strong>
+            <p>{unavailable.length} talento(s) ja salvo(s) nao pertencem a classe atual e foram ocultados desta lista. Isso pode estar correto se foram ganhos por multiclasse.</p>
+          </div>
+        )}
+        <RichSelectionPanel compact title={`Talentos de ${labelFor(heroicClassCatalog, selectedClassSlug)}`} icon={<Sparkles aria-hidden="true" />} items={availableTalents} selected={selectedClassTalents} onChange={(value) => setField('talents', value)} />
+      </Panel>
+    );
+  }
+
+  function FeatsPanel() {
+    const [choice, setChoice] = useState(featCatalog[0]?.slug ?? '');
+    const selectedFeat = featCatalog.find((featItem) => featItem.slug === choice) ?? featCatalog[0];
+    const selectedFeats = activeSheet.feats
+      .map((slug) => featCatalog.find((featItem) => featItem.slug === slug))
+      .filter((featItem): featItem is FeatCatalogItem => Boolean(featItem));
+
+    function addFeat() {
+      if (choice && !activeSheet.feats.includes(choice)) {
+        setField('feats', [...activeSheet.feats, choice]);
+      }
+    }
+
+    function removeFeat(slug: string) {
+      setField('feats', activeSheet.feats.filter((featSlug) => featSlug !== slug));
+    }
+
+    return (
+      <Panel icon={<BadgePlus aria-hidden="true" />} title="Aptidoes">
+        <div className="feat-picker">
+          <label>
+            Aptidao
+            <select value={choice} onChange={(event) => setChoice(event.target.value)}>
+              {featCatalog.map((featItem) => (
+                <option key={featItem.slug} value={featItem.slug}>{featItem.name}</option>
+              ))}
+            </select>
+          </label>
+          <button type="button" onClick={addFeat}>Adicionar</button>
+        </div>
+
+        <div className="feat-preview">
+          <strong>{selectedFeat.name}</strong>
+          <p>{selectedFeat.benefit}</p>
+          <small>Pre-requisitos: {selectedFeat.prerequisites}</small>
+        </div>
+
+        <div className="feat-list">
+          {selectedFeats.map((featItem) => (
+            <article className="feat-card" key={featItem.slug}>
+              <div className="feat-card-header">
+                <div>
+                  <strong>{featItem.name}</strong>
+                  <small>{featItem.benefit}</small>
+                </div>
+                <button type="button" onClick={() => removeFeat(featItem.slug)}>Remover</button>
+              </div>
+              <details>
+                <summary>Ver informacoes da aptidao</summary>
+                <div className="feat-details">
+                  <p><b>Pre-requisitos:</b> {featItem.prerequisites}</p>
+                  <p><b>Beneficio:</b> {featItem.benefit}</p>
+                  {featItem.normal && <p><b>Normal:</b> {featItem.normal}</p>}
+                  {featItem.special && <p><b>Especial:</b> {featItem.special}</p>}
+                </div>
+              </details>
+            </article>
+          ))}
+          {selectedFeats.length === 0 && <p className="empty-state">Nenhuma aptidao adicionada ainda.</p>}
+        </div>
+      </Panel>
+    );
+  }
+
+  function RichSelectionPanel({ title, icon, items, selected, onChange, compact = false }: { title: string; icon: ReactNode; items: DetailCatalogItem[]; selected: string[]; onChange: (value: string[]) => void; compact?: boolean }) {
+    const [choice, setChoice] = useState(items[0]?.slug ?? '');
+    const selectedItem = items.find((item) => item.slug === choice) ?? items[0];
+    const selectedItems = selected
+      .map((slug) => items.find((item) => item.slug === slug))
+      .filter((item): item is DetailCatalogItem => Boolean(item));
+
+    useEffect(() => {
+      if (items.length > 0 && !items.some((item) => item.slug === choice)) {
+        setChoice(items[0].slug);
+      }
+    }, [choice, items]);
+
+    function addItem() {
+      if (choice && !selected.includes(choice)) {
+        onChange([...selected, choice]);
+      }
+    }
+
+    function removeItem(slug: string) {
+      onChange(selected.filter((selectedSlug) => selectedSlug !== slug));
+    }
+
+    return (
+      <section className={compact ? 'embedded-panel' : 'panel identity-panel'}>
+        <div className="panel-title">{icon}<h2>{title}</h2></div>
+        <div className="feat-picker">
+          <label>
+            {title}
+            <select value={choice} onChange={(event) => setChoice(event.target.value)}>
+              {items.map((item) => (
+                <option key={item.slug} value={item.slug}>{item.name}</option>
+              ))}
+            </select>
+          </label>
+          <button type="button" onClick={addItem}>Adicionar</button>
+        </div>
+
+        {selectedItem && (
+          <div className="feat-preview">
+            <strong>{selectedItem.name}</strong>
+            <p>{selectedItem.details}</p>
+            {selectedItem.category && <small>Categoria: {selectedItem.category}</small>}
+            {selectedItem.classRestriction && selectedItem.classRestriction.length > 0 && (
+              <small>Classe: {selectedItem.classRestriction.map((slug) => labelFor(heroicClassCatalog, slug)).join(', ')}</small>
+            )}
+          </div>
+        )}
+
+        <div className="feat-list">
+          {selectedItems.map((item) => (
+            <article className="feat-card" key={item.slug}>
+              <div className="feat-card-header">
+                <div>
+                  <strong>{item.name}</strong>
+                  <small>{item.summary}</small>
+                </div>
+                <button type="button" onClick={() => removeItem(item.slug)}>Remover</button>
+              </div>
+              <details>
+                <summary>Ver informacoes</summary>
+                <div className="feat-details">
+                  {item.category && <p><b>Categoria:</b> {item.category}</p>}
+                  {item.classRestriction && item.classRestriction.length > 0 && <p><b>Classe:</b> {item.classRestriction.map((slug) => labelFor(heroicClassCatalog, slug)).join(', ')}</p>}
+                  {item.prerequisites && <p><b>Pre-requisitos:</b> {item.prerequisites}</p>}
+                  <p><b>Efeito:</b> {item.details}</p>
+                  {item.extra && <p><b>Observacao:</b> {item.extra}</p>}
+                </div>
+              </details>
+            </article>
+          ))}
+          {selectedItems.length === 0 && <p className="empty-state">Nenhum item adicionado ainda.</p>}
+        </div>
+      </section>
     );
   }
 
