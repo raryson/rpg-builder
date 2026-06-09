@@ -1,0 +1,217 @@
+# Armaduras
+
+Armaduras protetoras existem no universo de Star Wars, porém somente os modelos mais leves são amplamente utilizados.
+
+Armaduras pesadas normalmente são:
+
+* muito caras;
+* altamente restritas;
+* pouco práticas fora de funções específicas.
+
+Frequentemente armaduras mais pesadas existem para fornecer funções adicionais além da proteção, como isolamento ambiental ou sobrevivência em ambientes extremos.
+
+Em muitos locais da galáxia, vestir armadura identifica o usuário como alguém que:
+
+* procura problemas;
+* ou espera encontrá-los.
+
+---
+
+# Propriedades das Armaduras
+
+As propriedades abaixo explicam os campos da Tabela 8-7.
+
+### Custo
+
+Preço base da armadura.
+
+Modificadores por tamanho:
+
+* Pequeno → metade do custo
+* Grande → dobro do custo
+
+Itens com disponibilidade limitada podem custar mais.
+
+---
+
+### Bônus de Armadura na Defesa de Reflexos
+
+Ao vestir armadura:
+
+* substitui o bônus vindo do nível heróico;
+* aplica o bônus listado na armadura.
+
+---
+
+### Bônus de Equipamento na Defesa de Fortitude
+
+Quando equipada:
+
+* adiciona bônus de equipamento na Defesa de Fortitude.
+
+Algumas armaduras não concedem esse bônus.
+
+---
+
+### Bônus Máximo de Destreza
+
+Limita quanto do modificador de Destreza pode ser aplicado na Defesa de Reflexos.
+
+Exemplo:
+
+Um personagem com Destreza 18 normalmente teria:
+
++4 Defesa de Reflexos
+
+Vestindo traje de piloto blindado:
+
+máximo permitido → +3
+
+---
+
+### Deslocamento
+
+Armaduras médias e pesadas reduzem deslocamento.
+
+Valores padrão:
+
+* deslocamento 6 → reduz para 4
+* deslocamento 4 → reduz para 3
+
+Com armadura pesada:
+
+* correr move apenas 3× deslocamento;
+* não 4×.
+
+---
+
+### Peso
+
+Peso listado para armaduras médias.
+
+Modificadores:
+
+* Pequeno → metade
+* Grande → dobro
+
+---
+
+## Tabela 8-7: Armaduras
+
+| Armadura | Penalidade | Preço | Armadura Def. Reflexos | Equip. Def. Fortitude | Máx. Destreza | Desloc. (6 qdr) | Desloc. (4 qdr) | Peso | Disponibilidade |
+| -------- | ---------: | ----: | ---------------------: | --------------------: | ------------: | --------------- | --------------- | ---: | --------------- |
+
+# Armaduras Leves (-2)
+
+| Armadura                       |    Preço | Reflexos | Fortitude | Máx DES |  Peso | Disponibilidade |
+| ------------------------------ | -------: | -------: | --------: | ------: | ----: | --------------- |
+| Capacete e Colete Blindados    |      500 |       +2 |         — |      +5 |  3 kg | —               |
+| Traje de Piloto Acolchoado     |    2.000 |       +3 |        +1 |      +4 |  5 kg | —               |
+| Macacão de Combate             |    1.500 |       +4 |         — |      +4 |  8 kg | Licenciada      |
+| Traje de Piloto Blindado       |    4.000 |       +5 |        +2 |      +3 | 10 kg | Licenciada      |
+| Carapaça de Caranguejo Vonduun | Especial |       +5 |        +5 |      +4 |  5 kg | Rara            |
+| Armadura de Stormtrooper       |    8.000 |       +6 |        +2 |      +3 | 10 kg | Militar / Rara  |
+
+---
+
+# Armaduras Médias (-5)
+
+| Armadura            |  Preço | Reflexos | Fortitude | Máx DES | Desloc. |  Peso | Disponibilidade |
+| ------------------- | -----: | -------: | --------: | ------: | ------- | ----: | --------------- |
+| Armadura Cerimonial |  5.000 |       +7 |         — |      +2 | 4 / 3   | 13 kg | Restrita        |
+| Armadura Corelliana | 10.000 |       +7 |         — |      +3 | 4 / 3   | 20 kg | Restrita        |
+| Armadura de Batalha |  7.000 |       +8 |        +2 |      +2 | 4 / 3   | 16 kg | Militar         |
+
+---
+
+# Armaduras Pesadas (-10)
+
+| Armadura                   |  Preço | Reflexos | Fortitude | Máx DES | Desloc. |  Peso | Disponibilidade |
+| -------------------------- | -----: | -------: | --------: | ------: | ------- | ----: | --------------- |
+| Traje Espacial Blindado    | 12.000 |       +9 |        +3 |      +1 | 4¹ / 3¹ | 35 kg | Restrita        |
+| Armadura de Batalha Pesada | 15.000 |      +10 |        +4 |      +1 | 4¹ / 3¹ | 30 kg | Militar         |
+
+---
+
+## Disponibilidade
+
+### Rara
+
+Normalmente disponível apenas:
+
+* no planeta de origem;
+* diretamente com usuários.
+
+Fora disso normalmente custa:
+
+* 2× o valor;
+* ou mais.
+
+---
+
+### Licenciada / Restrita / Militar / Ilegal
+
+Funcionam conforme regras de itens restritos.
+
+---
+
+## Penalidade de Armadura nos Testes
+
+Se usar armadura sem proficiência:
+
+Você sofre penalidade em:
+
+* jogadas de ataque;
+* Acrobacia;
+* Escalar;
+* Tolerância;
+* Iniciativa;
+* Saltar;
+* Furtividade;
+* Nadar.
+
+Penalidades:
+
+* Leve → −2
+* Média → −5
+* Pesada → −10
+
+Além disso:
+
+* perde bônus de equipamento;
+* perde bônus de Fortitude;
+* perde bônus especiais da armadura.
+
+---
+
+## Notas
+
+¹ Com armadura pesada, correr move apenas 3× deslocamento.
+
+
+Traje Espacial Blindado
+
+Armadura Pesada
+
+Este macacão de cobertura completa contém um sistema de suporte de vida fechado.
+
+O traje fornece tudo que o usuário necessita para sobreviver por até:
+
+24 horas
+
+em:
+
+vácuo do espaço;
+ambientes hostis;
+atmosferas impróprias para respiração.
+
+Além da proteção física fornecida pela armadura pesada, o traje mantém condições internas adequadas para sobrevivência durante operações prolongadas.
+
+Características especiais:
+
+Sistema de suporte de vida integrado
+Sobrevivência por até 24 horas
+Proteção contra vácuo espacial
+Proteção contra ambientes hostis
+
+Esta armadura segue todas as regras normais de deslocamento e penalidades aplicáveis a armaduras pesadas.

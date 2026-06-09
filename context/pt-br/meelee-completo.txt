@@ -1,0 +1,496 @@
+## Tabela 8-3: Armas de Combate Corpo a Corpo
+
+# Armas Simples
+
+| Categoria |                      Arma | Custo | Dano      | Dano de Atordoamento | Peso   | Tipo                   | Disponibilidade |
+| --------- | ------------------------: | ----: | --------- | -------------------- | ------ | ---------------------- | --------------- |
+| Miúdas    |                     Faca¹ |    25 | 1d4       | Não                  | 1 kg   | Cortante ou Perfurante | —               |
+| Pequenas  |       Cassetete / Porrete |    15 | 1d6       | Não                  | 0,5 kg | Concussão              | —               |
+| Pequenas  | Cassetete de Atordoamento |    15 | 1d6       | Sim (2d6)            | 0,5 kg | Concussão              | —               |
+| Médias    |                      Maça |    50 | 1d8       | Não                  | 2,5 kg | Concussão              | —               |
+| Médias    |                    Lança¹ |    60 | 1d8       | Não                  | 1,5 kg | Perfuração             | —               |
+| Médias    |                  Baioneta |    50 | 1d8       | Não                  | 1 kg   | Perfuração             | Licenciada      |
+| Grandes   |                    Cajado |    65 | 1d6 / 1d6 | Não                  | 1,8 kg | Concussão              | —               |
+
+---
+
+# Combate Desarmado
+
+| Categoria          |             Arma | Custo | Dano           | Modificador | Peso   | Tipo      | Disponibilidade |
+| ------------------ | ---------------: | ----- | -------------- | ----------- | ------ | --------- | --------------- |
+| Personagem Pequeno |        Desarmado | —     | 1d3            | —           | —      | Concussão | —               |
+| Personagem Pequeno | Luvas de combate | 150   | Dano desarmado | +1          | 0,4 kg | Concussão | —               |
+| Personagem Médio   |        Desarmado | —     | 1d4            | —           | —      | Concussão | —               |
+| Personagem Médio   | Luvas de combate | 250   | Dano desarmado | +1          | 0,5 kg | Concussão | —               |
+
+---
+
+## Descrições
+
+### Faca
+
+**Arma Simples**
+
+Enquanto muitas armas confiam na tecnologia altamente avançada, as facas ainda são vistas e muito usadas.
+
+Uma faca é completamente silenciosa e serve bem em escaramuças de combate próximo.
+
+---
+
+### Cassetete / Bastão
+
+**Arma Simples**
+
+Potencializado pela força bruta de seus usuários, os bastões quebram os ossos de um oponente ou pior.
+
+Eles são as armas favoritas de bandidos.
+
+Cassetetes (uma variedade do bastão) são usados por forças policiais em mundos relativamente pacíficos em situações de controle de multidões.
+
+---
+
+### Cassetete de Atordoamento
+
+**Arma Simples**
+
+Um bastão curto, com uma carga de energia no cabo, o bastão de atordoamento pode ser ativado para produzir uma carga de atordoamento quando ele atinge um alvo.
+
+Um bastão de atordoamento requer uma célula de energia para operar.
+
+---
+
+### Maça
+
+**Arma Simples**
+
+A maça é uma arma feita de metal, consistindo em uma esfera pesada no topo do cabo.
+
+---
+
+### Lança
+
+**Arma Simples**
+
+Uma arma comum usada por caçadores e guerreiros em culturas primitivas.
+
+A lança é uma haste comprida de madeira com uma extremidade pontiaguda moldada de pedra ou metal.
+
+Membros de culturas mais avançadas se divertem usando lanças para esporte, embora essas armas sejam normalmente construídas por uma liga metálica resistente.
+
+As lanças podem ser usadas como armas de arremesso.
+
+---
+
+### Baioneta
+
+**Arma Simples**
+
+Quando montada em um rifle, uma baioneta permite usar o rifle como uma arma corpo a corpo exatamente como uma lança.
+
+Enquanto empunhar um rifle com baioneta montada, você ameaça quadrados dentro do seu alcance e pode realizar ataques de oportunidade.
+
+Uma baioneta requer duas mãos quando montada.
+
+Não pode ser usada em rifles com coronha dobrada.
+
+Separada do rifle é tratada como uma faca.
+
+Montada, causa mais dano devido ao aumento de massa e força.
+
+---
+
+### Cajado
+
+**Arma Simples**
+
+Um cajado é feito de madeira, aço plástico ou liga metálica.
+
+O usuário pode atacar com qualquer extremidade da arma.
+
+**Regra Especial — Arma Dupla**
+
+Você pode atacar com ambas as extremidades como ação de rodada completa.
+
+Ambos os ataques recebem penalidade de –10.
+
+Talentos e capacidades especiais podem reduzir essa penalidade.
+
+---
+
+### Luvas de Combate
+
+**Arma Simples**
+
+Um par de luvas acolchoadas concede dano extra graças ao peso e aos materiais utilizados em sua fabricação.
+
+Qualquer personagem que espere lutar usando socos ou entrar em brigas provavelmente desejará vestir luvas de combate.
+
+As luvas concedem **+1 no dano em ataques desarmados bem sucedidos**.
+
+As luvas possuem tamanho equivalente à metade do tamanho do usuário.
+
+Por serem vestidas, não podem ser desarmadas ou largadas no chão.
+
+---
+
+## Notas
+
+¹ A arma pode ser arremessada.
+
+
+
+## Tabela 8-3: Armas de Combate Corpo a Corpo
+
+# Armas Brancas Avançadas
+
+| Categoria |             Arma | Custo | Dano      | Dano de Atordoamento | Peso   | Tipo                   | Disponibilidade |
+| --------- | ---------------: | ----: | --------- | -------------------- | ------ | ---------------------- | --------------- |
+| Miúdas    |      Vibroadaga¹ |   200 | 2d4       | Não                  | 1 kg   | Cortante ou Perfurante | —               |
+| Pequenas  |      Vibrolâmina |   250 | 2d6       | Não                  | 1,8 kg | Cortante ou Perfurante | Licenciada      |
+| Médias    |    Vibrobaioneta |   350 | 2d6       | Não                  | 1 kg   | Perfuração             | Licenciada      |
+| Médias    | Pique de Energia |   500 | 2d8       | Sim                  | 2 kg   | Perfuração e Energia   | Restrita        |
+| Grandes   |  Cajado Elétrico |  3000 | 2d6 / 2d6 | Sim / Sim            | 2 kg   | Concussão e Energia    | Restrita        |
+| Grandes   |     Vibromachado |   500 | 2d10      | Não                  | 6 kg   | Cortante               | Restrita        |
+
+---
+
+## Descrições
+
+### Vibroadaga
+
+**Arma de Combate Corpo a Corpo Avançada**
+
+Assassinos e pequenos bandidos preferem a menor das armas vibratórias: a vibroadaga.
+
+Alguns civis carregam essa arma para defesa.
+
+É a única arma vibratória sujeita a poucas regras de regulamentação e controle, pois também é vista como uma ferramenta comum para artesãos e exploradores.
+
+Uma vibroadaga requer **uma célula de energia** para operar.
+
+---
+
+### Vibrolâmina
+
+**Arma de Combate Corpo a Corpo Avançada**
+
+A vibrolâmina utiliza vibração contínua da lâmina para aumentar drasticamente sua capacidade de corte.
+
+Essas armas são consideradas perigosas e são ilegais em grande parte das áreas urbanas.
+
+Uma vibrolâmina requer **uma célula de energia** para operar.
+
+---
+
+### Vibrobaioneta
+
+**Arma de Combate Corpo a Corpo Avançada**
+
+Uma vibrobaioneta funciona de forma semelhante à baioneta tradicional, porém incorpora tecnologia vibratória para ampliar sua capacidade perfurante.
+
+Quando montada em uma arma apropriada, permite transformar armas de disparo em armas corpo a corpo mais eficientes.
+
+Uma vibrobaioneta requer **uma célula de energia** para operar.
+
+---
+
+### Pique de Energia
+
+**Arma de Combate Corpo a Corpo Avançada**
+
+Piques de energia são hastes de aproximadamente um metro de comprimento com pontas energizadas.
+
+Um seletor localizado próximo à extremidade permite alternar entre os modos:
+
+* Letal
+* Atordoamento
+
+Embora seja principalmente uma arma perfurante, também descarrega energia elétrica através da ponta.
+
+Por isso causa simultaneamente:
+
+* Dano de Perfuração
+* Dano de Energia
+
+Um pique de energia requer **duas células de energia** para operar.
+
+---
+
+### Cajado Elétrico
+
+**Arma de Combate Corpo a Corpo Avançada**
+
+Um cajado elétrico é uma arma dupla.
+
+Cada extremidade possui um gerador de pulso eletromagnético que descarrega no impacto, causando dano energético.
+
+Cada descarga pode ser ajustada para causar atordoamento.
+
+O cajado é construído com uma liga extremamente resistente que concede:
+
+**RD 20**
+
+Essa redução de dano funciona inclusive contra ataques de sabres de luz.
+
+Os cajados elétricos são incomuns fora das Guerras Clônicas.
+
+O dróide **IG-100 série Guarda Magna** normalmente utiliza essa arma.
+
+Um cajado elétrico requer **duas células de energia** para operar.
+
+---
+
+### Vibromachado
+
+**Arma de Combate Corpo a Corpo Avançada**
+
+Essa poderosa arma vibratória utiliza uma célula de energia para fazer sua lâmina vibrar rapidamente quando ativada.
+
+Isso concede poder destrutivo muito superior ao de um machado convencional com mínimo esforço do usuário.
+
+Um vibromachado requer **duas células de energia** para operar.
+
+---
+
+## Notas
+
+¹ A arma pode ser arremessada.
+
+
+## Tabela 8-3: Armas de Combate Corpo a Corpo
+
+# Armas Exóticas
+
+| Categoria | Arma           |    Custo | Dano     | Dano de Atordoamento | Peso   | Tipo           | Disponibilidade |
+| --------- | -------------- | -------: | -------- | -------------------- | ------ | -------------- | --------------- |
+| Médias    | Atlatl²        |       50 | 2d4      | Não                  | 1,5 kg | Concussão      | Rara            |
+| Grandes   | Cajado Amphi¹³ | Especial | Especial | Não                  | 2 kg   | Veja descrição | Rara            |
+| Grandes   | Cesta²³        |      100 | 2d4      | Não                  | 1,8 kg | Concussão      | Rara            |
+
+---
+
+## Descrições
+
+### Atlatl
+
+**Arma Exótica**
+
+Uma arma gungan, o atlatl adiciona velocidade e poder ao braço do arremesso, permitindo ao usuário lançar esferas de energia mais longe do que seria possível normalmente.
+
+Se forçado ao combate corpo a corpo, o usuário pode usar o atlatl como uma arma corpo a corpo equivalente a um bastão.
+
+Embora seja considerada uma arma exótica, os gungans são considerados proficientes com ela caso possuam o talento **Proficiência em Armas (armas simples)**.
+
+---
+
+### Cesta
+
+**Arma Exótica**
+
+Outra arma tradicional gungan, a cesta é uma vara flexível usada para arremessar pequenas esferas de energia.
+
+Ela também pode ser utilizada como arma corpo a corpo, funcionando como um cajado.
+
+Embora seja considerada uma arma exótica, gungans são considerados proficientes caso possuam **Proficiência em Armas (armas simples)**.
+
+---
+
+### Cajado Amphi
+
+**Arma Exótica**
+
+O cajado amphi é uma criatura serpentina criada por engenharia genética pelos Yuuzhan Vong para servir como arma.
+
+Ele pode tornar-se rígido como pedra ou flexível como uma corda, alterando seu formato conforme a necessidade do usuário.
+
+Trocar de formato consome **uma ação rápida**.
+
+---
+
+#### Forma de Cajado
+
+Quando rígido, o cajado amphi funciona exatamente como um **cajado comum**.
+
+---
+
+#### Forma de Lança
+
+Na forma rígida de lança, o cajado amphi pode ser empunhado ou arremessado.
+
+A cabeça da lança é venenosa.
+
+Se:
+
+* o ataque causar dano; e
+* a jogada igualar ou exceder a Defesa de Fortitude;
+
+então o alvo move **um passo negativo persistente** no marcador de condição.
+
+---
+
+#### Forma de Chicote
+
+Na forma flexível:
+
+* Alcance: **2 quadrados**
+* Dano: **1d4 perfurante + modificador de Força**
+
+A arma permanece venenosa.
+
+Se:
+
+* causar dano; e
+* igualar ou exceder a Defesa de Fortitude;
+
+o alvo move **um passo negativo persistente** no marcador de condição.
+
+Ao invés de causar dano, o usuário pode:
+
+* Imobilizar
+* Derrubar
+
+como se possuísse essas aptidões.
+
+É necessário ser proficiente com o cajado amphi, mas não possuir as aptidões.
+
+---
+
+#### Ataque Especial — Veneno
+
+Em qualquer forma, o cajado amphi pode cuspir veneno.
+
+Características:
+
+* Alcance: **10 quadrados**
+* Tipo de ação: **Ação padrão**
+
+Se acertar simultaneamente:
+
+* Defesa de Reflexos
+* Defesa de Fortitude
+
+o alvo move um passo negativo persistente no marcador de condição.
+
+Restrição:
+
+* Apenas **1 uso por período de 24 horas**.
+
+---
+
+## Notas
+
+¹ Possui regras especiais (consultar descrição detalhada)
+
+² A arma pode ser usada para lançar esferas de energia (ver armas à distância)
+
+³ Arma de alcance
+
+
+## Tabela 8-3: Armas de Combate Corpo a Corpo
+
+# Sabres de Luz
+
+| Categoria | Arma                 | Custo | Dano      | Dano de Atordoamento | Peso   | Tipo               | Disponibilidade |
+| --------- | -------------------- | ----: | --------- | -------------------- | ------ | ------------------ | --------------- |
+| Pequenas  | Sabre de Luz, curto¹ |  2500 | 2d6       | Não                  | 0,5 kg | Energia e Cortante | Rara            |
+| Médias    | Sabre de Luz¹        |  3000 | 2d8       | Não                  | 1 kg   | Energia e Cortante | Rara            |
+| Grandes   | Sabre de Luz, duplo  |  7000 | 2d8 / 2d8 | Não                  | 2 kg   | Energia e Cortante | Rara            |
+
+---
+
+## Descrições
+
+### Sabre de Luz
+
+**Sabre de Luz**
+
+Simples em seu projeto, porém extremamente difícil de dominar, o sabre de luz consiste em um cabo que projeta uma lâmina de energia pura.
+
+Tradicionalmente utilizado pelos Jedi, o sabre de luz tornou-se um símbolo de:
+
+* habilidade;
+* disciplina;
+* dedicação;
+* autoridade.
+
+A lâmina é gerada por uma célula de energia e focalizada através de cristais instalados dentro do cabo.
+
+O sabre de luz pode cortar praticamente qualquer material, com exceção de:
+
+* outra lâmina de sabre de luz;
+* escudos de energia;
+* alguns materiais exóticos.
+
+Como apenas o cabo possui peso físico significativo, usuários sem treinamento possuem dificuldade para controlar e prever a posição da lâmina.
+
+O verdadeiro potencial do sabre torna-se evidente nas mãos de um Jedi treinado, que consegue:
+
+* atacar com extrema precisão;
+* defender-se com eficiência;
+* desviar disparos;
+* enfrentar múltiplos oponentes.
+
+Um sabre de luz requer **uma célula de energia especial** para operar.
+
+Cada célula custa **10 vezes o valor de uma célula comum**, porém dura praticamente indefinidamente.
+
+---
+
+### Sabre de Luz — Lâmina Dupla
+
+**Sabre de Luz**
+
+O sabre de luz de lâmina dupla consiste em dois sabres conectados pelo cabo.
+
+Essas armas são extremamente raras e exigem ainda mais habilidade do que um sabre convencional.
+
+Uma ou ambas as lâminas podem permanecer ativadas simultaneamente.
+
+Quando ambas estão ativas:
+
+### Regra Especial — Arma Dupla
+
+Você pode atacar com ambas as extremidades como uma ação de rodada completa.
+
+Ambas as jogadas recebem penalidade de **–10**.
+
+Certos talentos e capacidades especiais podem reduzir essa penalidade.
+
+Um sabre de luz de lâmina dupla requer **duas células de energia especiais**.
+
+Cada célula custa **10 vezes o valor de uma célula comum**, mas dura praticamente indefinidamente.
+
+---
+
+### Sabre de Luz — Curto (Shoto)
+
+**Sabre de Luz**
+
+Personagens Jedi pequenos, como Mestre Yoda, frequentemente preferem o sabre de luz curto.
+
+Esse modelo também recebe o nome de:
+
+**Shoto**
+
+Jedi treinados em combate com duas armas frequentemente utilizam um shoto na mão secundária.
+
+Um sabre de luz curto requer **uma célula de energia especial**.
+
+O custo da célula é **10 vezes o valor de uma célula comum**, porém sua duração é praticamente indefinida.
+
+---
+
+## Regras Gerais dos Sabres de Luz
+
+* Utilizam células de energia especiais.
+* Ignoram grande parte dos materiais comuns.
+* São armas extremamente difíceis para não treinados.
+* Possuem forte associação com os Jedi.
+* Podem interagir diretamente contra outras lâminas de sabre.
+
+---
+
+## Notas
+
+¹ Possui regras especiais (consultar descrição detalhada)
+

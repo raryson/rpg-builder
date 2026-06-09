@@ -1,0 +1,395 @@
+# FORA DA LEI — TALENTOS (Star Wars RPG Saga Edition)
+
+---
+
+# Árvore de Talentos da Sorte
+
+Muitos foras da lei vivem apostando tudo no destino, confiando na sorte — ou na própria Força — para alcançar riqueza, fama e sucesso.
+
+Esses talentos representam oportunidades improváveis, momentos de genialidade e reviravoltas inesperadas.
+
+---
+
+## Apostador
+
+Você recebe:
+
+**+2 de bônus de competência em testes de Sabedoria realizados durante apostas.**
+
+Pode selecionar este talento várias vezes.
+
+Cada seleção adicional:
+
+**+2 bônus adicional.**
+
+---
+
+## Aptidões
+
+Uma vez por dia:
+
+você pode realizar novamente um **teste de perícia**.
+
+Utilize o melhor resultado.
+
+Pode ser escolhido várias vezes.
+
+Cada seleção adicional:
+
+**+1 uso por dia.**
+
+---
+
+## Tiro de Sorte
+
+### Pré-requisitos
+
+* Talentoso
+
+Uma vez por dia:
+
+você pode repetir uma **jogada de ataque**.
+
+Use o melhor resultado.
+
+Pode ser escolhido várias vezes.
+
+Cada seleção:
+
+**+1 uso diário.**
+
+---
+
+## Favorecido pela Sorte
+
+Sempre que obtiver um **sucesso decisivo** em um ataque corpo a corpo ou à distância:
+
+recebe imediatamente:
+
+**1 ação padrão extra.**
+
+Essa ação:
+
+* precisa ser usada antes do final do turno;
+* caso contrário é perdida.
+
+---
+
+## Sorte do Tolo
+
+Utilizando uma **ação padrão**, você pode gastar **1 Ponto da Força** para receber um dos benefícios abaixo até o fim do encontro:
+
+Escolha apenas um:
+
+* **+1 bônus de sorte em jogadas de ataque**
+* **+5 bônus de sorte em testes de períícia**
+* **+1 bônus de sorte em todas Defesas**
+
+---
+
+# Árvore de Talentos da Má Sorte
+
+Sua presença tende a trazer caos, desconforto e azar para seus inimigos.
+
+Você aprende a explorar distrações, vulnerabilidades e oportunidades inesperadas.
+
+---
+
+## Ataque Furtivo
+
+Sempre que seu oponente:
+
+* estiver surpreendido;
+  OU
+* perder o bônus de Destreza na Defesa de Reflexos;
+
+você causa:
+
+**+1d6 dano extra**
+
+em ataques corpo a corpo ou à distância.
+
+Restrição:
+
+* ataques à distância devem ser feitos a até **6 quadrados**.
+
+Pode ser escolhido várias vezes.
+
+Cada seleção:
+
+**+1d6 dano**
+
+Máximo:
+
+**+10d6**
+
+---
+
+## Ataque Vil
+
+Sempre que acertar um oponente que perdeu o bônus de Destreza na Defesa de Reflexos:
+
+o alvo move:
+
+**1 passo negativo**
+
+em seu marcador de condição.
+
+---
+
+## Combatente
+
+Se mover ao menos **2 quadrados** antes de atacar:
+
+e terminar em posição diferente da inicial:
+
+recebe:
+
+**+1 nas jogadas de ataque**
+
+até o começo do próximo turno.
+
+---
+
+## Semear Confusão
+
+Gastando **duas ações rápidas**:
+
+você causa confusão entre inimigos.
+
+Até o começo do próximo turno:
+
+todos inimigos na sua linha de visão:
+
+* perdem bônus de moral;
+* perdem bônus de intuição.
+
+---
+
+## Desconcertar
+
+### Pré-requisitos
+
+* Semear Confusão
+
+Utilizando ação padrão:
+
+você realiza ações ou falas que deixam inimigos vulneráveis.
+
+Todos inimigos:
+
+* até 6 quadrados;
+* em linha de visão;
+
+recebem:
+
+**−2 em todas Defesas**
+
+até o começo do próximo turno.
+
+O efeito termina se perderem linha de visão.
+
+---
+
+# Árvore de Talentos do Hacker
+
+Você se move pela Holonet como um fantasma, invadindo sistemas e explorando vulnerabilidades com extrema eficiência.
+
+---
+
+## Invasão Relâmpago
+
+Você pode emitir um **comando de rotina** para um computador utilizando:
+
+**ação rápida.**
+
+---
+
+## Hacker Mestre
+
+### Pré-requisitos
+
+* Invasão Relâmpago
+
+Você pode repetir qualquer teste de **Usar Computador** realizado para aumentar acesso ao sistema.
+
+Utilize o melhor resultado.
+
+---
+
+## Traçar
+
+Você pode utilizar:
+
+**Usar Computador**
+
+no lugar de:
+
+**Obter Informação**
+
+desde que tenha acesso a uma rede.
+
+---
+
+# Árvore de Talentos do Espaçonauta
+
+Você vive entre rotas espaciais, aventuras e combates interestelares.
+
+Esses talentos melhoram sua eficiência em veículos e naves.
+
+---
+
+## Habituado com o Espaço
+
+Benefícios:
+
+* ignora penalidades de ataque em baixa gravidade;
+* ignora enjoo espacial;
+* torna-se proficiente em armas de nave.
+
+---
+
+## Cavaleiro Espacial
+
+### Pré-requisitos
+
+* Habituado com o Espaço
+
+Enquanto estiver a bordo de uma nave:
+
+recebe:
+
+**+1 nas jogadas de ataque**
+
+Aplica-se a:
+
+* armas pessoais;
+* armas da nave.
+
+---
+
+## Guerreiro Estelar
+
+### Pré-requisitos
+
+* Habituado com o Espaço
+
+Sempre que tirar:
+
+**20 natural**
+
+em ataque realizado dentro de uma nave:
+
+recebe:
+
+**1 Ponto da Força temporário**
+
+Se não gastar:
+
+é perdido ao final do encontro.
+
+---
+
+## Hiperguiado
+
+Uma vez por dia:
+
+quando estiver dentro de uma nave:
+
+adicione seu nível na classe Fora da Lei como bônus em:
+
+* ataque;
+* teste de perícia;
+* teste de habilidade.
+
+Pode declarar depois de ver o resultado.
+
+---
+
+# Árvore de Talentos do Técnico Fora-da-Lei
+
+Foras da lei desenvolvem técnicas improvisadas para extrair desempenho extremo da tecnologia.
+
+---
+
+## Ligação Direta
+
+### Pré-requisitos
+
+* Treinado em Mecânica
+
+Você pode usar:
+
+**Mecânica**
+
+no lugar de:
+
+**Usar Computador**
+
+para melhorar acesso ao sistema.
+
+Você é considerado treinado em Usar Computador.
+
+Se puder repetir Usar Computador:
+
+repita usando Mecânica.
+
+---
+
+## Modificações Personalizadas
+
+Usando uma ação padrão:
+
+ajuste uma arma de energia.
+
+Até o fim do encontro:
+
+recebe:
+
+* +1 equipamento em ataques
+* +2 equipamento em dano
+
+Válido para:
+
+* blasters;
+* armas energéticas;
+* armas de veículos;
+* armas de espaçonaves.
+
+---
+
+## Paliativo
+
+### Pré-requisitos
+
+* Treinado em Mecânica
+
+Uma vez por encontro:
+
+faça uma **gambiarra** em:
+
+* objeto;
+* veículo.
+
+Mantém todas regras normais da perícia.
+
+---
+
+## Reparos Rápidos
+
+### Pré-requisitos
+
+* Treinado em Mecânica
+
+Sempre que fizer gambiarra:
+
+o objeto recebe:
+
+PV temporários iguais ao resultado do teste de Mecânica.
+
+Regras:
+
+* dano consome PV temporários primeiro;
+* desaparecem ao fim do encontro.
+
+---

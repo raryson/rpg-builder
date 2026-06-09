@@ -1,0 +1,407 @@
+# JEDI — TALENTOS (Star Wars RPG Saga Edition)
+
+---
+
+# Árvore de Talentos do Cônsul Jedi
+
+Os Jedi que seguem o caminho do cônsul são negociadores habilidosos e embaixadores experientes. Preferem usar a força de suas palavras e a sabedoria que a Força provê para resolver conflitos.
+
+---
+
+## Conselheiro Habilidoso
+
+Você pode gastar uma ação de rodada completa aconselhando um aliado, garantindo a ele um bônus de **+5 em seu próximo teste de perícia**.
+
+Se gastar **1 Ponto da Força**, esse bônus aumenta para **+10**.
+
+O alvo precisa ser capaz (e estar disposto) de ouvir e compreender seus conselhos.
+
+Você **não pode aconselhar a si mesmo**.
+
+**Este é um efeito de afetar a mente.**
+
+---
+
+## Intuição da Força
+
+Você pode usar seu modificador da perícia **Usar a Força** em vez do modificador da perícia **Iniciativa** ao realizar testes de Iniciativa.
+
+Você é considerado treinado em **Iniciativa** para fins de utilização deste talento.
+
+Se estiver habilitado a realizar uma nova jogada de um teste de Iniciativa, poderá, em vez disso, refazer utilizando **Usar a Força**, sujeito às mesmas limitações.
+
+---
+
+## Negociador Especialista
+
+Utilizando uma **ação padrão**, você pode enfraquecer a determinação de um inimigo com suas palavras.
+
+O alvo precisa:
+
+* possuir Inteligência 3 ou maior;
+* ser capaz de ver, ouvir e compreender você.
+
+Faça um teste de **Persuasão**.
+
+Se o resultado igualar ou exceder a **Defesa de Vontade** do alvo:
+
+* ele move **1 passo negativo** em seu marcador de condição.
+
+O alvo recebe **+5 na Defesa de Vontade** caso possua nível maior que o seu.
+
+Se atingir a condição final:
+
+* não ficará inconsciente;
+* não poderá atacar você ou seus aliados até o fim do encontro;
+
+A restrição termina caso você ou seus aliados o ataquem.
+
+**Este é um efeito de afetar a mente.**
+
+---
+
+## Negociador Mestre
+
+### Pré-requisitos
+
+* Negociador Especialista
+
+Se obtiver sucesso usando **Negociador Especialista**, o alvo move **1 passo negativo adicional** em seu marcador de condição.
+
+Total: **2 passos negativos**.
+
+**Este é um efeito de afetar a mente.**
+
+---
+
+## Persuasão da Força
+
+### Pré-requisitos
+
+* Negociador Especialista
+
+Você pode usar seu modificador de **Usar a Força** em vez do modificador de **Persuasão**.
+
+Você é considerado treinado em **Persuasão** para utilizar este talento.
+
+Se puder realizar nova jogada em Persuasão, poderá refazer utilizando **Usar a Força**.
+
+---
+
+## Meditação de Batalha
+
+A técnica Jedi conhecida como **Meditação de Batalha** permite que você e seus aliados trabalhem em perfeita harmonia através da Força.
+
+Usando uma **ação de rodada completa**, você pode gastar **1 Ponto da Força** para conceder:
+
+* **+1 de bônus de competência nas jogadas de ataque**
+
+para você e todos aliados a até **6 quadrados**.
+
+Duração:
+
+* até o final do encontro.
+
+Restrições:
+
+* aliados precisam permanecer dentro do alcance;
+* perdem o efeito se você cair inconsciente ou morrer.
+
+**Este é um efeito de afetar a mente.**
+
+---
+
+## Recuperação Acrobática
+
+Se um efeito fizer você cair, realize um teste de **Acrobacia (ND 20)**.
+
+Se for bem-sucedido, permanece em pé.
+
+---
+
+## Resiliente
+
+Você pode gastar uma **ação de rodada completa** para mover **2 passos positivos** no seu marcador de condição.
+
+---
+
+# Árvore de Talentos do Guardião Jedi
+
+Os Jedi que seguem o caminho do guardião são mais voltados ao combate que outros Jedi e aprimoram constantemente suas capacidades para se tornar combatentes mortais.
+
+---
+
+## Alvo Elusivo
+
+Quando estiver lutando corpo a corpo contra um ou mais oponentes:
+
+outros oponentes que tentarem acertar você com ataques à distância recebem:
+
+**−5 de penalidade**
+
+Essa penalidade acumula com a penalidade normal por disparar em combate corpo a corpo.
+
+Total possível:
+
+**−10 na jogada de ataque.**
+
+---
+
+# Árvore de Talentos do Sentinela Jedi
+
+Os Jedi que seguem o caminho do sentinela são os verdadeiros inimigos do Lado Negro.
+
+São mestres da sutileza e difíceis de corromper.
+
+---
+
+## Flagelo do Lado Negro
+
+### Pré-requisitos
+
+* Sentir o Lado Negro
+
+Contra criaturas com **Valor do Lado Negro igual ou superior a 1**:
+
+seus ataques corpo a corpo causam dano adicional igual ao seu modificador de **Carisma**.
+
+Mínimo:
+
+**+1 dano.**
+
+---
+
+## Limpar a Mente
+
+Você pode realizar uma nova jogada em qualquer teste resistido de **Usar a Força** feito para evitar ser detectado por outros usuários da Força.
+
+Você deve usar o novo resultado.
+
+---
+
+## Névoa da Força
+
+### Pré-requisitos
+
+* Limpar a Mente
+
+Você pode gastar **1 Ponto da Força** usando uma ação padrão para criar uma névoa que esconde você e seus aliados.
+
+Você pode esconder um número de criaturas igual ao seu nível de classe.
+
+Faça um teste de **Usar a Força**.
+
+Compare o resultado com a **Defesa de Vontade** dos observadores.
+
+Se vencer:
+
+todos os alvos ocultados recebem:
+
+**Ocultamento Total**
+
+contra aquele oponente.
+
+Duração:
+
+* até 1 minuto.
+
+A névoa termina imediatamente caso qualquer criatura escondida realize um ataque.
+
+---
+
+## Resistir ao Lado Negro
+
+### Pré-requisitos
+
+* Sentir o Lado Negro
+
+Você recebe:
+
+**+5 de bônus da Força**
+
+em todas as defesas contra:
+
+* poderes com descritor [Lado Negro];
+* poderes originados de usuários do Lado Negro.
+
+---
+
+## Sentir o Lado Negro
+
+Você pode realizar uma nova jogada em testes de **Usar a Força** feitos para detectar presença e localização aproximada de personagens com Valor do Lado Negro igual ou superior a 1.
+
+Você deve utilizar o novo resultado.
+
+---
+
+# Árvore de Talentos de Combate com Sabre de Luz
+
+O sabre de luz é a arma tradicional dos Jedi.
+
+As aptidões abaixo representam técnicas avançadas de combate.
+
+---
+
+## Arremessar Sabre de Luz
+
+Você pode arremessar um sabre de luz usando uma **ação padrão**.
+
+Regras:
+
+* tratado como arma de arremesso;
+* você é proficiente;
+* aplica penalidades normais de alcance.
+
+Se o alvo estiver a até **6 quadrados**:
+
+você pode retornar o sabre usando:
+
+* ação rápida;
+* teste de Usar a Força ND 20.
+
+---
+
+## Bloquear
+
+Como reação:
+
+você pode negar um ataque corpo a corpo.
+
+Faça um teste de **Usar a Força**.
+
+ND:
+
+resultado do ataque inimigo.
+
+Penalidade acumulativa:
+
+**−5 por uso adicional de Bloquear ou Defletir desde seu último turno.**
+
+Requisitos:
+
+* sabre ativado;
+* estar consciente do ataque.
+
+Você pode gastar **1 Ponto da Força** para proteger um aliado adjacente.
+
+---
+
+## Defesa com Sabre de Luz
+
+Usando uma ação rápida:
+
+receba:
+
+**+1 de bônus de deflexão na Defesa de Reflexos**
+
+até seu próximo turno.
+
+Requisitos:
+
+* sabre ativado;
+* não estar surpreendido.
+
+Pode ser escolhido várias vezes.
+
+Máximo:
+
+**+3 de bônus.**
+
+---
+
+## Defletir
+
+Como reação:
+
+você pode negar ataques à distância.
+
+Funciona como Bloquear.
+
+Também funciona contra:
+
+* rajadas automáticas;
+* Relâmpago da Força.
+
+Não funciona contra:
+
+* granadas;
+* mísseis;
+* lança-chamas.
+
+Não pode negar ataques de veículos Colossal (fragata) ou maiores.
+
+---
+
+## Especialização em Arma (Sabres de Luz)
+
+### Pré-requisitos
+
+* Foco em Arma (Sabres de Luz)
+
+Receba:
+
+**+2 nas jogadas de dano corpo a corpo com sabre de luz.**
+
+---
+
+## Redirecionar Disparo
+
+### Pré-requisitos
+
+* Defletir
+* Bônus Base de Ataque +5
+
+Uma vez por rodada:
+
+quando defletir um disparo de blaster:
+
+você pode realizar imediatamente um ataque à distância contra outro alvo.
+
+O dano causado é o dano normal da arma.
+
+Só funciona com disparos simples.
+
+---
+
+## Construir um Sabre de Luz
+
+A partir do **7º nível**, você pode construir seu próprio sabre de luz.
+
+Consulte as regras específicas de construção.
+
+---
+
+# Aptidões Bônus do Jedi
+
+A cada nível par (2º, 4º, 6º…):
+
+escolha uma aptidão bônus entre:
+
+* Acuidade em Arma
+* Artes Marciais I
+* Artes Marciais II
+* Artes Marciais III
+* Ataque Acrobático
+* Ataque Duplo
+* Ataque em Movimento
+* Ataque Poderoso
+* Ataque Rápido
+* Ataque Triplo
+* Crítico Triplicado
+* Defender-se em Corpo a Corpo
+* Desarmar Aprimorado
+* Esquiva
+* Foco em Arma (Sabres de Luz)
+* Foco em Perícia
+* Poderoso na Força
+* Investida Aprimorada
+* Investida Poderosa
+* Maestria com Duas Armas I
+* Maestria com Duas Armas II
+* Maestria com Duas Armas III
+* Mobilidade
+* Reflexos em Combate
+* Saque Rápido
+* Treinamento em Perícia
+* Trespassar
+* Trespassar Aprimorado

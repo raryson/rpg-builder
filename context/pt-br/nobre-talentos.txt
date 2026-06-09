@@ -1,0 +1,422 @@
+# NOBRE — TALENTOS (Star Wars RPG Saga Edition)
+
+---
+
+# Árvore de Talentos da Influência
+
+Uma das maiores forças do nobre é sua capacidade de exercer influência sobre outras pessoas, usando presença, autoridade e manipulação psicológica para controlar conflitos sem depender diretamente de combate.
+
+Todos os talentos desta árvore representam efeitos sociais e de influência.
+
+---
+
+## Presença
+
+Você pode fazer um teste de **Persuasão para intimidar uma criatura utilizando uma ação padrão**, ao invés da ação de rodada completa normalmente exigida.
+
+---
+
+## Enfraquecer a Determinação
+
+### Pré-requisitos
+
+* Presença
+
+Uma vez por rodada, quando você causar dano igual ou superior ao **Limite de Dano** do alvo:
+
+* faça um teste de Persuasão como ação livre.
+
+Se o resultado igualar ou exceder a **Defesa de Vontade** do alvo:
+
+o alvo entra em estado de terror e:
+
+* foge de você usando deslocamento máximo;
+* permanece fugindo por **1 minuto**.
+
+Enquanto foge:
+
+* não pode realizar ações padrão;
+* não pode realizar ações rápidas;
+* não pode realizar ações de rodada completa.
+
+O efeito termina imediatamente se o alvo sofrer dano.
+
+Como reação ou ação livre:
+
+o alvo pode gastar **1 Ponto da Força** para negar este efeito.
+
+Restrições:
+
+* o efeito falha automaticamente se o alvo possuir nível igual ou superior ao seu.
+
+**Este é um efeito de afetar a mente.**
+
+---
+
+## Enfraquecer a Determinação Aprimorada
+
+### Pré-requisitos
+
+* Presença
+* Enfraquecer a Determinação
+
+Funciona exatamente como **Enfraquecer a Determinação**, exceto que:
+
+* o alvo continua fugindo mesmo se sofrer dano.
+
+**Este é um efeito de afetar a mente.**
+
+---
+
+## Exigir Rendição
+
+### Pré-requisitos
+
+* Presença
+
+Uma vez por encontro:
+
+utilizando uma ação padrão, você pode exigir que um inimigo se renda.
+
+Condições:
+
+* o alvo precisa estar com metade dos pontos de vida ou menos.
+
+Faça um teste de Persuasão.
+
+Se o resultado igualar ou exceder a **Defesa de Vontade**:
+
+o alvo:
+
+* larga as armas;
+* deixa de agir hostilmente;
+* se rende a você e seus aliados.
+
+Se o alvo tiver nível maior:
+
+* recebe +5 na Defesa de Vontade.
+
+Se você ou seus aliados atacarem o alvo:
+
+* o efeito termina.
+
+Você só pode tentar uma vez por encontro contra o mesmo alvo.
+
+**Este é um efeito de afetar a mente.**
+
+---
+
+# Árvore de Talentos da Inspiração
+
+Os nobres são reconhecidos por sua habilidade de inspirar aliados e extrair deles feitos extraordinários.
+
+Todos os talentos desta árvore:
+
+* afetam a mente;
+* não podem ser usados em você mesmo.
+
+---
+
+## Fortalecer Aliado
+
+Utilizando uma ação padrão:
+
+escolha um aliado em sua linha de visão.
+
+Efeitos:
+
+* move 1 passo positivo no marcador de condição;
+
+Além disso:
+
+se o aliado possuir metade ou menos dos pontos de vida:
+
+recebe pontos de vida temporários iguais ao nível dele.
+
+Regras:
+
+* o dano é aplicado primeiro aos PV temporários;
+* os PV temporários desaparecem ao final do encontro.
+
+Limitações:
+
+* cada aliado só pode receber este benefício uma vez por encontro;
+* você não pode usar em si mesmo.
+
+---
+
+## Inspirar Confiança
+
+Utilizando uma ação padrão:
+
+todos aliados na sua linha de visão recebem:
+
+* +1 bônus de moral nas jogadas de ataque;
+* +1 bônus de moral em testes de perícia.
+
+Duração:
+
+* até o fim do encontro;
+* ou até você ficar inconsciente ou morrer.
+
+Aliados não precisam continuar vendo você depois.
+
+Não afeta você mesmo.
+
+---
+
+## Incitar Fervor
+
+### Pré-requisitos
+
+* Fortalecer Aliado
+* Inspirar Confiança
+
+Sempre que acertar um ataque corpo a corpo ou à distância:
+
+como ação livre:
+
+escolha um aliado em sua linha de visão.
+
+Ele recebe bônus no dano do próximo ataque igual ao nível dele.
+
+Regras:
+
+* depois de concedido, não precisa permanecer vendo você;
+* se errar o ataque, perde o bônus.
+
+Não funciona em você.
+
+---
+
+## Inspirar Ardor
+
+### Pré-requisitos
+
+* Fortalecer Aliado
+* Inspirar Confiança
+* Incitar Fervor
+
+Sempre que um aliado em sua linha de visão:
+
+fizer um ataque que mova negativamente o marcador de condição do alvo:
+
+o alvo move:
+
+**1 passo negativo adicional.**
+
+---
+
+## Inspirar Rapidez
+
+Usando uma ação rápida:
+
+escolha um aliado em sua linha de visão.
+
+No próximo turno:
+
+ele poderá realizar um teste de perícia que normalmente exige ação padrão usando:
+
+**ação de movimento.**
+
+---
+
+# Árvore de Talentos da Liderança
+
+Como líder nato, você sabe organizar aliados e transformar grupos comuns em forças eficientes.
+
+Todos os talentos desta árvore:
+
+* afetam a mente;
+* não podem ser usados em você mesmo.
+
+---
+
+## Líder Nato
+
+Uma vez por encontro:
+
+usando uma ação rápida:
+
+todos aliados em sua linha de visão recebem:
+
+**+1 bônus de intuição nas jogadas de ataque.**
+
+Duração:
+
+* enquanto mantiverem linha de visão.
+
+Perde imediatamente se:
+
+* perder linha de visão;
+* você morrer;
+* você ficar inconsciente.
+
+---
+
+## Coordenar
+
+Utilizando ação padrão:
+
+todos aliados em sua linha de visão recebem:
+
+**+1 adicional ao usar Prestar Auxílio.**
+
+Duração:
+
+* até o começo do próximo turno.
+
+Pode ser escolhido múltiplas vezes.
+
+Máximo:
+
++5.
+
+---
+
+## Comandar à Distância
+
+### Pré-requisitos
+
+* Líder Nato
+
+Aliados beneficiados por Líder Nato:
+
+não perdem o bônus caso a linha de visão seja interrompida.
+
+---
+
+## Confiança
+
+### Pré-requisitos
+
+* Líder Nato
+* Coordenar
+
+Você pode abrir mão de uma ação padrão.
+
+Escolha um aliado em sua linha de visão.
+
+Ele recebe:
+
+* uma ação padrão extra;
+  OU
+* uma ação de movimento extra.
+
+A ação é usada no próximo turno dele.
+
+---
+
+## Líder Destemido
+
+### Pré-requisitos
+
+* Líder Nato
+
+Usando ação rápida:
+
+todos aliados recebem:
+
+**+5 moral na Defesa de Vontade contra medo.**
+
+Duração:
+
+* até perder linha de visão;
+* ou você morrer/inconscientizar.
+
+---
+
+## Reorganizar as Tropas
+
+### Pré-requisitos
+
+* Líder Nato
+* Comandar à Distância
+
+Uma vez por encontro:
+
+usando ação rápida:
+
+aliados em sua linha de visão com metade dos PV recebem:
+
+* +2 Reflexos;
+* +2 Defesa de Vontade;
+* +2 dano.
+
+Duração:
+
+até o fim do encontro.
+
+---
+
+# Árvore de Talentos da Linhagem
+
+Você cresceu cercado por educação, influência e recursos financeiros.
+
+---
+
+## Instruído
+
+Graças à sua educação:
+
+você pode realizar qualquer teste de **Conhecimento sem treinamento**.
+
+---
+
+## Habilidade Espontânea
+
+### Pré-requisitos
+
+* Instruído
+
+Uma vez por dia:
+
+realize um teste sem treinamento como se fosse treinado.
+
+Exceção:
+
+não funciona para Usar a Força sem Sensível à Força.
+
+Pode ser escolhido várias vezes.
+
+Cada seleção:
+
++1 uso diário.
+
+---
+
+## Conexões
+
+Você consegue adquirir:
+
+* equipamentos licenciados;
+* restritos;
+* militares;
+* ilegais;
+
+sem pagar licença.
+
+Limite:
+
+nível × 1000 créditos.
+
+Também reduz o multiplicador do mercado negro em 1.
+
+---
+
+## Riqueza
+
+Sempre que subir de nível:
+
+receba:
+
+5000 × nível na classe Nobre
+
+em créditos.
+
+Pode armazenar:
+
+* conta bancária;
+* local acessível de sua escolha.
+
+---

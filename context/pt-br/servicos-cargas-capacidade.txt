@@ -1,0 +1,164 @@
+# Carga e Capacidade de Carga
+
+## Regras Gerais
+
+Carga representa o quanto equipamentos reduzem sua mobilidade.
+
+Existem dois sistemas:
+
+* carga por armadura;
+* carga por peso.
+
+---
+
+## Carga por Armadura
+
+Armadura determina automaticamente:
+
+* bônus máximo de Destreza;
+* penalidade em testes;
+* deslocamento;
+* corrida.
+
+Equipamentos extras normalmente não reduzem velocidade além disso.
+
+Exemplos:
+
+* armas;
+* medpacs;
+* ferramentas.
+
+Somente cargas muito altas exigem cálculo adicional.
+
+---
+
+## Carga por Peso
+
+Somar:
+
+* armadura;
+* armas;
+* equipamentos.
+
+Se o total for igual ou maior que:
+
+**(Força ÷ 2)²**
+
+o personagem está em:
+
+**Carga Pesada**
+
+Exemplo:
+
+Força 12
+
+(12 ÷ 2)²
+
+6² = 36 kg
+
+36 kg ou mais → carga pesada.
+
+---
+
+## Penalidades por Carga Pesada
+
+Penalidade:
+
+−10 nos testes:
+
+* Acrobacia
+* Escalar
+* Tolerância
+* Iniciativa
+* Saltar
+* Furtividade
+* Nadar
+
+Também reduz:
+
+deslocamento → 75% do normal
+
+(arredondado para baixo)
+
+Corrida:
+
+3× deslocamento
+
+(em vez de 4×)
+
+---
+
+## Capacidade de Carga
+
+Peso que pode levantar:
+
+**Força² × 0,5**
+
+Exemplo:
+
+Força 15
+
+15 × 15 × 0,5
+
+112,5 kg
+
+---
+
+## Sobrecarga
+
+Peso máximo extremo:
+
+**Força²**
+
+Exemplo:
+
+Força 15
+
+225 kg
+
+Enquanto sobrecarregado:
+
+* perde bônus de Destreza na Defesa de Reflexos;
+* desloca apenas 1 quadrado;
+* movimento exige ação de rodada completa.
+
+---
+
+## Arrastar Objetos
+
+Multiplicadores:
+
+| Superfície    | Peso Efetivo |
+| ------------- | -----------: |
+| Chão normal   |         ×0,5 |
+| Lisa ou rodas |         ×0,2 |
+| Sem atrito    |         ×0,1 |
+
+Exemplos:
+
+* gravidade zero;
+* maca repulsora.
+
+---
+
+## Modificador por Tamanho
+
+### Criaturas Maiores
+
+| Tamanho  | Multiplicador |
+| -------- | ------------: |
+| Grande   |            ×2 |
+| Enorme   |            ×5 |
+| Imenso   |           ×10 |
+| Colossal |           ×20 |
+
+---
+
+### Criaturas Menores
+
+| Tamanho   | Multiplicador |
+| --------- | ------------: |
+| Pequeno   |         ×0,75 |
+| Minúsculo |          ×0,5 |
+| Diminuto  |         ×0,25 |
+| Miúdo     |         ×0,01 |

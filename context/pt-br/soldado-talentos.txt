@@ -1,0 +1,336 @@
+# SOLDADO — TALENTOS (Star Wars RPG Saga Edition)
+
+---
+
+# Árvore de Talentos do Lutador
+
+Você prefere enfrentar inimigos diretamente e dominar o combate corpo a corpo.
+
+Os talentos desta árvore aumentam sua capacidade ofensiva, resistência e controle durante confrontos próximos.
+
+---
+
+## Golpe Duro
+
+Você causa:
+
+**+1 ponto de dano**
+
+em todos os ataques corpo a corpo.
+
+---
+
+## Ataque Atordoante
+
+### Pré-requisitos
+
+* Golpe Duro
+
+Quando causar dano em um oponente com um ataque corpo a corpo:
+
+se a jogada de ataque igualar ou exceder o **Limite de Dano** do alvo:
+
+o alvo move:
+
+**1 passo negativo adicional**
+
+em seu marcador de condição.
+
+---
+
+## Especialista em Imobilização
+
+Você recebe:
+
+**+2 bônus de competência**
+
+em ataques de imobilização.
+
+---
+
+## Desequilibrar Oponente
+
+### Pré-requisitos
+
+* Especialista em Imobilização
+
+Durante seu turno:
+
+escolha um oponente com tamanho até:
+
+* uma categoria acima;
+  OU
+* uma categoria abaixo do seu.
+
+Esse alvo:
+
+não adiciona o modificador de **Força** nas jogadas de ataque feitas contra você.
+
+Observações:
+
+* penalidades de Força continuam se aplicando;
+* o modificador continua sendo aplicado normalmente ao dano.
+
+Você pode trocar o alvo no próximo turno.
+
+---
+
+## Coronhada
+
+Você pode utilizar armas de ataque à distância como armas corpo a corpo sem penalidade.
+
+Normalmente:
+
+* armas improvisadas sofrem −5.
+
+Com este talento:
+
+* a arma funciona como um porrete.
+
+Se estiver usando:
+
+* rifle com baioneta;
+  OU
+* rifle com vibrobaioneta;
+
+a arma passa a ser considerada:
+
+**arma dupla**
+
+Uma extremidade:
+
+* funciona como baioneta.
+
+Outra extremidade:
+
+* funciona como porrete.
+
+---
+
+# Árvore de Talentos do Comando
+
+Você utiliza liderança tática e posicionamento para proteger aliados e dominar o campo de batalha.
+
+---
+
+## Análise da Batalha
+
+Utilizando uma ação rápida:
+
+faça um teste de:
+
+**Conhecimento (Táticas)**
+
+ND 15.
+
+Se obtiver sucesso:
+
+você descobre quais aliados e inimigos em sua linha de visão estão com:
+
+**metade ou menos dos pontos de vida.**
+
+---
+
+## Tiro de Cobertura
+
+### Pré-requisitos
+
+* Análise da Batalha
+
+Sempre que realizar um ataque à distância usando:
+
+* pistola;
+  OU
+* rifle;
+
+todos aliados a até:
+
+**6 quadrados**
+
+recebem:
+
+**+1 Defesa de Reflexos**
+
+até o começo do próximo turno.
+
+Não precisam manter linha de visão.
+
+---
+
+## Atrair Disparos
+
+Utilizando ação rápida:
+
+faça um teste de Persuasão.
+
+Compare com a Defesa de Vontade de todos os inimigos que possam ver você.
+
+Se vencer:
+
+esses inimigos:
+
+não podem atacar personagens a até 6 quadrados de você.
+
+Eles ainda podem:
+
+* atacar você normalmente.
+
+Condição:
+
+você não pode possuir cobertura contra eles.
+
+---
+
+## Interpor-se
+
+### Pré-requisitos
+
+* Treinado em Iniciativa
+
+Uma vez por rodada:
+
+gaste uma ação rápida.
+
+Escolha um aliado adjacente.
+
+Até o começo do próximo turno:
+
+todo ataque feito contra esse aliado:
+
+* afeta você.
+
+Você pode decidir ignorar ataques individuais antes da rolagem.
+
+---
+
+## Indomável
+
+Uma vez por dia:
+
+usando uma ação rápida:
+
+mova:
+
+**5 passos positivos**
+
+em seu marcador de condição.
+
+Limitação:
+
+não remove condições permanentes.
+
+---
+
+## Duro de Matar
+
+Você recebe:
+
+**1 uso adicional de Segundo Fôlego por dia.**
+
+Se também possuir:
+
+* Segundo Fôlego Extra
+
+totaliza:
+
+**3 usos por dia.**
+
+---
+
+# Árvore de Talentos do Especialista em Armas
+
+Você é treinado para extrair desempenho máximo de tipos específicos de armamento.
+
+Os talentos desta árvore são escolhidos individualmente para cada arma ou grupo de armas.
+
+---
+
+## Especialização em Arma
+
+### Pré-requisitos
+
+* Foco em Arma (arma escolhida)
+
+Escolha:
+
+* uma arma exótica;
+  OU
+* um grupo de armas.
+
+Receba:
+
+**+2 dano**
+
+ao utilizar essas armas.
+
+Pode ser escolhido várias vezes.
+
+Cada vez:
+
+* aplica a nova arma.
+
+---
+
+## Ataque Penetrante
+
+### Pré-requisitos
+
+* Foco em Arma (arma escolhida)
+
+Escolha:
+
+* uma arma exótica;
+  OU
+* um grupo de armas.
+
+Sempre que acertar:
+
+trate a **Redução de Dano** do alvo como:
+
+**5 pontos menor.**
+
+Pode ser escolhido várias vezes.
+
+Cada seleção:
+
+nova arma.
+
+---
+
+## Ataque Devastador
+
+Escolha:
+
+* uma arma exótica;
+  OU
+* grupo de armas.
+
+Sempre que acertar:
+
+trate o **Limite de Dano** do alvo como:
+
+**5 pontos menor**
+
+ao calcular os efeitos.
+
+Pode ser escolhido várias vezes.
+
+Cada seleção:
+
+nova arma.
+
+---
+
+## Demolidor
+
+Sempre que usar **Mecânica** para instalar explosivos:
+
+a explosão recebe:
+
+**+2 dados de dano.**
+
+Pode ser selecionado várias vezes.
+
+Os efeitos se acumulam.
+
+---

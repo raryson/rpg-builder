@@ -1,0 +1,94 @@
+# Serviços e Despesas
+
+# Tabela 8-9: Serviços e Despesas
+
+---
+
+# Jantar (por refeição)
+
+| Serviço        | Preço |
+| -------------- | ----: |
+| Luxuoso        |   150 |
+| Acima da média |    50 |
+| Mediano        |    10 |
+| Econômico      |     2 |
+
+---
+
+# Alojamento (por dia)
+
+| Serviço        | Preço |
+| -------------- | ----: |
+| Luxuoso        |   200 |
+| Acima da média |   100 |
+| Mediano        |    50 |
+| Econômico      |    20 |
+
+---
+
+# Cuidados Médicos
+
+| Serviço                                     | Preço |
+| ------------------------------------------- | ----: |
+| Tratamento em tanque de bacta (por hora)    |   300 |
+| Cuidados de longo prazo (por dia)           |   300 |
+| Tratamento com medpac                       |   300 |
+| Cirurgia (por hora)                         |   500 |
+| Tratar doença (por dia)                     |   500 |
+| Tratar veneno (por hora)                    |   100 |
+| Tratar envenenamento por radiação (por dia) |   500 |
+
+---
+
+# Transporte
+
+| Serviço                                  |  Preço |
+| ---------------------------------------- | -----: |
+| Táxi local                               |     10 |
+| Passagem de terceira classe (até 5 dias) |    500 |
+| Passagem mediana (até 5 dias)            |  1.000 |
+| Passagem acima da média (até 5 dias)     |  2.000 |
+| Passagem luxuosa (até 5 dias)            |  5.000 |
+| Transporte espacial fretado (até 5 dias) | 10.000 |
+
+---
+
+# Manutenção
+
+| Nível           |  Preço |
+| --------------- | -----: |
+| Luxuosa         | 10.000 |
+| Rica            |  5.000 |
+| Satisfatória    |  2.000 |
+| Mediana         |  1.000 |
+| Esforçada       |    500 |
+| Pobre           |    200 |
+| Auto-suficiente |    100 |
+
+---
+
+# Aluguel de Veículo (por dia)
+
+| Veículo                    | Preço |
+| -------------------------- | ----: |
+| Moto speeder               |    20 |
+| Speeder terrestre mediano  |    50 |
+| Speeder terrestre luxuoso  |   100 |
+| Speeder aéreo              |   500 |
+| Transporte interplanetário | 1.000 |
+| Transporte interestelar    | 2.000 |
+
+---
+
+## Regras Gerais — Serviços e Despesas
+
+Os valores apresentados representam custos médios.
+
+Custos podem aumentar em:
+
+* regiões isoladas;
+* mundos primitivos;
+* locais com escassez;
+* zonas de guerra.
+
+Os valores servem como referência para mestres ajustarem economia da campanha.

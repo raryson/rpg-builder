@@ -1,0 +1,274 @@
+# BATEDOR — TALENTOS (Star Wars RPG Saga Edition)
+
+---
+
+# Árvore de Talentos da Consciência
+
+Você é excepcionalmente bom em perceber perigos, reagir rapidamente e evitar situações desfavoráveis.
+
+Os talentos desta árvore representam atenção constante, reflexos rápidos e percepção avançada.
+
+---
+
+## Sentidos Agudos
+
+Você pode realizar uma nova jogada em qualquer teste de **Percepção**.
+
+Entretanto:
+
+* deve utilizar obrigatoriamente o novo resultado;
+* mesmo que seja pior.
+
+---
+
+## Iniciativa Aprimorada
+
+### Pré-requisitos
+
+* Sentidos Agudos
+
+Você pode realizar uma nova jogada em qualquer teste de **Iniciativa**.
+
+Entretanto:
+
+* deve utilizar o novo resultado;
+* mesmo que seja pior.
+
+---
+
+## Esquiva Excepcional I
+
+### Pré-requisitos
+
+* Sentidos Agudos
+* Iniciativa Aprimorada
+
+Você mantém seu bônus de **Destreza na Defesa de Reflexos** mesmo quando:
+
+* estiver sendo flanqueado;
+* for atacado por inimigos escondidos.
+
+Exceção:
+
+* continua perdendo o bônus se estiver imobilizado.
+
+---
+
+## Esquiva Excepcional II
+
+### Pré-requisitos
+
+* Sentidos Agudos
+* Iniciativa Aprimorada
+* Esquiva Excepcional I
+
+Você não pode ser flanqueado.
+
+Você reage naturalmente a ameaças vindas de múltiplas direções.
+
+---
+
+## Rastreador Experiente
+
+### Pré-requisitos
+
+* Sentidos Agudos
+
+Você não sofre penalidades em testes de **Sobrevivência** feitos para seguir rastros enquanto estiver se movendo em deslocamento normal.
+
+Sem este talento:
+
+* existe penalidade de −5.
+
+---
+
+## Tiro Apurado
+
+### Pré-requisitos
+
+* Sentidos Agudos
+
+Você ignora penalidades ao atacar alvos com:
+
+* ocultamento.
+
+Não funciona contra:
+
+* ocultamento total.
+
+---
+
+# Árvore de Talentos da Camuflagem
+
+Você aprendeu como desaparecer no ambiente e se movimentar sem chamar atenção.
+
+---
+
+## Furtividade Aprimorada
+
+Você pode repetir qualquer teste de **Furtividade**.
+
+Entretanto:
+
+* deve usar obrigatoriamente o novo resultado;
+* mesmo que seja pior.
+
+---
+
+## Movimento Encoberto
+
+### Pré-requisitos
+
+* Furtividade Aprimorada
+
+Você não recebe penalidades em Furtividade quando estiver se movendo utilizando deslocamento normal.
+
+---
+
+## Ocultamento Total
+
+Sempre que alguma situação normalmente lhe conceder:
+
+**Ocultamento**
+
+você recebe:
+
+**Ocultamento Total**
+
+em vez disso.
+
+---
+
+# Árvore de Talentos do Improvisador
+
+Você possui enorme capacidade de adaptação e consegue sobreviver em praticamente qualquer ambiente.
+
+---
+
+## Barganhador
+
+Você pode repetir qualquer teste de **Persuasão** realizado para barganha.
+
+Entretanto:
+
+* deve usar o novo resultado.
+
+---
+
+## Engenbrador
+
+Você pode repetir qualquer teste de **Mecânica** realizado para efetuar uma gambiarra.
+
+Limitação:
+
+* apenas para reparos.
+
+Deve utilizar o novo resultado.
+
+---
+
+## Passo-Largo
+
+Seu deslocamento aumenta em:
+
+**+2 quadrados**
+
+quando estiver usando:
+
+* armadura leve;
+  OU
+* nenhuma armadura.
+
+Também aumenta:
+
+* voo;
+* escalada;
+* natação.
+
+Limitação:
+
+não funciona usando armadura média ou pesada.
+
+---
+
+## Sabedoria de Improvisador
+
+Sempre que tirar:
+
+**20 natural**
+
+em um teste de perícia durante um encontro:
+
+recebe:
+
+**1 Ponto da Força temporário**
+
+Se não for usado:
+
+é perdido ao final do encontro.
+
+---
+
+# Árvore de Talentos do Sobrevivente
+
+Como explorador de ambientes perigosos, você aprendeu a resistir e continuar avançando mesmo em condições extremas.
+
+---
+
+## Corredor
+
+Sempre que usar uma ação de **Correr**:
+
+você pode mover:
+
+**5× seu deslocamento**
+
+ao invés de:
+
+**4× seu deslocamento**
+
+---
+
+## Esforço Extremo
+
+Utilizando:
+
+**2 ações rápidas**
+
+você recebe:
+
+**+5**
+
+em um único:
+
+* teste de Força;
+  OU
+* teste de perícia baseada em Força.
+
+O bônus vale apenas para a rodada atual.
+
+---
+
+## Evasão
+
+Quando for alvo de um **ataque em área**:
+
+Se o ataque acertar:
+
+* recebe metade do dano.
+
+Se o ataque errar:
+
+* não recebe dano.
+
+---
+
+## Movimento Livre
+
+Seu deslocamento não é reduzido por:
+
+**Terreno Difícil**
+
+Você ignora totalmente as penalidades de movimentação.
+
+---

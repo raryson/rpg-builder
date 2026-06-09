@@ -1,0 +1,29 @@
+## Tabela 8-1: Bens de Troca
+
+| Item | Custo |
+|---|---:|
+| Água, 1 litro (1 kg) | 1 |
+| Animal, comum | 100 |
+| Animal, exótico | 2.000 |
+| Animal, de criação | 500 |
+| Arte, comum | 100 |
+| Arte, de qualidade | 1.000 |
+| Arte, preciosa | 10.000 |
+| Bacta, 1 litro (1 kg) | 100 |
+| Combustível, 1 litro (1 kg) | 50 |
+| Comida, comum (1 kg) | 10 |
+| Comida, de qualidade (1 kg) | 20 |
+| Comida, exótica (1 kg) | 50 |
+| Tempero, comum (1 kg) | 1.000 |
+| Tempero, exótico (1 grama) | 20 |
+| Gemas, semipreciosas (1 grama) | 100 |
+| Gemas, preciosas (1 grama) | 1.000 |
+| Gemas, exóticas (1 grama) | 10.000 |
+| Holovídeo | 10 |
+| Metal, comum (1 tonelada métrica) | 2.500 |
+| Metal, semiprecioso (1 kg) | 200 |
+| Metal, precioso (1 kg) | 10.000 |
+| Minério, comum (1 tonelada métrica) | 1.500 |
+| Tecido, comum (1 metro) | 5 |
+| Tecido, de qualidade (1 metro) | 20 |
+| Tecido, exótico (1 metro) | 100 |

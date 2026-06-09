@@ -1,0 +1,1011 @@
+## Tabela 8-4: Armas de Combate à Distância
+
+# Armas Simples
+
+| Categoria | Arma                     | Preço | Dano | Dano de Atordoamento | Cadência de Tiro | Peso    | Tipo          | Disponibilidade   |
+| --------- | ------------------------ | ----: | ---- | -------------------- | ---------------- | ------- | ------------- | ----------------- |
+| Minúscula | Esfera de energia³       |    20 | 2d8  | Não                  | U                | 0,25 kg | Energia       | Licenciada / Rara |
+| Minúscula | Granada de Fragmentação¹ |   200 | 4d6  | Não                  | U                | 0,5 kg  | Corte         | Militar           |
+| Minúscula | Granada de Íons¹         |   250 | 4d6  | Não                  | U                | 0,5 kg  | Energia (íon) | Restrita          |
+| Minúscula | Granada de Atordoamento¹ |   250 | 4d6  | Somente              | U                | 0,5 kg  | Energia       | Restrita          |
+| Minúscula | Detonador Termal¹⁵       | 2.000 | 8d6  | Não                  | U                | 1 kg    | Energia       | Ilegal            |
+| Pequena   | Funda                    |    35 | 1d4  | Não                  | U                | 0,3 kg  | Concussão     | —                 |
+| Média     | Arco                     |   300 | 1d6  | Não                  | U                | 1,4 kg  | Perfuração    | —                 |
+| Grande    | Rede⁵                    |    25 | —    | Não                  | U                | 4,5 kg  | —             | —                 |
+
+---
+
+## Descrições
+
+### Arco
+
+**Arma Simples**
+
+O arco é uma arma típica de caçadores em mundos de baixa tecnologia, mas também é usado como equipamento esportivo em planetas de alta tecnologia.
+
+Um arco primitivo e suas flechas costumam ser feitos de madeira, com reforços de metal ou pedra.
+
+Versões mais avançadas tendem a ser feitas de compostos mais resistentes e leves.
+
+O modificador de Força do usuário se aplica ao dano causado pelo arco.
+
+Um arco comporta apenas uma flecha por vez, mas pode ser recarregado como uma ação livre.
+
+Uma aljava com 10 flechas custa **20 créditos** e pesa **0,8 kg**.
+
+---
+
+### Funda
+
+**Arma Simples**
+
+Uma arma primitiva usada para arremessar projéteis de pedra ou metal.
+
+O modificador de Força do usuário se aplica ao dano causado por uma funda.
+
+---
+
+### Rede
+
+**Arma Simples**
+
+Redes são usadas para caça e pesca em culturas primitivas e para controle não letal de multidões em culturas mais avançadas.
+
+Uma rede permite realizar:
+
+* ataque de agarrar;
+* ataque de prender.
+
+O alvo deve estar dentro do alcance da rede.
+
+Um personagem agarrado ou preso por uma rede pode tentar escapar com:
+
+* teste de Acrobacia CD 15;
+
+ou tentar rompê-la com:
+
+* teste de Força CD 20.
+
+Você pode usar com a rede as aptidões:
+
+* Imobilizar;
+* Derrubar.
+
+Você não pode usar com a rede as aptidões:
+
+* Esmagar;
+* Arremessar.
+
+---
+
+### Esfera de Energia
+
+**Arma Simples**
+
+Esferas de energia são projéteis usados principalmente com armas gungan, como o **atlatl** e a **cesta**.
+
+Para propósitos de alcance, considere a esfera de energia da seguinte forma:
+
+* como arma de arremesso, se arremessada com uma mão;
+* como arma simples, se lançada por um atlatl;
+* como arma simples de precisão, se lançada por uma cesta.
+
+---
+
+### Granada de Fragmentação
+
+**Arma Simples**
+
+A granada de fragmentação padrão libera estilhaços de metal com força explosiva, cortando qualquer criatura dentro de sua área.
+
+Ela possui raio de explosão de **2 quadrados**.
+
+É feita para explodir em contato após ser arremessada, causando dano no mesmo turno em que é lançada.
+
+Ao fazer um ataque de área com uma granada de fragmentação:
+
+* realize uma única jogada de ataque;
+* compare o resultado com a Defesa de Reflexos de cada alvo na área.
+
+Alvos atingidos recebem dano completo.
+
+Alvos não atingidos recebem metade do dano.
+
+Um alvo com o talento **Evasão** recebe metade do dano em um ataque bem-sucedido e nenhum dano se o ataque errar.
+
+---
+
+### Granada de Íons
+
+**Arma Simples**
+
+Granadas de íons são usadas quando o objetivo é capturar ou desativar dróides, veículos e equipamentos eletrônicos.
+
+A granada de íons padrão libera um breve pulso eletrostático que afeta:
+
+* dróides;
+* veículos;
+* dispositivos eletrônicos;
+* criaturas ciberneticamente aprimoradas.
+
+Ela possui raio de explosão de **2 quadrados**.
+
+É feita para explodir em contato após ser arremessada, causando efeito no mesmo turno em que é lançada.
+
+Ao fazer um ataque de área com uma granada de íons:
+
+* realize uma única jogada de ataque;
+* compare o resultado com a Defesa de Reflexos de cada alvo na área.
+
+Dróides, veículos, dispositivos eletrônicos e criaturas cibernéticas atingidos recebem dano total.
+
+Alvos desse tipo que não forem atingidos recebem metade do dano.
+
+Além disso, o dano por íon pode mover o alvo **um passo negativo no marcador de condição**.
+
+Criaturas sem partes cibernéticas recebem metade do dano por íon em um acerto, nenhum dano em caso de erro e não sofrem efeitos prejudiciais adicionais.
+
+Um alvo com o talento **Evasão** recebe metade do dano em um ataque bem-sucedido e nenhum dano se o ataque errar.
+
+---
+
+### Granada de Atordoamento
+
+**Arma Simples**
+
+Granadas de atordoamento são usadas quando o objetivo é deter ou subjugar, em vez de matar.
+
+São comuns entre:
+
+* unidades mercenárias;
+* forças militares;
+* agências locais de aplicação da lei.
+
+A granada de atordoamento padrão libera energia concussiva capaz de nocautear criaturas dentro de sua área.
+
+Ela possui raio de explosão de **2 quadrados**.
+
+É feita para explodir em contato após ser arremessada, causando dano no mesmo turno em que é lançada.
+
+Ao fazer um ataque de área com uma granada de atordoamento:
+
+* realize uma única jogada de ataque;
+* compare o resultado com a Defesa de Reflexos de cada alvo na área.
+
+Alvos atingidos recebem dano de atordoamento total.
+
+Alvos não atingidos recebem metade do dano de atordoamento.
+
+Além disso, o dano de atordoamento pode mover criaturas alvo **um passo negativo no marcador de condição**.
+
+Um alvo com o talento **Evasão** recebe metade do dano de atordoamento em um ataque bem-sucedido e nenhum dano se o ataque errar.
+
+Dróides, veículos e objetos são imunes ao dano de atordoamento.
+
+---
+
+### Detonador Termal
+
+**Arma Simples**
+
+O detonador termal é uma esfera do tamanho de um punho contendo **baradium**, um poderoso explosivo.
+
+Ele é ilegal em praticamente todo o espaço conhecido, exceto para profissionais de demolição altamente regulamentados.
+
+O detonador termal produz uma reação de fusão que gera rapidamente uma expansão de calor intenso e energia explosiva.
+
+O temporizador do detonador termal pode ser ajustado para:
+
+* 6 segundos, equivalente a 1 rodada;
+* até 18 segundos, equivalente a 3 rodadas.
+
+Durante esse período, ele mantém uma contagem regressiva até explodir ou ser reajustado para a posição de segurança.
+
+Ao fazer um ataque de área com um detonador termal:
+
+* realize uma única jogada de ataque;
+* compare o resultado com a Defesa de Reflexos de cada alvo dentro do raio de explosão.
+
+O raio de explosão do detonador termal é de **4 quadrados**.
+
+Alvos atingidos recebem dano total.
+
+Alvos não atingidos recebem metade do dano.
+
+Um alvo com o talento **Evasão** recebe metade do dano em um ataque bem-sucedido e nenhum dano se o ataque errar.
+
+---
+
+## Notas
+
+¹ Arma de ataque de área.
+
+³ Para propósitos de alcance, considere como arma de arremesso se arremessada com uma mão, arma simples se lançada por um atlatl, ou arma simples de precisão se lançada por uma cesta.
+
+⁵ Arma imprecisa: não pode ser disparada contra alvos em alcance longo.
+
+## Tabela 8-4: Armas de Combate à Distância
+
+# Pistolas
+
+| Categoria | Arma                       | Preço | Dano      | Dano de Atordoamento | Cadência de Tiro | Peso   | Tipo          | Disponibilidade |
+| --------- | -------------------------- | ----: | --------- | -------------------- | ---------------- | ------ | ------------- | --------------- |
+| Miúda     | Pistola Blaster de Bolso⁵  |   300 | 3d4       | Não                  | U                | 0,5 kg | Energia       | Ilegal          |
+| Pequena   | Pistola Blaster            |   500 | 3d6       | Sim                  | U                | 1 kg   | Energia       | Restrita        |
+| Pequena   | Pistola Blaster Esportiva⁴ |   300 | 3d4       | Sim                  | U                | 1 kg   | Energia       | Licenciada      |
+| Pequena   | Pistola de Íons            |   250 | 3d6 (íon) | Não                  | U                | 1 kg   | Energia (íon) | Licenciada      |
+| Pequena   | Pistola de Projéteis       |   250 | 2d6       | Não                  | U                | 1,4 kg | Perfuração    | Licenciada      |
+| Média     | Pistola Blaster Pesada⁵    |   750 | 3d8       | Sim                  | U                | 1,3 kg | Energia       | Militar         |
+
+---
+
+## Descrições
+
+### Pistola Blaster
+
+**Pistola**
+
+A palavra “blaster” cobre literalmente milhares de projetos diferentes produzidos por centenas de fabricantes.
+
+Modelos como a **Blastech DL-18** tornaram-se extremamente populares.
+
+Blasters são comuns entre:
+
+* forças policiais;
+* comerciantes;
+* civis armados;
+* aventureiros.
+
+Oferecem poder de fogo respeitável em uma arma fácil de transportar.
+
+Uma pistola blaster requer **uma carga de energia**.
+
+Após **100 disparos**, a carga deve ser substituída.
+
+---
+
+### Pistola Blaster de Bolso
+
+**Pistola**
+
+Blasters pequenas do tamanho da palma da mão são comuns em regiões com fortes restrições ao porte de armas.
+
+São frequentemente utilizadas por:
+
+* agentes secretos;
+* jogadores;
+* fora-da-lei;
+* nobres.
+
+Também são usadas como arma secundária.
+
+Por seu tamanho compacto:
+
+**Concede bônus de equipamento +5 em testes de Furtividade para esconder a arma.**
+
+Uma pistola blaster de bolso requer **uma célula de energia**.
+
+Após **6 disparos**, a célula deve ser substituída.
+
+---
+
+### Pistola Blaster Esportiva
+
+**Pistola**
+
+Uma blaster curta e compacta usada principalmente para:
+
+* caça de pequeno porte;
+* defesa pessoal.
+
+A **Princesa Leia Organa** usa uma blaster esportiva **DCC Defender** quando aparece pela primeira vez no Episódio IV.
+
+A arma requer **uma célula de energia**.
+
+Após **6 disparos**, a célula deve ser substituída.
+
+Ela também pode operar conectada a uma **carga de energia**.
+
+Nesse caso:
+
+* suporta até **100 disparos**.
+
+---
+
+### Pistola Blaster Pesada
+
+**Pistola**
+
+Criada para entregar o poder de fogo esperado de um rifle em um formato compacto.
+
+Extrai energia de forma mais intensa que pistolas convencionais.
+
+Por isso produz mais recuo e reduz a quantidade de disparos por carga.
+
+Han Solo utiliza uma **Blastech DL-44**, uma pistola blaster pesada.
+
+Uma pistola blaster pesada requer **uma carga de energia**.
+
+Após **50 disparos**, a carga deve ser substituída.
+
+---
+
+### Pistola de Projéteis
+
+**Pistola**
+
+Uma pistola de projéteis dispara munição física de metal — balas — ao invés de energia.
+
+É mais comum em:
+
+* mundos atrasados;
+* regiões marginais;
+* locais onde blasters são escassas.
+
+Ela não utiliza células de energia.
+
+Usa pentes de munição.
+
+Características:
+
+* Capacidade do pente: **10 balas**
+* Custo do pente: **20 créditos**
+* Peso do pente: **0,1 kg**
+
+---
+
+### Pistola de Íons
+
+**Pistola**
+
+Uma pistola de íons dispara energia especializada para destruir sistemas elétricos.
+
+É extremamente eficiente contra:
+
+* dróides;
+* veículos;
+* dispositivos eletrônicos;
+* criaturas ciberneticamente aprimoradas.
+
+Esses alvos recebem dano total.
+
+Além disso, o dano por íons pode mover o alvo **um passo negativo no marcador de condição**.
+
+Criaturas sem componentes cibernéticos:
+
+* recebem metade do dano;
+* não sofrem efeitos adicionais.
+
+Uma pistola de íons requer **uma carga de energia**.
+
+Após **30 disparos**, a carga deve ser substituída.
+
+---
+
+## Notas
+
+⁴ Arma de Precisão: não sofre penalidade contra alvos em alcance curto.
+
+⁵ Arma Imprecisa: não pode atacar alvos em alcance longo.
+
+U = Disparo Único
+
+
+## Tabela 8-4: Armas de Combate à Distância
+
+# Rifles
+
+| Categoria | Arma                      | Preço | Dano      | Dano de Atordoamento | Cadência de Tiro | Peso   | Tipo          | Disponibilidade |
+| --------- | ------------------------- | ----: | --------- | -------------------- | ---------------- | ------ | ------------- | --------------- |
+| Média     | Carabina Blaster⁵         |   900 | 3d8       | Sim                  | U, A             | 2,2 kg | Energia       | Restrita        |
+| Média     | Rifle Blaster             | 1.000 | 3d8       | Sim                  | U, A             | 4,5 kg | Energia       | Restrita        |
+| Média     | Rifle Blaster Esportivo⁴  |   800 | 3d6       | Não                  | U                | 4 kg   | Energia       | Licenciada      |
+| Média     | Rifle de Íons             |   800 | 3d8 (íon) | Não                  | U                | 3,1 kg | Energia (íon) | Restrita        |
+| Média     | Rifle de Projéteis        |   300 | 2d8       | Não                  | U                | 4 kg   | Perfuração    | Restrita        |
+| Grande    | Blaster de Repetição Leve | 1.200 | 3d8       | Sim                  | A                | 6 kg   | Energia       | Militar         |
+| Grande    | Rifle Blaster Pesado⁵     | 2.000 | 3d10      | Sim                  | U                | 6 kg   | Energia       | Militar         |
+
+---
+
+## Descrições
+
+### Carabina Blaster
+
+**Rifle**
+
+Esse pequeno rifle blaster possui cano curto e empunhaduras compactas, fazendo parecer mais uma pistola do que um rifle.
+
+Algumas carabinas, como a **E-5 dos dróides B1**, possuem coronha retrátil.
+
+Uma carabina sem coronha retrátil custa:
+
+**850 créditos** (em vez de 900).
+
+Por seu desenho compacto:
+
+* sempre pode ser usada para realizar ataques de oportunidade;
+* mesmo sem a coronha dobrada.
+
+Uma carabina blaster requer **uma carga de energia**.
+
+Após **50 disparos**, a carga deve ser substituída.
+
+---
+
+### Rifle Blaster
+
+**Rifle**
+
+O rifle blaster básico é o modelo padrão utilizado por soldados em toda a galáxia.
+
+Alguns modelos, como:
+
+* Blastech E-11
+* SoroSuub Stormtrooper One
+
+possuem coronha retrátil.
+
+Um rifle sem coronha retrátil custa:
+
+**900 créditos** (em vez de 1.000).
+
+Um rifle blaster requer **uma carga de energia**.
+
+Após **50 disparos**, a carga deve ser substituída.
+
+---
+
+### Rifle Blaster Esportivo
+
+**Rifle**
+
+Rifles blaster esportivos são populares tanto entre a elite galáctica quanto entre colonos e habitantes de fronteira.
+
+São legais na maioria dos sistemas.
+
+Alguns mundos do Núcleo exigem licença especial.
+
+Luke Skywalker mantém um rifle esportivo em seu speeder terrestre em Tatooine.
+
+Frequentemente possuem:
+
+* mira telescópica instalada.
+
+A mira não está incluída no preço.
+
+Um rifle blaster esportivo requer **uma carga de energia**.
+
+Após **100 disparos**, a carga deve ser substituída.
+
+---
+
+### Rifle de Íons
+
+**Rifle**
+
+Uma versão maior e mais poderosa da pistola de íons.
+
+Especializado em neutralizar:
+
+* dróides;
+* veículos;
+* sistemas eletrônicos;
+* criaturas cibernéticas.
+
+Alvos eletrônicos recebem dano completo.
+
+Também podem sofrer:
+
+* deslocamento negativo no marcador de condição.
+
+Criaturas orgânicas sem implantes recebem:
+
+* metade do dano;
+* nenhum efeito adicional.
+
+Um rifle de íons requer **uma carga de energia**.
+
+Após **20 disparos**, a carga deve ser substituída.
+
+---
+
+### Rifle de Projéteis
+
+**Rifle**
+
+O rifle de projéteis é a versão ampliada da pistola de projéteis.
+
+Dispara munição física em vez de energia.
+
+Não utiliza células de energia.
+
+Usa pentes.
+
+Características:
+
+* Capacidade: **20 balas**
+* Custo do pente: **40 créditos**
+* Peso do pente: **0,2 kg**
+
+---
+
+### Blaster de Repetição Leve
+
+**Rifle**
+
+A blaster leve de repetição é a maior arma estilo rifle normalmente carregada por tropas militares.
+
+Funciona exclusivamente em:
+
+**Modo Disparo Automático**
+
+Uma blaster leve de repetição requer **uma carga de energia**.
+
+Após **30 disparos**, a carga deve ser substituída.
+
+Também pode ser conectada a um:
+
+* gerador de energia.
+
+---
+
+### Rifle Blaster Pesado
+
+**Rifle**
+
+Uma versão ampliada e mais poderosa do rifle blaster.
+
+Amplamente utilizada por:
+
+* troopers clones;
+* stormtroopers;
+* tropas em campo aberto.
+
+Por seu tamanho:
+
+* não funciona tão bem em combate muito próximo.
+
+Um rifle blaster pesado requer **uma carga de energia**.
+
+Após **30 disparos**, a carga deve ser substituída.
+
+---
+
+## Notas
+
+⁴ Arma de Precisão: não sofre penalidade contra alvos em alcance curto.
+
+⁵ Arma Imprecisa: não pode atacar alvos em alcance longo.
+
+U = Disparo Único
+A = Disparo Automático
+
+
+## Tabela 8-4: Armas de Combate à Distância
+
+# Armas Exóticas
+
+| Categoria | Arma              | Preço | Dano | Dano de Atordoamento | Cadência | Peso | Tipo                 | Disponibilidade |
+| --------- | ----------------- | ----: | ---- | -------------------- | -------- | ---- | -------------------- | --------------- |
+| Média     | Lança-chamas¹     | 1.000 | 3d6  | Não                  | U        | 7 kg | Fogo                 | Militar         |
+| Grande    | Besta de Energia⁴ | 1.500 | 3d10 | Não                  | U        | 8 kg | Energia e Perfuração | Licenciada      |
+
+---
+
+# Armas Pesadas
+
+| Categoria | Arma                        | Preço | Dano     | Dano de Atordoamento | Cadência | Peso  | Tipo     | Disponibilidade |
+| --------- | --------------------------- | ----: | -------- | -------------------- | -------- | ----- | -------- | --------------- |
+| Média     | Lançador de Granadas⁵       |   500 | Especial | Especial             | U        | 5 kg  | Variável | Militar         |
+| Grande    | Blaster de Repetição Pesada | 3.000 | 3d12     | Não                  | A        | 18 kg | Energia  | Militar         |
+| Grande    | Canhão Blaster¹⁵            | 1.500 | 6d6      | Não                  | U        | 10 kg | Energia  | Militar         |
+| Grande    | Lançador de Mísseis¹        | 8.000 | 3d12     | Não                  | U        | 38 kg | Energia  | Militar         |
+| Enorme    | Blaster E-Web de Repetição² | 4.000 | 3d10     | Não                  | A        | 12 kg | Energia  | Militar         |
+
+---
+
+## Descrições
+
+### Lança-chamas
+
+**Arma Exótica**
+
+O lança-chamas dispara um cone de produtos químicos flamejantes.
+
+Área do ataque:
+
+* comprimento: **6 quadrados**
+* largura no final: **6 quadrados**
+
+Realize uma única jogada de ataque e compare com a Defesa de Reflexos de todos os alvos na área.
+
+Resultado:
+
+* Acerto → dano total (**3d6 fogo**)
+* Erro → metade do dano
+
+Um alvo com **Evasão** recebe:
+
+* metade do dano em sucesso;
+* nenhum dano em erro.
+
+Recarregar o lança-chamas exige:
+
+**Ação de rodada completa**
+
+Características:
+
+* 5 usos por recarga
+* Cartucho químico custa **200 créditos**
+* Cartucho pesa **4 kg**
+
+---
+
+### Besta de Energia
+
+**Arma Exótica**
+
+Construída exclusivamente pelos wookiees de Kashyyyk.
+
+Combina tecnologia antiga e moderna.
+
+Dispara um virote explosivo de energia em altíssima velocidade.
+
+Embora seja uma arma exótica:
+
+* Wookiees são considerados proficientes caso possuam **Proficiência em Armas (rifles)**.
+
+Munição:
+
+* Aljava com 10 virotes
+* Custo: **50 créditos**
+* Peso: **1 kg**
+
+Para propósitos de alcance:
+
+* considere como rifle.
+
+---
+
+### Lançador de Granadas
+
+**Arma Pesada**
+
+Arma militar criada para ampliar drasticamente o alcance de granadas.
+
+Granadas lançadas:
+
+* sempre explodem no impacto;
+* ignoram temporizadores.
+
+O tipo de granada determina:
+
+* dano;
+* tipo;
+* área.
+
+Detonadores termais não podem ser utilizados.
+
+Capacidade:
+
+* **4 granadas**
+
+Recarga:
+
+* ação de rodada completa.
+
+Pode ser:
+
+* usado separadamente;
+* montado em rifle.
+
+Montagem:
+
+* tempo: **1 minuto**
+* Mecânica CD **15**
+
+---
+
+### Blaster de Repetição Pesada
+
+**Arma Pesada**
+
+Uma arma extremamente poderosa normalmente utilizada:
+
+* em casamatas;
+* veículos;
+* posições defensivas.
+
+Opera somente em:
+
+**Disparo Automático**
+
+Sem tripé:
+
+* não permite firmar antes do disparo automático.
+
+Energia:
+
+* usa carga de energia;
+* substituição após **20 disparos**.
+
+Também pode ser conectada a:
+
+* gerador de energia.
+
+---
+
+### Canhão Blaster
+
+**Arma Pesada**
+
+Canhões blaster são armas portáteis apoiadas no ombro.
+
+Muito utilizados como:
+
+* arma anti-veículo;
+* destruição de tropas;
+* destruição de estruturas.
+
+É uma arma de:
+
+**Ataque em Área**
+
+Resultado:
+
+* acerto → dano total
+* erro → metade do dano
+
+Criaturas adjacentes ao alvo:
+
+* recebem metade do dano em sucesso;
+* nenhum dano em erro.
+
+Um alvo com **Evasão**:
+
+* reduz dano normalmente.
+
+Energia:
+
+* usa carga de energia;
+* substituição após **10 disparos**.
+
+---
+
+### Lançador de Mísseis
+
+**Arma Pesada**
+
+Dispara projéteis de alta velocidade com ogivas explosivas.
+
+O míssil padrão espalha estilhaços dentro de:
+
+**2 quadrados de raio**
+
+Ataque em área:
+
+* acerto → dano total
+* erro → metade do dano
+
+Evasão funciona normalmente.
+
+Capacidade:
+
+* **4 mísseis**
+
+Recarga:
+
+* ação de rodada completa.
+
+Pacotes extras:
+
+* 4 mísseis
+* 200 créditos
+* 5 kg
+
+---
+
+### Blaster E-Web de Repetição
+
+**Arma Pesada**
+
+Normalmente só pode operar montada em tripé.
+
+Quando montada:
+
+* conta como categoria menor para operação.
+
+Isso permite:
+
+* personagens Médios operarem usando duas mãos.
+
+Opera somente em:
+
+**Disparo Automático**
+
+Requer:
+
+* gerador de energia.
+
+Normalmente exige:
+
+* operador principal;
+* operador auxiliar.
+
+O auxiliar deve gastar:
+
+**ação padrão**
+
+para regular energia.
+
+Sem regulação:
+
+* todas jogadas sofrem penalidade de **–2**.
+
+---
+
+## Notas
+
+¹ Ataque em Área.
+
+² Montado em tripé conta como arma Grande.
+
+⁴ Arma de Precisão: sem penalidade em alcance curto.
+
+⁵ Arma Imprecisa: não pode atacar alcance longo.
+
+U = Disparo Único
+A = Disparo Automático
+
+
+## Alcance das Armas
+
+| Tipo da Arma       | À Queima-Roupa (sem penalidade) | Curto (-2 ataque) | Médio (-5 ataque) | Longo (-10 ataque) |
+| ------------------ | ------------------------------: | ----------------: | ----------------: | -----------------: |
+| Armas Pesadas      |                  0–50 quadrados |            51–100 |           101–250 |            251–500 |
+| Pistolas           |                  0–20 quadrados |             21–40 |             41–60 |              61–80 |
+| Rifles             |                  0–30 quadrados |             31–60 |            61–150 |            151–300 |
+| Armas Simples      |                  0–20 quadrados |             21–40 |             41–60 |              61–80 |
+| Armas de Arremesso |                   0–6 quadrados |               7–8 |              9–10 |              11–12 |
+
+---
+
+## Tabela 8-6: Explosivos
+
+| Arma              | Preço | Dano  | Tipo de Dano | Peso   | Tamanho  | Disponibilidade |
+| ----------------- | ----: | ----- | ------------ | ------ | -------- | --------------- |
+| Carga Explosiva   | 1.500 | 10d6* | Energia      | 0,5 kg | Diminuto | Restrita        |
+| Detonita          |   500 | 5d6*  | Energia      | 0,1 kg | Miúdo    | Restrita        |
+| Contador de Tempo |   250 | —     | —            | 0,1 kg | Miúdo    | Licenciada      |
+
+---
+
+## Descrições
+
+### Explosivos
+
+Algumas missões exigem explosivos mais poderosos do que granadas ou detonadores termais.
+
+Explosivos de fixação:
+
+* não são armas de combate à distância;
+* não podem ser usados como granadas.
+
+Instalar um explosivo requer:
+
+**Teste de Mecânica**
+
+Quando instalado e ativado:
+
+* inicia contagem regressiva;
+* temporizadores comuns suportam até **1 hora**;
+* períodos maiores exigem temporizadores especializados.
+
+Com um teste bem sucedido de Mecânica:
+
+* explosivos ignoram redução de dano dos objetos instalados.
+
+Resultados elevados no teste podem aumentar dano.
+
+---
+
+### Dano Combinado de Explosivos
+
+Múltiplos explosivos detonados simultaneamente causam dano adicional.
+
+Regra:
+
+Cada vez que o número de explosivos dobrar:
+
+**+2 dados de dano**
+
+Exemplos:
+
+* 1 bloco → dano normal
+* 2 blocos → +2 dados
+* 4 blocos → +4 dados
+
+Exemplo oficial:
+
+* 2 blocos de detonita → **7d6**
+* 4 blocos → **9d6**
+
+---
+
+### Carga Explosiva
+
+Cargas explosivas são altamente restritas.
+
+Normalmente disponíveis apenas para:
+
+* militares;
+* especialistas em forças da lei;
+* equipes especializadas de construção.
+
+Han Solo e seu grupo utilizaram cargas explosivas para destruir o gerador de escudos de Endor no Episódio VI.
+
+Uma carga explosiva concentra enorme quantidade de energia em um ponto específico.
+
+Indicada para:
+
+* demolição;
+* destruição estrutural;
+* remoção de entulho.
+
+Características:
+
+* raio de explosão: **1 quadrado**
+* dano além da área é insignificante
+
+Entretanto:
+
+* explosões secundárias e danos colaterais ainda podem ocorrer.
+
+---
+
+### Detonita
+
+Detonita é um explosivo de contato.
+
+Apresenta-se em pequenos blocos semelhantes a argila.
+
+Pode ser:
+
+* moldada;
+* modelada;
+* encaixada em espaços pequenos.
+
+Características:
+
+* extremamente estável antes da ativação;
+* exige temporizador para armamento.
+
+---
+
+### Contador de Tempo
+
+Dispositivo utilizado para controlar o momento de detonação.
+
+Características padrão:
+
+* suporta até **1 hora de espera**
+* utilizado em explosivos instalados
+
+Temporizadores maiores exigem equipamentos especializados.
+
+---
+
+## Regras Gerais — Explosivos
+
+* Ignoram RD de objetos quando corretamente instalados.
+* Podem ter dano ampliado com Mecânica.
+* Podem combinar dano em explosões simultâneas.
+* Exigem preparação e posicionamento.
+* Não funcionam como armas convencionais.
+
+---
+
+## Notas
+
+* Dano pode aumentar conforme regras de Mecânica e explosões combinadas.
+

@@ -1,0 +1,2013 @@
+# Equipamentos — Parte 1
+
+# Dispositivos de Comunicação
+
+| Equipamento                        | Custo |   Peso |
+| ---------------------------------- | ----: | -----: |
+| Comunicador de curto alcance       |    25 | 0,1 kg |
+| Comunicador de longo alcance       |   250 |   1 kg |
+| Misturador de frequências portátil |   400 | 0,5 kg |
+| Caixa de voz                       |   200 | 0,1 kg |
+
+---
+
+## Regras Gerais — Dispositivos de Comunicação
+
+No universo de Star Wars assume-se que dispositivos de comunicação utilizam um padrão básico compartilhado de frequências.
+
+As diferenças principais entre dispositivos são:
+
+* alcance;
+* tamanho;
+* tipo de transmissão.
+
+Tipos de dados suportados:
+
+* áudio;
+* vídeo;
+* holografia.
+
+Se dois dispositivos estiverem:
+
+* dentro do alcance;
+* compartilhando o mesmo tipo de transmissão;
+
+eles podem se comunicar.
+
+---
+
+## Comunicador
+
+Um transceptor pessoal composto por:
+
+* receptor;
+* transmissor;
+* fonte de energia.
+
+Pode existir em diversos formatos.
+
+---
+
+### Comunicador de Curto Alcance
+
+Características:
+
+* alcance de **50 km**
+* ou órbita baixa.
+
+Pode ser incorporado em:
+
+* capacetes;
+* armaduras.
+
+Exemplo:
+
+* armadura de stormtrooper.
+
+---
+
+### Comunicador de Longo Alcance
+
+Características:
+
+* alcance de **200 km**
+* ou órbita elevada.
+
+Normalmente requer:
+
+* conjunto do tamanho de uma mochila.
+
+Opção adicional:
+
+Miniaturização:
+
+* reduz para tamanho aproximado de um punho;
+* custa **2× o valor base**.
+
+---
+
+### Modificação — Criptografia
+
+Um comunicador pode incorporar rotinas de criptografia.
+
+Efeito:
+
+**+10 na CD de testes de Usar Computador feitos para interceptar transmissões.**
+
+Custo:
+
+**10× preço base do comunicador.**
+
+---
+
+### Modificação — Capacidade de Vídeo
+
+Adiciona:
+
+* transmissão de imagens bidimensionais;
+* transmissão de áudio.
+
+Custo:
+
+**2× preço base.**
+
+---
+
+### Modificação — Capacidade Holográfica
+
+Adiciona:
+
+* projeção tridimensional;
+* transmissão de áudio.
+
+Custo:
+
+**5× preço base.**
+
+---
+
+## Misturador de Frequências Portátil
+
+Dispositivo suplementar que pode ser conectado a dispositivos de comunicação normais.
+
+Compatível com:
+
+* comunicadores;
+* transmissores avançados.
+
+Função:
+
+* codificar automaticamente transmissões.
+
+Somente dispositivos equipados com outro misturador conseguem interpretar corretamente a mensagem.
+
+Interceptação:
+
+* teste de Usar Computador;
+* **CD 30**.
+
+---
+
+## Caixa de Voz
+
+Unidade simples de reprodução de áudio.
+
+Possui **12 frases pré-programadas** em Básico:
+
+1. Sim
+2. Não
+3. Talvez
+4. Saudações
+5. Vá embora
+6. Quanto custa?
+7. Por favor, leve-me a alguém com autoridade
+8. Eu entendo
+9. Eu preciso de ajuda
+10. Eu posso ajudar você
+11. Eu não tenho intenção de fazer mal
+12. Eu estou com fome
+
+Usada principalmente por espécies que:
+
+* entendem Básico;
+* mas não conseguem falá-lo.
+
+Exemplos:
+
+* Wookiees
+* Gamorreanos
+
+Modificar frases:
+
+* teste de Usar Computador
+* **CD 10**
+
+
+# Equipamentos — Parte 2
+
+# Computadores e Dispositivos de Armazenamento
+
+| Equipamento                     | Custo |   Peso |
+| ------------------------------- | ----: | -----: |
+| Cilindro de código              |   500 | 0,1 kg |
+| Chip de crédito                 |   100 | 0,1 kg |
+| Cartões de dados em branco (10) |    10 | 0,1 kg |
+| Datapad                         | 1.000 | 0,5 kg |
+| Datapad básico                  |   100 | 0,3 kg |
+| Holoprojetor pessoal            | 1.000 | 0,5 kg |
+| Computador portátil             | 5.000 |   2 kg |
+
+---
+
+## Regras Gerais — Computadores
+
+Computadores incluem qualquer dispositivo eletrônico capaz de:
+
+* armazenar dados;
+* processar dados.
+
+Cada computador possui um valor de:
+
+**Inteligência**
+
+Esse valor representa sua capacidade computacional.
+
+A Inteligência é usada em testes de:
+
+**Usar Computador**
+
+---
+
+### Atitude do Computador
+
+Se a atitude do computador for:
+
+* amistosa;
+* prestativa;
+
+ele concede um bônus de equipamento igual ao seu modificador de Inteligência em testes de Usar Computador.
+
+---
+
+### Defesa de Vontade
+
+Defesa de Vontade do computador:
+
+**15 + modificador de Inteligência**
+
+Para melhorar acesso ao sistema:
+
+* o teste de Usar Computador deve igualar ou exceder essa Defesa.
+
+---
+
+### Dispositivos de Armazenamento
+
+Alguns computadores são usados apenas para:
+
+* gravar dados;
+* armazenar dados;
+* visualizar dados.
+
+Alguns modelos incluem:
+
+* sistema operacional;
+* tela;
+* entrada de dados;
+* edição.
+
+Esses modelos normalmente custam mais.
+
+---
+
+## Cilindro de Código
+
+Dispositivo compacto de segurança usado por:
+
+* militares;
+* políticos;
+* corporações.
+
+Funções:
+
+* acessar computadores;
+* conectar em plugues de dróides;
+* liberar áreas restritas.
+
+Cada cilindro contém:
+
+* credenciais pessoais;
+* permissões criptografadas.
+
+Pessoas de alta patente frequentemente carregam vários.
+
+Características:
+
+* Inteligência 10
+* Defesa de Vontade 15
+* atitude inicial hostil
+
+Falha por **5 ou mais** ao melhorar acesso:
+
+* ativa autodestruição;
+* destrói o cilindro.
+
+Usado por:
+
+* República;
+* Império;
+* Nova República.
+
+---
+
+## Chip de Crédito
+
+Pequeno cartão contendo:
+
+* código de segurança;
+* memória financeira.
+
+Pode:
+
+* armazenar créditos;
+* acessar conta vinculada.
+
+Benefícios:
+
+* transferência rápida;
+* proteção contra roubos.
+
+Características:
+
+* Inteligência 10
+* Defesa de Vontade 15
+* atitude inicial hostil
+
+Se tornar amistoso:
+
+* permite acesso à conta.
+
+Falha por **5 ou mais**:
+
+* ativa autodestruição.
+
+---
+
+### Modificação Fraudulenta de Chip
+
+Modificar para alterar:
+
+* saldo;
+* conta vinculada;
+
+é extremamente difícil.
+
+Computadores bancários possuem:
+
+* Defesa de Vontade 30
+* atitude hostil
+
+O sucesso normalmente só é descoberto ao tentar usar.
+
+Falha:
+
+* destruição do chip.
+
+Falha por 5 ou mais:
+
+* destruição do chip;
+* rastreamento;
+* envio de segurança.
+
+---
+
+## Cartão de Dados
+
+Dispositivo simples de armazenamento.
+
+Características:
+
+* Inteligência 2
+
+Projetado exclusivamente para:
+
+* armazenamento externo.
+
+Limitações:
+
+* sem tela;
+* sem edição;
+* sem entrada direta.
+
+---
+
+## Datapad
+
+Computador pessoal portátil.
+
+Funções comuns:
+
+* bloco de notas;
+* agenda;
+* calculadora;
+* desenho;
+* acesso em rede.
+
+Características:
+
+* Inteligência 12
+
+---
+
+### Datapad Básico
+
+Versão simplificada.
+
+Características:
+
+* Inteligência 10
+* tela simples
+* entrada e edição
+
+Limitações:
+
+* não executa programas.
+
+---
+
+## Holoprojetor Pessoal
+
+Transmissor portátil de hologramas.
+
+Pode:
+
+* visualizar holografia;
+* gravar holografia;
+* transmitir hologramas.
+
+Características:
+
+* Inteligência 2
+
+Capacidade:
+
+* 1 hora de gravação holográfica
+  ou
+* 1000 imagens holográficas
+
+---
+
+## Computador Portátil
+
+Computador compacto e transportável.
+
+Pequeno o suficiente para:
+
+* mochila;
+* pasta executiva.
+
+Poderoso o suficiente para:
+
+* executar programas complexos.
+
+Popular entre:
+
+* executivos;
+* comandantes militares;
+* especialistas em computação.
+
+Características:
+
+* Inteligência 14
+
+
+# Equipamentos — Parte 3
+
+# Dispositivos de Detecção e Vigilância
+
+| Equipamento          | Custo |   Peso |
+| -------------------- | ----: | -----: |
+| Eletrobinóculos      | 1.000 |   1 kg |
+| Lanterna             |    10 |   1 kg |
+| Lanterna de Fusão    |    25 |   2 kg |
+| Audiogravador        |    25 | 0,1 kg |
+| Hologravador         |   100 | 0,1 kg |
+| Vídeogravador        |    50 | 0,1 kg |
+| Conjunto de Sensores | 1.500 |   9 kg |
+
+---
+
+## Regras Gerais — Dispositivos de Detecção
+
+Dispositivos de detecção e vigilância ampliam a percepção natural do usuário.
+
+Eles normalmente fazem isso de duas formas:
+
+* melhorando percepção natural;
+* utilizando sensores além dos sentidos normais.
+
+Esses dispositivos podem:
+
+* conceder bônus;
+* reduzir penalidades;
+* detectar informações invisíveis ao olho nu.
+
+---
+
+## Eletrobinóculos
+
+Dispositivo óptico avançado utilizado para ampliar objetos distantes.
+
+Possui sistemas internos capazes de fornecer:
+
+* alcance;
+* azimute verdadeiro;
+* azimute relativo;
+* elevação.
+
+Modos disponíveis:
+
+* zoom;
+* observação panorâmica;
+* visão noturna;
+* detecção de radiação.
+
+---
+
+### Visão Noturna
+
+Concede:
+
+**Visão no Escuro**
+
+Funciona além do alcance visual normal do usuário.
+
+---
+
+### Regra Especial — Alcance
+
+Os eletrobinóculos reduzem penalidades de alcance em testes de Percepção.
+
+Normal:
+
+**−5 a cada 10 quadrados**
+
+Com eletrobinóculos:
+
+**−1 a cada 10 quadrados**
+
+---
+
+## Lanterna
+
+Dispositivo portátil de iluminação.
+
+Projeta luz em linha reta.
+
+Características:
+
+* alcance: **6 quadrados**
+
+Usada para:
+
+* exploração;
+* iluminação tática;
+* operações em baixa visibilidade.
+
+---
+
+## Lanterna de Fusão
+
+Versão ampliada da lanterna convencional.
+
+Produz:
+
+* luz;
+* calor.
+
+Características:
+
+* iluminação em **raio de 6 quadrados**
+
+Indicada para:
+
+* ambientes extremos;
+* exploração prolongada;
+* operações externas.
+
+---
+
+## Unidade de Gravação
+
+Dispositivo de armazenamento especializado.
+
+Possui:
+
+* gravação;
+* reprodução.
+
+Características gerais:
+
+* Inteligência 1
+* Memória 1
+
+Permite modificar gravações com:
+
+**Usar Computador CD 15**
+
+Ações permitidas:
+
+* editar;
+* apagar;
+* reorganizar.
+
+---
+
+### Detectando Edição
+
+Uma gravação alterada pode ser descoberta através de:
+
+* Percepção resistida;
+  ou
+* Usar Computador resistido.
+
+Editar diretamente sem copiar para computador:
+
+Aplicar:
+
+**−5 nos testes de Usar Computador**
+
+(modificador de Inteligência da unidade).
+
+---
+
+## Audiogravador
+
+Versão especializada em som.
+
+Capacidade:
+
+* **100 horas**
+* áudio de alta qualidade
+
+---
+
+## Vídeogravador
+
+Versão especializada em vídeo.
+
+Capacidade:
+
+* **10 horas**
+* vídeo de alta qualidade
+
+---
+
+## Hologravador
+
+Versão especializada em holografia.
+
+Capacidade:
+
+* **1 hora**
+* holografia de alta qualidade
+
+---
+
+## Conjunto de Sensores
+
+Dispositivo portátil de análise.
+
+Formato:
+
+* unidade retangular;
+* diversos mostradores;
+* tela de leitura;
+* disco analisador.
+
+Pode detectar:
+
+* sinais de comunicação;
+* formas de vida;
+* ameaças.
+
+Alcance:
+
+**1 km**
+
+---
+
+### Operação
+
+Usar um conjunto de sensores exige:
+
+**Ação padrão**
+
+Benefício:
+
+**+5 de bônus de circunstância em testes de Percepção**
+
+Duração:
+
+até o final do próximo turno.
+
+---
+
+## Notas
+
+Visão no Escuro funciona conforme regras gerais do sistema.
+
+
+# Equipamentos — Parte 4
+
+# Suporte de Vida
+
+| Equipamento                    | Custo |   Peso |
+| ------------------------------ | ----: | -----: |
+| Respirador Aquata              |   350 | 0,2 kg |
+| Máscara de respirar            |   200 |   2 kg |
+| Canastrel / filtro atmosférico |    25 |   1 kg |
+| Traje de piloto                | 1.000 |   3 kg |
+| Traje espacial                 | 2.000 |  15 kg |
+
+---
+
+## Regras Gerais — Suporte de Vida
+
+Diversos ambientes no universo Star Wars são hostis à vida.
+
+Exemplos:
+
+* oceanos profundos;
+* atmosferas tóxicas;
+* vácuo espacial;
+* ambientes extremos.
+
+Equipamentos de suporte de vida permitem que criaturas operem nesses ambientes.
+
+---
+
+## Respirador Aquata
+
+Dispositivo portátil de respiração subaquática.
+
+Enquanto estiver submerso:
+
+* fornece até **2 horas de ar respirável**.
+
+Funciona através de:
+
+* bocal respiratório integrado.
+
+Exemplos de uso:
+
+* Qui-Gon Jinn e Obi-Wan durante viagem para Otoh Gunga;
+* Obi-Wan novamente em Utapau.
+
+---
+
+## Máscara de Respirar
+
+Sistema portátil de filtragem atmosférica.
+
+Composto por:
+
+* máscara para nariz e boca;
+* tubo de conexão;
+* unidade portátil de suporte de vida.
+
+Características:
+
+* fornece **1 hora de atmosfera respirável**
+
+Proteções concedidas:
+
+* imunidade contra venenos inaláveis;
+* imunidade contra atmosferas tóxicas.
+
+Limitações:
+
+* não protege contra temperaturas extremas;
+* não protege contra vácuo.
+
+---
+
+### Manutenção
+
+Substituir:
+
+* filtro;
+* canastrel atmosférico.
+
+Requer:
+
+**Mecânica CD 10**
+
+---
+
+### Integração com Armaduras
+
+Uma máscara de respirar pode ser incorporada em armaduras.
+
+Exemplo:
+
+* armadura de Darth Vader.
+
+---
+
+## Canastrel / Filtro Atmosférico
+
+Consumível usado para manter sistemas de respiração funcionando.
+
+Necessário para:
+
+* máscaras respiratórias;
+* sistemas de suporte de vida similares.
+
+Substituição periódica é necessária para manter funcionamento adequado.
+
+---
+
+## Traje de Piloto
+
+Macacão completo de uma peça acompanhado de:
+
+* luvas;
+* capacete.
+
+Projetado para:
+
+* voo em alta velocidade;
+* proteção contra descompressão;
+* sobrevivência em ambientes hostis.
+
+Concede:
+
+* **10 horas de suporte de vida**
+
+Enquanto houver suporte restante:
+
+* imunidade contra atmosferas hostis;
+* imunidade contra venenos inaláveis.
+
+Benefício adicional:
+
+**+1 bônus de equipamento na Defesa de Fortitude**
+
+---
+
+## Traje Espacial
+
+Macacão completo com sistema fechado de suporte de vida.
+
+Projetado para:
+
+* operações espaciais;
+* ambientes extremos;
+* sobrevivência prolongada.
+
+Concede:
+
+**24 horas de suporte de vida**
+
+Enquanto houver suporte restante:
+
+* imunidade contra atmosferas hostis;
+* imunidade contra venenos inaláveis.
+
+Benefício adicional:
+
+**+2 bônus de equipamento na Defesa de Fortitude**
+
+Pode ser utilizado em:
+
+* vácuo espacial;
+* ambientes sem atmosfera;
+* ambientes contaminados.
+
+---
+
+## Comparação — Traje de Piloto × Traje Espacial
+
+| Característica          | Traje de Piloto | Traje Espacial |
+| ----------------------- | --------------: | -------------: |
+| Suporte de Vida         |        10 horas |       24 horas |
+| Defesa de Fortitude     |              +1 |             +2 |
+| Proteção Ambiental      |             Sim |            Sim |
+| Uso Espacial Prolongado |        Limitado |       Completo |
+
+---
+
+## Notas
+
+Ter suporte de vida disponível não substitui outras necessidades fisiológicas além das cobertas pelo equipamento.
+
+
+# Equipamentos — Parte 5
+
+# Equipamento Médico
+
+| Equipamento             |   Custo |     Peso |
+| ----------------------- | ------: | -------: |
+| Tanque de bacta (vazio) | 100.000 |   500 kg |
+| Bacta (1 litro)¹        |     100 | Variável |
+| Prótese cibernética²    |   1.500 | Variável |
+| Estojo médico           |     600 |    20 kg |
+| Medpac                  |     100 |     1 kg |
+| Estojo cirúrgico        |   1.000 |    10 kg |
+
+---
+
+## Regras Gerais — Equipamento Médico
+
+Equipamentos médicos normalmente **não recuperam pontos de vida sozinhos**.
+
+Eles funcionam em conjunto com:
+
+**Perícia Tratar Ferimentos**
+
+Equipamentos diferentes habilitam usos diferentes da perícia.
+
+---
+
+## Tanque de Bacta
+
+Grande tanque especializado preenchido com:
+
+**Bacta**
+
+Bacta é um poderoso agente regenerativo que acelera recuperação.
+
+Pode ser usado junto com:
+
+* cirurgia;
+* tratamento de doenças;
+* tratamento de venenos;
+* tratamento de radiação.
+
+---
+
+### Uso com Cirurgia
+
+Se o teste de Tratar Ferimentos for bem sucedido:
+
+o paciente recupera:
+
+**PV igual ao nível do personagem**
+
+além dos efeitos normais da cirurgia.
+
+---
+
+### Uso contra Doença / Veneno / Radiação
+
+Concede:
+
+**+5 bônus de equipamento**
+
+em testes de Tratar Ferimentos.
+
+---
+
+### Consumo
+
+Cada hora de tratamento consome:
+
+**1 litro de bacta**
+
+Custo por litro:
+
+**100 créditos**
+
+Capacidade típica:
+
+**300 litros**
+
+Quantidade mínima operacional:
+
+**150 litros**
+
+Capacidade:
+
+* apenas 1 criatura por vez.
+
+---
+
+## Bacta
+
+Substância regenerativa utilizada em:
+
+* hospitais;
+* naves capitais;
+* instalações militares.
+
+Normalmente armazenada em:
+
+* tanques de bacta;
+* sistemas médicos especializados.
+
+---
+
+## Prótese Cibernética
+
+Substituição mecânica para membros ou órgãos.
+
+Alimentada por:
+
+* baterias de alta capacidade;
+* impulsos bioelétricos.
+
+Pode substituir:
+
+* braços;
+* mãos;
+* pernas;
+* pés;
+* órgãos internos.
+
+Exemplos conhecidos:
+
+* Luke Skywalker;
+* Darth Vader.
+
+---
+
+### Instalação
+
+Requer:
+
+**Talento: Cirurgia Cibernética**
+
+Além do preço da prótese:
+
+* cirurgia deve ser paga separadamente.
+
+---
+
+### Funcionamento
+
+Depois da instalação:
+
+* funciona como o membro original.
+
+---
+
+### Efeitos Mecânicos
+
+Criaturas com próteses:
+
+Recebem:
+
+**dano total por íons**
+
+---
+
+### Interação com a Força
+
+Cada prótese substituta impõe:
+
+**−1 em testes de Usar a Força**
+
+Máximo:
+
+**−5**
+
+---
+
+## Estojo Médico
+
+Conjunto médico portátil do tamanho de uma mochila.
+
+Inclui:
+
+* diagnóstico;
+* antiveneno;
+* remédios;
+* tratamento para radiação;
+* tratamento para queimaduras;
+* desfibrilador;
+* respirador;
+* cobertores térmicos;
+* mangueiras de pressão;
+* maca repulsora;
+* ferramentas cirúrgicas.
+
+A maca:
+
+* suporta até **160 kg**
+* paira carregada.
+
+Possui:
+
+* 6 bolsas externas para suprimentos.
+
+---
+
+### Requisito de Uso
+
+Necessário para:
+
+* reviver personagem morrendo;
+* tratar doença;
+* tratar veneno;
+* tratar radiação.
+
+---
+
+## Medpac
+
+Kit médico compacto para:
+
+* médicos treinados;
+* primeiros socorros emergenciais.
+
+Contém:
+
+* bandagens;
+* bacta;
+* carne sintética;
+* coagulantes;
+* estimulantes;
+* medicamentos.
+
+---
+
+### Consumo
+
+Após uso:
+
+* conteúdo é consumido.
+
+Mesmo com falha:
+
+* o medpac é gasto.
+
+Limite:
+
+* uma criatura só pode receber benefício de medpac
+* **1 vez por 24 horas**
+
+Consultar:
+
+**Tratar Ferimentos**
+
+---
+
+## Estojo Cirúrgico
+
+Conjunto especializado para cirurgia.
+
+Contém instrumentos necessários para:
+
+* executar cirurgia;
+* realizar procedimentos avançados.
+
+Requisitos:
+
+* treinamento em Tratar Ferimentos.
+
+Sem treinamento:
+
+* não pode ser utilizado para cirurgia.
+
+---
+
+## Comparação — Equipamentos Médicos
+
+| Equipamento         | Uso Principal         |
+| ------------------- | --------------------- |
+| Tanque de Bacta     | Recuperação avançada  |
+| Prótese Cibernética | Substituição corporal |
+| Estojo Médico       | Atendimento completo  |
+| Medpac              | Emergência            |
+| Estojo Cirúrgico    | Cirurgia              |
+
+---
+
+## Notas
+
+¹ São necessários **300 litros** para encher completamente um tanque de bacta.
+
+² O custo não inclui cirurgia (**500 créditos**).
+
+
+# Equipamentos — Parte 6
+
+# Equipamento de Sobrevivência
+
+| Equipamento                             | Custo |   Peso |
+| --------------------------------------- | ----: | -----: |
+| Manto para todas as temperaturas        |   100 | 1,5 kg |
+| Corrente (3 metros)                     |    25 | 2,5 kg |
+| Kit de campo                            | 1.000 |  10 kg |
+| Propulsor pessoal                       |   300 |  30 kg |
+| Dispensador de cabo líquido (15 metros) |    10 | 0,2 kg |
+| Pacote de ração                         |     5 | 0,1 kg |
+| Corda sintética (45 metros)             |    20 | 2,5 kg |
+
+---
+
+## Regras Gerais — Sobrevivência
+
+Explorar ambientes hostis normalmente exige equipamentos apropriados.
+
+Necessidades básicas:
+
+* comida;
+* água;
+* abrigo;
+* sinalização.
+
+Em muitos mundos, a falta de preparação leva rapidamente à morte.
+
+---
+
+## Manto para Todas as Temperaturas
+
+Manto protetor desenvolvido para ambientes extremos.
+
+Concede:
+
+**+5 bônus de equipamento na Defesa de Fortitude**
+
+contra:
+
+* calor extremo;
+* frio extremo.
+
+---
+
+## Corrente
+
+Corrente metálica reforçada.
+
+Características:
+
+* comprimento: **3 metros**
+* alcance equivalente: **2 quadrados**
+* RD 10
+* 5 PV
+
+Capacidade:
+
+* suporta até **5 toneladas**
+
+Quebra:
+
+* teste de Força
+* **CD 32**
+
+Força da corrente:
+
+**44**
+
+---
+
+## Kit de Campo
+
+Mochila completa de sobrevivência.
+
+Conteúdo típico:
+
+* 2 cantis condensadores;
+* sistema de purificação de água;
+* proteção solar;
+* rações para 1 semana;
+* 2 lanternas;
+* 2 máscaras de respirar;
+* 24 filtros;
+* 12 canastreis atmosféricos;
+* 1 manto para todas as temperaturas.
+
+Necessário para:
+
+**testes de Sobrevivência contra temperaturas extremas**
+
+---
+
+## Propulsor Pessoal
+
+Sistema portátil de propulsão individual.
+
+Controles:
+
+* braço;
+* punho.
+
+Ativação:
+
+**ação rápida**
+
+Benefício:
+
+* deslocamento de voo **6 quadrados**
+* até o final do turno.
+
+Pode permanecer ativo sem nova ativação.
+
+---
+
+### Operação
+
+Movimentos normais:
+
+* não exigem Pilotar.
+
+Se pousar após mover mais que:
+
+**12 quadrados**
+
+Faça:
+
+**Pilotar CD 20**
+
+Falha:
+
+* cai prostrado.
+
+---
+
+### Capacidade
+
+Carga máxima:
+
+**180 kg**
+
+Substituir combustível:
+
+**100 créditos**
+
+---
+
+## Dispensador de Cabo Líquido
+
+Contém líquido especial que solidifica instantaneamente.
+
+Forma:
+
+* cabo leve;
+* flexível;
+* resistente.
+
+Capacidade:
+
+**15 metros**
+(**10 quadrados**)
+
+Características:
+
+* Força 28
+* suporta 560 kg
+
+Quebra:
+
+**Força CD 24**
+
+Recarregável.
+
+---
+
+## Pacote de Ração
+
+Refeição compacta para sobrevivência.
+
+Características:
+
+* alimenta 1 pessoa por 1 dia;
+* compatível com múltiplas espécies.
+
+Limitações:
+
+* não inclui água;
+* pouco saborosa.
+
+Benefício:
+
+* evita desnutrição.
+
+---
+
+## Corda Sintética
+
+Alternativa reutilizável ao cabo líquido.
+
+Características:
+
+* comprimento: **45 metros**
+* (**30 quadrados**)
+* Força 30
+
+Capacidade:
+
+* suporta **720 kg**
+
+Quebra:
+
+**Força CD 25**
+
+---
+
+# Ferramentas
+
+| Equipamento           | Custo |   Peso |
+| --------------------- | ----: | -----: |
+| Algemas               |    50 | 0,5 kg |
+| Célula de energia     |    10 |      — |
+| Extintor de incêndio  |    50 |   3 kg |
+| Fita de malha         |     5 | 0,5 kg |
+| Gerador de energia    |   750 |  15 kg |
+| Carga de energia      |    25 | 0,1 kg |
+| Carregador de energia |   100 |   1 kg |
+| Kit de segurança      |   750 |   1 kg |
+| Kit de ferramentas    |   250 |   4 kg |
+| Cinto de utilidades   |   500 |   1 kg |
+
+---
+
+## Ferramentas — Regras Gerais
+
+Ferramentas normalmente:
+
+* concedem acesso;
+* reduzem dificuldades;
+* permitem certas ações.
+
+Sem a ferramenta correta algumas ações podem:
+
+* sofrer penalidade;
+* ser impossíveis.
+
+---
+
+### Algemas
+
+Dispositivo portátil de contenção.
+
+---
+
+### Célula de Energia
+
+Fonte de energia padrão utilizada por:
+
+* armas;
+* equipamentos;
+* dispositivos eletrônicos.
+
+---
+
+### Extintor de Incêndio
+
+Equipamento portátil para apagar incêndios.
+
+---
+
+### Fita de Malha
+
+Material adesivo resistente usado para:
+
+* reparos;
+* fixação;
+* improvisação.
+
+---
+
+### Gerador de Energia
+
+Fonte energética para equipamentos maiores.
+
+---
+
+### Carga de Energia
+
+Fonte energética de maior capacidade.
+
+---
+
+### Carregador de Energia
+
+Usado para restaurar cargas.
+
+---
+
+### Kit de Segurança
+
+Conjunto para:
+
+* destrancar;
+* desativar segurança.
+
+---
+
+### Kit de Ferramentas
+
+Conjunto padrão para:
+
+* reparos;
+* montagem;
+* manutenção.
+
+---
+
+### Cinto de Utilidades
+
+Cinto modular para carregar ferramentas pequenas.
+
+---
+
+# Acessórios para Armas e Armaduras
+
+| Equipamento                                         | Custo |   Peso |
+| --------------------------------------------------- | ----: | -----: |
+| Bandoleira                                          |   100 |   2 kg |
+| Conjunto para capacete                              | 4.000 |   1 kg |
+| Coldre oculto                                       |    50 | 0,2 kg |
+| Coldre de cintura                                   |    25 | 0,5 kg |
+| Mira telescópica padrão                             |   100 | 0,2 kg |
+| Mira telescópica aperfeiçoada com visão na penumbra | 1.000 | 1,2 kg |
+
+---
+
+## Descrições
+
+### Bandoleira
+
+Sistema para transporte rápido de munições e equipamentos.
+
+### Conjunto para Capacete
+
+Módulos eletrônicos integrados ao capacete.
+
+### Coldre Oculto
+
+Projetado para esconder armas pequenas.
+
+### Coldre de Cintura
+
+Sistema tradicional de saque rápido.
+
+### Mira Telescópica Padrão
+
+Amplia alcance visual.
+
+### Mira Aperfeiçoada com Visão na Penumbra
+
+Combina ampliação óptica com visão em baixa iluminação.
+
+# Ferramentas — Descrições
+
+## Regras Gerais — Ferramentas
+
+Qualquer objeto criado para facilitar ou executar uma tarefa pode ser considerado uma ferramenta.
+
+A maior parte dos trabalhos técnicos normalmente pode ser realizada utilizando:
+
+* kit de segurança;
+* kit de ferramentas.
+
+Entretanto, alguns dispositivos especializados não pertencem a outras categorias e são tratados separadamente.
+
+---
+
+## Algemas
+
+Instrumento de contenção feito de duraço.
+
+Projetado para prender:
+
+* tornozelos;
+* pulsos;
+* braço em perna;
+* prisioneiro em estruturas fixas.
+
+Compatível com criaturas:
+
+* Pequenas;
+* Médias;
+* Grandes.
+
+Características:
+
+* Redução de Dano: 10
+* Pontos de Vida: 20
+* Força: 40
+
+Remover:
+
+* Mecânica CD 25
+* exige quebrar código de 7 dígitos
+
+Quebrar:
+
+* Força CD 30
+
+---
+
+## Célula de Energia
+
+Pequena bateria usada para alimentar:
+
+* armas;
+* equipamentos;
+* dispositivos eletrônicos.
+
+Formato:
+
+* disco pequeno e achatado.
+
+Pode ser recarregada usando:
+
+* carregador de energia.
+
+---
+
+## Extintor de Incêndio
+
+Pode ser utilizado tanto para apagar incêndios quanto para cobertura tática.
+
+Uso ofensivo/tático:
+
+Uma rajada de rodada completa produz uma nuvem química.
+
+Efeito:
+
+* concede ocultação total.
+
+Consequências:
+
+* criaturas dentro não enxergam para fora;
+* criaturas fora não enxergam para dentro.
+
+Expansão:
+
+* +1 quadrado por rodada ativa.
+
+Duração:
+
+* dissipa após 3 rodadas.
+
+Consumo:
+
+* cada uso consome 10% do reservatório.
+
+Uso normal:
+
+* extingue até 10 quadrados de fogo;
+* taxa de 1 quadrado por rodada.
+
+Recarregar:
+
+* ação de rodada completa.
+
+Cartucho substituto:
+
+* 25 créditos.
+
+---
+
+## Fita de Malha
+
+Ferramenta adesiva extremamente versátil.
+
+Características:
+
+* suporta 90 kg indefinidamente;
+* suporta 180 kg por até 5 rodadas.
+
+Estatísticas:
+
+* Força 15
+
+Usada para prender criaturas:
+
+* Força 20
+
+Romper:
+
+* Força CD 20
+
+Conteúdo:
+
+* rolo de 30 metros
+* largura de 5 cm
+
+---
+
+## Gerador de Energia
+
+Pequeno reator de fusão portátil.
+
+Usado para alimentar:
+
+* armas pesadas;
+* veículos;
+* estruturas;
+* maquinário.
+
+Autonomia:
+
+* indefinida até tamanho Imenso;
+* 1 dia para Colossal;
+* 1 hora para Colossal (fragata).
+
+Depois disso:
+
+* desliga;
+* exige reparo.
+
+---
+
+### Falha Catastrófica
+
+Se destruído em operação:
+
+* explode.
+
+Explosão:
+
+Ataque:
+
+1d20 + 10
+
+Área:
+
+4 quadrados.
+
+Dano:
+
+8d6 energia.
+
+Acerto:
+
+* dano total.
+
+Falha:
+
+* metade do dano.
+
+Evasão:
+
+* metade em sucesso;
+* nenhum em falha.
+
+Conta como:
+
+* ataque de área.
+
+---
+
+## Carga de Energia
+
+Bateria compacta usada por:
+
+* blasters;
+* armas energéticas.
+
+Instalada em:
+
+* cabo;
+* cano.
+
+Pode ser recarregada.
+
+---
+
+## Carregador de Energia
+
+Usado para recarregar:
+
+* carga de energia;
+* célula de energia.
+
+Tempo:
+
+* 4 horas.
+
+Capacidade:
+
+* 1 unidade por vez;
+* até 100 recargas internas.
+
+Quando ligado em estrutura:
+
+* recarga praticamente ilimitada.
+
+---
+
+## Kit de Segurança
+
+Conjunto especializado para:
+
+* quebrar travas;
+* desarmar sistemas;
+* contornar segurança.
+
+Componentes:
+
+* eletrônicos;
+* sensores;
+* comunicador.
+
+Função especial:
+
+* detecta alarmes silenciosos.
+
+Necessário para:
+
+* desarmar armadilhas;
+* desativar segurança usando Mecânica.
+
+Em muitos mundos:
+
+* posse é ilegal sem autorização.
+
+---
+
+## Kit de Ferramentas
+
+Necessário para:
+
+* reprogramar dróides;
+* reparar dróides;
+* reparar veículos;
+* reparar dispositivos.
+
+Componentes típicos:
+
+* sonda de eletrochoque;
+* cortador de fusão;
+* hidrochave;
+* solda laser;
+* calibrador de energia;
+* pé-de-cabra de força;
+* sensores sonda;
+* solda sônica;
+* conectores;
+* cortadores vibratórios;
+* óculos de soldador.
+
+---
+
+### Uso como Arma Improvisada
+
+Todas contam como:
+
+* armas simples.
+
+Penalidade:
+
+−5 em ataques.
+
+Exceção:
+
+* dróides ignoram penalidade.
+
+Danos:
+
+| Ferramenta            | Dano          |
+| --------------------- | ------------- |
+| Sonda de eletrochoque | 1d8 íon       |
+| Cortador de fusão     | 2d6 energia   |
+| Solda laser           | 1d8 energia   |
+| Pé-de-cabra de força  | 1d8 concussão |
+| Solda sônica          | 1d8 energia   |
+
+---
+
+## Cinto de Utilidades
+
+Cinto modular contendo:
+
+* cápsulas de comida (3 dias);
+* medpac;
+* kit de ferramentas;
+* carga de energia reserva;
+* célula de energia reserva;
+* lanterna;
+* comunicador;
+* dispensador de cabo líquido com gancho;
+* 2 bolsas extras.
+
+Capacidade extra:
+
+* até 0,5 kg por bolsa.
+
+---
+
+# Acessórios para Armas e Armaduras — Descrições
+
+## Bandoleira
+
+Sistema de transporte para:
+
+* munição;
+* granadas;
+* células;
+* facas;
+* equipamentos.
+
+Capacidade:
+
+* 12 espaços.
+
+Cada espaço comporta:
+
+* arma Minúscula;
+  ou
+* equipamento até 0,5 kg.
+
+Retirar item:
+
+* ação de movimento.
+
+---
+
+## Conjunto para Capacete
+
+Módulo eletrônico integrado.
+
+Concede:
+
+* +2 em Percepção;
+* visão na penumbra;
+* comunicador mãos livres.
+
+Instalação:
+
+* 1 hora;
+* Mecânica CD 20.
+
+Exemplo:
+
+* Sistema SAAMF dos stormtroopers.
+
+---
+
+## Coldre
+
+Disponível para armas:
+
+* Médias;
+* Pequenas.
+
+Armas Grandes usam:
+
+* talabartes;
+* suportes.
+
+---
+
+### Coldre de Cintura
+
+Benefícios:
+
+* saque rápido;
+* fácil acesso.
+
+Desvantagem:
+
+* fácil de perceber.
+
+---
+
+### Coldre Oculto
+
+Projetado para ocultar armas.
+
+Permite:
+
+* sacar como ação de movimento.
+
+Penalidade:
+
+−5 em Furtividade para esconder.
+
+Locais possíveis:
+
+* ombro;
+* cintura;
+* costas;
+* tornozelo;
+* pulso.
+
+---
+
+## Mira Telescópica
+
+Dispositivo óptico para tiros à distância.
+
+Instalação:
+
+* 10 minutos;
+* Mecânica CD 10.
+
+---
+
+### Mira Padrão
+
+Benefício:
+
+* reduz alcance em 1 categoria.
+
+Exige:
+
+* ação de mirar.
+
+Perde benefício:
+
+* trocar alvo;
+* perder linha de visão.
+
+---
+
+### Mira Aperfeiçoada com Visão na Penumbra
+
+Mantém efeitos da mira padrão.
+
+Benefício adicional:
+
+* ignora ocultação por escuridão.
+
+Não ignora:
+
+* ocultação total.
+

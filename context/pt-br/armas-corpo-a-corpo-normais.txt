@@ -1,0 +1,95 @@
+## Tabela 8-3: Armas de Combate Corpo a Corpo
+
+---
+
+# Armas Simples
+
+| Categoria | Arma | Custo | Dano | Dano de Atordoamento | Peso | Tipo | Disponibilidade |
+|---|---:|---:|---|---|---|---|---|
+| Miúdas | Faca¹ | 25 | 1d4 | Não | 1 kg | Cortante ou Perfurante | — |
+| Pequenas | Cassetete / Porrete | 15 | 1d6 | Não | 0,5 kg | Concussão | — |
+| Pequenas | Cassetete de Atordoamento | 15 | 1d6 | Sim (2d6) | 0,5 kg | Concussão | — |
+| Médias | Maça | 50 | 1d8 | Não | 2,5 kg | Concussão | — |
+| Médias | Lança¹ | 60 | 1d8 | Não | 1,5 kg | Perfuração | — |
+| Médias | Baioneta | 50 | 1d8 | Não | 1 kg | Perfuração | Licenciada |
+| Grandes | Cajado | 65 | 1d6 / 1d6 | Não | 1,8 kg | Concussão | — |
+
+---
+
+# Combate Desarmado
+
+| Categoria | Arma | Custo | Dano | Modificador | Peso | Tipo | Disponibilidade |
+|---|---:|---|---|---|---|---|---|
+| Personagem Pequeno | Desarmado | — | 1d3 | — | — | Concussão | — |
+| Personagem Pequeno | Luvas de combate | 150 | Dano desarmado | +1 | 0,4 kg | Concussão | — |
+| Personagem Médio | Desarmado | — | 1d4 | — | — | Concussão | — |
+| Personagem Médio | Luvas de combate | 250 | Dano desarmado | +1 | 0,5 kg | Concussão | — |
+
+---
+
+## Descrições
+
+### Cassetete / Bastão
+**Tipo:** Arma Simples
+
+Potencializado pela força bruta de seus usuários, os bastões quebram os ossos de um oponente ou pior.
+
+Eles são as armas favoritas de bandidos.
+
+Cassetetes (uma variedade do bastão) são usados por forças policiais em mundos relativamente pacíficos em situações de controle de multidões.
+
+---
+
+### Bastão de Atordoamento
+**Tipo:** Arma Simples
+
+Um bastão curto, com uma carga de energia no cabo, o bastão de atordoamento pode ser ativado para produzir uma carga de atordoamento quando ele atinge um alvo.
+
+Um bastão de atordoamento requer uma célula de energia para operar.
+
+---
+
+### Cesta
+**Tipo:** Arma Exótica
+
+Outra arma gungan, a cesta é uma vara flexível usada para arremessar pequenas esferas de energia.
+
+Ela pode também ser usada como uma arma de combate corpo a corpo como se fosse um cajado.
+
+Embora a cesta seja considerada uma arma exótica, os gungans são considerados proficientes se tiverem o talento **Proficiência em Armas (armas simples)**.
+
+---
+
+### Faca
+**Tipo:** Arma Simples
+
+Enquanto muitas armas confiam na tecnologia altamente avançada, as facas ainda são vistas e muito usadas.
+
+Uma faca é completamente silenciosa e serve bem em escaramuças de combate próximo.
+
+---
+
+### Lança
+**Tipo:** Arma Simples
+
+Uma arma comum usada por caçadores e guerreiros em culturas primitivas.
+
+A lança é uma haste comprida de madeira com uma extremidade pontiaguda moldada de pedra ou metal.
+
+Membros de culturas mais avançadas se divertem usando lanças para o esporte, embora essas armas sejam normalmente construídas por uma liga metálica resistente.
+
+As lanças podem ser usadas como armas de arremesso.
+
+---
+
+### Luvas de Combate
+**Tipo:** Arma Simples
+
+Um par de luvas acolchoadas concede um poder de dano extra graças ao seu peso e aos materiais usados em sua fabricação.
+
+Qualquer um que espere engajar-se em uma luta de socos ou briga provavelmente irá querer vestir luvas de combate.
+
+---
+
+### Notas
+¹ Possui regras especiais (consultar descrição detalhada)
