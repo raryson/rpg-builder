@@ -628,7 +628,8 @@ function loadSheets(): CharacterSheet[] {
 }
 
 function normalizeSheet(sheet: CharacterSheet): CharacterSheet {
-  const existingSkills = new Map(sheet.skills.map((skill) => [skill.skillSlug, skill]));
+  const sourceSkills = sheet.skills ?? [];
+  const existingSkills = new Map(sourceSkills.map((skill) => [skill.skillSlug, skill]));
   const classLevels = sheet.classLevels?.length
     ? sheet.classLevels
     : [{ classSlug: sheet.classSlug || 'jedi', level: Math.max(1, sheet.totalLevel || 1) }];
@@ -1563,6 +1564,7 @@ export function App() {
   const [sheets, setSheets] = useState<CharacterSheet[]>(loadSheets);
   const [activeId, setActiveId] = useState(() => sheets[0]?.id);
   const [activeTab, setActiveTab] = useState<SheetTab>(() => (sheets[0]?.isFinalized ? 'summary' : 'identity'));
+  const [summaryVersionId, setSummaryVersionId] = useState('');
   const [levelUpOpen, setLevelUpOpen] = useState(false);
   const [remoteLoaded, setRemoteLoaded] = useState(false);
   const [authUser, setAuthUser] = useState<AuthUser | null>(null);
@@ -1583,6 +1585,8 @@ export function App() {
   const [levelUpAbilityOne, setLevelUpAbilityOne] = useState<AbilityKey>('strength');
   const [levelUpAbilityTwo, setLevelUpAbilityTwo] = useState<AbilityKey>('dexterity');
   const [levelUpNotes, setLevelUpNotes] = useState('');
+  const [levelUpSaving, setLevelUpSaving] = useState(false);
+  const [levelUpSaveError, setLevelUpSaveError] = useState('');
   const [portraitUploadingId, setPortraitUploadingId] = useState('');
   const [portraitError, setPortraitError] = useState('');
 
@@ -1639,6 +1643,7 @@ export function App() {
           setSheets(remoteSheets);
           setActiveId(remoteSheets[0].id);
           setActiveTab(remoteSheets[0].isFinalized ? 'summary' : 'identity');
+          setSummaryVersionId('');
         }
       })
       .catch(() => {
@@ -1732,8 +1737,30 @@ export function App() {
 
   function openSheet(sheet: CharacterSheet) {
     setActiveId(sheet.id);
+    setSummaryVersionId('');
     setLevelUpOpen(false);
     setActiveTab(sheet.isFinalized ? 'summary' : 'identity');
+  }
+
+  function viewSheetVersion(sheet: CharacterSheet, versionId: string) {
+    setActiveId(sheet.id);
+    setSummaryVersionId(versionId);
+    setLevelUpOpen(false);
+    setActiveTab('summary');
+  }
+
+  function sheetFromVersion(version: SheetVersion): CharacterSheet {
+    const snapshot = version.snapshot as Partial<CharacterSheet>;
+
+    return normalizeSheet({
+      ...activeSheet,
+      ...snapshot,
+      id: activeSheet.id,
+      portraitUrl: activeSheet.portraitUrl,
+      portraitBlobPath: activeSheet.portraitBlobPath,
+      skills: snapshot.skills ?? activeSheet.skills,
+      sheetVersions: activeSheet.sheetVersions,
+    } as CharacterSheet);
   }
 
   function updateSheetById(sheetId: string, update: (sheet: CharacterSheet) => CharacterSheet) {
@@ -1790,6 +1817,7 @@ export function App() {
     const sheet = createSheet();
     setSheets((current) => [sheet, ...current]);
     setActiveId(sheet.id);
+    setSummaryVersionId('');
     setLevelUpOpen(false);
     setActiveTab('identity');
   }
@@ -1804,6 +1832,7 @@ export function App() {
     };
     setSheets((current) => [copy, ...current]);
     setActiveId(copy.id);
+    setSummaryVersionId('');
     setLevelUpOpen(false);
     setActiveTab('identity');
   }
@@ -1817,6 +1846,7 @@ export function App() {
       const sheet = createSheet();
       setSheets([sheet]);
       setActiveId(sheet.id);
+      setSummaryVersionId('');
       setActiveTab('identity');
       return;
     }
@@ -1858,11 +1888,14 @@ export function App() {
 
   function startSheetEdition() {
     saveSheetVersion(activeSheet.versionNote || `Edição baseada no nível ${activeSheet.totalLevel}`, { finalized: false });
+    setSummaryVersionId('');
     setLevelUpOpen(false);
     setActiveTab('identity');
   }
 
-  function applyLevelUp() {
+  async function applyLevelUp() {
+    if (levelUpSaving) return;
+
     const classData = heroicClassCatalog.find((item) => item.slug === levelUpClassSlug) ?? activeClass;
     const nextLevel = activeSheet.totalLevel + 1;
     const classCurrentLevel = getClassLevel(activeSheet, classData.slug);
@@ -1891,51 +1924,63 @@ export function App() {
       createdAt: new Date().toISOString(),
     };
 
-    updateActiveSheet((sheet) => {
-      const nextClassLevels = sheet.classLevels.some((entry) => entry.classSlug === classData.slug)
-        ? sheet.classLevels.map((entry) => (entry.classSlug === classData.slug ? { ...entry, level: entry.level + 1 } : entry))
-        : [...sheet.classLevels, { classSlug: classData.slug, level: 1 }];
-      const nextAbilities = abilityBoosts.reduce(
-        (abilities, ability) => ({ ...abilities, [ability]: abilities[ability] + 1 }),
-        sheet.abilities,
-      );
-      const nextSheet: CharacterSheet = {
-        ...sheet,
-        classSlug: classData.slug,
-        classLevels: nextClassLevels,
-        totalLevel: nextLevel,
-        heroicLevel: nextLevel,
-        abilities: nextAbilities,
-        hitPointsMaximum: sheet.hitPointsMaximum + hitPointGain,
-        hitPointsCurrent: sheet.hitPointsCurrent + hitPointGain,
-        forcePoints: forcePointsForLevel(nextLevel),
-        feats: chosenFeat ? [...sheet.feats, chosenFeat.slug] : sheet.feats,
-        talents: levelUpTalentSlug && !sheet.talents.includes(levelUpTalentSlug) ? [...sheet.talents, levelUpTalentSlug] : sheet.talents,
-        progressionLog: [sheet.progressionLog, summary, levelUpNotes].filter(Boolean).join('\n'),
-        levelHistory: [historyEntry, ...(sheet.levelHistory ?? [])],
-        versionNote: summary,
-        isFinalized: true,
-      };
-      const version: SheetVersion = {
-        id: crypto.randomUUID(),
-        versionNumber: (sheet.sheetVersions?.length ?? 0) + 1,
-        level: nextLevel,
-        summary,
-        createdAt: new Date().toISOString(),
-        snapshot: buildSheetSnapshot(nextSheet),
-      };
+    const nextClassLevels = activeSheet.classLevels.some((entry) => entry.classSlug === classData.slug)
+      ? activeSheet.classLevels.map((entry) => (entry.classSlug === classData.slug ? { ...entry, level: entry.level + 1 } : entry))
+      : [...activeSheet.classLevels, { classSlug: classData.slug, level: 1 }];
+    const nextAbilities = abilityBoosts.reduce(
+      (abilities, ability) => ({ ...abilities, [ability]: abilities[ability] + 1 }),
+      activeSheet.abilities,
+    );
+    const nextSheet: CharacterSheet = {
+      ...activeSheet,
+      classSlug: classData.slug,
+      classLevels: nextClassLevels,
+      totalLevel: nextLevel,
+      heroicLevel: nextLevel,
+      abilities: nextAbilities,
+      hitPointsMaximum: activeSheet.hitPointsMaximum + hitPointGain,
+      hitPointsCurrent: activeSheet.hitPointsCurrent + hitPointGain,
+      forcePoints: forcePointsForLevel(nextLevel),
+      feats: chosenFeat ? [...activeSheet.feats, chosenFeat.slug] : activeSheet.feats,
+      talents: levelUpTalentSlug && !activeSheet.talents.includes(levelUpTalentSlug) ? [...activeSheet.talents, levelUpTalentSlug] : activeSheet.talents,
+      progressionLog: [activeSheet.progressionLog, summary, levelUpNotes].filter(Boolean).join('\n'),
+      levelHistory: [historyEntry, ...(activeSheet.levelHistory ?? [])],
+      versionNote: summary,
+      isFinalized: true,
+    };
+    const version: SheetVersion = {
+      id: crypto.randomUUID(),
+      versionNumber: (activeSheet.sheetVersions?.length ?? 0) + 1,
+      level: nextLevel,
+      summary,
+      createdAt: new Date().toISOString(),
+      snapshot: buildSheetSnapshot(nextSheet),
+    };
+    const persistedSheet: CharacterSheet = {
+      ...nextSheet,
+      sheetVersions: [version, ...(activeSheet.sheetVersions ?? [])],
+      updatedAt: new Date().toISOString(),
+    };
 
-      return {
-        ...nextSheet,
-        sheetVersions: [version, ...(sheet.sheetVersions ?? [])],
-      };
-    });
+    setLevelUpSaving(true);
+    setLevelUpSaveError('');
+
+    try {
+      setSheets((current) => current.map((sheet) => (sheet.id === activeSheet.id ? persistedSheet : sheet)));
+      await saveRemoteSheet(persistedSheet);
+    } catch (error) {
+      setLevelUpSaveError(error instanceof Error ? error.message : 'Não foi possível salvar o level up no Mongo.');
+      setLevelUpSaving(false);
+      return;
+    }
 
     setLevelUpHpGain(0);
     setLevelUpTalentSlug('');
     setLevelUpFeatSlug('');
     setLevelUpNotes('');
+    setLevelUpSaving(false);
     setLevelUpOpen(false);
+    setSummaryVersionId(version.id);
     setActiveTab('summary');
   }
 
@@ -2422,6 +2467,9 @@ export function App() {
                           <span>Espécie: {labelFor(speciesCatalog, snapshot.speciesSlug ?? sheet.speciesSlug)}</span>
                           <span>PV: {snapshot.hitPointsCurrent ?? sheet.hitPointsCurrent}/{snapshot.hitPointsMaximum ?? sheet.hitPointsMaximum}</span>
                           <span>Salva em {formatDate(version.createdAt)}</span>
+                          <button type="button" onClick={() => viewSheetVersion(sheet, version.versionNumber > 0 ? version.id : '')}>
+                            Ver no resumo
+                          </button>
                         </div>
                       </details>
                     );
@@ -2509,8 +2557,9 @@ export function App() {
               <LevelUpChoiceCards label="Escolha sua aptidão" type="feat" items={selectedClassBonusFeats} value={levelUpFeatValue} onChange={setLevelUpFeatSlug} />
             )}
             <textarea placeholder="Notas da progressão, rolagem de PV, justificativa narrativa..." value={levelUpNotes} onChange={(event) => setLevelUpNotes(event.target.value)} />
-            <button className="commit-level-button" type="button" onClick={applyLevelUp}>
-              Salvar level up e criar versão
+            {levelUpSaveError && <p className="level-up-save-error">{levelUpSaveError}</p>}
+            <button className="commit-level-button" type="button" onClick={applyLevelUp} disabled={levelUpSaving}>
+              {levelUpSaving ? 'Salvando no banco...' : 'Salvar level up e criar versão'}
             </button>
           </section>
         </div>
@@ -2664,11 +2713,16 @@ export function App() {
         <div className="version-list">
           {activeSheet.sheetVersions.length === 0 && <p className="summary-empty">Nenhuma versão salva ainda. Use o level up ou crie uma versão manual.</p>}
           {activeSheet.sheetVersions.map((version) => (
-            <article className="version-card" key={version.id}>
+            <button
+              className={summaryVersionId === version.id ? 'version-card active' : 'version-card'}
+              key={version.id}
+              type="button"
+              onClick={() => viewSheetVersion(activeSheet, version.id)}
+            >
               <strong>v{version.versionNumber} · nível {version.level}</strong>
               <span>{formatDate(version.createdAt)}</span>
               <p>{version.summary}</p>
-            </article>
+            </button>
           ))}
         </div>
       </Panel>
@@ -2676,17 +2730,61 @@ export function App() {
   }
 
   function SummaryPanel() {
-    const selectedFeats = activeSheet.feats.map((slug) => labelFor(featCatalog, slug));
-    const selectedTalents = activeSheet.talents.map((slug) => labelFor(talentDetailsCatalog, slug));
-    const selectedForcePowers = activeSheet.forcePowers.map((slug) => labelFor(forcePowerDetailsCatalog, slug));
-    const selectedForceTechniques = activeSheet.forceTechniques.map((slug) => labelFor(forceTechniqueDetailsCatalog, slug));
-    const selectedForceSecrets = activeSheet.forceSecrets.map((slug) => labelFor(forceSecretDetailsCatalog, slug));
-    const selectedEquipment = activeSheet.inventory.map((slug) => labelFor(equipmentDetailsCatalog, slug));
-    const selectedVehicles = activeSheet.vehicles.map((slug) => labelFor(vehicleDetailsCatalog, slug));
-    const selectedDroids = activeSheet.droidSystems.map((slug) =>
+    const selectedVersion = activeSheet.sheetVersions.find((version) => version.id === summaryVersionId);
+    const summarySheet = selectedVersion ? sheetFromVersion(selectedVersion) : activeSheet;
+    const summarySpecies = speciesCatalog.find((item) => item.slug === summarySheet.speciesSlug) ?? speciesCatalog[0];
+    const summaryClassDefenseBonuses = calculateClassDefenseBonuses(summarySheet.classLevels);
+    const summaryAbilities = Object.fromEntries(
+      (Object.keys(summarySheet.abilities) as AbilityKey[]).map((key) => [
+        key,
+        {
+          base: summarySheet.abilities[key],
+          species: summarySpecies.abilityModifiers[key],
+          total: summarySheet.abilities[key] + summarySpecies.abilityModifiers[key],
+        },
+      ]),
+    ) as Record<AbilityKey, { base: number; species: number; total: number }>;
+    const summaryDefenseBreakdown = {
+      reflex: {
+        base: 10,
+        heroic: summarySheet.totalLevel,
+        ability: modifier(summaryAbilities.dexterity.total),
+        species: summarySpecies.defenseBonuses.reflex,
+        class: summaryClassDefenseBonuses.reflex,
+      },
+      fortitude: {
+        base: 10,
+        heroic: summarySheet.totalLevel,
+        ability: modifier(summaryAbilities.constitution.total),
+        species: summarySpecies.defenseBonuses.fortitude,
+        class: summaryClassDefenseBonuses.fortitude,
+      },
+      will: {
+        base: 10,
+        heroic: summarySheet.totalLevel,
+        ability: modifier(summaryAbilities.wisdom.total),
+        species: summarySpecies.defenseBonuses.will,
+        class: summaryClassDefenseBonuses.will,
+      },
+    };
+    const summaryDefenses = Object.fromEntries(
+      Object.entries(summaryDefenseBreakdown).map(([key, value]) => [
+        key,
+        value.base + value.heroic + value.ability + value.species + value.class,
+      ]),
+    ) as Record<DefenseKey, number>;
+    const summaryBaseAttackBonus = calculateBaseAttackFromClassLevels(summarySheet.classLevels);
+    const selectedFeats = summarySheet.feats.map((slug) => labelFor(featCatalog, slug));
+    const selectedTalents = summarySheet.talents.map((slug) => labelFor(talentDetailsCatalog, slug));
+    const selectedForcePowers = summarySheet.forcePowers.map((slug) => labelFor(forcePowerDetailsCatalog, slug));
+    const selectedForceTechniques = summarySheet.forceTechniques.map((slug) => labelFor(forceTechniqueDetailsCatalog, slug));
+    const selectedForceSecrets = summarySheet.forceSecrets.map((slug) => labelFor(forceSecretDetailsCatalog, slug));
+    const selectedEquipment = summarySheet.inventory.map((slug) => labelFor(equipmentDetailsCatalog, slug));
+    const selectedVehicles = summarySheet.vehicles.map((slug) => labelFor(vehicleDetailsCatalog, slug));
+    const selectedDroids = summarySheet.droidSystems.map((slug) =>
       labelFor([...droidBuilderDetailsCatalog, ...readyDroidDetailsCatalog], slug),
     );
-    const notableSkills = activeSheet.skills
+    const notableSkills = summarySheet.skills
       .filter((skill) => skill.trained || skill.focused || skill.misc !== 0)
       .map((skill) => {
         const catalog = skillCatalog.find((item) => item.slug === skill.skillSlug);
@@ -2700,10 +2798,28 @@ export function App() {
 
     return (
       <Panel className="wide-panel summary-review" icon={<CheckCircle2 aria-hidden="true" />} title="Resumo da ficha">
+        {activeSheet.sheetVersions.length > 0 && (
+          <div className="summary-version-switcher" aria-label="Versão visualizada">
+            <span>Visualizando</span>
+            <button className={!selectedVersion ? 'active' : ''} type="button" onClick={() => setSummaryVersionId('')}>
+              Ficha atual
+            </button>
+            {activeSheet.sheetVersions.map((version) => (
+              <button
+                className={selectedVersion?.id === version.id ? 'active' : ''}
+                key={version.id}
+                type="button"
+                onClick={() => setSummaryVersionId(version.id)}
+              >
+                v{version.versionNumber} · nível {version.level}
+              </button>
+            ))}
+          </div>
+        )}
         <div className="summary-readonly-actions">
           <div>
-            <strong>Ficha criada</strong>
-            <p>Este resumo é uma visualização fechada da ficha. Para alterar algo, crie uma nova edição ou use o level up.</p>
+            <strong>{selectedVersion ? `Versão ${selectedVersion.versionNumber} da ficha` : 'Ficha criada'}</strong>
+            <p>{selectedVersion ? selectedVersion.summary : 'Este resumo é uma visualização fechada da ficha. Para alterar algo, crie uma nova edição ou use o level up.'}</p>
           </div>
           <div>
             <button type="button" onClick={startSheetEdition}>Criar nova edição</button>
@@ -2712,59 +2828,59 @@ export function App() {
         </div>
         <div className="summary-grid">
           <SummarySection title="Identidade" items={[
-            ['Nome', activeSheet.characterName],
-            ['Jogador', activeSheet.playerName],
-            ['Campanha', activeSheet.campaignName],
-            ['Era', eras.find(([value]) => value === activeSheet.era)?.[1] ?? activeSheet.era],
-            ['Destino', activeSheet.destiny],
-            ['Gênero', activeSheet.gender],
-            ['Idade', activeSheet.age],
-            ['Altura', activeSheet.height],
-            ['Peso', activeSheet.weight],
-            ['Olhos', activeSheet.eyes],
-            ['Cabelo', activeSheet.hair],
-            ['Pele', activeSheet.skin],
-            ['Mundo natal', activeSheet.homeworld],
-            ['Idiomas', activeSheet.languages],
-            ['Retrato', activeSheet.portraitUrl],
+            ['Nome', summarySheet.characterName],
+            ['Jogador', summarySheet.playerName],
+            ['Campanha', summarySheet.campaignName],
+            ['Era', eras.find(([value]) => value === summarySheet.era)?.[1] ?? summarySheet.era],
+            ['Destino', summarySheet.destiny],
+            ['Gênero', summarySheet.gender],
+            ['Idade', summarySheet.age],
+            ['Altura', summarySheet.height],
+            ['Peso', summarySheet.weight],
+            ['Olhos', summarySheet.eyes],
+            ['Cabelo', summarySheet.hair],
+            ['Pele', summarySheet.skin],
+            ['Mundo natal', summarySheet.homeworld],
+            ['Idiomas', summarySheet.languages],
+            ['Retrato', summarySheet.portraitUrl],
           ]} />
 
           <SummarySection title="Espécie e classe" items={[
-            ['Espécie', activeSpecies.name],
-            ['Classes', activeSheet.classLevels.map((entry) => `${labelFor(heroicClassCatalog, entry.classSlug)} ${entry.level}`).join(' / ')],
-            ['Nível total', activeSheet.totalLevel],
-            ['Nível heroico', activeSheet.heroicLevel],
-            ['Nível prestígio', activeSheet.prestigeLevel],
-            ['Deslocamento', activeSheet.speed],
+            ['Espécie', summarySpecies.name],
+            ['Classes', summarySheet.classLevels.map((entry) => `${labelFor(heroicClassCatalog, entry.classSlug)} ${entry.level}`).join(' / ')],
+            ['Nível total', summarySheet.totalLevel],
+            ['Nível heroico', summarySheet.heroicLevel],
+            ['Nível prestígio', summarySheet.prestigeLevel],
+            ['Deslocamento', summarySheet.speed],
             ['Versões salvas', activeSheet.sheetVersions.length],
           ]} />
 
-          <SummarySection title="Atributos" items={(Object.keys(activeSheet.abilities) as AbilityKey[]).map((key) => [
+          <SummarySection title="Atributos" items={(Object.keys(summarySheet.abilities) as AbilityKey[]).map((key) => [
             abilityLabels[key],
-            `${composedAbilities[key].total} (base ${composedAbilities[key].base}, espécie ${signed(composedAbilities[key].species)}, mod ${signed(modifier(composedAbilities[key].total))})`,
+            `${summaryAbilities[key].total} (base ${summaryAbilities[key].base}, espécie ${signed(summaryAbilities[key].species)}, mod ${signed(modifier(summaryAbilities[key].total))})`,
           ])} />
 
           <SummarySection title="Combate" items={[
-            ['PV atual', activeSheet.hitPointsCurrent],
-            ['PV máximo', activeSheet.hitPointsMaximum],
-            ['PV temporários', activeSheet.hitPointsTemporary],
-            ['Dano recebido', activeSheet.damageTaken],
-            ['Condição', activeSheet.conditionStep],
-            ['Pontos de destino', activeSheet.destinyPoints],
-            ['Pontos da Força', activeSheet.forcePoints],
-            ['Lado Negro', activeSheet.darkSideScore],
-            ['Reflexos', defenses.reflex],
-            ['Fortitude', defenses.fortitude],
-            ['Vontade', defenses.will],
-            ['BBA', `+${baseAttackBonus}`],
+            ['PV atual', summarySheet.hitPointsCurrent],
+            ['PV máximo', summarySheet.hitPointsMaximum],
+            ['PV temporários', summarySheet.hitPointsTemporary],
+            ['Dano recebido', summarySheet.damageTaken],
+            ['Condição', summarySheet.conditionStep],
+            ['Pontos de destino', summarySheet.destinyPoints],
+            ['Pontos da Força', summarySheet.forcePoints],
+            ['Lado Negro', summarySheet.darkSideScore],
+            ['Reflexos', summaryDefenses.reflex],
+            ['Fortitude', summaryDefenses.fortitude],
+            ['Vontade', summaryDefenses.will],
+            ['BBA', `+${summaryBaseAttackBonus}`],
           ]} />
 
           <SummaryList title="Perícias destacadas" items={notableSkills} empty="Nenhuma perícia marcada." />
           <SummaryList title="Aptidões" items={selectedFeats} empty="Nenhuma aptidão adicionada." />
           <SummaryList title="Talentos" items={selectedTalents} empty="Nenhum talento adicionado." />
           <SummaryList title="Força" items={[
-            activeSheet.forceSensitivity ? 'Sensível à Força' : 'Não sensível à Força',
-            activeSheet.forceTradition ? `Tradição: ${labelFor(['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem), activeSheet.forceTradition)}` : '',
+            summarySheet.forceSensitivity ? 'Sensível à Força' : 'Não sensível à Força',
+            summarySheet.forceTradition ? `Tradição: ${labelFor(['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem), summarySheet.forceTradition)}` : '',
             ...selectedForcePowers.map((item) => `Poder: ${item}`),
             ...selectedForceTechniques.map((item) => `Técnica: ${item}`),
             ...selectedForceSecrets.map((item) => `Segredo: ${item}`),
@@ -2773,9 +2889,9 @@ export function App() {
           <SummaryList title="Veículos" items={selectedVehicles} empty="Nenhum veículo adicionado." />
           <SummaryList title="Dróides" items={selectedDroids} empty="Nenhum dróide adicionado." />
 
-          <SummaryText title="Anotações" value={activeSheet.notes} />
-          <SummaryText title="Histórico" value={activeSheet.progressionLog} />
-          <SummaryText title="Versões" value={activeSheet.versionNote} />
+          <SummaryText title="Anotações" value={summarySheet.notes} />
+          <SummaryText title="Histórico" value={summarySheet.progressionLog} />
+          <SummaryText title="Versões" value={summarySheet.versionNote} />
         </div>
       </Panel>
     );

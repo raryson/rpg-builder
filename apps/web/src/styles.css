@@ -1050,6 +1050,19 @@ button {
   margin: 0;
 }
 
+.character-version-details button {
+  background: #263136;
+  border: 0;
+  border-radius: 6px;
+  color: #fffaf0;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 850;
+  justify-self: start;
+  min-height: 30px;
+  padding: 0 10px;
+}
+
 .portrait-uploader {
   align-items: stretch;
   background: #fffdf7;
@@ -1904,6 +1917,23 @@ textarea {
   padding: 0 12px;
 }
 
+.commit-level-button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.level-up-save-error {
+  background: #f8e5df;
+  border: 1px solid #e1b4a9;
+  border-radius: 6px;
+  color: #8d2b1d;
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.35;
+  margin: 0;
+  padding: 8px 10px;
+}
+
 .level-choice-field {
   display: grid;
   gap: 10px;
@@ -2063,9 +2093,25 @@ textarea {
   background: #fffdf7;
   border: 1px solid #d7cdb9;
   border-radius: 8px;
+  color: inherit;
+  cursor: default;
   display: grid;
   gap: 5px;
   padding: 12px;
+  text-align: left;
+  width: 100%;
+}
+
+button.version-card {
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.version-card.active,
+button.version-card:hover {
+  border-color: #d54635;
+  box-shadow: 0 0 0 2px rgba(213, 70, 53, 0.12);
 }
 
 .version-card strong {
@@ -2368,6 +2414,39 @@ textarea {
 
 .summary-review {
   grid-column: 1 / -1;
+}
+
+.summary-version-switcher {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.summary-version-switcher span {
+  color: #7b817c;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.summary-version-switcher button {
+  background: #fffdf7;
+  border: 1px solid #d7cdb9;
+  border-radius: 999px;
+  color: #30363a;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 850;
+  min-height: 32px;
+  padding: 0 11px;
+}
+
+.summary-version-switcher button.active {
+  background: #263136;
+  border-color: #263136;
+  color: #fffaf0;
 }
 
 .summary-readonly-actions {
