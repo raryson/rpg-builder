@@ -1,0 +1,319 @@
+# STAR WARS SAGA EDITION — REBUILD — FORA DA LEI (PARTE 9)
+# ÁRVORES DE TALENTOS — FORA DA LEI
+
+[FONTE: OCR DO LIVRO — SOMENTE FORMATAÇÃO E ORGANIZAÇÃO]
+
+---
+
+# ÁRVORE DE TALENTOS — SORTE
+
+## Descrição Geral
+
+Os Fora da Lei que seguem o caminho da Sorte sobrevivem através de oportunidades improváveis.
+
+Especialização:
+
+```text
+sobrevivência
+
+chance
+
+improviso
+
+escapar de situações
+```
+
+---
+
+## SORTE EXCEPCIONAL
+
+### Descrição
+
+Permite confiar em oportunidades improváveis.
+
+---
+
+## ESCAPAR POR POUCO
+
+### Descrição
+
+Você evita consequências mais graves.
+
+---
+
+## GOLPE DE SORTE
+
+### Descrição
+
+Consegue transformar uma situação improvável em vantagem.
+
+---
+
+## SOBREVIVENTE NATO
+
+### Descrição
+
+Mantém desempenho mesmo sob pressão.
+
+---
+
+# Fluxo da Árvore
+
+```text
+Sorte Excepcional
+├── Escapar por Pouco
+├── Golpe de Sorte
+└── Sobrevivente Nato
+```
+
+---
+
+# ÁRVORE DE TALENTOS — FURTIVIDADE
+
+## Descrição Geral
+
+Especialização em:
+
+```text
+emboscada
+
+movimento
+
+ocultação
+```
+
+---
+
+## ESCONDER-SE
+
+### Descrição
+
+Facilidade para permanecer oculto.
+
+---
+
+## MOVIMENTO SILENCIOSO
+
+### Descrição
+
+Reduz limitações ao se mover furtivamente.
+
+---
+
+## ATAQUE SURPRESA
+
+### Descrição
+
+Melhora situações de vantagem.
+
+---
+
+## DESAPARECER
+
+### Descrição
+
+Permite retornar ao ocultamento.
+
+---
+
+# Fluxo da Árvore
+
+```text
+Esconder-se
+↓
+
+Movimento Silencioso
+↓
+
+Ataque Surpresa
+↓
+
+Desaparecer
+```
+
+---
+
+# ÁRVORE DE TALENTOS — MANIPULAÇÃO
+
+## Descrição Geral
+
+Especialização em:
+
+```text
+enganação
+
+persuasão
+
+controle social
+```
+
+---
+
+## LÁBIA
+
+### Descrição
+
+Melhora interações sociais.
+
+---
+
+## BLEFE PERFEITO
+
+### Descrição
+
+Especialização em enganar.
+
+---
+
+## DISTRAÇÃO
+
+### Descrição
+
+Cria oportunidades.
+
+---
+
+## OPORTUNISTA
+
+### Descrição
+
+Transforma erros dos outros em vantagem.
+
+---
+
+# Fluxo da Árvore
+
+```text
+Lábia
+├── Blefe Perfeito
+├── Distração
+└── Oportunista
+```
+
+---
+
+# ÁRVORE DE TALENTOS — PRECISÃO
+
+## Descrição Geral
+
+Especialização em:
+
+```text
+ataques precisos
+
+execução
+
+dano
+```
+
+---
+
+## TIRO PRECISO
+
+### Descrição
+
+Melhora consistência de ataques.
+
+---
+
+## ALVO VITAL
+
+### Descrição
+
+Explora vulnerabilidades.
+
+---
+
+## TIRO MORTAL
+
+### Descrição
+
+Amplifica ataques bem posicionados.
+
+---
+
+## EXECUTOR
+
+### Descrição
+
+Especialização em finalizar alvos.
+
+---
+
+# Fluxo da Árvore
+
+```text
+Tiro Preciso
+↓
+
+Alvo Vital
+↓
+
+Tiro Mortal
+↓
+
+Executor
+```
+
+---
+
+# LEVEL UP — TALENTOS
+
+Fluxo:
+
+```text
+Subir nível
+↓
+
+Verificar árvore
+
+↓
+
+Validar pré-requisitos
+
+↓
+
+Selecionar talento
+
+↓
+
+Aplicar efeitos
+```
+
+---
+
+# Estrutura para Builder
+
+```ts
+ScoundrelTalentTree {
+
+ category
+
+ talents[]
+
+ prerequisites[]
+}
+```
+
+---
+
+# UI Recomendada
+
+```text
+Classe
+↓
+
+Árvore
+
+↓
+
+Talento
+
+↓
+
+Descrição
+```
+
+---
+
+[CONTINUA — PARTE 10 → REGRAS GERAIS DE CLASSE / LEVEL UP]

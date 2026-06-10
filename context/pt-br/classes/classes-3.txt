@@ -1,0 +1,666 @@
+# STAR WARS SAGA EDITION — CLASSE: BATEDOR — ÁRVORES DE TALENTOS (PARTE 3)
+
+## Objetivo
+
+Os talentos do Batedor representam especialização em:
+
+```text
+Percepção
+Furtividade
+Adaptação
+Exploração
+Sobrevivência
+```
+
+Cada talento é adquirido em:
+
+```text
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+```
+
+O personagem pode escolher qualquer árvore disponível desde que cumpra os pré-requisitos.
+
+---
+
+# ÁRVORE — CONSCIÊNCIA (AWARENESS)
+
+## Tema
+
+Especialização em:
+
+```text
+detecção
+reflexos
+rastreamento
+prevenção
+```
+
+Ideal para:
+
+```text
+explorador
+rastreador
+caçador
+sentinela
+```
+
+---
+
+## SENTIDOS AGUDOS
+
+### Descrição
+
+Permite repetir testes de percepção.
+
+Sempre deve aceitar o segundo resultado.
+
+### Mecânica
+
+```text
+Refazer:
+Percepção
+
+Obrigatório aceitar novo resultado.
+```
+
+### Tipo
+
+```text
+Passivo
+```
+
+---
+
+## INICIATIVA APRIMORADA
+
+### Descrição
+
+Permite repetir testes de iniciativa.
+
+### Mecânica
+
+```text
+Refazer:
+Iniciativa
+
+Obrigatório aceitar novo resultado.
+```
+
+### Pré-requisitos
+
+```text
+Sentidos Agudos
+```
+
+---
+
+## RASTREADOR EXPERIENTE
+
+### Descrição
+
+Remove penalidade por rastrear em velocidade normal.
+
+### Mecânica
+
+Normal:
+
+```text
+−5
+Sobrevivência ao rastrear
+```
+
+Com talento:
+
+```text
+sem penalidade
+```
+
+### Pré-requisitos
+
+```text
+Sentidos Agudos
+```
+
+---
+
+## TIRO APURADO
+
+### Descrição
+
+Ignora ocultamento parcial.
+
+### Mecânica
+
+Normal:
+
+```text
+penalidade contra ocultamento
+```
+
+Com talento:
+
+```text
+ignora ocultamento
+
+não funciona contra ocultamento total
+```
+
+### Pré-requisitos
+
+```text
+Sentidos Agudos
+```
+
+---
+
+## ESQUIVA EXCEPCIONAL I
+
+### Descrição
+
+Mantém bônus de Destreza mesmo sob ataque surpresa.
+
+### Mecânica
+
+Mantém:
+
+```text
+DEX na Defesa Reflexos
+```
+
+Funciona contra:
+
+```text
+flanqueamento
+inimigos escondidos
+```
+
+Não funciona:
+
+```text
+imobilizado
+```
+
+### Pré-requisitos
+
+```text
+Sentidos Agudos
+
+Iniciativa Aprimorada
+```
+
+---
+
+## ESQUIVA EXCEPCIONAL II
+
+### Descrição
+
+Impede flanqueamento.
+
+### Mecânica
+
+```text
+não pode ser flanqueado
+```
+
+### Pré-requisitos
+
+```text
+Sentidos Agudos
+
+Iniciativa Aprimorada
+
+Esquiva Excepcional I
+```
+
+---
+
+# Fluxo da Árvore — Consciência
+
+```text
+Sentidos Agudos
+├── Iniciativa Aprimorada
+│
+├── Rastreador Experiente
+│
+├── Tiro Apurado
+│
+└── Esquiva Excepcional I
+     └── Esquiva Excepcional II
+```
+
+---
+
+# ÁRVORE — CAMUFLAGEM (CAMOUFLAGE)
+
+## Tema
+
+Especialização em:
+
+```text
+furtividade
+esconderijo
+movimentação silenciosa
+```
+
+Ideal para:
+
+```text
+infiltrador
+espião
+caçador
+```
+
+---
+
+## FURTIVIDADE APRIMORADA
+
+### Descrição
+
+Refaz testes de furtividade.
+
+### Mecânica
+
+```text
+Refazer:
+Furtividade
+
+aceitar novo resultado
+```
+
+---
+
+## MOVIMENTO ENCOBERTO
+
+### Descrição
+
+Permite mover sem perder furtividade.
+
+### Mecânica
+
+Normal:
+
+```text
+penalidade ao mover
+```
+
+Com talento:
+
+```text
+sem penalidade
+```
+
+### Pré-requisitos
+
+```text
+Furtividade Aprimorada
+```
+
+---
+
+## OCULTAMENTO TOTAL
+
+### Descrição
+
+Converte ocultamento comum em ocultamento total.
+
+### Mecânica
+
+Sempre que receber:
+
+```text
+ocultamento
+```
+
+Recebe:
+
+```text
+ocultamento total
+```
+
+---
+
+# Fluxo da Árvore — Camuflagem
+
+```text
+Furtividade Aprimorada
+└── Movimento Encoberto
+
+Ocultamento Total
+```
+
+---
+
+# ÁRVORE — IMPROVISADOR (IMPROVISER)
+
+## Tema
+
+Especialização em:
+
+```text
+adaptação
+engenhosidade
+sobrevivência urbana
+```
+
+Ideal para:
+
+```text
+mecânico
+inventor
+explorador
+```
+
+---
+
+## BARGANHADOR
+
+### Descrição
+
+Refaz testes de negociação.
+
+### Mecânica
+
+```text
+Refazer:
+Persuasão
+
+somente barganha
+```
+
+---
+
+## ENGENBRADOR
+
+### Descrição
+
+Melhora reparos improvisados.
+
+### Mecânica
+
+```text
+Refazer:
+Mecânica
+
+somente Gambiarra
+```
+
+---
+
+## PASSO-LARGO
+
+### Descrição
+
+Aumenta deslocamento.
+
+### Mecânica
+
+```text
++2 quadrados
+```
+
+Também aplica:
+
+```text
+voo
+escalada
+natação
+```
+
+Restrições:
+
+```text
+não funciona
+armadura média
+
+não funciona
+armadura pesada
+```
+
+---
+
+## SABEDORIA DE IMPROVISADOR
+
+### Descrição
+
+Converte sucesso extremo em energia.
+
+### Mecânica
+
+Ao tirar:
+
+```text
+20 natural
+```
+
+Ganha:
+
+```text
+1 Ponto da Força temporário
+```
+
+Duração:
+
+```text
+até fim do encontro
+```
+
+---
+
+# Fluxo da Árvore — Improvisador
+
+```text
+Barganhador
+
+Engembrador
+
+Passo-Largo
+
+Sabedoria de Improvisador
+```
+
+---
+
+# ÁRVORE — SOBREVIVENTE (SURVIVOR)
+
+## Tema
+
+Especialização em:
+
+```text
+mobilidade
+resistência
+ambiente hostil
+```
+
+Ideal para:
+
+```text
+explorador
+soldado leve
+sobrevivente
+```
+
+---
+
+## CORREDOR
+
+### Mecânica
+
+Normal:
+
+```text
+4× deslocamento
+```
+
+Com talento:
+
+```text
+5× deslocamento
+```
+
+---
+
+## ESFORÇO EXTREMO
+
+### Mecânica
+
+Gastar:
+
+```text
+2 ações rápidas
+```
+
+Recebe:
+
+```text
++5
+```
+
+Em:
+
+```text
+Força
+Perícias baseadas em Força
+```
+
+---
+
+## EVASÃO
+
+### Mecânica
+
+Ataque em área:
+
+Acertou:
+
+```text
+metade do dano
+```
+
+Errou:
+
+```text
+0 dano
+```
+
+---
+
+## MOVIMENTO LIVRE
+
+### Mecânica
+
+```text
+ignora terreno difícil
+```
+
+---
+
+# Fluxo da Árvore — Sobrevivente
+
+```text
+Corredor
+
+Esforço Extremo
+
+Evasão
+
+Movimento Livre
+```
+
+---
+
+# Recomendações de Build
+
+## Explorador
+
+```text
+Sentidos Agudos
+↓
+
+Iniciativa Aprimorada
+↓
+
+Movimento Livre
+```
+
+---
+
+## Sniper
+
+```text
+Sentidos Agudos
+↓
+
+Tiro Apurado
+↓
+
+Ocultamento Total
+```
+
+---
+
+## Sobrevivente
+
+```text
+Corredor
+↓
+
+Evasão
+↓
+
+Passo-Largo
+```
+
+---
+
+# Estrutura para o Builder
+
+```ts
+TalentTree {
+
+ id
+
+ classId
+
+ name
+
+ description
+
+ talents:[
+
+ {
+   id
+
+   name
+
+   prerequisites
+
+   effects
+ }
+
+ ]
+}
+```
+
+---
+
+# Próxima Parte
+
+PARTE 4 — CLASSE: SOLDADO
+
+- visão geral
+- progressão
+- level up
+- talentos
+- árvores
+- builds
+- estrutura para UI

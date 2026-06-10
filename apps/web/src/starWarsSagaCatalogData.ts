@@ -1,5 +1,692 @@
 // Generated from context/pt-br OCR notes. Keep source text there and regenerate when OCR changes.
 
+export const sagaFeatDetailsCatalog = [
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Acuidade com Arma",
+    "slug": "acuidade-com-arma",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Artes Marciais I",
+    "slug": "artes-marciais-i",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Ataque Coordenado",
+    "slug": "ataque-coordenado",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Ataque Duplo",
+    "slug": "ataque-duplo",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: contexto informado pelo usuário",
+    "name": "Ataque em Movimento",
+    "slug": "ataque-em-movimento",
+    "summary": "Você pode se mover ao mesmo tempo em que ataca, dividindo seu deslocamento antes e depois do ataque.",
+    "details": "Você pode se mover ao mesmo tempo em que ataca.\n\n### Pré-requisitos\n\nDestreza 13.\n\n### Benefício\n\nQuando estiver fazendo um ataque com uma arma corpo a corpo ou à distância, você pode se mover antes e depois do ataque, desde que sua distância total percorrida não seja maior que seu deslocamento.",
+    "prerequisites": "Destreza 13",
+    "benefit": "Quando estiver fazendo um ataque com uma arma corpo a corpo ou à distância, você pode se mover antes e depois do ataque, desde que sua distância total percorrida não seja maior que seu deslocamento."
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Ataque Poderoso",
+    "slug": "ataque-poderoso",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Ataque Rápido",
+    "slug": "ataque-rapido",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  },
+  {
+    "normal": "",
+    "special": "Os efeitos desta aptidão não se acumulam com o dano extra conferido pelas aptidões Rajada de Tiros ou Tiro Rápido.",
+    "category": "Aptidão",
+    "extra": "Fonte: contexto informado pelo usuário",
+    "name": "Certeiro",
+    "slug": "certeiro",
+    "summary": "Se mirar antes de um ataque à distância e acertar, aumente o dano causado em um dado de dano adicional.",
+    "details": "Você é perito em abater seus inimigos com ataques à distância bem mirados.\n\n### Pré-requisitos\n\nTiro à Queima Roupa, Tiro Preciso, bônus de base de ataque +4.\n\n### Benefício\n\nSe você mirar antes de fazer um ataque à distância e o ataque acertar, aumente o dano causado em um dado de dano adicional.\n\nPor exemplo, se você conseguiu um acerto com uma pistola blaster utilizando a aptidão Certeiro, o disparo causará 4d6 pontos de dano em vez dos 3d6 normais.\n\n### Especial\n\nOs efeitos desta aptidão não se acumulam com o dano extra conferido pelas aptidões Rajada de Tiros ou Tiro Rápido.",
+    "prerequisites": "Tiro à Queima Roupa, Tiro Preciso, BBA +4",
+    "benefit": "Se você mirar antes de fazer um ataque à distância e o ataque acertar, aumente o dano causado em um dado de dano adicional. Por exemplo, uma pistola blaster causaria 4d6 pontos de dano em vez dos 3d6 normais."
+  },
+  {
+    "name": "Combate Veicular",
+    "slug": "combate-veicular",
+    "summary": "Uma vez por rodada (como uma reação), quando estiver pilotando um veículo ou nave espacial, você pode negar um acerto de uma arma ao ser bem sucedido num teste de Pilotar. A CD para esse teste de perícia é igual ao resultado da jogada de ataque que você pretende evitar.",
+    "details": "### Pré-requisitos\n\nTreinado na perícia Pilotar.\n\n### Benefício\n\nUma vez por rodada (como uma reação), quando estiver pilotando um veículo ou nave espacial, você pode negar um acerto de uma arma ao ser bem sucedido num teste de Pilotar. A CD para esse teste de perícia é igual ao resultado da jogada de ataque que você pretende evitar.\n\nAlém disso, quando você estiver pilotando um veículo, você é considerado proficiente com as armas do veículo operadas pelo piloto (As descrições dos veículo no Capítulo 10 mostram quais armas são operadas pelo piloto).\n\nPágina: 91",
+    "prerequisites": "Treinado na perícia Pilotar.",
+    "benefit": "Uma vez por rodada (como uma reação), quando estiver pilotando um veículo ou nave espacial, você pode negar um acerto de uma arma ao ser bem sucedido num teste de Pilotar. A CD para esse teste de perícia é igual ao resultado da jogada de ataque que você pretende evitar.\n\nAlém disso, quando você estiver pilotando um veículo, você é considerado proficiente com as armas do veículo operadas pelo piloto (As descrições dos veículo no Capítulo 10 mostram quais armas são operadas pelo piloto).\n\nPágina: 91",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-1.txt"
+  },
+  {
+    "name": "Crítico Triplicado",
+    "slug": "critico-triplicado",
+    "summary": "Quando obtiver um sucesso decisivo com a arma escolhida, o dano é triplicado. Você pode escolher “ataque desarmado” como uma arma para propósito desta aptidão.",
+    "details": "Escolha um tipo de arma, como uma pistola, vibroadaga, ou sabre de luz. Você causa mais dano em um sucesso decisivo com esta arma.\n\n### Pré-requisitos\n\nProficiente na arma, bônus de base de ataque +8.\n\n### Benefício\n\nQuando obtiver um sucesso decisivo com a arma escolhida, o dano é triplicado. Você pode escolher “ataque desarmado” como uma arma para propósito desta aptidão.\n\n### Normal\n\nUm sucesso decisivo normalmente causa dano duplicado no alvo.\n\n### Especial\n\nVocê pode selecionar esta aptidão várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão, ela é aplicada a uma arma diferente.\n\nPágina: 91",
+    "prerequisites": "Proficiente na arma, bônus de base de ataque +8.",
+    "benefit": "Quando obtiver um sucesso decisivo com a arma escolhida, o dano é triplicado. Você pode escolher “ataque desarmado” como uma arma para propósito desta aptidão.",
+    "normal": "Um sucesso decisivo normalmente causa dano duplicado no alvo.",
+    "special": "Você pode selecionar esta aptidão várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão, ela é aplicada a uma arma diferente.\n\nPágina: 91",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-1.txt"
+  },
+  {
+    "name": "Defesa Corpo a Corpo",
+    "slug": "defesa-corpo-a-corpo",
+    "summary": "Quando você usar uma ação padrão para fazer um ataque corpo a corpo, você pode escolher receber uma penalidade de -5 em sua jogada de ataque e adicionar o mesmo número (até +5) como um bônus de esquiva em sua Defesa de Reflexos. Este número não pode exceder seu bônus de base de a",
+    "details": "Você é treinado em utilizar sua habilidade em combate defensivamente com a mesma eficácia que ofensivamente.\n\n### Pré-requisitos\n\nInteligência 13.\n\n### Benefício\n\nQuando você usar uma ação padrão para fazer um ataque corpo a corpo, você pode escolher receber uma penalidade de -5 em sua jogada de ataque e adicionar o mesmo número (até +5) como um bônus de esquiva em sua Defesa de Reflexos. Este número não pode exceder seu bônus de base de ataque. As alterações nas jogadas de ataque e Defesa de Reflexos permanecem até o começo de seu próximo turno.\n\n### Normal\n\nUm personagem sem a aptidão Defesa Corpo a Corpo pode lutar defensivamente quando usar a ação de ataque, sofrendo -5 de penalidade em suas jogadas de ataque e ganhando +2 de bônus de esquiva em sua Defesa de Reflexos.\n\nPágina: 91–92",
+    "prerequisites": "Inteligência 13.",
+    "benefit": "Quando você usar uma ação padrão para fazer um ataque corpo a corpo, você pode escolher receber uma penalidade de -5 em sua jogada de ataque e adicionar o mesmo número (até +5) como um bônus de esquiva em sua Defesa de Reflexos. Este número não pode exceder seu bônus de base de ataque. As alterações nas jogadas de ataque e Defesa de Reflexos permanecem até o começo de seu próximo turno.",
+    "normal": "Um personagem sem a aptidão Defesa Corpo a Corpo pode lutar defensivamente quando usar a ação de ataque, sofrendo -5 de penalidade em suas jogadas de ataque e ganhando +2 de bônus de esquiva em sua Defesa de Reflexos.\n\nPágina: 91–92",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-1.txt"
+  },
+  {
+    "name": "Defesas Aprimoradas",
+    "slug": "defesas-aprimoradas",
+    "summary": "Você ganha +1 de bônus em suas Defesas de Reflexos, Fortitude e Vontade.",
+    "details": "Você é hábil em resistir a diversos tipos de ataques.\n\n### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nVocê ganha +1 de bônus em suas Defesas de Reflexos, Fortitude e Vontade.\n\nPágina: 92",
+    "prerequisites": "Nenhum",
+    "benefit": "Você ganha +1 de bônus em suas Defesas de Reflexos, Fortitude e Vontade.\n\nPágina: 92",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-1.txt"
+  },
+  {
+    "name": "Derrubar",
+    "slug": "derrubar",
+    "summary": "Se você for bem sucedido em um ataque de prender (veja página 153) e seu oponente falhar no teste resistido, ele cai no seu próprio espaço e não é mais considerado imobilizado.",
+    "details": "Você é capaz de lançar ao chão oponentes agarrados.\n\n### Pré-requisitos\n\nBônus de base de ataque +1.\n\n### Benefício\n\nSe você for bem sucedido em um ataque de prender (veja página 153) e seu oponente falhar no teste resistido, ele cai no seu próprio espaço e não é mais considerado imobilizado.\n\nUm oponente caído sofre -5 de penalidade nas jogadas de ataque corpo a corpo. Ataques corpo a corpo feitos contra um oponente caído ganham um bônus de +5, enquanto ataques à distância sofrem uma penalidade de -5.\n\n### Especial\n\nVocê não pode usar as aptidões Imobilizar e Derrubar durante uma mesma rodada.\n\nPágina: 92",
+    "prerequisites": "Bônus de base de ataque +1.",
+    "benefit": "Se você for bem sucedido em um ataque de prender (veja página 153) e seu oponente falhar no teste resistido, ele cai no seu próprio espaço e não é mais considerado imobilizado.\n\nUm oponente caído sofre -5 de penalidade nas jogadas de ataque corpo a corpo. Ataques corpo a corpo feitos contra um oponente caído ganham um bônus de +5, enquanto ataques à distância sofrem uma penalidade de -5.",
+    "normal": "",
+    "special": "Você não pode usar as aptidões Imobilizar e Derrubar durante uma mesma rodada.\n\nPágina: 92",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-1.txt"
+  },
+  {
+    "name": "Desarme Aprimorado",
+    "slug": "desarme-aprimorado",
+    "summary": "Você ganha +5 de bônus em qualquer jogada de ataque corpo a corpo feita para desarmar um oponente. Ainda, se você falhar em desarmar seu oponente, ele não ganha a chance de fazer um ataque livre contra você.",
+    "details": "Você é hábil em desarmar oponentes em combate corpo a corpo.\n\n### Pré-requisitos\n\nInteligência 13, Defesa Corpo a Corpo.\n\n### Benefício\n\nVocê ganha +5 de bônus em qualquer jogada de ataque corpo a corpo feita para desarmar um oponente. Ainda, se você falhar em desarmar seu oponente, ele não ganha a chance de fazer um ataque livre contra você.\n\n### Normal\n\nVeja as regras de desarmes normais na página 152.\n\nPágina: 92",
+    "prerequisites": "Inteligência 13, Defesa Corpo a Corpo.",
+    "benefit": "Você ganha +5 de bônus em qualquer jogada de ataque corpo a corpo feita para desarmar um oponente. Ainda, se você falhar em desarmar seu oponente, ele não ganha a chance de fazer um ataque livre contra você.",
+    "normal": "Veja as regras de desarmes normais na página 152.\n\nPágina: 92",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-1.txt"
+  },
+  {
+    "name": "Encontrão",
+    "slug": "encontrao",
+    "summary": "Após fazer um ataque corpo a corpo bem sucedido contra um oponente até uma categoria de tamanho maior que a sua, você pode escolher mover este oponente 1 quadrado em qualquer direção utilizando uma ação livre.",
+    "details": "Você empurra seus oponentes pelo campo de batalha para ganhar uma vantagem tática.\n\n### Pré-requisitos\n\nForça 13, bônus de base de ataque +1.\n\n### Benefício\n\nApós fazer um ataque corpo a corpo bem sucedido contra um oponente até uma categoria de tamanho maior que a sua, você pode escolher mover este oponente 1 quadrado em qualquer direção utilizando uma ação livre.\n\nUm encontrão não pode ser realizado contra um oponente que esteja agarrado ou imobilizado, e você não pode empurrar seu oponente num objeto sólido ou no espaço de luta de outra criatura.\n\nPágina: 92",
+    "prerequisites": "Força 13, bônus de base de ataque +1.",
+    "benefit": "Após fazer um ataque corpo a corpo bem sucedido contra um oponente até uma categoria de tamanho maior que a sua, você pode escolher mover este oponente 1 quadrado em qualquer direção utilizando uma ação livre.\n\nUm encontrão não pode ser realizado contra um oponente que esteja agarrado ou imobilizado, e você não pode empurrar seu oponente num objeto sólido ou no espaço de luta de outra criatura.\n\nPágina: 92",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-2.txt"
+  },
+  {
+    "name": "Esmagar",
+    "slug": "esmagar",
+    "summary": "Se for bem sucedido em Imobilizar um oponente com um ataque de prender (veja a aptidão Imobilizar, página 87) você pode, imediatamente, causar dano de contusão igual ao seu dano de ataque desarmado ou dano de garra, aquele que for maior.",
+    "details": "Você pode causar dano em uma criatura que você tiver prendido.\n\n### Pré-requisitos\n\nImobilizar, bônus de base de ataque +1.\n\n### Benefício\n\nSe for bem sucedido em Imobilizar um oponente com um ataque de prender (veja a aptidão Imobilizar, página 87) você pode, imediatamente, causar dano de contusão igual ao seu dano de ataque desarmado ou dano de garra, aquele que for maior.\n\nPágina: 93",
+    "prerequisites": "Imobilizar, bônus de base de ataque +1.",
+    "benefit": "Se for bem sucedido em Imobilizar um oponente com um ataque de prender (veja a aptidão Imobilizar, página 87) você pode, imediatamente, causar dano de contusão igual ao seu dano de ataque desarmado ou dano de garra, aquele que for maior.\n\nPágina: 93",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Especialista Cirúrgico",
+    "slug": "especialista-cirurgico",
+    "summary": "Você pode realizar uma cirurgia em 10 minutos.",
+    "details": "Você pode realizar rapidamente, com habilidade, procedimentos cirúrgicos.\n\n### Pré-requisitos\n\nTreinado na perícia Tratar Ferimentos.\n\n### Benefício\n\nVocê pode realizar uma cirurgia em 10 minutos.\n\n### Normal\n\nRealizar uma cirurgia, normalmente requer 1 hora (veja a perícia Tratar Ferimentos, página 74).\n\nPágina: 92",
+    "prerequisites": "Treinado na perícia Tratar Ferimentos.",
+    "benefit": "Você pode realizar uma cirurgia em 10 minutos.",
+    "normal": "Realizar uma cirurgia, normalmente requer 1 hora (veja a perícia Tratar Ferimentos, página 74).\n\nPágina: 92",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-2.txt"
+  },
+  {
+    "name": "Especialista Técnico",
+    "slug": "especialista-tecnico",
+    "summary": "Você pode modificar um dispositivo, armadura, arma, dróide ou veículo dando-lhes um traço especial.",
+    "details": "A aptidão Especialista Técnico possibilita ao herói realizar modificações personalizadas em armas, armaduras, dróides, aparelhos e veículos para que eles funcionem acima de suas especificações normais.\n\n### Pré-requisitos\n\nTreinado na perícia Mecânica.\n\n### Benefício\n\nVocê pode modificar um dispositivo, armadura, arma, dróide ou veículo dando-lhes um traço especial.\n\n### Modificações do Especialista Técnico\n\n| CARACTERÍSTICAS EM ARMADURA | BENEFÍCIO |\n|---|---|\n| Armadura Flexível | Aumenta o bônus máximo de Destreza da armadura em 1 |\n| Armadura Fortificada | Aumenta o bônus de equipamento da armadura na Defesa de Fortitude em 1 |\n| Armadura Protegida | Aumenta o bônus de armadura na Defesa de Reflexos em 1 |\n\n| TRAÇO DO DISPOSITIVO | BENEFÍCIO |\n|---|---|\n| Aparelho Obra-prima | Testes de perícia feitos usando esse aparelho ganham +1 de bônus de equipamento, ou o bônus de equipamento existente do aparelho aumenta em 1 |\n| Durabilidade Aprimorada | A redução de dano do aparelho aumenta em 1, e este ganha pontos de vida extras igual a um quarto dos seus pontos de vida base |\n| Força Ampliada | Aumenta o valor de Força do dispositivo em 2 |\n\n| TRAÇO DO DRÓIDE | BENEFÍCIO |\n|---|---|\n| Destreza Ampliada | Aumenta o valor de Destreza do dróide em 2 |\n| Inteligência Ampliada | Aumenta o valor de Inteligência do dróide em 2 |\n| Força Ampliada | Aumenta o valor de Força do dróide em 2 |\n\n| TRAÇO DO VEÍCULO | BENEFÍCIO |\n|---|---|\n| Deslocamento Aprimorado | Aumenta o deslocamento do veículo em um quarto do seu deslocamento base (mínimo 1 quadrado) |\n| Destreza Ampliada | Aumenta o valor de Destreza do veículo em 2 |\n| Escudos Aprimorados | Aumenta a taxa dos escudos do veículo em 5 |\n\n| TRAÇO DA ARMA | BENEFÍCIO |\n|---|---|\n| Dano Aprimorado | A arma causa +2 pontos de dano com um acerto bem sucedido. Se a arma possuir um multiplicador de dano (por exemplo, 6d10x2), aplique o dano extra antes de aplicar o multiplicador |\n| Precisão Aprimorada | A arma ganha +1 de bônus de equipamento nas jogadas de ataque |\n| Tiro Seletivo | Uma arma à distância apenas de modo Disparo Automático pode ser configurada para disparos únicos, ou uma arma de tiro único pode ser configurada para modo Disparo Automático |\n\nAntes de começar a modificação, você precisa pagar 1/10 do custo do dispositivo, conjunto de armadura, arma, dróide ou veículo que deseja modificar ou 1.000 créditos, o que for maior.\n\nCompletar a modificação requer 1 dia por 1.000 créditos do custo de modificação.\n\nAo final deste período, faça um teste de Mecânica contra uma CD 20; você não pode escolher 10 ou 20 neste teste.\n\nSe o teste for bem sucedido, a modificação é completada com sucesso, e o objeto adquire a característica desejada.\n\nSe o teste falhar, você perde todos os créditos gastos para fazer a modificação e o objeto não ganha a característica desejada; entretanto, você pode recomeçar se desejar.\n\nOutros personagens treinados na perícia Mecânica podem auxiliá-lo, reduzindo proporcionalmente o tempo necessário para completar a modificação.\n\nAo término do processo de modificação, eles poderão fazer um teste de Mecânica para auxiliar seu teste.\n\nO preço de mercado de um item modificado é igual ao custo base do item mais o dobro do custo da modificação realizada (não inclusos os créditos desperdiçados em tentativas falhas de modificações).\n\n### Especial\n\nEsta aptidão é considerada uma aptidão bônus para as classes Nobre e Fora-da-Lei.\n\nPágina: 92–93",
+    "prerequisites": "Treinado na perícia Mecânica.",
+    "benefit": "Você pode modificar um dispositivo, armadura, arma, dróide ou veículo dando-lhes um traço especial.\n\n### Modificações do Especialista Técnico\n\n| CARACTERÍSTICAS EM ARMADURA | BENEFÍCIO |\n|---|---|\n| Armadura Flexível | Aumenta o bônus máximo de Destreza da armadura em 1 |\n| Armadura Fortificada | Aumenta o bônus de equipamento da armadura na Defesa de Fortitude em 1 |\n| Armadura Protegida | Aumenta o bônus de armadura na Defesa de Reflexos em 1 |\n\n| TRAÇO DO DISPOSITIVO | BENEFÍCIO |\n|---|---|\n| Aparelho Obra-prima | Testes de perícia feitos usando esse aparelho ganham +1 de bônus de equipamento, ou o bônus de equipamento existente do aparelho aumenta em 1 |\n| Durabilidade Aprimorada | A redução de dano do aparelho aumenta em 1, e este ganha pontos de vida extras igual a um quarto dos seus pontos de vida base |\n| Força Ampliada | Aumenta o valor de Força do dispositivo em 2 |\n\n| TRAÇO DO DRÓIDE | BENEFÍCIO |\n|---|---|\n| Destreza Ampliada | Aumenta o valor de Destreza do dróide em 2 |\n| Inteligência Ampliada | Aumenta o valor de Inteligência do dróide em 2 |\n| Força Ampliada | Aumenta o valor de Força do dróide em 2 |\n\n| TRAÇO DO VEÍCULO | BENEFÍCIO |\n|---|---|\n| Deslocamento Aprimorado | Aumenta o deslocamento do veículo em um quarto do seu deslocamento base (mínimo 1 quadrado) |\n| Destreza Ampliada | Aumenta o valor de Destreza do veículo em 2 |\n| Escudos Aprimorados | Aumenta a taxa dos escudos do veículo em 5 |\n\n| TRAÇO DA ARMA | BENEFÍCIO |\n|---|---|\n| Dano Aprimorado | A arma causa +2 pontos de dano com um acerto bem sucedido. Se a arma possuir um multiplicador de dano (por exemplo, 6d10x2), aplique o dano extra antes de aplicar o multiplicador |\n| Precisão Aprimorada | A arma ganha +1 de bônus de equipamento nas jogadas de ataque |\n| Tiro Seletivo | Uma arma à distância apenas de modo Disparo Automático pode ser configurada para disparos únicos, ou uma arma de tiro único pode ser configurada para modo Disparo Automático |\n\nAntes de começar a modificação, você precisa pagar 1/10 do custo do dispositivo, conjunto de armadura, arma, dróide ou veículo que deseja modificar ou 1.000 créditos, o que for maior.\n\nCompletar a modificação requer 1 dia por 1.000 créditos do custo de modificação.\n\nAo final deste período, faça um teste de Mecânica contra uma CD 20; você não pode escolher 10 ou 20 neste teste.\n\nSe o teste for bem sucedido, a modificação é completada com sucesso, e o objeto adquire a característica desejada.\n\nSe o teste falhar, você perde todos os créditos gastos para fazer a modificação e o objeto não ganha a característica desejada; entretanto, você pode recomeçar se desejar.\n\nOutros personagens treinados na perícia Mecânica podem auxiliá-lo, reduzindo proporcionalmente o tempo necessário para completar a modificação.\n\nAo término do processo de modificação, eles poderão fazer um teste de Mecânica para auxiliar seu teste.\n\nO preço de mercado de um item modificado é igual ao custo base do item mais o dobro do custo da modificação realizada (não inclusos os créditos desperdiçados em tentativas falhas de modificações).",
+    "normal": "",
+    "special": "Esta aptidão é considerada uma aptidão bônus para as classes Nobre e Fora-da-Lei.\n\nPágina: 92–93",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-2.txt"
+  },
+  {
+    "name": "Esquiva",
+    "slug": "esquiva",
+    "summary": "Durante seu turno, você pode designar um oponente e receber +1 de bônus de esquiva em sua Defesa de Reflexos contra ataques feitos por este oponente. Um novo oponente pode ser escolhido em qualquer ação.",
+    "details": "Você é bom em se desviar de golpes.\n\n### Pré-requisitos\n\nDestreza 13.\n\n### Benefício\n\nDurante seu turno, você pode designar um oponente e receber +1 de bônus de esquiva em sua Defesa de Reflexos contra ataques feitos por este oponente. Um novo oponente pode ser escolhido em qualquer ação.\n\nUma situação que faça você perder seu bônus de Destreza na Defesa de Reflexos (se houver), também faz você perder seus bônus de esquiva.\n\nBônus de esquiva se acumulam entre si, ao contrário da maioria dos outros tipos de bônus.\n\nPágina: 93",
+    "prerequisites": "Destreza 13.",
+    "benefit": "Durante seu turno, você pode designar um oponente e receber +1 de bônus de esquiva em sua Defesa de Reflexos contra ataques feitos por este oponente. Um novo oponente pode ser escolhido em qualquer ação.\n\nUma situação que faça você perder seu bônus de Destreza na Defesa de Reflexos (se houver), também faz você perder seus bônus de esquiva.\n\nBônus de esquiva se acumulam entre si, ao contrário da maioria dos outros tipos de bônus.\n\nPágina: 93",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Favorecido pela Força",
+    "slug": "favorecido-pela-forca",
+    "summary": "Você ganha três pontos de Força adicionais a cada nível.",
+    "details": "Você é capaz de “chamar” pela Força mais vezes que usuários menos favorecidos.\n\n### Pré-requisitos\n\nSensível à Força.\n\n### Benefício\n\nVocê ganha três pontos de Força adicionais a cada nível.\n\nPágina: 93",
+    "prerequisites": "Sensível à Força.",
+    "benefit": "Você ganha três pontos de Força adicionais a cada nível.\n\nPágina: 93",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Foco em Arma",
+    "slug": "foco-em-arma",
+    "summary": "Você ganha +1 de bônus em todas as jogadas de ataque feitas usando a arma exótica ou o grupo de armas escolhido.",
+    "details": "Escolha uma única arma exótica ou um grupo de armas. Você é especialmente bom na utilização dessas armas. Ataque desarmado ou prender podem ser escolhidos como sua arma para propósito desta aptidão.\n\n### Pré-requisitos\n\nProficiente na arma exótica ou no grupo de armas escolhido.\n\n### Benefício\n\nVocê ganha +1 de bônus em todas as jogadas de ataque feitas usando a arma exótica ou o grupo de armas escolhido.\n\n### Especial\n\nEssa aptidão pode ser escolhida várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão ela se aplica a uma nova arma exótica ou grupo de armas.\n\nPágina: 93",
+    "prerequisites": "Proficiente na arma exótica ou no grupo de armas escolhido.",
+    "benefit": "Você ganha +1 de bônus em todas as jogadas de ataque feitas usando a arma exótica ou o grupo de armas escolhido.",
+    "normal": "",
+    "special": "Essa aptidão pode ser escolhida várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão ela se aplica a uma nova arma exótica ou grupo de armas.\n\nPágina: 93",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Foco em Perícia",
+    "slug": "foco-em-pericia",
+    "summary": "Uma perícia treinada de sua escolha recebe +5 de bônus de competência.",
+    "details": "Uma das suas perícias é particularmente aguçada.\n\n### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nUma perícia treinada de sua escolha recebe +5 de bônus de competência.\n\n### Especial\n\nEsta aptidão pode ser escolhida várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão, ela se aplica a uma perícia treinada diferente.\n\nPágina: 93",
+    "prerequisites": "Nenhum",
+    "benefit": "Uma perícia treinada de sua escolha recebe +5 de bônus de competência.",
+    "normal": "",
+    "special": "Esta aptidão pode ser escolhida várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão, ela se aplica a uma perícia treinada diferente.\n\nPágina: 93",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Franco-Atirador",
+    "slug": "franco-atirador",
+    "summary": "Você sempre ignora cobertura leve (ou seja, cobertura provida por um personagem, criatura ou dróide) quando fizer um ataque à distância.",
+    "details": "Você é particularmente hábil em acertar o alvo certo numa multidão.\n\n### Pré-requisitos\n\nTiro à Queima Roupa, Tiro Preciso, bônus de base de ataque +4.\n\n### Benefício\n\nVocê sempre ignora cobertura leve (ou seja, cobertura provida por um personagem, criatura ou dróide) quando fizer um ataque à distância.\n\n### Normal\n\nVocê só pode ignorar cobertura se você mirar (veja página 154) antes de fazer um ataque à distância.\n\nPágina: 93",
+    "prerequisites": "Tiro à Queima Roupa, Tiro Preciso, bônus de base de ataque +4.",
+    "benefit": "Você sempre ignora cobertura leve (ou seja, cobertura provida por um personagem, criatura ou dróide) quando fizer um ataque à distância.",
+    "normal": "Você só pode ignorar cobertura se você mirar (veja página 154) antes de fazer um ataque à distância.\n\nPágina: 93",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Fúria Assustadora",
+    "slug": "furia-assustadora",
+    "summary": "Quando estiver em fúria, seus bônus de fúria nas jogadas de ataque e dano corpo a corpo aumentam para +5.",
+    "details": "Você causa danos assustadores quando estiver em fúria.\n\n### Pré-requisitos\n\nFúria Racial, bônus de base de ataque +1.\n\n### Benefício\n\nQuando estiver em fúria, seus bônus de fúria nas jogadas de ataque e dano corpo a corpo aumentam para +5.\n\n### Normal\n\nUm personagem com uma Fúria Racial ganha +2 de bônus de fúria nas jogadas de ataque e dano corpo a corpo quando em fúria.\n\nPágina: 93",
+    "prerequisites": "Fúria Racial, bônus de base de ataque +1.",
+    "benefit": "Quando estiver em fúria, seus bônus de fúria nas jogadas de ataque e dano corpo a corpo aumentam para +5.",
+    "normal": "Um personagem com uma Fúria Racial ganha +2 de bônus de fúria nas jogadas de ataque e dano corpo a corpo quando em fúria.\n\nPágina: 93",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Fúria Extra",
+    "slug": "furia-extra",
+    "summary": "Você entra em fúria uma vez a mais por dia.",
+    "details": "Você pode entrar em Fúria mais vezes que o normal.\n\n### Pré-requisitos\n\nFúria Racial.\n\n### Benefício\n\nVocê entra em fúria uma vez a mais por dia.\n\n### Especial\n\nEsta aptidão pode ser pega várias vezes. Cada vez que o fizer, você poderá entrar em fúria uma vez a mais por dia.\n\nPágina: 94",
+    "prerequisites": "Fúria Racial.",
+    "benefit": "Você entra em fúria uma vez a mais por dia.",
+    "normal": "",
+    "special": "Esta aptidão pode ser pega várias vezes. Cada vez que o fizer, você poderá entrar em fúria uma vez a mais por dia.\n\nPágina: 94",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "name": "Imobilizar",
+    "slug": "imobilizar",
+    "summary": "Se você for bem sucedido em um ataque de prender e seu oponente falhar no teste resistido, ele é automaticamente imobilizado até o início do seu próximo turno.",
+    "details": "Você é capacitado em imobilizar oponentes agarrados.\n\n### Pré-requisitos\n\nBônus de base de ataque +1.\n\n### Benefício\n\nSe você for bem sucedido em um ataque de prender e seu oponente falhar no teste resistido, ele é automaticamente imobilizado até o início do seu próximo turno.\n\nUma criatura imobilizada não pode se mover ou executar qualquer ação enquanto estiver imobilizada, e perde seu bônus de Destreza (se houver) na Defesa de Reflexos.\n\n### Especial\n\nVocê não pode usar a aptidão Imobilizar e Derrubar durante a mesma rodada. Entretanto, você pode usar a aptidão Imobilizar e Esmagar em uma mesma rodada.\n\nPágina: 94",
+    "prerequisites": "Bônus de base de ataque +1.",
+    "benefit": "Se você for bem sucedido em um ataque de prender e seu oponente falhar no teste resistido, ele é automaticamente imobilizado até o início do seu próximo turno.\n\nUma criatura imobilizada não pode se mover ou executar qualquer ação enquanto estiver imobilizada, e perde seu bônus de Destreza (se houver) na Defesa de Reflexos.",
+    "normal": "",
+    "special": "Você não pode usar a aptidão Imobilizar e Derrubar durante a mesma rodada. Entretanto, você pode usar a aptidão Imobilizar e Esmagar em uma mesma rodada.\n\nPágina: 94",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Impulso Eficaz",
+    "slug": "impulso-eficaz",
+    "summary": "Você pode gastar duas ações rápidas na mesma rodada para causar +1 dado de dano em seu próximo ataque corpo a corpo na mesma rodada.",
+    "details": "Você é capaz de realizar grandes ataques corpo a corpo.\n\n### Pré-requisitos\n\nForça 13.\n\n### Benefício\n\nVocê pode gastar duas ações rápidas na mesma rodada para causar +1 dado de dano em seu próximo ataque corpo a corpo na mesma rodada.\n\nOs efeitos desta aptidão não se acumulam com o dano extra provido pela aptidão Ataque Rápido.\n\nPágina: 94",
+    "prerequisites": "Força 13.",
+    "benefit": "Você pode gastar duas ações rápidas na mesma rodada para causar +1 dado de dano em seu próximo ataque corpo a corpo na mesma rodada.\n\nOs efeitos desta aptidão não se acumulam com o dano extra provido pela aptidão Ataque Rápido.\n\nPágina: 94",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Instalar Prótese Cibernética",
+    "slug": "instalar-protese-cibernetica",
+    "summary": "Você pode instalar uma prótese cibernética (veja página 137) em um ser vivo. O procedimento cirúrgico requer 1 hora de trabalho ininterrupto, após isto, você deve fazer um teste de Tratar Ferimentos contra uma CD 20. Se o teste for bem sucedido, a prótese é instalada corretamente",
+    "details": "### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nVocê pode instalar uma prótese cibernética (veja página 137) em um ser vivo. O procedimento cirúrgico requer 1 hora de trabalho ininterrupto, após isto, você deve fazer um teste de Tratar Ferimentos contra uma CD 20. Se o teste for bem sucedido, a prótese é instalada corretamente. Se o teste falhar, a prótese não é apropriadamente instalada; entretanto, você pode tentar instalar uma prótese novamente após outra hora ininterrupta de cirurgia.\n\n### Especial\n\nVocê pode instalar uma prótese cibernética em si mesmo, mas você recebe -5 de penalidade no teste da perícia Tratar Ferimentos. Se você tiver a aptidão Especialista Cirúrgico (veja página 88) poderá instalar uma prótese cibernética em 10 minutos ao invés de 1 hora.\n\nPágina: 91",
+    "prerequisites": "Nenhum",
+    "benefit": "Você pode instalar uma prótese cibernética (veja página 137) em um ser vivo. O procedimento cirúrgico requer 1 hora de trabalho ininterrupto, após isto, você deve fazer um teste de Tratar Ferimentos contra uma CD 20. Se o teste for bem sucedido, a prótese é instalada corretamente. Se o teste falhar, a prótese não é apropriadamente instalada; entretanto, você pode tentar instalar uma prótese novamente após outra hora ininterrupta de cirurgia.",
+    "normal": "",
+    "special": "Você pode instalar uma prótese cibernética em si mesmo, mas você recebe -5 de penalidade no teste da perícia Tratar Ferimentos. Se você tiver a aptidão Especialista Cirúrgico (veja página 88) poderá instalar uma prótese cibernética em 10 minutos ao invés de 1 hora.\n\nPágina: 91",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-1.txt"
+  },
+  {
+    "name": "Investida Aprimorada",
+    "slug": "investida-aprimorada",
+    "summary": "Você pode realizar uma investida (veja página 152) sem precisar se mover em uma linha reta, e pode mudar de direção quando fazendo uma investida para evitar obstáculos.",
+    "details": "Você consegue investir contornando obstáculos.\n\n### Pré-requisitos\n\nDestreza 13, Esquiva, Mobilidade.\n\n### Benefício\n\nVocê pode realizar uma investida (veja página 152) sem precisar se mover em uma linha reta, e pode mudar de direção quando fazendo uma investida para evitar obstáculos.\n\nTodas as outras regras de investida são aplicadas normalmente.\n\n### Normal\n\nUm personagem precisa fazer uma investida em uma linha reta não obstruída.\n\nPágina: 94",
+    "prerequisites": "Destreza 13, Esquiva, Mobilidade.",
+    "benefit": "Você pode realizar uma investida (veja página 152) sem precisar se mover em uma linha reta, e pode mudar de direção quando fazendo uma investida para evitar obstáculos.\n\nTodas as outras regras de investida são aplicadas normalmente.",
+    "normal": "Um personagem precisa fazer uma investida em uma linha reta não obstruída.\n\nPágina: 94",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Investida Poderosa",
+    "slug": "investida-poderosa",
+    "summary": "Quando realizar uma investida, você ganha um bônus adicional de +2 em suas jogadas de ataque.",
+    "details": "Você pode realizar uma investida com uma força extra.\n\n### Pré-requisitos\n\nTamanho médio ou maior, bônus de base de ataque +1.\n\n### Benefício\n\nQuando realizar uma investida, você ganha um bônus adicional de +2 em suas jogadas de ataque.\n\nSe seu ataque corpo a corpo acertar, receba um dano adicional igual à metade do seu nível.\n\nPágina: 94",
+    "prerequisites": "Tamanho médio ou maior, bônus de base de ataque +1.",
+    "benefit": "Quando realizar uma investida, você ganha um bônus adicional de +2 em suas jogadas de ataque.\n\nSe seu ataque corpo a corpo acertar, receba um dano adicional igual à metade do seu nível.\n\nPágina: 94",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Limite de Dano Aprimorado",
+    "slug": "limite-de-dano-aprimorado",
+    "summary": "Seu limite de dano aumenta em 5 (veja Limite de Dano, página 146).",
+    "details": "Você é difícil de ser derrubado em uma luta.\n\n### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nSeu limite de dano aumenta em 5 (veja Limite de Dano, página 146).\n\n### Normal\n\nUma criatura sem esta aptidão possui um limite de dano igual à sua Defesa de Fortitude mais o modificador de tamanho (+5 para Grande, +10 para Enorme, +20 para Imenso, ou +50 para Colossal).\n\n### Especial\n\nVocê pode escolher esta aptidão várias vezes. Seus efeitos se acumulam. Cada vez que escolher esta aptidão, aumente seu limite de dano em +5.\n\nPágina: 94",
+    "prerequisites": "Nenhum",
+    "benefit": "Seu limite de dano aumenta em 5 (veja Limite de Dano, página 146).",
+    "normal": "Uma criatura sem esta aptidão possui um limite de dano igual à sua Defesa de Fortitude mais o modificador de tamanho (+5 para Grande, +10 para Enorme, +20 para Imenso, ou +50 para Colossal).",
+    "special": "Você pode escolher esta aptidão várias vezes. Seus efeitos se acumulam. Cada vez que escolher esta aptidão, aumente seu limite de dano em +5.\n\nPágina: 94",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Linguista",
+    "slug": "linguista",
+    "summary": "Você recebe um número de línguas bônus igual a 1 + seu modificador de Inteligência (mínimo de 1).",
+    "details": "Você consegue aprender as formas de linguagem fácil e rapidamente.\n\n### Pré-requisitos\n\nInteligência 13.\n\n### Benefício\n\nVocê recebe um número de línguas bônus igual a 1 + seu modificador de Inteligência (mínimo de 1).\n\nVeja o quadro lateral na página 22 para uma lista de línguas mais comuns.\n\n### Especial\n\nVocê pode escolher esta aptidão várias vezes. Cada vez que o fizer, você ganha um número de línguas adicionais igual a 1 + seu modificador de Inteligência (mínimo 1).\n\nPágina: 94",
+    "prerequisites": "Inteligência 13.",
+    "benefit": "Você recebe um número de línguas bônus igual a 1 + seu modificador de Inteligência (mínimo de 1).\n\nVeja o quadro lateral na página 22 para uma lista de línguas mais comuns.",
+    "normal": "",
+    "special": "Você pode escolher esta aptidão várias vezes. Cada vez que o fizer, você ganha um número de línguas adicionais igual a 1 + seu modificador de Inteligência (mínimo 1).\n\nPágina: 94",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Maestria com Duas Armas I",
+    "slug": "maestria-com-duas-armas-i",
+    "summary": "Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -5 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.",
+    "details": "Você é perito em combater com duas armas e armas duplas.\n\n### Pré-requisitos\n\nDestreza 13, bônus de base de ataque +1.\n\n### Benefício\n\nQuando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -5 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.\n\nEssa redução na penalidade é apenas ganha se você estiver empunhando uma arma que você tenha proficiência.\n\n### Normal\n\nSe você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154) você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.\n\nPágina: 94–95",
+    "prerequisites": "Destreza 13, bônus de base de ataque +1.",
+    "benefit": "Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -5 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.\n\nEssa redução na penalidade é apenas ganha se você estiver empunhando uma arma que você tenha proficiência.",
+    "normal": "Se você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154) você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.\n\nPágina: 94–95",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Maestria com Duas Armas II",
+    "slug": "maestria-com-duas-armas-ii",
+    "summary": "Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -2 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.",
+    "details": "Você é um mestre combater com duas armas e armas duplas.\n\n### Pré-requisitos\n\nDestreza 15, bônus de base de ataque +6, Maestria com Duas Armas I.\n\n### Benefício\n\nQuando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -2 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.\n\nEssa redução na penalidade é apenas ganha se estiver empunhando uma arma que tenha proficiência.\n\n### Normal\n\nSe você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154), você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.\n\nPágina: 95",
+    "prerequisites": "Destreza 15, bônus de base de ataque +6, Maestria com Duas Armas I.",
+    "benefit": "Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -2 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.\n\nEssa redução na penalidade é apenas ganha se estiver empunhando uma arma que tenha proficiência.",
+    "normal": "Se você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154), você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.\n\nPágina: 95",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-4.txt"
+  },
+  {
+    "name": "Maestria com Duas Armas III",
+    "slug": "maestria-com-duas-armas-iii",
+    "summary": "Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você não recebe a penalidade em suas jogadas de ataque.",
+    "details": "Você é um mestre em combater com duas armas e armas duplas.\n\n### Pré-requisitos\n\nDestreza 17, bônus de base de ataque +11, Maestria com Duas Armas I, Maestria com Duas Armas II.\n\n### Benefício\n\nQuando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você não recebe a penalidade em suas jogadas de ataque.\n\nEsse benefício é apenas ganho se você estiver empunhando uma arma que você tenha proficiência.\n\n### Normal\n\nSe você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154), você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.\n\nPágina: 95",
+    "prerequisites": "Destreza 17, bônus de base de ataque +11, Maestria com Duas Armas I, Maestria com Duas Armas II.",
+    "benefit": "Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você não recebe a penalidade em suas jogadas de ataque.\n\nEsse benefício é apenas ganho se você estiver empunhando uma arma que você tenha proficiência.",
+    "normal": "Se você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154), você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.\n\nPágina: 95",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-5.txt"
+  },
+  {
+    "name": "Mobilidade",
+    "slug": "mobilidade",
+    "summary": "Você ganha +5 de bônus na Defesa de Reflexos contra ataques de oportunidade provocados quando entrar ou sair de uma área ameaçada (veja Ataques de Oportunidade, página 155).",
+    "details": "Você é hábil em conseguir se desviar de seus oponentes e evitar ataques oportunistas.\n\n### Pré-requisitos\n\nDestreza 13, Esquiva.\n\n### Benefício\n\nVocê ganha +5 de bônus na Defesa de Reflexos contra ataques de oportunidade provocados quando entrar ou sair de uma área ameaçada (veja Ataques de Oportunidade, página 155).\n\nUma situação que o faça perder seu bônus de Destreza na Defesa de Reflexos (se houver), também faz perder seus bônus de esquiva.\n\nBônus de esquiva se acumulam entre si, ao contrário da maioria dos outros tipos de bônus.\n\nPágina: 95",
+    "prerequisites": "Destreza 13, Esquiva.",
+    "benefit": "Você ganha +5 de bônus na Defesa de Reflexos contra ataques de oportunidade provocados quando entrar ou sair de uma área ameaçada (veja Ataques de Oportunidade, página 155).\n\nUma situação que o faça perder seu bônus de Destreza na Defesa de Reflexos (se houver), também faz perder seus bônus de esquiva.\n\nBônus de esquiva se acumulam entre si, ao contrário da maioria dos outros tipos de bônus.\n\nPágina: 95",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-5.txt"
+  },
+  {
+    "name": "Poderoso na Força",
+    "slug": "poderoso-na-forca",
+    "summary": "Quando você gastar um ponto de Força para ajustar o resultado de uma jogada de ataque, teste de perícia ou teste de habilidade, você joga d8s ao invés de d6s.",
+    "details": "Você possui uma conexão particularmente poderosa na Força.\n\n### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nQuando você gastar um ponto de Força para ajustar o resultado de uma jogada de ataque, teste de perícia ou teste de habilidade, você joga d8s ao invés de d6s.\n\nPágina: 93",
+    "prerequisites": "Nenhum",
+    "benefit": "Quando você gastar um ponto de Força para ajustar o resultado de uma jogada de ataque, teste de perícia ou teste de habilidade, você joga d8s ao invés de d6s.\n\nPágina: 93",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-3.txt"
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Proficiência Armas Pesadas",
+    "slug": "proficiencia-armas-pesadas",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  },
+  {
+    "name": "Proficiência em Armaduras (Leves)",
+    "slug": "proficiencia-em-armaduras-leves",
+    "summary": "Quando você usar armaduras leves, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.",
+    "details": "Você é proficiente em armaduras leves (veja Tabela 8-7: Armaduras) e pode usá-las sem impedimento.\n\n### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nQuando você usar armaduras leves, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.\n\nAlém disso, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).\n\n### Normal\n\nUm personagem que usar uma armadura leve sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:\n\n- Acrobacia\n- Escalar\n- Furtividade\n- Iniciativa\n- Natação\n- Saltar\n- Tolerância\n\nAlém disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.\n\nPágina: 95–96",
+    "prerequisites": "Nenhum",
+    "benefit": "Quando você usar armaduras leves, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.\n\nAlém disso, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).",
+    "normal": "Um personagem que usar uma armadura leve sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:\n\n- Acrobacia\n- Escalar\n- Furtividade\n- Iniciativa\n- Natação\n- Saltar\n- Tolerância\n\nAlém disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.\n\nPágina: 95–96",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-5.txt"
+  },
+  {
+    "name": "Proficiência em Armaduras (Médias)",
+    "slug": "proficiencia-em-armaduras-medias",
+    "summary": "Quando você usar armaduras médias, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.",
+    "details": "Você é proficiente em armaduras médias (veja Tabela 8-7: Armaduras) e pode usá-las sem impedimento.\n\n### Pré-requisitos\n\nProficiência com Armaduras (Leves).\n\n### Benefício\n\nQuando você usar armaduras médias, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.\n\nAinda, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).\n\n### Normal\n\nUm personagem que usar uma armadura média sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:\n\n- Acrobacia\n- Escalar\n- Furtividade\n- Iniciativa\n- Natação\n- Saltar\n- Tolerância\n\nAlém disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.\n\nPágina: 95–96",
+    "prerequisites": "Proficiência com Armaduras (Leves).",
+    "benefit": "Quando você usar armaduras médias, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.\n\nAinda, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).",
+    "normal": "Um personagem que usar uma armadura média sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:\n\n- Acrobacia\n- Escalar\n- Furtividade\n- Iniciativa\n- Natação\n- Saltar\n- Tolerância\n\nAlém disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.\n\nPágina: 95–96",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-5.txt"
+  },
+  {
+    "name": "Proficiência em Armaduras (Pesadas)",
+    "slug": "proficiencia-em-armaduras-pesadas",
+    "summary": "Quando você usar armaduras pesadas, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.",
+    "details": "Você é proficiente com armaduras médias (veja Tabela 8-7: Armaduras) e pode usá-las sem impedimento.\n\n### Pré-requisitos\n\nProficiência em Armaduras (Leves), Proficiência em Armaduras (Médias).\n\n### Benefício\n\nQuando você usar armaduras pesadas, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.\n\nAlém disso, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).\n\n### Normal\n\nUm personagem que usar uma armadura pesada sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:\n\n- Acrobacia\n- Escalar\n- Furtividade\n- Iniciativa\n- Natação\n- Saltar\n- Tolerância\n\nAlém disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.\n\nPágina: 96",
+    "prerequisites": "Proficiência em Armaduras (Leves), Proficiência em Armaduras (Médias).",
+    "benefit": "Quando você usar armaduras pesadas, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.\n\nAlém disso, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).",
+    "normal": "Um personagem que usar uma armadura pesada sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:\n\n- Acrobacia\n- Escalar\n- Furtividade\n- Iniciativa\n- Natação\n- Saltar\n- Tolerância\n\nAlém disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.\n\nPágina: 96",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-6.txt"
+  },
+  {
+    "normal": "Se você empunhar uma arma com a qual não seja proficiente, sofre -5 de penalidade nas jogadas de ataque.",
+    "special": "Você pode escolher esta aptidão várias vezes. Cada vez que fizer isso, ela se aplica a um grupo ou tipo de arma diferente.",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-5.txt + contexto informado pelo usuário",
+    "name": "Proficiência em Armas",
+    "slug": "proficiencia-em-armas",
+    "summary": "Você ignora a penalidade de -5 nas jogadas de ataque com armas do tipo específico escolhido.",
+    "details": "Você é proficiente com um tipo específico de arma.\n\n### Pré-requisitos\n\nNenhum.\n\n### Benefício\n\nEscolha um grupo ou tipo específico de arma. Você ignora a penalidade de -5 nas jogadas de ataque com armas daquele tipo específico.\n\n### Normal\n\nSe você empunhar uma arma com a qual não seja proficiente, sofre -5 de penalidade nas jogadas de ataque.\n\n### Especial\n\nVocê pode escolher esta aptidão várias vezes. Cada vez que fizer isso, ela se aplica a um grupo ou tipo de arma diferente.",
+    "prerequisites": "Nenhum",
+    "benefit": "Escolha um grupo ou tipo específico de arma. Você ignora a penalidade de -5 nas jogadas de ataque com armas daquele tipo específico."
+  },
+  {
+    "name": "Proficiência em Armas Exóticas",
+    "slug": "proficiencia-em-armas-exoticas",
+    "summary": "Você pode fazer jogadas de ataque com a arma normalmente.",
+    "details": "Escolha uma arma exótica, como a besta energética ou o atlatl (veja armas exóticas, página 119).\n\nVocê sabe como usar essa arma exótica em combate.\n\n### Pré-requisitos\n\nBônus de base de ataque +1.\n\n### Benefício\n\nVocê pode fazer jogadas de ataque com a arma normalmente.\n\n### Normal\n\nUm personagem que usar uma arma sem ter proficiência com ela recebe -5 de penalidade nas jogadas de ataque.\n\n### Especial\n\nVocê pode escolher esta aptidão várias vezes. Cada vez que o fizer, ela se aplica a uma arma diferente.\n\nPágina: 95",
+    "prerequisites": "Bônus de base de ataque +1.",
+    "benefit": "Você pode fazer jogadas de ataque com a arma normalmente.",
+    "normal": "Um personagem que usar uma arma sem ter proficiência com ela recebe -5 de penalidade nas jogadas de ataque.",
+    "special": "Você pode escolher esta aptidão várias vezes. Cada vez que o fizer, ela se aplica a uma arma diferente.\n\nPágina: 95",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-5.txt"
+  },
+  {
+    "name": "Rajada de Tiros",
+    "slug": "rajada-de-tiros",
+    "summary": "Quando estiver usando uma arma à distância com capacidade de disparo automático e em modo de disparo automático, você pode atirar uma pequena rajada como um único ataque contra um alvo.",
+    "details": "Quando usando uma arma à distância em modo de disparo automático você pode atirar uma pequena rajada em um único alvo.\n\n### Pré-requisitos\n\nForça 13, Proficiência em Armas (armas pesadas), proficiente na arma.\n\n### Benefício\n\nQuando estiver usando uma arma à distância com capacidade de disparo automático e em modo de disparo automático, você pode atirar uma pequena rajada como um único ataque contra um alvo.\n\nVocê recebe uma penalidade de -5 na jogada de ataque, mas causa +2 dados de dano.\n\nPor exemplo, uma arma que causa 3d10 pontos de dano, ao invés irá causar 5d10 de dano.\n\nOs efeitos desta aptidão não se acumulam com o dano extra provido pelas aptidões Certeiro e Tiro Rápido.\n\n### Normal\n\nO modo de disparo automático usa 10 tiros, tem como alvo uma área de 2x2 quadrados, e não pode ser mirado em um único alvo.\n\nSem esta aptidão, se você tentar um ataque em modo disparo automático contra um alvo específico, irá simplesmente contar como um ataque normal e todos os tiros extras serão desperdiçados.\n\nPágina: 96\n\n### Especial\n\nDisparar uma rajada gasta 5 tiros e só pode ser feita se a arma tiver ao menos 5 disparos restantes.",
+    "prerequisites": "Força 13, Proficiência em Armas (armas pesadas), proficiente na arma.",
+    "benefit": "Quando estiver usando uma arma à distância com capacidade de disparo automático e em modo de disparo automático, você pode atirar uma pequena rajada como um único ataque contra um alvo.\n\nVocê recebe uma penalidade de -5 na jogada de ataque, mas causa +2 dados de dano.\n\nPor exemplo, uma arma que causa 3d10 pontos de dano, ao invés irá causar 5d10 de dano.\n\nOs efeitos desta aptidão não se acumulam com o dano extra provido pelas aptidões Certeiro e Tiro Rápido.",
+    "normal": "O modo de disparo automático usa 10 tiros, tem como alvo uma área de 2x2 quadrados, e não pode ser mirado em um único alvo.\n\nSem esta aptidão, se você tentar um ataque em modo disparo automático contra um alvo específico, irá simplesmente contar como um ataque normal e todos os tiros extras serão desperdiçados.\n\nPágina: 96",
+    "special": "Disparar uma rajada gasta 5 tiros e só pode ser feita se a arma tiver ao menos 5 disparos restantes.",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-6.txt"
+  },
+  {
+    "name": "Recuperação Rápida",
+    "slug": "recuperacao-rapida",
+    "summary": "Você pode gastar duas ações rápidas, ao invés de três, para mover +1 passo em seu marcador de condição (veja Condições, página 148).",
+    "details": "Você aprendeu a se recuperar de condições debilitantes.\n\n### Pré-requisitos\n\nConstituição 13, treinado na perícia Tolerância.\n\n### Benefício\n\nVocê pode gastar duas ações rápidas, ao invés de três, para mover +1 passo em seu marcador de condição (veja Condições, página 148).\n\n### Normal\n\nRequer três ações rápidas para mover +1 passo em seu marcador de condição.\n\nPágina: 96",
+    "prerequisites": "Constituição 13, treinado na perícia Tolerância.",
+    "benefit": "Você pode gastar duas ações rápidas, ao invés de três, para mover +1 passo em seu marcador de condição (veja Condições, página 148).",
+    "normal": "Requer três ações rápidas para mover +1 passo em seu marcador de condição.\n\nPágina: 96",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-6.txt"
+  },
+  {
+    "name": "Reflexos em Combate",
+    "slug": "reflexos-em-combate",
+    "summary": "Quando os oponentes deixam a guarda aberta, você pode fazer um número de ataques de oportunidade adicionais igual ao seu modificador de Destreza.",
+    "details": "Você é capaz de reagir rápida e repetidamente contra os oponentes que deixam a guarda baixa.\n\n### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nQuando os oponentes deixam a guarda aberta, você pode fazer um número de ataques de oportunidade adicionais igual ao seu modificador de Destreza.\n\nPor exemplo, um personagem com uma Destreza 15 pode fazer um total de três ataques de oportunidade em uma rodada: o ataque de oportunidade que todo personagem é capaz de fazer, mais dois ataques a mais pelo seu bônus de Destreza de +2.\n\nSe quatro stormtroopers se moverem pela área de ameaça do personagem, ele poderá fazer ataques de oportunidade em três dos quatro stormtroopers.\n\nVocê ainda só é capaz de fazer apenas um ataque de oportunidade contra o mesmo alvo.\n\nCom esta aptidão, você pode fazer ataques de oportunidade mesmo quando estiver surpreendido.\n\n### Normal\n\nUm personagem sem a aptidão Reflexos em Combate pode fazer apenas um ataque de oportunidade por rodada e não poderá fazê-lo quando estiver surpreendido.\n\n(Veja Ataques de Oportunidade, página 155, para mais informação).\n\nPágina: 96",
+    "prerequisites": "Nenhum",
+    "benefit": "Quando os oponentes deixam a guarda aberta, você pode fazer um número de ataques de oportunidade adicionais igual ao seu modificador de Destreza.\n\nPor exemplo, um personagem com uma Destreza 15 pode fazer um total de três ataques de oportunidade em uma rodada: o ataque de oportunidade que todo personagem é capaz de fazer, mais dois ataques a mais pelo seu bônus de Destreza de +2.\n\nSe quatro stormtroopers se moverem pela área de ameaça do personagem, ele poderá fazer ataques de oportunidade em três dos quatro stormtroopers.\n\nVocê ainda só é capaz de fazer apenas um ataque de oportunidade contra o mesmo alvo.\n\nCom esta aptidão, você pode fazer ataques de oportunidade mesmo quando estiver surpreendido.",
+    "normal": "Um personagem sem a aptidão Reflexos em Combate pode fazer apenas um ataque de oportunidade por rodada e não poderá fazê-lo quando estiver surpreendido.\n\n(Veja Ataques de Oportunidade, página 155, para mais informação).\n\nPágina: 96",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-6.txt"
+  },
+  {
+    "name": "Saque Rápido",
+    "slug": "saque-rapido",
+    "summary": "Você pode sacar ou colocar no coldre uma arma utilizando uma ação rápida ao invés de uma ação de movimento.",
+    "details": "Você pode sacar e por no coldre armas com uma velocidade impressionante.\n\n### Pré-requisitos\n\nBônus de base de ataque +1.\n\n### Benefício\n\nVocê pode sacar ou colocar no coldre uma arma utilizando uma ação rápida ao invés de uma ação de movimento.\n\nPágina: 96",
+    "prerequisites": "Bônus de base de ataque +1.",
+    "benefit": "Você pode sacar ou colocar no coldre uma arma utilizando uma ação rápida ao invés de uma ação de movimento.\n\nPágina: 96",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-6.txt"
+  },
+  {
+    "name": "Segundo Fôlego Extra",
+    "slug": "segundo-folego-extra",
+    "summary": "Você pode adquirir seu segundo fôlego uma vez a mais por dia, mas você ainda só poderá adquirir um segundo fôlego apenas uma vez por encontro (veja Segundo Fôlego, página 146).",
+    "details": "Você tende a extrapolar os seus limites mais vezes que o normal.\n\n### Pré-requisitos\n\nTreinado na perícia Tolerância.\n\n### Benefício\n\nVocê pode adquirir seu segundo fôlego uma vez a mais por dia, mas você ainda só poderá adquirir um segundo fôlego apenas uma vez por encontro (veja Segundo Fôlego, página 146).\n\n### Normal\n\nUm herói pode adquirir seu segundo fôlego uma vez por dia.\n\n### Especial\n\nUm personagem não-heróico que escolher esta aptidão pela primeira vez poderá adquirir um segundo fôlego uma vez a mais por dia.\n\nVocê pode escolher esta aptidão várias vezes.\n\nCada vez que o fizer, você poderá adquirir um segundo fôlego uma vez a mais por dia.\n\nPágina: 96–97",
+    "prerequisites": "Treinado na perícia Tolerância.",
+    "benefit": "Você pode adquirir seu segundo fôlego uma vez a mais por dia, mas você ainda só poderá adquirir um segundo fôlego apenas uma vez por encontro (veja Segundo Fôlego, página 146).",
+    "normal": "Um herói pode adquirir seu segundo fôlego uma vez por dia.",
+    "special": "Um personagem não-heróico que escolher esta aptidão pela primeira vez poderá adquirir um segundo fôlego uma vez a mais por dia.\n\nVocê pode escolher esta aptidão várias vezes.\n\nCada vez que o fizer, você poderá adquirir um segundo fôlego uma vez a mais por dia.\n\nPágina: 96–97",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-6.txt"
+  },
+  {
+    "name": "Sensível à Força",
+    "slug": "sensivel-a-forca",
+    "summary": "Você pode fazer testes de Usar a Força, e Usar a Força é considerado agora uma perícia de classe.",
+    "details": "Você é sensível à Força, permitindo a você chamar a Força e aprender a manusear o seu poder.\n\n### Pré-requisitos\n\nNão pode ser um dróide.\n\n### Benefício\n\nVocê pode fazer testes de Usar a Força, e Usar a Força é considerado agora uma perícia de classe.\n\nAlém disto, toda vez que adquirir um novo talento você tem a opção de escolher um talento na Força.\n\nAinda é necessário preencher os pré-requisitos dos talentos da Força para selecioná-los (veja Talentos da Força, página 100).\n\nPágina: 97",
+    "prerequisites": "Não pode ser um dróide.",
+    "benefit": "Você pode fazer testes de Usar a Força, e Usar a Força é considerado agora uma perícia de classe.\n\nAlém disto, toda vez que adquirir um novo talento você tem a opção de escolher um talento na Força.\n\nAinda é necessário preencher os pré-requisitos dos talentos da Força para selecioná-los (veja Talentos da Força, página 100).\n\nPágina: 97",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-7.txt"
+  },
+  {
+    "name": "Tiro à Queima Roupa",
+    "slug": "tiro-a-queima-roupa",
+    "summary": "Você ganha +1 de bônus nas jogadas de ataque e dano com arma à distância contra oponentes dentro do alcance à queima roupa (veja a Tabela 8-5: Alcance de Armas, página 129).",
+    "details": "Você é hábil em fazer disparos bem colocados com armas à distância à queima roupa.\n\n### Pré-requisitos\n\nNenhum\n\n### Benefício\n\nVocê ganha +1 de bônus nas jogadas de ataque e dano com arma à distância contra oponentes dentro do alcance à queima roupa (veja a Tabela 8-5: Alcance de Armas, página 129).\n\nPágina: 97",
+    "prerequisites": "Nenhum",
+    "benefit": "Você ganha +1 de bônus nas jogadas de ataque e dano com arma à distância contra oponentes dentro do alcance à queima roupa (veja a Tabela 8-5: Alcance de Armas, página 129).\n\nPágina: 97",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-7.txt"
+  },
+  {
+    "name": "Tiro Distante",
+    "slug": "tiro-distante",
+    "summary": "Quando usar uma arma à distância contra alvos em curto, médio ou longo alcance, a categoria de alcance é considerada como uma a menos.",
+    "details": "Você é melhor que a maioria quando está atirando em oponentes distantes.\n\n### Pré-requisitos\n\nTiro à Queima Roupa.\n\n### Benefício\n\nQuando usar uma arma à distância contra alvos em curto, médio ou longo alcance, a categoria de alcance é considerada como uma a menos.\n\nEm outras palavras:\n\n- você não recebe penalidade nas jogadas de ataque à distância feitos contra alvos em curto alcance;\n- -2 de penalidade nas jogadas de ataque à distância feitos contra alvos em médio alcance;\n- -5 de penalidade nas jogadas de ataque à distância feitos contra alvos em longo alcance.\n\n### Normal\n\nQuando fazendo uma jogada de ataque à distância, um personagem recebe:\n\n- -2 de penalidade contra alvos em curto alcance;\n- -5 de penalidade contra alvos em médio alcance;\n- -10 de penalidade contra alvos em longo alcance.\n\nPágina: 97",
+    "prerequisites": "Tiro à Queima Roupa.",
+    "benefit": "Quando usar uma arma à distância contra alvos em curto, médio ou longo alcance, a categoria de alcance é considerada como uma a menos.\n\nEm outras palavras:\n\n- você não recebe penalidade nas jogadas de ataque à distância feitos contra alvos em curto alcance;\n- -2 de penalidade nas jogadas de ataque à distância feitos contra alvos em médio alcance;\n- -5 de penalidade nas jogadas de ataque à distância feitos contra alvos em longo alcance.",
+    "normal": "Quando fazendo uma jogada de ataque à distância, um personagem recebe:\n\n- -2 de penalidade contra alvos em curto alcance;\n- -5 de penalidade contra alvos em médio alcance;\n- -10 de penalidade contra alvos em longo alcance.\n\nPágina: 97",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-7.txt"
+  },
+  {
+    "name": "Tiro em Investida",
+    "slug": "tiro-em-investida",
+    "summary": "Quando estiver em investida, você pode fazer um ataque à distância ao invés de um ataque corpo a corpo ao término de seu movimento.",
+    "details": "Você é apto a fazer ataques à distância durante uma investida.\n\n### Pré-requisitos\n\nBônus de base de ataque +4.\n\n### Benefício\n\nQuando estiver em investida, você pode fazer um ataque à distância ao invés de um ataque corpo a corpo ao término de seu movimento.\n\nDiferente da investida normal, ela não lhe ajuda a sobrepujar seu alvo, ou seja, você não ganha bônus na jogada de ataque.\n\nComo a investida normal, você ainda recebe -2 de penalidade em sua Defesa de Reflexos.\n\n### Normal\n\nVocê pode fazer um único ataque corpo a corpo com um bônus de +2 em sua jogada de ataque no final de uma investida.\n\nPágina: 97",
+    "prerequisites": "Bônus de base de ataque +4.",
+    "benefit": "Quando estiver em investida, você pode fazer um ataque à distância ao invés de um ataque corpo a corpo ao término de seu movimento.\n\nDiferente da investida normal, ela não lhe ajuda a sobrepujar seu alvo, ou seja, você não ganha bônus na jogada de ataque.\n\nComo a investida normal, você ainda recebe -2 de penalidade em sua Defesa de Reflexos.",
+    "normal": "Você pode fazer um único ataque corpo a corpo com um bônus de +2 em sua jogada de ataque no final de uma investida.\n\nPágina: 97",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-7.txt"
+  },
+  {
+    "name": "Tiro Meticuloso",
+    "slug": "tiro-meticuloso",
+    "summary": "Se você mirar antes de fazer um ataque à distância (veja Mirar na página 154), você ganha um bônus de +1 em sua jogada de ataque.",
+    "details": "Você é particularmente hábil em mirar seus ataques.\n\n### Pré-requisitos\n\nTiro à Queima Roupa, bônus de base de ataque +2.\n\n### Benefício\n\nSe você mirar antes de fazer um ataque à distância (veja Mirar na página 154), você ganha um bônus de +1 em sua jogada de ataque.\n\nPágina: 97",
+    "prerequisites": "Tiro à Queima Roupa, bônus de base de ataque +2.",
+    "benefit": "Se você mirar antes de fazer um ataque à distância (veja Mirar na página 154), você ganha um bônus de +1 em sua jogada de ataque.\n\nPágina: 97",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-7.txt"
+  },
+  {
+    "name": "Tiro Preciso",
+    "slug": "tiro-preciso",
+    "summary": "Você pode atirar ou arremessar uma arma à distância em um oponente engajado em combate corpo a corpo com um ou mais de seus aliados sem sofrer a penalidade normal de -5 (veja Atirando ou Arremessando em Corpo a Corpo, página 161).",
+    "details": "Você é hábil em ajustar seus ataques à distância de forma que você não acerte seus aliados por engano.\n\n### Pré-requisitos\n\nTiro à Queima Roupa.\n\n### Benefício\n\nVocê pode atirar ou arremessar uma arma à distância em um oponente engajado em combate corpo a corpo com um ou mais de seus aliados sem sofrer a penalidade normal de -5 (veja Atirando ou Arremessando em Corpo a Corpo, página 161).\n\nPágina: 97",
+    "prerequisites": "Tiro à Queima Roupa.",
+    "benefit": "Você pode atirar ou arremessar uma arma à distância em um oponente engajado em combate corpo a corpo com um ou mais de seus aliados sem sofrer a penalidade normal de -5 (veja Atirando ou Arremessando em Corpo a Corpo, página 161).\n\nPágina: 97",
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-7.txt"
+  },
+  {
+    "name": "Tiro Rápido",
+    "slug": "tiro-rapido",
+    "summary": "Quando usar uma arma à distância, você pode disparar dois tiros como um único ataque contra um alvo.",
+    "details": "Você pode realizar dois disparos rápidos com uma arma à distância como um único ataque.\n\n### Pré-requisitos\n\nForça 13, bônus de base de ataque +1, proficiência na arma.\n\n### Benefício\n\nQuando usar uma arma à distância, você pode disparar dois tiros como um único ataque contra um alvo.\n\nVocê sofre -2 de penalidade em sua jogada de ataque, mas causa +1 dado de dano com um ataque bem sucedido.\n\n### Especial\n\nUsar esta aptidão dispara dois tiros e só pode ser realizada se a arma possui munição restante suficiente.\n\nOs efeitos desta aptidão não se acumulam com o dano extra provido pela aptidão Rajada de Tiros (página 82) ou Certeiro (página 84).\n\nPágina: 97",
+    "prerequisites": "Força 13, bônus de base de ataque +1, proficiência na arma.",
+    "benefit": "Quando usar uma arma à distância, você pode disparar dois tiros como um único ataque contra um alvo.\n\nVocê sofre -2 de penalidade em sua jogada de ataque, mas causa +1 dado de dano com um ataque bem sucedido.",
+    "normal": "",
+    "special": "Usar esta aptidão dispara dois tiros e só pode ser realizada se a arma possui munição restante suficiente.\n\nOs efeitos desta aptidão não se acumulam com o dano extra provido pela aptidão Rajada de Tiros (página 82) ou Certeiro (página 84).\n\nPágina: 97",
+    "category": "Aptidão",
+    "extra": "Fonte OCR: aptidoes-7.txt"
+  },
+  {
+    "normal": "",
+    "special": "Depois de selecionar esta aptidão no level up, vá até a etapa de Perícias e marque uma nova perícia de classe como treinada.",
+    "category": "Aptidão",
+    "extra": "Fonte: contexto informado pelo usuário",
+    "name": "Treinamento em Perícia",
+    "slug": "treinamento-em-pericia",
+    "summary": "Você se torna treinado em uma perícia de classe.",
+    "details": "Você aprofunda seu treinamento em uma perícia de classe.\n\n### Pré-requisitos\n\nNenhum.\n\n### Benefício\n\nVocê se torna treinado em uma perícia de classe.\n\n### Uso na ficha\n\nDepois de selecionar esta aptidão no level up, vá até a etapa de Perícias e marque uma nova perícia de classe como treinada.",
+    "prerequisites": "Nenhum",
+    "benefit": "Você se torna treinado em uma perícia de classe."
+  },
+  {
+    "normal": "",
+    "special": "",
+    "category": "Aptidão",
+    "extra": "Fonte: catálogo interno de aptidões bônus de classe",
+    "name": "Vigoroso",
+    "slug": "vigoroso",
+    "summary": "Aptidão usada pelas listas de aptidões bônus de classe. Detalhes completos ainda precisam ser catalogados a partir do material de referência.",
+    "details": "### Benefício\n\nDetalhes pendentes de catalogação. Esta entrada existe para manter a criação de ficha, o level up e os links internos da wiki consistentes.\n\n### Referências internas\n\nVeja também [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).",
+    "prerequisites": "Ver material de referência",
+    "benefit": "Detalhes pendentes de catalogação."
+  }
+];
+
 export const sagaTalentDetailsCatalog = [
   {
     "name": "Alvo Elusivo",
@@ -2690,4 +3377,248 @@ export const sagaDroidDetailsCatalog = [
     "category": "Tamanhos de dróide",
     "extra": "Fonte OCR: droides-pt-1.txt"
   }
+];
+
+export const sagaClassDetailsCatalog = [
+  {
+    name: 'Level up e progressão de personagem',
+    slug: 'level-up-e-progressao-de-personagem',
+    summary: 'Fluxo geral para subir de nível: vida, ataque base, defesas, talentos, aptidões, poderes e salvamento de uma nova versão da ficha.',
+    details: `## Fluxo de level up
+
+1. Escolha a classe que recebeu o novo nível.
+2. Some PV da classe: dado de vida + modificador de Constituição.
+3. Atualize ataque base conforme a progressão da classe.
+4. Atualize defesas usando bônus de classe, espécie, nível e atributos.
+5. Em níveis ímpares da classe, escolha um talento de classe.
+6. Em níveis pares da classe, escolha uma aptidão bônus da lista da classe.
+7. Recalcule Pontos da Força como **5 + metade do nível total**.
+8. Nos níveis 4, 8, 12, 16 e 20, aumente dois atributos diferentes em +1.
+9. Salve uma nova versão da ficha.
+
+## Multiclasse
+
+Ao pegar nível em outra classe, recebe PV, BBA, acesso à lista de talentos e uma progressão daquela classe. Não recebe novamente créditos iniciais nem todos os benefícios de primeiro nível.
+
+Veja também: [Batedor](/wiki/star-wars-saga/batedor), [Soldado](/wiki/star-wars-saga/soldado), [Nobre](/wiki/star-wars-saga/nobre), [Fora-da-Lei](/wiki/star-wars-saga/fora-da-lei), [Jedi](/wiki/star-wars-saga/jedi).`,
+    category: 'Progressão',
+    extra: 'Fonte OCR: classes-1.txt + classes-10.txt',
+  },
+  {
+    name: 'Batedor',
+    slug: 'batedor',
+    summary: 'Explorador, sobrevivente e especialista em reconhecimento, mobilidade, rastreamento e adaptação.',
+    details: `## Papel
+
+O Batedor é o explorador do grupo: percebe perigos, encontra caminhos, sobrevive em ambientes hostis e funciona muito bem fora de combate.
+
+## Dados de classe
+
+| Campo | Valor |
+| --- | --- |
+| PV inicial | 24 + Con |
+| PV por nível | 1d8 + Con |
+| Ataque base | médio |
+| Defesas | Reflexos +2, Fortitude +1 |
+| Perícias treinadas | 5 + Int |
+| Créditos iniciais | 3d4 x 250 |
+
+## Árvores de talentos
+
+Consciência: [Sentidos Agudos](/wiki/star-wars-saga/sentidos-agudos), [Iniciativa Aprimorada](/wiki/star-wars-saga/iniciativa-aprimorada), [Rastreador Experiente](/wiki/star-wars-saga/rastreador-experiente), [Tiro Apurado](/wiki/star-wars-saga/tiro-apurado).
+
+Camuflagem: [Furtividade Aprimorada](/wiki/star-wars-saga/furtividade-aprimorada), [Movimento Encoberto](/wiki/star-wars-saga/movimento-encoberto), [Ocultamento Total](/wiki/star-wars-saga/ocultamento-total).
+
+Improvisador: [Barganhador](/wiki/star-wars-saga/barganhador), [Engenbrador](/wiki/star-wars-saga/engenbrador), [Passo-Largo](/wiki/star-wars-saga/passo-largo), [Sabedoria de Improvisador](/wiki/star-wars-saga/sabedoria-de-improvisador).
+
+Sobrevivente: [Corredor](/wiki/star-wars-saga/corredor), [Esforço Extremo](/wiki/star-wars-saga/esforco-extremo), [Evasão](/wiki/star-wars-saga/evasao), [Movimento Livre](/wiki/star-wars-saga/movimento-livre).
+
+## Aptidões bônus
+
+[Ataque em Movimento](/wiki/star-wars-saga/ataque-em-movimento), [Certeiro](/wiki/star-wars-saga/certeiro), [Combate Veicular](/wiki/star-wars-saga/combate-veicular), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Franco-atirador](/wiki/star-wars-saga/franco-atirador), [Linguista](/wiki/star-wars-saga/linguista), [Proficiência Armadura Leve](/wiki/star-wars-saga/proficiencia-em-armaduras-leves), [Tiro Distante](/wiki/star-wars-saga/tiro-distante), [Tiro Meticuloso](/wiki/star-wars-saga/tiro-meticuloso), [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Tiro Rápido](/wiki/star-wars-saga/tiro-rapido), [Tiro à Queima Roupa](/wiki/star-wars-saga/tiro-a-queima-roupa), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
+
+## Level up
+
+Níveis ímpares recebem talento de Batedor. Níveis pares recebem aptidão bônus da lista de Batedor. Use o fluxo em [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).`,
+    category: 'Classe heroica',
+    imageUrl: 'https://lumiere-a.akamaihd.net/v1/images/chewie-main_e1968a8a.jpeg?region=131%2C0%2C951%2C536&width=960',
+    imageSourceUrl: 'https://www.starwars.com/databank/chewbacca',
+    imageAttribution: 'Chewbacca',
+    imageProvider: 'StarWars.com',
+    imageSearchStatus: 'found',
+    extra: 'Fonte OCR: classes-2.txt + classes-3.txt',
+  },
+  {
+    name: 'Soldado',
+    slug: 'soldado',
+    summary: 'Especialista em combate direto, armas, armaduras, resistência e controle de campo.',
+    details: `## Papel
+
+O Soldado é o combatente mais direto: alta vida, melhor ataque base e grande variedade de opções marciais.
+
+## Dados de classe
+
+| Campo | Valor |
+| --- | --- |
+| PV inicial | 30 + Con |
+| PV por nível | 1d10 + Con |
+| Ataque base | máximo |
+| Defesas | Reflexos +1, Fortitude +2 |
+| Perícias treinadas | 3 + Int |
+| Créditos iniciais | 3d4 x 250 |
+
+## Árvores de talentos
+
+Especialista em Armaduras: [Defesa Blindada](/wiki/star-wars-saga/defesa-blindada), [Defesa Blindada Aprimorada](/wiki/star-wars-saga/defesa-blindada-aprimorada), [Juggernaut](/wiki/star-wars-saga/juggernaut), [Segunda Pele](/wiki/star-wars-saga/segunda-pele).
+
+Lutador: [Golpe Duro](/wiki/star-wars-saga/golpe-duro), [Ataque Atordoante](/wiki/star-wars-saga/ataque-atordoante), [Coronhada](/wiki/star-wars-saga/coronhada), [Desequilibrar Oponente](/wiki/star-wars-saga/desequilibrar-oponente).
+
+Comando: [Análise da Batalha](/wiki/star-wars-saga/analise-da-batalha), [Tiro de Cobertura](/wiki/star-wars-saga/tiro-de-cobertura), [Atrair Disparos](/wiki/star-wars-saga/atrair-disparos), [Interpor-se](/wiki/star-wars-saga/interpor-se).
+
+Especialista em Armas: [Ataque Devastador](/wiki/star-wars-saga/ataque-devastador), [Ataque Penetrante](/wiki/star-wars-saga/ataque-penetrante), [Especialização em Arma](/wiki/star-wars-saga/especializacao-em-arma).
+
+## Aptidões bônus
+
+[Artes Marciais I](/wiki/star-wars-saga/artes-marciais-i), [Ataque Duplo](/wiki/star-wars-saga/ataque-duplo), [Ataque Poderoso](/wiki/star-wars-saga/ataque-poderoso), [Ataque Rápido](/wiki/star-wars-saga/ataque-rapido), [Combate Veicular](/wiki/star-wars-saga/combate-veicular), [Crítico Triplicado](/wiki/star-wars-saga/critico-triplicado), [Foco em Arma](/wiki/star-wars-saga/foco-em-arma), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Proficiência Armadura Pesada](/wiki/star-wars-saga/proficiencia-em-armaduras-pesadas), [Proficiência Armas Exóticas](/wiki/star-wars-saga/proficiencia-em-armas-exoticas), [Proficiência Armas Pesadas](/wiki/star-wars-saga/proficiencia-armas-pesadas), [Recuperação Rápida](/wiki/star-wars-saga/recuperacao-rapida), [Saque Rápido](/wiki/star-wars-saga/saque-rapido), [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Tiro Rápido](/wiki/star-wars-saga/tiro-rapido), [Tiro à Queima Roupa](/wiki/star-wars-saga/tiro-a-queima-roupa), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia), [Vigoroso](/wiki/star-wars-saga/vigoroso).
+
+## Level up
+
+Níveis ímpares recebem talento de Soldado. Níveis pares recebem aptidão bônus de Soldado. Veja [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).`,
+    category: 'Classe heroica',
+    imageUrl: 'https://lumiere-a.akamaihd.net/v1/images/Clone-Troopers_76eb5caf.jpeg?region=0%2C0%2C2048%2C1152&width=960',
+    imageSourceUrl: 'https://www.starwars.com/databank/clone-troopers',
+    imageAttribution: 'Clone Troopers',
+    imageProvider: 'StarWars.com',
+    imageSearchStatus: 'found',
+    extra: 'Fonte OCR: classes-4.txt + classes-5.txt',
+  },
+  {
+    name: 'Nobre',
+    slug: 'nobre',
+    summary: 'Classe de liderança, influência social, suporte, coordenação e recursos.',
+    details: `## Papel
+
+O Nobre resolve problemas com presença, autoridade, contatos e coordenação de aliados.
+
+## Dados de classe
+
+| Campo | Valor |
+| --- | --- |
+| PV inicial | 18 + Con |
+| PV por nível | 1d6 + Con |
+| Ataque base | médio |
+| Defesas | Reflexos +1, Vontade +2 |
+| Perícias treinadas | 6 + Int |
+| Créditos iniciais | 5d4 x 250 |
+
+## Árvores de talentos
+
+Influência: [Presença](/wiki/star-wars-saga/presenca), [Enfraquecer a Determinação](/wiki/star-wars-saga/enfraquecer-a-determinacao), [Exigir Rendição](/wiki/star-wars-saga/exigir-rendicao).
+
+Inspiração: [Fortalecer Aliado](/wiki/star-wars-saga/fortalecer-aliado), [Inspirar Confiança](/wiki/star-wars-saga/inspirar-confianca), [Incitar Fervor](/wiki/star-wars-saga/incitar-fervor), [Inspirar Ardor](/wiki/star-wars-saga/inspirar-ardor), [Inspirar Rapidez](/wiki/star-wars-saga/inspirar-rapidez).
+
+Liderança: [Coordenar](/wiki/star-wars-saga/coordenar), [Confiança](/wiki/star-wars-saga/confianca), [Comandar à Distância](/wiki/star-wars-saga/comandar-a-distancia), [Líder Nato](/wiki/star-wars-saga/lider-nato).
+
+## Aptidões bônus
+
+[Ataque Coordenado](/wiki/star-wars-saga/ataque-coordenado), [Combate Veicular](/wiki/star-wars-saga/combate-veicular), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Linguista](/wiki/star-wars-saga/linguista), [Saque Rápido](/wiki/star-wars-saga/saque-rapido), [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Tiro à Queima Roupa](/wiki/star-wars-saga/tiro-a-queima-roupa), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
+
+## Level up
+
+Níveis ímpares recebem talento de Nobre. Níveis pares recebem aptidão bônus de Nobre. Veja [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).`,
+    category: 'Classe heroica',
+    imageUrl: 'https://lumiere-a.akamaihd.net/v1/images/leia-organa-main_9af6ff81.jpeg?region=187%2C157%2C1400%2C786&width=960',
+    imageSourceUrl: 'https://www.starwars.com/databank/leia-organa',
+    imageAttribution: 'Leia Organa',
+    imageProvider: 'StarWars.com',
+    imageSearchStatus: 'found',
+    extra: 'Fonte OCR: classes-7.txt',
+  },
+  {
+    name: 'Fora-da-Lei',
+    slug: 'fora-da-lei',
+    summary: 'Especialista em perícias, mobilidade, interação social e combate oportunista.',
+    details: `## Papel
+
+Fora-da-Lei vence por astúcia, sorte, oportunidade, precisão e improviso.
+
+## Dados de classe
+
+| Campo | Valor |
+| --- | --- |
+| PV inicial | 18 + Con |
+| PV por nível | 1d6 + Con |
+| Ataque base | médio |
+| Defesas | Reflexos +2, Vontade +1 |
+| Perícias treinadas | 6 + Int |
+| Créditos iniciais | 4d4 x 250 |
+
+## Característica
+
+Ataque Furtivo progride nos níveis ímpares, chegando a +10d6 no 19º nível. Veja [Ataque Furtivo](/wiki/star-wars-saga/ataque-furtivo).
+
+## Árvores de talentos
+
+Sorte: [Sorte Excepcional](/wiki/star-wars-saga/sorte-excepcional), [Escapar por Pouco](/wiki/star-wars-saga/escapar-por-pouco), [Golpe de Sorte](/wiki/star-wars-saga/golpe-de-sorte), [Sobrevivente Nato](/wiki/star-wars-saga/sobrevivente-nato).
+
+Furtividade: [Esconder-se](/wiki/star-wars-saga/esconder-se), [Movimento Silencioso](/wiki/star-wars-saga/movimento-silencioso), [Ataque Surpresa](/wiki/star-wars-saga/ataque-surpresa), [Desaparecer](/wiki/star-wars-saga/desaparecer).
+
+Manipulação: [Lábia](/wiki/star-wars-saga/labia), [Blefe Perfeito](/wiki/star-wars-saga/blefe-perfeito), [Distração](/wiki/star-wars-saga/distracao), [Oportunista](/wiki/star-wars-saga/oportunista).
+
+Precisão: [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Alvo Vital](/wiki/star-wars-saga/alvo-vital), [Tiro Mortal](/wiki/star-wars-saga/tiro-mortal), [Executor](/wiki/star-wars-saga/executor).
+
+## Aptidões bônus
+
+[Ataque Duplo](/wiki/star-wars-saga/ataque-duplo), [Ataque em Movimento](/wiki/star-wars-saga/ataque-em-movimento), [Combate Veicular](/wiki/star-wars-saga/combate-veicular), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Franco-atirador](/wiki/star-wars-saga/franco-atirador), [Saque Rápido](/wiki/star-wars-saga/saque-rapido), [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Tiro à Queima Roupa](/wiki/star-wars-saga/tiro-a-queima-roupa), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
+
+## Level up
+
+Níveis ímpares recebem talento de Fora-da-Lei. Níveis pares recebem aptidão bônus. Veja [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).`,
+    category: 'Classe heroica',
+    imageUrl: 'https://lumiere-a.akamaihd.net/v1/images/han-solo-main_a4c8ff79.jpeg?region=0%2C0%2C1920%2C1080&width=960',
+    imageSourceUrl: 'https://www.starwars.com/databank/han-solo',
+    imageAttribution: 'Han Solo',
+    imageProvider: 'StarWars.com',
+    imageSearchStatus: 'found',
+    extra: 'Fonte OCR: classes-8.txt + classes-9.txt',
+  },
+  {
+    name: 'Jedi',
+    slug: 'jedi',
+    summary: 'Classe heroica ligada à Força, disciplina, sabre de luz e confronto com o Lado Negro.',
+    details: `## Papel
+
+O Jedi combina combate, percepção da Força e disciplina espiritual.
+
+## Dados de classe
+
+| Campo | Valor |
+| --- | --- |
+| PV inicial | 30 + Con |
+| PV por nível | 1d10 + Con |
+| Ataque base | máximo |
+| Defesas | Reflexos +1, Fortitude +1, Vontade +1 |
+| Créditos iniciais | 3d4 x 100 |
+
+## Árvores de talentos
+
+Sentinela Jedi: [Sentir o Lado Negro](/wiki/star-wars-saga/sentir-o-lado-negro), [Resistir ao Lado Negro](/wiki/star-wars-saga/resistir-ao-lado-negro), [Flagelo do Lado Negro](/wiki/star-wars-saga/flagelo-do-lado-negro), [Limpar a Mente](/wiki/star-wars-saga/limpar-a-mente), [Névoa da Força](/wiki/star-wars-saga/nevoa-da-forca).
+
+Combate com Sabre de Luz: [Arremessar Sabre de Luz](/wiki/star-wars-saga/arremessar-sabre-de-luz), [Bloquear](/wiki/star-wars-saga/bloquear), [Defletir](/wiki/star-wars-saga/defletir), [Defesa com Sabre de Luz](/wiki/star-wars-saga/defesa-com-sabre-de-luz), [Redirecionar Disparo](/wiki/star-wars-saga/redirecionar-disparo).
+
+## Aptidões bônus
+
+[Acuidade com Arma](/wiki/star-wars-saga/acuidade-com-arma), [Ataque Duplo](/wiki/star-wars-saga/ataque-duplo), [Ataque Poderoso](/wiki/star-wars-saga/ataque-poderoso), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Arma](/wiki/star-wars-saga/foco-em-arma), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Poderoso na Força](/wiki/star-wars-saga/poderoso-na-forca), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
+
+## Level up
+
+Níveis ímpares recebem talento de Jedi. Níveis pares recebem aptidão bônus de Jedi. A partir do 7º nível, pode construir o próprio sabre de luz. Veja [Level up e progressão de personagem](/wiki/star-wars-saga/level-up-e-progressao-de-personagem).`,
+    category: 'Classe heroica',
+    imageUrl: 'https://lumiere-a.akamaihd.net/v1/images/obi-wan-kenobi-main_3286c63c.jpeg?region=0%2C0%2C1280%2C721&width=960',
+    imageSourceUrl: 'https://www.starwars.com/databank/obi-wan-kenobi',
+    imageAttribution: 'Obi-Wan Kenobi',
+    imageProvider: 'StarWars.com',
+    imageSearchStatus: 'found',
+    extra: 'Fonte OCR: classes-6.txt',
+  },
 ];

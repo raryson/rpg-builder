@@ -1,0 +1,139 @@
+# STAR WARS RPG — APTIDÕES
+## PARTE 3 — OCR CORRIGIDO
+
+## Esquiva
+
+Você é bom em se desviar de golpes.
+
+Pré-requisitos:
+Destreza 13.
+
+Benefício:
+Durante seu turno, você pode designar um oponente e receber +1 de bônus de esquiva em sua Defesa de Reflexos contra ataques feitos por este oponente. Um novo oponente pode ser escolhido em qualquer ação.
+
+Uma situação que faça você perder seu bônus de Destreza na Defesa de Reflexos (se houver), também faz você perder seus bônus de esquiva.
+
+Bônus de esquiva se acumulam entre si, ao contrário da maioria dos outros tipos de bônus.
+
+Página: 93
+
+---
+
+## Esmagar
+
+Você pode causar dano em uma criatura que você tiver prendido.
+
+Pré-requisitos:
+Imobilizar, bônus de base de ataque +1.
+
+Benefício:
+Se for bem sucedido em Imobilizar um oponente com um ataque de prender (veja a aptidão Imobilizar, página 87) você pode, imediatamente, causar dano de contusão igual ao seu dano de ataque desarmado ou dano de garra, aquele que for maior.
+
+Página: 93
+
+---
+
+## Favorecido pela Força
+
+Você é capaz de “chamar” pela Força mais vezes que usuários menos favorecidos.
+
+Pré-requisitos:
+Sensível à Força.
+
+Benefício:
+Você ganha três pontos de Força adicionais a cada nível.
+
+Página: 93
+
+---
+
+## Foco em Arma
+
+Escolha uma única arma exótica ou um grupo de armas. Você é especialmente bom na utilização dessas armas. Ataque desarmado ou prender podem ser escolhidos como sua arma para propósito desta aptidão.
+
+Pré-requisitos:
+Proficiente na arma exótica ou no grupo de armas escolhido.
+
+Benefício:
+Você ganha +1 de bônus em todas as jogadas de ataque feitas usando a arma exótica ou o grupo de armas escolhido.
+
+Especial:
+Essa aptidão pode ser escolhida várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão ela se aplica a uma nova arma exótica ou grupo de armas.
+
+Página: 93
+
+---
+
+## Foco em Perícia
+
+Uma das suas perícias é particularmente aguçada.
+
+Benefício:
+Uma perícia treinada de sua escolha recebe +5 de bônus de competência.
+
+Especial:
+Esta aptidão pode ser escolhida várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão, ela se aplica a uma perícia treinada diferente.
+
+Página: 93
+
+---
+
+## Poderoso na Força
+
+Você possui uma conexão particularmente poderosa na Força.
+
+Benefício:
+Quando você gastar um ponto de Força para ajustar o resultado de uma jogada de ataque, teste de perícia ou teste de habilidade, você joga d8s ao invés de d6s.
+
+Página: 93
+
+---
+
+## Franco-Atirador
+
+Você é particularmente hábil em acertar o alvo certo numa multidão.
+
+Pré-requisitos:
+Tiro à Queima Roupa, Tiro Preciso, bônus de base de ataque +4.
+
+Benefício:
+Você sempre ignora cobertura leve (ou seja, cobertura provida por um personagem, criatura ou dróide) quando fizer um ataque à distância.
+
+Normal:
+Você só pode ignorar cobertura se você mirar (veja página 154) antes de fazer um ataque à distância.
+
+Página: 93
+
+---
+
+## Fúria Assustadora
+
+Você causa danos assustadores quando estiver em fúria.
+
+Pré-requisitos:
+Fúria Racial, bônus de base de ataque +1.
+
+Benefício:
+Quando estiver em fúria, seus bônus de fúria nas jogadas de ataque e dano corpo a corpo aumentam para +5.
+
+Normal:
+Um personagem com uma Fúria Racial ganha +2 de bônus de fúria nas jogadas de ataque e dano corpo a corpo quando em fúria.
+
+Página: 93
+
+---
+
+## Fúria Extra
+
+Você pode entrar em Fúria mais vezes que o normal.
+
+Pré-requisitos:
+Fúria Racial.
+
+Benefício:
+Você entra em fúria uma vez a mais por dia.
+
+Especial:
+Esta aptidão pode ser pega várias vezes. Cada vez que o fizer, você poderá entrar em fúria uma vez a mais por dia.
+
+Página: 94

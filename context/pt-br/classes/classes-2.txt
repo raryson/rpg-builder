@@ -1,0 +1,471 @@
+# STAR WARS SAGA EDITION — CLASSE: BATEDOR (SCOUT) (PARTE 2)
+
+## Objetivo da Classe
+
+O Batedor representa o explorador, sobrevivente e especialista em adaptação.
+
+É uma classe focada em:
+
+- Exploração
+- Mobilidade
+- Sobrevivência
+- Rastreamento
+- Reconhecimento
+- Improvisação
+- Descoberta
+
+Narrativamente, o Batedor é quem encontra caminhos, percebe perigos antes do grupo e sobrevive onde outros falham.
+
+Exemplos clássicos:
+
+- Chewbacca
+- Whicket
+- Capitão Tarpals
+
+---
+
+# Papel no Grupo
+
+## Função Primária
+
+```text
+Explorador
+```
+
+---
+
+## Função Secundária
+
+```text
+Suporte
+Controle
+Reconhecimento
+```
+
+---
+
+## Estilo de Jogo
+
+```text
+Alta mobilidade
+
+Muitas perícias
+
+Sobrevive sozinho
+
+Excelente fora de combate
+
+Combate eficiente sem depender de armadura
+```
+
+---
+
+# Perfil Mecânico
+
+## Ataque Base
+
+Progressão média.
+
+Tabela:
+
+| Nível | Ataque Base |
+|-------|------------|
+|1|+0|
+|2|+1|
+|3|+2|
+|4|+3|
+|5|+3|
+|6|+4|
+|7|+5|
+|8|+6|
+|9|+6|
+|10|+7|
+|11|+8|
+|12|+9|
+|13|+9|
+|14|+10|
+|15|+11|
+|16|+12|
+|17|+12|
+|18|+13|
+|19|+14|
+|20|+15|
+
+---
+
+# Atributos Prioritários
+
+## Principal
+
+```text
+Destreza
+```
+
+Usado para:
+
+- ataque à distância
+- furtividade
+- reflexos
+- pilotagem
+
+---
+
+## Secundários
+
+```text
+Sabedoria
+Inteligência
+```
+
+Usados para:
+
+```text
+percepção
+sobrevivência
+conhecimento
+mecânica
+```
+
+---
+
+## Opcionais
+
+```text
+Força
+Constituição
+```
+
+Para builds físicas.
+
+---
+
+# Vida
+
+## Nível 1
+
+```text
+24 + Constituição
+```
+
+---
+
+## Demais níveis
+
+```text
+1d8 + Constituição
+```
+
+---
+
+# Pontos da Força
+
+Fórmula:
+
+```text
+5 + metade do nível
+(arredondado para baixo)
+```
+
+Recalculado sempre que subir de nível.
+
+---
+
+# Bônus de Defesa
+
+Recebidos apenas no primeiro nível.
+
+```text
+Fortitude +1
+Reflexos +2
+```
+
+Perfil:
+
+```text
+muito evasivo
+moderadamente resistente
+```
+
+---
+
+# Perícias de Classe
+
+Escolher:
+
+```text
+5 + modificador de Inteligência
+```
+
+Lista:
+
+```text
+Montar
+Conhecimento (cada grupo separado)
+Escalar
+Furtividade
+Iniciativa
+Mecânica
+Natação
+Percepção
+Pilotar
+Resistência
+Saltar
+Sobrevivência
+```
+
+---
+
+# Aptidões Iniciais
+
+Recebidas apenas quando iniciar como Batedor.
+
+```text
+Recuperação Rápida*
+Proficiência Pistolas
+Proficiência Rifles
+Proficiência Armas Simples
+```
+
+Pré-requisito:
+
+```text
+Recuperação Rápida
+↓
+
+Constituição 13
+Resistência treinada
+```
+
+---
+
+# Progressão de Classe
+
+## Níveis Ímpares
+
+Recebe:
+
+```text
+Talento
+```
+
+---
+
+## Níveis Pares
+
+Recebe:
+
+```text
+Aptidão bônus
+```
+
+---
+
+# Progressão Completa
+
+|Nível|Ataque|Ganho|
+|---|---:|---|
+|1|+0|Talento|
+|2|+1|Aptidão|
+|3|+2|Talento|
+|4|+3|Aptidão|
+|5|+3|Talento|
+|6|+4|Aptidão|
+|7|+5|Talento|
+|8|+6|Aptidão|
+|9|+6|Talento|
+|10|+7|Aptidão|
+|11|+8|Talento|
+|12|+9|Aptidão|
+|13|+9|Talento|
+|14|+10|Aptidão|
+|15|+11|Talento|
+|16|+12|Aptidão|
+|17|+12|Talento|
+|18|+13|Aptidão|
+|19|+14|Talento|
+|20|+15|Aptidão|
+
+---
+
+# Árvores de Talentos
+
+Disponíveis:
+
+```text
+Consciência
+Camuflagem
+Improvisador
+Sobrevivente
+```
+
+(serão detalhadas na próxima parte)
+
+---
+
+# Aptidões Bônus Disponíveis
+
+Escolher somente destas:
+
+```text
+Ataque em Movimento
+Certeiro
+Combate Veicular
+Esquiva
+Foco em Perícia
+Franco-atirador
+Linguista
+Proficiência Armadura Leve
+Proficiência Armas Corpo a Corpo Avançadas
+Tiro à Queima Roupa
+Tiro Distante
+Tiro Meticuloso
+Tiro Preciso
+Tiro Rápido
+Treinamento em Perícia
+```
+
+---
+
+# Créditos Iniciais
+
+```text
+3d4 × 250
+```
+
+---
+
+# Arquétipos Comuns
+
+## Explorador
+
+Prioridade:
+
+```text
+DES
+SAB
+```
+
+Talentos:
+
+```text
+Consciência
+Sobrevivente
+```
+
+---
+
+## Rastreador
+
+Prioridade:
+
+```text
+DES
+INT
+```
+
+Talentos:
+
+```text
+Consciência
+Camuflagem
+```
+
+---
+
+## Mecânico de Campo
+
+Prioridade:
+
+```text
+INT
+DES
+```
+
+Talentos:
+
+```text
+Improvisador
+```
+
+---
+
+# Regras para o Builder
+
+## Tela de Criação
+
+Fluxo:
+
+```text
+Selecionar Batedor
+↓
+Escolher perícias
+↓
+Escolher talento inicial
+↓
+Aplicar aptidões
+↓
+Gerar créditos
+```
+
+---
+
+## Tela de Level Up
+
+Fluxo:
+
+```text
+Subiu nível
+↓
+Atualiza ataque
+↓
+Atualiza vida
+↓
+Verifica talento
+↓
+Verifica aptidão
+↓
+Salvar versão
+```
+
+---
+
+# Modelo de Dados
+
+```ts
+ScoutClassData {
+
+ hpLevel1: "24+CON"
+
+ hpPerLevel: "1d8+CON"
+
+ defense: {
+   reflex: 2,
+   fortitude: 1
+ }
+
+ trainedSkills: 5
+
+ talentTrees: [
+   "awareness",
+   "camouflage",
+   "improviser",
+   "survivor"
+ ]
+
+ bonusFeats: []
+}
+```
+
+---
+
+# Próxima Parte
+
+PARTE 3 — Batedor — Árvores de Talentos
+
+- Consciência
+- Camuflagem
+- Improvisador
+- Sobrevivente
+- pré-requisitos
+- dependências
+- estrutura para UI

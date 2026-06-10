@@ -1,0 +1,157 @@
+# STAR WARS RPG — APTIDÕES
+## PARTE 5 — OCR CORRIGIDO
+
+## Maestria com Duas Armas III
+
+Você é um mestre em combater com duas armas e armas duplas.
+
+Pré-requisitos:
+Destreza 17, bônus de base de ataque +11, Maestria com Duas Armas I, Maestria com Duas Armas II.
+
+Benefícios:
+Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você não recebe a penalidade em suas jogadas de ataque.
+
+Esse benefício é apenas ganho se você estiver empunhando uma arma que você tenha proficiência.
+
+Normal:
+Se você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154), você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.
+
+Página: 95
+
+---
+
+## Mobilidade
+
+Você é hábil em conseguir se desviar de seus oponentes e evitar ataques oportunistas.
+
+Pré-requisitos:
+Destreza 13, Esquiva.
+
+Benefício:
+Você ganha +5 de bônus na Defesa de Reflexos contra ataques de oportunidade provocados quando entrar ou sair de uma área ameaçada (veja Ataques de Oportunidade, página 155).
+
+Uma situação que o faça perder seu bônus de Destreza na Defesa de Reflexos (se houver), também faz perder seus bônus de esquiva.
+
+Bônus de esquiva se acumulam entre si, ao contrário da maioria dos outros tipos de bônus.
+
+Página: 95
+
+---
+
+## Poderoso na Força
+
+Você possui uma conexão particularmente poderosa na Força.
+
+Benefício:
+Quando você gastar um ponto da Força para ajustar o resultado de uma jogada de ataque, teste de perícia ou teste de habilidade, você joga d8s ao invés de d6s.
+
+Página: 95
+
+---
+
+## Proficiência em Armas
+
+Você é proficiente com um tipo particular de armamento.
+
+Benefício:
+Escolha um dos seguintes grupos de armas:
+
+- armas de ataque corpo a corpo avançadas
+- armas pesadas (que incluem armas de veículos e armas de espaçonaves)
+- armas simples
+- pistolas
+- rifles
+- sabres de luz
+
+Você é considerado proficiente em todas as armas do grupo escolhido.
+
+Para mais informações sobre grupo de armas, veja a página 119.
+
+Normal:
+Se você empunhar uma arma que não seja proficiente, você sofre uma penalidade de -5 em suas jogadas de ataque.
+
+Especial:
+Você pode escolher esta aptidão várias vezes. Cada vez que o fizer, ela se aplica a um grupo de armas diferente.
+
+Armas exóticas não podem ser escolhidas como um grupo de armas.
+
+É preciso selecionar a aptidão Proficiência em Armas Exóticas (veja página 84) para ganhar proficiência em uma arma exótica específica (como a besta energética ou o lança-chamas).
+
+Página: 95
+
+---
+
+## Proficiência em Armas Exóticas
+
+Escolha uma arma exótica, como a besta energética ou o atlatl (veja armas exóticas, página 119).
+
+Você sabe como usar essa arma exótica em combate.
+
+Pré-requisitos:
+Bônus de base de ataque +1.
+
+Benefício:
+Você pode fazer jogadas de ataque com a arma normalmente.
+
+Normal:
+Um personagem que usar uma arma sem ter proficiência com ela recebe -5 de penalidade nas jogadas de ataque.
+
+Especial:
+Você pode escolher esta aptidão várias vezes. Cada vez que o fizer, ela se aplica a uma arma diferente.
+
+Página: 95
+
+---
+
+## Proficiência em Armaduras (Leves)
+
+Você é proficiente em armaduras leves (veja Tabela 8-7: Armaduras) e pode usá-las sem impedimento.
+
+Benefício:
+Quando você usar armaduras leves, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.
+
+Além disso, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).
+
+Normal:
+Um personagem que usar uma armadura leve sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:
+
+- Acrobacia
+- Escalar
+- Furtividade
+- Iniciativa
+- Natação
+- Saltar
+- Tolerância
+
+Além disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.
+
+Página: 95–96
+
+---
+
+## Proficiência em Armaduras (Médias)
+
+Você é proficiente em armaduras médias (veja Tabela 8-7: Armaduras) e pode usá-las sem impedimento.
+
+Pré-requisitos:
+Proficiência com Armaduras (Leves).
+
+Benefício:
+Quando você usar armaduras médias, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.
+
+Ainda, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).
+
+Normal:
+Um personagem que usar uma armadura média sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:
+
+- Acrobacia
+- Escalar
+- Furtividade
+- Iniciativa
+- Natação
+- Saltar
+- Tolerância
+
+Além disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.
+
+Página: 95–96

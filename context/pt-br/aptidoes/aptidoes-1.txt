@@ -1,0 +1,110 @@
+# STAR WARS RPG — APTIDÕES
+## PARTE 1 — OCR CORRIGIDO
+
+## Instalar Prótese Cibernética
+
+Benefício:
+Você pode instalar uma prótese cibernética (veja página 137) em um ser vivo. O procedimento cirúrgico requer 1 hora de trabalho ininterrupto, após isto, você deve fazer um teste de Tratar Ferimentos contra uma CD 20. Se o teste for bem sucedido, a prótese é instalada corretamente. Se o teste falhar, a prótese não é apropriadamente instalada; entretanto, você pode tentar instalar uma prótese novamente após outra hora ininterrupta de cirurgia.
+
+Especial:
+Você pode instalar uma prótese cibernética em si mesmo, mas você recebe -5 de penalidade no teste da perícia Tratar Ferimentos. Se você tiver a aptidão Especialista Cirúrgico (veja página 88) poderá instalar uma prótese cibernética em 10 minutos ao invés de 1 hora.
+
+Página: 91
+
+---
+
+## Combate Veicular
+
+Pré-requisito:
+Treinado na perícia Pilotar.
+
+Benefício:
+Uma vez por rodada (como uma reação), quando estiver pilotando um veículo ou nave espacial, você pode negar um acerto de uma arma ao ser bem sucedido num teste de Pilotar. A CD para esse teste de perícia é igual ao resultado da jogada de ataque que você pretende evitar.
+
+Além disso, quando você estiver pilotando um veículo, você é considerado proficiente com as armas do veículo operadas pelo piloto (As descrições dos veículo no Capítulo 10 mostram quais armas são operadas pelo piloto).
+
+Página: 91
+
+---
+
+## Crítico Triplicado
+
+Escolha um tipo de arma, como uma pistola, vibroadaga, ou sabre de luz. Você causa mais dano em um sucesso decisivo com esta arma.
+
+Pré-requisitos:
+Proficiente na arma, bônus de base de ataque +8.
+
+Benefício:
+Quando obtiver um sucesso decisivo com a arma escolhida, o dano é triplicado. Você pode escolher “ataque desarmado” como uma arma para propósito desta aptidão.
+
+Normal:
+Um sucesso decisivo normalmente causa dano duplicado no alvo.
+
+Especial:
+Você pode selecionar esta aptidão várias vezes. Seus efeitos não se acumulam. Cada vez que escolher esta aptidão, ela é aplicada a uma arma diferente.
+
+Página: 91
+
+---
+
+## Defesa Corpo a Corpo
+
+Você é treinado em utilizar sua habilidade em combate defensivamente com a mesma eficácia que ofensivamente.
+
+Pré-requisitos:
+Inteligência 13.
+
+Benefício:
+Quando você usar uma ação padrão para fazer um ataque corpo a corpo, você pode escolher receber uma penalidade de -5 em sua jogada de ataque e adicionar o mesmo número (até +5) como um bônus de esquiva em sua Defesa de Reflexos. Este número não pode exceder seu bônus de base de ataque. As alterações nas jogadas de ataque e Defesa de Reflexos permanecem até o começo de seu próximo turno.
+
+Normal:
+Um personagem sem a aptidão Defesa Corpo a Corpo pode lutar defensivamente quando usar a ação de ataque, sofrendo -5 de penalidade em suas jogadas de ataque e ganhando +2 de bônus de esquiva em sua Defesa de Reflexos.
+
+Página: 91–92
+
+---
+
+## Defesas Aprimoradas
+
+Você é hábil em resistir a diversos tipos de ataques.
+
+Benefício:
+Você ganha +1 de bônus em suas Defesas de Reflexos, Fortitude e Vontade.
+
+Página: 92
+
+---
+
+## Derrubar
+
+Você é capaz de lançar ao chão oponentes agarrados.
+
+Pré-requisitos:
+Bônus de base de ataque +1.
+
+Benefício:
+Se você for bem sucedido em um ataque de prender (veja página 153) e seu oponente falhar no teste resistido, ele cai no seu próprio espaço e não é mais considerado imobilizado.
+
+Um oponente caído sofre -5 de penalidade nas jogadas de ataque corpo a corpo. Ataques corpo a corpo feitos contra um oponente caído ganham um bônus de +5, enquanto ataques à distância sofrem uma penalidade de -5.
+
+Especial:
+Você não pode usar as aptidões Imobilizar e Derrubar durante uma mesma rodada.
+
+Página: 92
+
+---
+
+## Desarme Aprimorado
+
+Você é hábil em desarmar oponentes em combate corpo a corpo.
+
+Pré-requisitos:
+Inteligência 13, Defesa Corpo a Corpo.
+
+Benefício:
+Você ganha +5 de bônus em qualquer jogada de ataque corpo a corpo feita para desarmar um oponente. Ainda, se você falhar em desarmar seu oponente, ele não ganha a chance de fazer um ataque livre contra você.
+
+Normal:
+Veja as regras de desarmes normais na página 152.
+
+Página: 92

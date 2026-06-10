@@ -1,0 +1,144 @@
+# STAR WARS RPG — APTIDÕES
+## PARTE 4 — OCR CORRIGIDO
+
+## Imobilizar
+
+Você é capacitado em imobilizar oponentes agarrados.
+
+Pré-requisitos:
+Bônus de base de ataque +1.
+
+Benefício:
+Se você for bem sucedido em um ataque de prender e seu oponente falhar no teste resistido, ele é automaticamente imobilizado até o início do seu próximo turno.
+
+Uma criatura imobilizada não pode se mover ou executar qualquer ação enquanto estiver imobilizada, e perde seu bônus de Destreza (se houver) na Defesa de Reflexos.
+
+Especial:
+Você não pode usar a aptidão Imobilizar e Derrubar durante a mesma rodada. Entretanto, você pode usar a aptidão Imobilizar e Esmagar em uma mesma rodada.
+
+Página: 94
+
+---
+
+## Impulso Eficaz
+
+Você é capaz de realizar grandes ataques corpo a corpo.
+
+Pré-requisitos:
+Força 13.
+
+Benefício:
+Você pode gastar duas ações rápidas na mesma rodada para causar +1 dado de dano em seu próximo ataque corpo a corpo na mesma rodada.
+
+Os efeitos desta aptidão não se acumulam com o dano extra provido pela aptidão Ataque Rápido.
+
+Página: 94
+
+---
+
+## Investida Aprimorada
+
+Você consegue investir contornando obstáculos.
+
+Pré-requisitos:
+Destreza 13, Esquiva, Mobilidade.
+
+Benefício:
+Você pode realizar uma investida (veja página 152) sem precisar se mover em uma linha reta, e pode mudar de direção quando fazendo uma investida para evitar obstáculos.
+
+Todas as outras regras de investida são aplicadas normalmente.
+
+Normal:
+Um personagem precisa fazer uma investida em uma linha reta não obstruída.
+
+Página: 94
+
+---
+
+## Investida Poderosa
+
+Você pode realizar uma investida com uma força extra.
+
+Pré-requisitos:
+Tamanho médio ou maior, bônus de base de ataque +1.
+
+Benefício:
+Quando realizar uma investida, você ganha um bônus adicional de +2 em suas jogadas de ataque.
+
+Se seu ataque corpo a corpo acertar, receba um dano adicional igual à metade do seu nível.
+
+Página: 94
+
+---
+
+## Limite de Dano Aprimorado
+
+Você é difícil de ser derrubado em uma luta.
+
+Benefício:
+Seu limite de dano aumenta em 5 (veja Limite de Dano, página 146).
+
+Normal:
+Uma criatura sem esta aptidão possui um limite de dano igual à sua Defesa de Fortitude mais o modificador de tamanho (+5 para Grande, +10 para Enorme, +20 para Imenso, ou +50 para Colossal).
+
+Especial:
+Você pode escolher esta aptidão várias vezes. Seus efeitos se acumulam. Cada vez que escolher esta aptidão, aumente seu limite de dano em +5.
+
+Página: 94
+
+---
+
+## Linguista
+
+Você consegue aprender as formas de linguagem fácil e rapidamente.
+
+Pré-requisitos:
+Inteligência 13.
+
+Benefício:
+Você recebe um número de línguas bônus igual a 1 + seu modificador de Inteligência (mínimo de 1).
+
+Veja o quadro lateral na página 22 para uma lista de línguas mais comuns.
+
+Especial:
+Você pode escolher esta aptidão várias vezes. Cada vez que o fizer, você ganha um número de línguas adicionais igual a 1 + seu modificador de Inteligência (mínimo 1).
+
+Página: 94
+
+---
+
+## Maestria com Duas Armas I
+
+Você é perito em combater com duas armas e armas duplas.
+
+Pré-requisitos:
+Destreza 13, bônus de base de ataque +1.
+
+Benefícios:
+Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -5 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.
+
+Essa redução na penalidade é apenas ganha se você estiver empunhando uma arma que você tenha proficiência.
+
+Normal:
+Se você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154) você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.
+
+Página: 94–95
+
+---
+
+## Maestria com Duas Armas II
+
+Você é um mestre combater com duas armas e armas duplas.
+
+Pré-requisitos:
+Destreza 15, bônus de base de ataque +6, Maestria com Duas Armas I.
+
+Benefícios:
+Quando atacar com duas armas ou com as duas lâminas de uma arma dupla, como parte de uma ação de ataque total, você recebe -2 de penalidade (ao invés de -10) em todas as jogadas de ataque até o começo de seu próximo turno.
+
+Essa redução na penalidade é apenas ganha se estiver empunhando uma arma que tenha proficiência.
+
+Normal:
+Se você usar uma ação de ataque total para fazer mais de um ataque em seu turno (veja Ataque Total, página 154), você recebe uma penalidade de -10 em todas as jogadas de ataque pela rodada.
+
+Página: 95

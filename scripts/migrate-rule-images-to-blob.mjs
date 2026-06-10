@@ -14,8 +14,16 @@ const dryRun = process.env.RULE_IMAGE_DRY_RUN === '1';
 const repairDryRun = process.env.RULE_IMAGE_REPAIR_DRY_RUN === '1';
 const mirrorRemote = process.env.RULE_IMAGE_MIRROR_REMOTE !== '0';
 const uploadLocal = process.env.RULE_IMAGE_UPLOAD_LOCAL !== '0';
+const localImageSlugs = new Set(
+  (process.env.RULE_IMAGE_SLUGS ?? '')
+    .split(',')
+    .map((slug) => slug.trim())
+    .filter(Boolean),
+);
 
 const localImageMappings = [
+  ['level-up-e-progressao-de-personagem', 'level-up.jpg'],
+  ['armadura-corelliana', 'C:\\Users\\rarys\\AppData\\Local\\Temp\\codex-clipboard-075ded72-5c46-4378-ab2f-e9f4bab340a5.png'],
   ['esfera-de-energia', 'esfera-de-energia.avif'],
   ['pistola-de-projeteis', 'pistola-de-projeteis.JPG'],
   ['pistola-de-ions', 'pistola-de-ions.jpeg'],
@@ -169,7 +177,7 @@ async function uploadRemoteImage(entry) {
 
 async function uploadLocalImage(mapping) {
   const [slug, filename] = mapping;
-  const filePath = path.join(localImageDir, filename);
+  const filePath = path.isAbsolute(filename) ? filename : path.join(localImageDir, filename);
 
   if (!fs.existsSync(filePath)) {
     throw new Error(`file not found: ${filePath}`);
@@ -179,7 +187,7 @@ async function uploadLocalImage(mapping) {
   return uploadBuffer({
     slug,
     buffer,
-    sourceName: filename,
+    sourceName: path.basename(filename),
     contentType: contentTypeFromExtension(filename),
   });
 }
@@ -310,9 +318,13 @@ if (mirrorRemote) {
 }
 
 if (uploadLocal) {
-  console.log(`Uploading ${localImageMappings.length} curated local images to Vercel Blob...`);
+  const mappingsToUpload = localImageSlugs.size > 0
+    ? localImageMappings.filter(([slug]) => localImageSlugs.has(slug))
+    : localImageMappings;
 
-  for (const mapping of localImageMappings) {
+  console.log(`Uploading ${mappingsToUpload.length} curated local images to Vercel Blob...`);
+
+  for (const mapping of mappingsToUpload) {
     const [slug, filename] = mapping;
 
     try {

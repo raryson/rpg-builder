@@ -63,7 +63,7 @@ function tagsFor(item, type) {
 }
 
 function mapDetailItem(item, type) {
-  return {
+  const entry = {
     systemSlug: 'star-wars-saga',
     type,
     name: item.name,
@@ -77,6 +77,16 @@ function mapDetailItem(item, type) {
     visibility: 'public',
     status: 'published',
   };
+
+  if (item.imageUrl) {
+    entry.imageUrl = item.imageUrl;
+    entry.imageSourceUrl = item.imageSourceUrl ?? '';
+    entry.imageAttribution = item.imageAttribution ?? '';
+    entry.imageProvider = item.imageProvider ?? '';
+    entry.imageSearchStatus = item.imageSearchStatus ?? 'found';
+  }
+
+  return entry;
 }
 
 function isDroidAssemblyItem(item) {
@@ -152,7 +162,12 @@ if (!process.env.MONGODB_URI) {
 const catalog = loadCatalog();
 const droidAssemblyItems = (catalog.sagaDroidDetailsCatalog ?? []).filter(isDroidAssemblyItem);
 const droidCatalogItems = (catalog.sagaDroidDetailsCatalog ?? []).filter((item) => !isDroidAssemblyItem(item));
+const archivedRuleSlugs = [
+  { type: 'feat', slug: 'proficiencia-armas-corpo-a-corpo-avancadas' },
+];
 const entries = [
+  ...(catalog.sagaClassDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'class')),
+  ...(catalog.sagaFeatDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'feat')),
   ...(catalog.sagaTalentDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'talent')),
   ...(catalog.sagaEquipmentDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'equipment')),
   ...(catalog.sagaVehicleDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'vehicle')),
@@ -225,5 +240,17 @@ const archivedAssemblyEntries = await RuleEntry.updateMany(
   },
 );
 
-console.log(`Seeded ${entries.length} Star Wars Saga rule entries. Archived ${archivedAssemblyEntries.modifiedCount} droid assembly fragments.`);
+const archivedRemovedEntries = await RuleEntry.updateMany(
+  {
+    systemSlug: 'star-wars-saga',
+    $or: archivedRuleSlugs,
+  },
+  {
+    $set: {
+      status: 'archived',
+    },
+  },
+);
+
+console.log(`Seeded ${entries.length} Star Wars Saga rule entries. Archived ${archivedAssemblyEntries.modifiedCount} droid assembly fragments and ${archivedRemovedEntries.modifiedCount} removed rules.`);
 await mongoose.disconnect();

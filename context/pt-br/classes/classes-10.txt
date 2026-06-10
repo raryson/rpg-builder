@@ -1,0 +1,382 @@
+# STAR WARS SAGA EDITION — REBUILD — REGRAS GERAIS DE CLASSES E LEVEL UP (PARTE 10)
+
+[FONTE: OCR DO LIVRO — SOMENTE FORMATAÇÃO E ORGANIZAÇÃO]
+
+---
+
+# PROGRESSÃO DE NÍVEL
+
+## Objetivo
+
+Conforme o personagem sobe de nível ele recebe melhorias definidas pela classe.
+
+O avanço normalmente altera:
+
+```text
+Pontos de Vida
+
+Ataque Base
+
+Defesas
+
+Talentos
+
+Aptidões
+
+Perícias
+
+Poderes
+```
+
+---
+
+# SUBIR DE NÍVEL
+
+## Fluxo Geral
+
+```text
+Ganhar XP
+↓
+
+Alcançar próximo nível
+
+↓
+
+Aplicar melhorias
+
+↓
+
+Salvar ficha
+```
+
+---
+
+# AO SUBIR DE NÍVEL
+
+Aplicar na ordem:
+
+```text
+1. Vida
+
+↓
+
+2. Ataque Base
+
+↓
+
+3. Defesas
+
+↓
+
+4. Aptidões
+
+↓
+
+5. Talentos
+
+↓
+
+6. Poderes (se possuir)
+
+↓
+
+7. Atualizar ficha
+```
+
+---
+
+# PONTOS DE VIDA
+
+Ao subir:
+
+```text
+recebe PV da classe
+```
+
+Fórmula:
+
+```text
+valor classe
+
++
+
+modificador Constituição
+```
+
+---
+
+# ATAQUE BASE
+
+## Objetivo
+
+Representa evolução ofensiva.
+
+Cada classe possui:
+
+```text
+progressão própria
+```
+
+---
+
+# DEFESAS
+
+Atualizar:
+
+```text
+Reflexos
+
+Fortitude
+
+Vontade
+```
+
+Conforme regras da classe.
+
+---
+
+# TALENTOS
+
+## Objetivo
+
+Representam especialização.
+
+Fluxo:
+
+```text
+Verificar nível
+
+↓
+
+Mostrar árvores válidas
+
+↓
+
+Validar requisitos
+
+↓
+
+Selecionar
+```
+
+---
+
+# APTIDÕES
+
+## Objetivo
+
+Representam treinamento adicional.
+
+Fluxo:
+
+```text
+Verificar aptidões disponíveis
+
+↓
+
+Validar requisitos
+
+↓
+
+Adicionar
+```
+
+---
+
+# PERÍCIAS
+
+Caso permitido:
+
+```text
+adicionar treino
+
+ou
+
+atualizar modificadores
+```
+
+---
+
+# PODERES DA FORÇA
+
+Se personagem possuir:
+
+```text
+Sensitivo à Força
+```
+
+Atualizar:
+
+```text
+conjunto poderes
+
+usos
+
+seleções
+```
+
+---
+
+# MULTICLASSE
+
+## Objetivo
+
+Permite adquirir níveis em outras classes.
+
+Fluxo:
+
+```text
+Subir nível
+↓
+
+Selecionar nova classe
+↓
+
+Receber benefícios
+```
+
+---
+
+# Efeitos da Multiclasse
+
+Pode alterar:
+
+```text
+vida
+
+talentos
+
+aptidões
+
+perícias
+```
+
+---
+
+# RESTRIÇÕES
+
+Aplicar somente benefícios permitidos.
+
+---
+
+# ESTRUTURA — LEVEL UP
+
+```ts
+LevelUp {
+
+ level
+
+ hitPoints
+
+ attackBonus
+
+ defenses
+
+ talents
+
+ feats
+
+ powers
+}
+```
+
+---
+
+# BUILDER — LEVEL UP
+
+Fluxo:
+
+```text
+Abrir personagem
+
+↓
+
+Subir nível
+
+↓
+
+Mostrar ganhos
+
+↓
+
+Selecionar opções
+
+↓
+
+Salvar versão
+```
+
+---
+
+# VERSIONAMENTO
+
+Criar:
+
+```text
+snapshot
+```
+
+Para cada alteração.
+
+---
+
+# Estrutura
+
+```ts
+CharacterLevel {
+
+ previous
+
+ current
+
+ changes
+}
+```
+
+---
+
+# TELA RECOMENDADA
+
+## Esquerda
+
+```text
+Nível Atual
+```
+
+---
+
+## Centro
+
+```text
+Ganhos
+```
+
+---
+
+## Direita
+
+```text
+Preview
+```
+
+---
+
+# REGRAS PARA WIKI
+
+Cada classe deve possuir:
+
+```text
+descrição
+
+progressão
+
+talentos
+
+aptidões
+
+level up
+```
+
+---
+
+[FIM DO BLOCO ENVIADO — AGUARDANDO PRÓXIMO OCR]

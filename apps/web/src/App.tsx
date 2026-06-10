@@ -25,6 +25,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   sagaDroidDetailsCatalog,
   sagaEquipmentDetailsCatalog,
+  sagaFeatDetailsCatalog,
   sagaTalentDetailsCatalog,
   sagaVehicleDetailsCatalog,
 } from './starWarsSagaCatalogData';
@@ -59,6 +60,10 @@ type FeatCatalogItem = CatalogItem & {
   benefit: string;
   normal?: string;
   special?: string;
+  summary?: string;
+  details?: string;
+  category?: string;
+  extra?: string;
 };
 
 type DetailCatalogItem = CatalogItem & {
@@ -126,6 +131,12 @@ type ClassCatalogItem = CatalogItem & {
   defenseBonuses: Record<DefenseKey, number>;
   startingFeats: string[];
   description: string;
+  role: string;
+  keyAttributes: AbilityKey[];
+  trainedSkillBase: number;
+  talentTrees: string[];
+  bonusFeats: string[];
+  credits: string;
 };
 
 type SkillEntry = {
@@ -133,6 +144,32 @@ type SkillEntry = {
   trained: boolean;
   focused: boolean;
   misc: number;
+};
+
+type ClassLevelEntry = {
+  classSlug: string;
+  level: number;
+};
+
+type LevelHistoryEntry = {
+  id: string;
+  level: number;
+  classSlug: string;
+  hitPointGain: number;
+  talentSlug: string;
+  featSlug: string;
+  abilityBoosts: AbilityKey[];
+  notes: string;
+  createdAt: string;
+};
+
+type SheetVersion = {
+  id: string;
+  versionNumber: number;
+  level: number;
+  summary: string;
+  createdAt: string;
+  snapshot: Record<string, unknown>;
 };
 
 type CharacterSheet = {
@@ -150,12 +187,15 @@ type CharacterSheet = {
   hair: string;
   skin: string;
   homeworld: string;
+  languages: string;
   background: string;
   personality: string;
   appearance: string;
   portraitUrl: string;
+  portraitBlobPath: string;
   speciesSlug: string;
   classSlug: string;
+  classLevels: ClassLevelEntry[];
   totalLevel: number;
   heroicLevel: number;
   prestigeLevel: number;
@@ -187,7 +227,10 @@ type CharacterSheet = {
   droidSystems: string[];
   notes: string;
   progressionLog: string;
+  levelHistory: LevelHistoryEntry[];
+  sheetVersions: SheetVersion[];
   versionNote: string;
+  isFinalized: boolean;
   updatedAt: string;
 };
 
@@ -261,16 +304,98 @@ const speciesCatalog: SpeciesCatalogItem[] = [
 ];
 
 const heroicClassCatalog: ClassCatalogItem[] = [
-  heroicClass('Jedi', 30, 'd10', 'full', { reflex: 1, fortitude: 1, will: 1 }, ['Sensível à Força', 'Sabre de Luz', 'Armas simples'], '+1 Reflexos, +1 Fortitude, +1 Vontade; BBA completo; PV inicial 30 + Con.'),
-  heroicClass('Nobre', 18, 'd6', 'three-quarters', { reflex: 1, fortitude: 0, will: 2 }, ['Linguista', 'Pistolas', 'Armas simples'], '+1 Reflexos, +2 Vontade; BBA 3/4; PV inicial 18 + Con.'),
-  heroicClass('Fora-da-Lei', 18, 'd6', 'three-quarters', { reflex: 2, fortitude: 0, will: 1 }, ['Tiro à Queima-Roupa', 'Pistolas', 'Armas simples'], '+2 Reflexos, +1 Vontade; BBA 3/4; PV inicial 18 + Con.'),
-  heroicClass('Batedor', 24, 'd8', 'three-quarters', { reflex: 2, fortitude: 1, will: 0 }, ['Recuperação Rápida', 'Pistolas', 'Rifles', 'Armas simples'], '+2 Reflexos, +1 Fortitude; BBA 3/4; PV inicial 24 + Con.'),
-  heroicClass('Soldado', 30, 'd10', 'full', { reflex: 1, fortitude: 2, will: 0 }, ['Armas simples', 'Pistolas', 'Rifles', 'Armadura leve', 'Armadura média'], '+1 Reflexos, +2 Fortitude; BBA completo; PV inicial 30 + Con.'),
+  heroicClass({
+    name: 'Jedi',
+    startingHitPoints: 30,
+    hitDie: 'd10',
+    baseAttackProgression: 'full',
+    defenseBonuses: { reflex: 1, fortitude: 1, will: 1 },
+    startingFeats: ['Sensível à Força', 'Sabre de Luz', 'Armas simples'],
+    description: '+1 Reflexos, +1 Fortitude, +1 Vontade; BBA completo; PV inicial 30 + Con. Talentos focam a Força, sentinela e combate com sabre de luz.',
+    role: 'Usuário da Força / combatente disciplinado',
+    keyAttributes: ['wisdom', 'charisma', 'dexterity'],
+    trainedSkillBase: 2,
+    talentTrees: ['Sentinela Jedi', 'Combate com Sabre de Luz'],
+    bonusFeats: ['Acuidade com Arma', 'Ataque Duplo', 'Ataque Poderoso', 'Esquiva', 'Foco em Arma', 'Foco em Perícia', 'Poderoso na Força', 'Treinamento em Perícia'],
+    credits: '3d4 × 100',
+  }),
+  heroicClass({
+    name: 'Nobre',
+    startingHitPoints: 18,
+    hitDie: 'd6',
+    baseAttackProgression: 'three-quarters',
+    defenseBonuses: { reflex: 1, fortitude: 0, will: 2 },
+    startingFeats: ['Linguista', 'Pistolas', 'Armas simples'],
+    description: '+1 Reflexos, +2 Vontade; BBA 3/4; PV inicial 18 + Con. Classe de liderança, influência e suporte social.',
+    role: 'Líder / suporte social',
+    keyAttributes: ['charisma', 'intelligence', 'wisdom'],
+    trainedSkillBase: 6,
+    talentTrees: ['Influência', 'Inspiração', 'Liderança'],
+    bonusFeats: ['Ataque Coordenado', 'Combate Veicular', 'Esquiva', 'Foco em Perícia', 'Linguista', 'Saque Rápido', 'Tiro Preciso', 'Tiro à Queima Roupa', 'Treinamento em Perícia'],
+    credits: '5d4 × 250',
+  }),
+  heroicClass({
+    name: 'Fora-da-Lei',
+    startingHitPoints: 18,
+    hitDie: 'd6',
+    baseAttackProgression: 'three-quarters',
+    defenseBonuses: { reflex: 2, fortitude: 0, will: 1 },
+    startingFeats: ['Tiro à Queima-Roupa', 'Pistolas', 'Armas simples'],
+    description: '+2 Reflexos, +1 Vontade; BBA 3/4; PV inicial 18 + Con. Usa perícias, mobilidade, sorte e ataques oportunistas.',
+    role: 'Especialista / oportunista',
+    keyAttributes: ['dexterity', 'intelligence', 'charisma'],
+    trainedSkillBase: 6,
+    talentTrees: ['Sorte', 'Precisão', 'Furtividade', 'Manipulação'],
+    bonusFeats: ['Ataque Duplo', 'Ataque em Movimento', 'Combate Veicular', 'Esquiva', 'Foco em Perícia', 'Franco-atirador', 'Saque Rápido', 'Tiro Preciso', 'Tiro à Queima Roupa', 'Treinamento em Perícia'],
+    credits: '4d4 × 250',
+  }),
+  heroicClass({
+    name: 'Batedor',
+    startingHitPoints: 24,
+    hitDie: 'd8',
+    baseAttackProgression: 'three-quarters',
+    defenseBonuses: { reflex: 2, fortitude: 1, will: 0 },
+    startingFeats: ['Recuperação Rápida', 'Pistolas', 'Rifles', 'Armas simples'],
+    description: '+2 Reflexos, +1 Fortitude; BBA 3/4; PV inicial 24 + Con. Exploração, sobrevivência, rastreamento e reconhecimento.',
+    role: 'Explorador / sobrevivente',
+    keyAttributes: ['dexterity', 'wisdom', 'intelligence'],
+    trainedSkillBase: 5,
+    talentTrees: ['Consciência', 'Camuflagem', 'Improvisador', 'Sobrevivente'],
+    bonusFeats: ['Ataque em Movimento', 'Certeiro', 'Combate Veicular', 'Esquiva', 'Foco em Perícia', 'Franco-atirador', 'Linguista', 'Proficiência Armadura Leve', 'Tiro Distante', 'Tiro Meticuloso', 'Tiro Preciso', 'Tiro Rápido', 'Tiro à Queima Roupa', 'Treinamento em Perícia'],
+    credits: '3d4 × 250',
+  }),
+  heroicClass({
+    name: 'Soldado',
+    startingHitPoints: 30,
+    hitDie: 'd10',
+    baseAttackProgression: 'full',
+    defenseBonuses: { reflex: 1, fortitude: 2, will: 0 },
+    startingFeats: ['Armas simples', 'Pistolas', 'Rifles', 'Armadura leve', 'Armadura média'],
+    description: '+1 Reflexos, +2 Fortitude; BBA completo; PV inicial 30 + Con. Especialista em combate direto, armas e armaduras.',
+    role: 'Combatente / defensor',
+    keyAttributes: ['dexterity', 'constitution', 'strength'],
+    trainedSkillBase: 3,
+    talentTrees: ['Especialista em Armaduras', 'Lutador', 'Comando', 'Especialista em Armas'],
+    bonusFeats: ['Artes Marciais I', 'Ataque Duplo', 'Ataque Poderoso', 'Ataque Rápido', 'Combate Veicular', 'Crítico Triplicado', 'Foco em Arma', 'Foco em Perícia', 'Proficiência Armadura Pesada', 'Proficiência Armas Exóticas', 'Proficiência Armas Pesadas', 'Recuperação Rápida', 'Saque Rápido', 'Tiro Preciso', 'Tiro Rápido', 'Tiro à Queima Roupa', 'Treinamento em Perícia', 'Vigoroso'],
+    credits: '3d4 × 250',
+  }),
 ];
 
-const skillRows: Array<[string, AbilityKey, boolean]> = [
+type SkillCatalogItem = CatalogItem & {
+  ability: AbilityKey;
+  armor: boolean;
+  description?: string;
+};
+
+const skillRows: Array<[string, AbilityKey, boolean, string?]> = [
   ['Acrobacia', 'dexterity', true],
   ['Conhecimento', 'intelligence', false],
+  ['Conhecimento (Sabedoria Galáctica)', 'intelligence', false, 'Planetas, planeta natal, setores do espaço, história galáctica e a Força.'],
+  ['Conhecimento (Ciências de Vida)', 'intelligence', false, 'Biologia, botânica, genética, arqueologia, xenobiologia, medicina e direito.'],
+  ['Conhecimento (Ciências Físicas)', 'intelligence', false, 'Astronomia, astronavegação, química, matemática, física e engenharia.'],
+  ['Conhecimento (Ciências Sociais)', 'intelligence', false, 'Sociologia, psicologia, filosofia, teologia e criminologia.'],
+  ['Conhecimento (Táticas)', 'intelligence', false, 'Técnicas e estratégias para posicionar e manobrar forças em combate.'],
+  ['Conhecimento (Tecnologia)', 'intelligence', false, 'Função e princípios dos aparelhos tecnológicos, teorias de ponta e avanços.'],
   ['Dissimulação', 'charisma', false],
   ['Escalar', 'strength', true],
   ['Furtividade', 'dexterity', true],
@@ -290,78 +415,18 @@ const skillRows: Array<[string, AbilityKey, boolean]> = [
   ['Usar a Força', 'charisma', false],
 ];
 
-const skillCatalog: Array<CatalogItem & { ability: AbilityKey; armor: boolean }> = skillRows.map(([name, ability, armor]) => ({
+const skillCatalog: SkillCatalogItem[] = skillRows.map(([name, ability, armor, description]) => ({
   ...toCatalogItem(name),
   ability,
   armor,
+  description,
 }));
 
-const baseFeatNames = [
-  'Acuidade com Arma',
-  'Ataque Duplo',
-  'Ataque Poderoso',
-  'Combate Veicular',
-  'Esquiva',
-  'Foco em Perícia',
-  'Poderoso na Força',
-  'Proficiência com Armas',
-  'Sensitivo à Força',
-  'Treinamento na Força',
-];
-
-const featCatalog: FeatCatalogItem[] = baseFeatNames.map((name) => {
-  const slug = slugify(name);
-  const details: Record<string, Omit<FeatCatalogItem, 'name' | 'slug'>> = {
-    'acuidade-com-arma': {
-      prerequisites: 'BBA +1',
-      benefit: 'Com arma leve ou sabre de luz, pode usar Destreza no lugar de Força nas jogadas de ataque corpo a corpo.',
-    },
-    'ataque-duplo': {
-      prerequisites: 'BBA +6 e proficiência com a arma escolhida',
-      benefit: 'Em ataque total, faz um ataque extra com a arma escolhida; todos os ataques sofrem -5 até seu próximo turno.',
-      normal: 'Normalmente uma ação padrão faz um único ataque.',
-      special: 'Pode ser escolhida mais de uma vez para armas ou grupos diferentes.',
-    },
-    'ataque-poderoso': {
-      prerequisites: 'Força 13',
-      benefit: 'Troca bônus de ataque por dano extra em ataques corpo a corpo, até o limite do seu bônus base de ataque.',
-    },
-    'combate-veicular': {
-      prerequisites: 'Treinado em Pilotar',
-      benefit: 'Uma vez por rodada, como reação, pode negar um acerto contra seu veículo com um teste de Pilotar contra a jogada de ataque. Também conta como proficiente com armas do veículo operadas pelo piloto.',
-    },
-    esquiva: {
-      prerequisites: 'Destreza 13',
-      benefit: 'Escolhe um oponente durante seu turno e recebe +1 de bônus de esquiva na Defesa de Reflexos contra ataques dele.',
-    },
-    'foco-em-pericia': {
-      prerequisites: 'Perícia treinada escolhida',
-      benefit: 'Uma perícia treinada escolhida recebe +5 de bônus de competência nos testes.',
-      special: 'Pode ser escolhida várias vezes, cada vez para uma perícia treinada diferente.',
-    },
-    'poderoso-na-forca': {
-      prerequisites: 'Nenhum',
-      benefit: 'Quando gastar Ponto da Força para ajustar ataque, teste de perícia ou teste de habilidade, rola d8 em vez de d6.',
-    },
-    'proficiencia-com-armas': {
-      prerequisites: 'Nenhum',
-      benefit: 'Escolhe um grupo de armas. Você ignora a penalidade por falta de proficiência ao atacar com armas daquele grupo.',
-      normal: 'Sem proficiência, ataques com a arma sofrem penalidade.',
-      special: 'Pode ser escolhida várias vezes para grupos diferentes.',
-    },
-    'sensitivo-a-forca': {
-      prerequisites: 'Nenhum',
-      benefit: 'Torna o personagem sensível à Força, permitindo treinar Usar a Força e acessar opções relacionadas à Força.',
-    },
-    'treinamento-na-forca': {
-      prerequisites: 'Sensitivo à Força e treinado em Usar a Força',
-      benefit: 'Adiciona ao conjunto de poderes da Força um número de poderes igual a 1 + modificador de Sabedoria, mínimo 1.',
-      special: 'Pode ser escolhida várias vezes para aprender mais poderes.',
-    },
-  };
-  return { name, slug, ...(details[slug] ?? { prerequisites: 'Ver manual', benefit: 'Detalhes pendentes de catalogação.' }) };
-});
-
+const featCatalog: FeatCatalogItem[] = sagaFeatDetailsCatalog.map((item) => ({
+  ...item,
+  prerequisites: item.prerequisites || 'Nenhum',
+  benefit: item.benefit || item.summary || item.details || 'Detalhes pendentes de cataloga??o.',
+}));
 const baseForcePowerCatalog = [
   'Estrangulamento da Força',
   'Desarmar da Força',
@@ -496,12 +561,15 @@ function createSheet(): CharacterSheet {
     hair: '',
     skin: '',
     homeworld: '',
+    languages: '',
     background: '',
     personality: '',
     appearance: '',
     portraitUrl: '',
+    portraitBlobPath: '',
     speciesSlug: 'humano',
     classSlug: 'jedi',
+    classLevels: [{ classSlug: 'jedi', level: 1 }],
     totalLevel: 1,
     heroicLevel: 1,
     prestigeLevel: 0,
@@ -540,7 +608,10 @@ function createSheet(): CharacterSheet {
     droidSystems: [],
     notes: '',
     progressionLog: '',
+    levelHistory: [],
+    sheetVersions: [],
     versionNote: 'Rascunho inicial',
+    isFinalized: false,
     updatedAt: new Date().toISOString(),
   };
 }
@@ -558,9 +629,24 @@ function loadSheets(): CharacterSheet[] {
 
 function normalizeSheet(sheet: CharacterSheet): CharacterSheet {
   const existingSkills = new Map(sheet.skills.map((skill) => [skill.skillSlug, skill]));
+  const classLevels = sheet.classLevels?.length
+    ? sheet.classLevels
+    : [{ classSlug: sheet.classSlug || 'jedi', level: Math.max(1, sheet.totalLevel || 1) }];
+  const totalLevel = classLevels.reduce((total, classLevel) => total + Math.max(0, classLevel.level), 0);
+
   return {
     ...sheet,
+    portraitUrl: sheet.portraitUrl ?? '',
+    portraitBlobPath: sheet.portraitBlobPath ?? '',
+    languages: sheet.languages ?? '',
+    classSlug: sheet.classSlug || classLevels[0]?.classSlug || 'jedi',
+    classLevels,
+    totalLevel: totalLevel || sheet.totalLevel || 1,
+    heroicLevel: totalLevel || sheet.heroicLevel || sheet.totalLevel || 1,
     skills: skillCatalog.map((skill) => existingSkills.get(skill.slug) ?? { skillSlug: skill.slug, trained: false, focused: false, misc: 0 }),
+    levelHistory: sheet.levelHistory ?? [],
+    sheetVersions: sheet.sheetVersions ?? [],
+    isFinalized: sheet.isFinalized ?? ((sheet.sheetVersions?.length ?? 0) > 0),
   };
 }
 
@@ -579,6 +665,17 @@ type SeoInput = {
 function absoluteUrl(pathOrUrl: string) {
   if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
   return new URL(pathOrUrl, window.location.origin).toString();
+}
+
+function shouldShowImageCredit(rule: Pick<WikiRule, 'imageUrl' | 'imageSourceUrl' | 'imageAttribution' | 'imageProvider'>) {
+  const provider = String(rule.imageProvider ?? '').toLowerCase();
+  const source = String(rule.imageSourceUrl ?? '').toLowerCase();
+  const imageUrl = String(rule.imageUrl ?? '').toLowerCase();
+
+  if (provider === 'vercel blob' || source.startsWith('local:')) return false;
+  if (imageUrl.includes('.blob.vercel-storage.com')) return false;
+
+  return Boolean(rule.imageSourceUrl || rule.imageAttribution || rule.imageProvider);
 }
 
 function setMetaAttribute(attribute: 'name' | 'property', key: string, content: string) {
@@ -661,6 +758,35 @@ async function archiveRemoteSheet(sheetId: string) {
   if (!response.ok) {
     throw new Error('Não foi possível arquivar ficha no Mongo.');
   }
+}
+
+async function uploadCharacterPortrait(input: { characterId: string; file: File }) {
+  const dataUrl = await new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => resolve(String(reader.result ?? '')));
+    reader.addEventListener('error', () => reject(reader.error ?? new Error('Não foi possível ler a imagem.')));
+    reader.readAsDataURL(input.file);
+  });
+  const response = await fetch(apiUrl('/api/character-portraits'), {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      characterId: input.characterId,
+      fileName: input.file.name,
+      contentType: input.file.type,
+      dataUrl,
+    }),
+  });
+
+  if (!response.ok) {
+    const payload = await response.json().catch(() => ({})) as { error?: string };
+    throw new Error(payload.error ?? 'Não foi possível enviar o retrato.');
+  }
+
+  return await response.json() as { url: string; pathname: string; contentType: string };
 }
 
 async function readAuthSession() {
@@ -779,28 +905,72 @@ function species(
   };
 }
 
-function heroicClass(
-  name: string,
-  startingHitPoints: number,
-  hitDie: string,
-  baseAttackProgression: ClassCatalogItem['baseAttackProgression'],
-  defenseBonuses: Record<DefenseKey, number>,
-  startingFeats: string[],
-  description: string,
-): ClassCatalogItem {
+function heroicClass(input: Omit<ClassCatalogItem, 'slug'>): ClassCatalogItem {
   return {
-    ...toCatalogItem(name),
-    startingHitPoints,
-    hitDie,
-    baseAttackProgression,
-    defenseBonuses,
-    startingFeats,
-    description,
+    ...toCatalogItem(input.name),
+    ...input,
   };
 }
 
 function signed(value: number) {
   return value >= 0 ? `+${value}` : String(value);
+}
+
+function getClassLevel(sheet: CharacterSheet, classSlug: string) {
+  return sheet.classLevels.find((classLevel) => classLevel.classSlug === classSlug)?.level ?? 0;
+}
+
+function calculateBaseAttackFromClassLevels(classLevels: ClassLevelEntry[]) {
+  return classLevels.reduce((total, classLevel) => {
+    const classData = heroicClassCatalog.find((item) => item.slug === classLevel.classSlug);
+    if (!classData) return total;
+    const progression = classData.baseAttackProgression === 'full' ? classLevel.level : Math.floor(classLevel.level * 0.75);
+    return total + progression;
+  }, 0);
+}
+
+function calculateClassDefenseBonuses(classLevels: ClassLevelEntry[]) {
+  return classLevels.reduce<Record<DefenseKey, number>>(
+    (bonuses, classLevel) => {
+      if (classLevel.level <= 0) return bonuses;
+      const classData = heroicClassCatalog.find((item) => item.slug === classLevel.classSlug);
+      if (!classData) return bonuses;
+
+      return {
+        reflex: Math.max(bonuses.reflex, classData.defenseBonuses.reflex),
+        fortitude: Math.max(bonuses.fortitude, classData.defenseBonuses.fortitude),
+        will: Math.max(bonuses.will, classData.defenseBonuses.will),
+      };
+    },
+    { reflex: 0, fortitude: 0, will: 0 },
+  );
+}
+
+function dieAverage(hitDie: string) {
+  const sides = Number(hitDie.replace(/\D/g, '')) || 6;
+  return Math.ceil((sides + 1) / 2);
+}
+
+function forcePointsForLevel(level: number) {
+  return 5 + Math.floor(level / 2);
+}
+
+function classProgressionGain(level: number) {
+  return level % 2 === 1 ? 'Talento de classe' : 'Aptidão bônus da classe';
+}
+
+function levelRequiresAbilityBoost(level: number) {
+  return level > 0 && level % 4 === 0;
+}
+
+function buildSheetSnapshot(sheet: CharacterSheet): Record<string, unknown> {
+  const {
+    sheetVersions: _sheetVersions,
+    portraitUrl: _portraitUrl,
+    portraitBlobPath: _portraitBlobPath,
+    ...snapshot
+  } = sheet;
+  return snapshot as unknown as Record<string, unknown>;
 }
 
 function SourceLegend() {
@@ -827,6 +997,19 @@ function labelFor(items: CatalogItem[], slug: string) {
   return items.find((item) => item.slug === slug)?.name ?? slug;
 }
 
+const featNameAliases: Record<string, string> = {
+  'sensitivo-a-forca': 'sensivel-a-forca',
+  'proficiencia-armadura-leve': 'proficiencia-em-armaduras-leves',
+  'proficiencia-armadura-media': 'proficiencia-em-armaduras-medias',
+  'proficiencia-armadura-pesada': 'proficiencia-em-armaduras-pesadas',
+  'proficiencia-armas-exoticas': 'proficiencia-em-armas-exoticas',
+};
+
+function matchesFeatName(item: FeatCatalogItem, name: string) {
+  const wantedSlug = slugify(name);
+  return item.slug === wantedSlug || item.slug === featNameAliases[wantedSlug];
+}
+
 function formatDate(value: string) {
   return new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }).format(
     new Date(value),
@@ -834,7 +1017,12 @@ function formatDate(value: string) {
 }
 
 function renderInlineMarkdown(text: string) {
-  return text.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+  return text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*)/g).map((part, index) => {
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      return <a key={`${part}-${index}`} href={link[2]}>{link[1]}</a>;
+    }
+
     if (part.startsWith('**') && part.endsWith('**')) {
       return <b key={`${part}-${index}`}>{part.slice(2, -2)}</b>;
     }
@@ -1023,13 +1211,23 @@ function RuleHighlights({ item, text, chips, compact = false }: { item?: Partial
 function UserBadge({ user }: { user: AuthUser }) {
   return (
     <div className="account-card compact">
-      {user.picture ? <img alt="" src={user.picture} /> : <UserRound aria-hidden="true" />}
+      <GoogleAccountAvatar user={user} />
       <div>
         <span>{user.name}</span>
         <small>{user.email}</small>
       </div>
     </div>
   );
+}
+
+function GoogleAccountAvatar({ user }: { user: AuthUser }) {
+  const [failed, setFailed] = useState(false);
+
+  if (!user.picture || failed) {
+    return <UserRound aria-hidden="true" />;
+  }
+
+  return <img alt="" className="google-account-avatar" referrerPolicy="no-referrer" src={user.picture} onError={() => setFailed(true)} />;
 }
 
 function WikiApp({
@@ -1054,6 +1252,8 @@ function WikiApp({
   const activeSystem = wikiSystems.find((system) => system.slug === routeSystemSlug) ?? wikiSystems[0];
   const ruleTypes = [
     ['', 'Tudo'],
+    ['class', 'Classes'],
+    ['feat', 'Aptidões'],
     ['equipment', 'Equipamentos'],
     ['talent', 'Talentos'],
     ['vehicle', 'Veículos'],
@@ -1187,10 +1387,12 @@ function WikiApp({
                 <strong>{rule.name}</strong>
                 <small>{rule.category || rule.type}</small>
               </div>
-              <RuleHighlights text={[rule.summary, rule.content, Object.values(rule.stats ?? {}).join(' ')].join(' ')} compact />
+              {rule.type !== 'class' && (
+                <RuleHighlights text={[rule.summary, rule.content, Object.values(rule.stats ?? {}).join(' ')].join(' ')} compact />
+              )}
               <p>{rule.summary || 'Sem resumo catalogado.'}</p>
               <button className="wiki-card-link" type="button" onClick={() => { window.location.href = `/wiki/${activeSystem.slug}/${rule.slug}`; }}>
-                Ver regra
+                Ver detalhes
               </button>
             </article>
           ))}
@@ -1306,7 +1508,7 @@ function WikiRuleDetail({
               {rule.imageUrl && (
                 <figure className="wiki-detail-image">
                   <img src={rule.imageUrl} alt="" loading="lazy" referrerPolicy="no-referrer" />
-                  {(rule.imageSourceUrl || rule.imageAttribution || rule.imageProvider) && (
+                  {shouldShowImageCredit(rule) && (
                     <figcaption>
                       Imagem:{' '}
                       {rule.imageSourceUrl ? (
@@ -1320,7 +1522,9 @@ function WikiRuleDetail({
                   )}
                 </figure>
               )}
-              <RuleHighlights text={[rule.summary, rule.content, Object.values(rule.stats ?? {}).join(' ')].join(' ')} />
+              {rule.type !== 'class' && (
+                <RuleHighlights text={[rule.summary, rule.content, Object.values(rule.stats ?? {}).join(' ')].join(' ')} />
+              )}
               {rule.summary && <p className="wiki-detail-summary">{rule.summary}</p>}
               {renderFormattedText(rule.content)}
               {Object.keys(rule.stats ?? {}).length > 0 && (
@@ -1358,7 +1562,8 @@ export function App() {
   const authError = new URLSearchParams(window.location.search).get('authError');
   const [sheets, setSheets] = useState<CharacterSheet[]>(loadSheets);
   const [activeId, setActiveId] = useState(() => sheets[0]?.id);
-  const [activeTab, setActiveTab] = useState<SheetTab>('identity');
+  const [activeTab, setActiveTab] = useState<SheetTab>(() => (sheets[0]?.isFinalized ? 'summary' : 'identity'));
+  const [levelUpOpen, setLevelUpOpen] = useState(false);
   const [remoteLoaded, setRemoteLoaded] = useState(false);
   const [authUser, setAuthUser] = useState<AuthUser | null>(null);
   const [authLoaded, setAuthLoaded] = useState(false);
@@ -1371,6 +1576,15 @@ export function App() {
   const isFirstStep = activeStepIndex === 0;
   const isLastStep = activeStepIndex === sheetTabs.length - 1;
   const progressPercent = ((activeStepIndex + 1) / sheetTabs.length) * 100;
+  const [levelUpClassSlug, setLevelUpClassSlug] = useState(activeSheet.classSlug);
+  const [levelUpHpGain, setLevelUpHpGain] = useState(0);
+  const [levelUpTalentSlug, setLevelUpTalentSlug] = useState('');
+  const [levelUpFeatSlug, setLevelUpFeatSlug] = useState('');
+  const [levelUpAbilityOne, setLevelUpAbilityOne] = useState<AbilityKey>('strength');
+  const [levelUpAbilityTwo, setLevelUpAbilityTwo] = useState<AbilityKey>('dexterity');
+  const [levelUpNotes, setLevelUpNotes] = useState('');
+  const [portraitUploadingId, setPortraitUploadingId] = useState('');
+  const [portraitError, setPortraitError] = useState('');
 
   useEffect(() => {
     if (isWikiRoute) return;
@@ -1381,6 +1595,11 @@ export function App() {
       path: window.location.pathname === '/' ? '/' : '/app',
     });
   }, [isWikiRoute]);
+
+  useEffect(() => {
+    setLevelUpClassSlug(activeSheet.classSlug);
+    setLevelUpOpen(false);
+  }, [activeSheet.id, activeSheet.classSlug]);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sheets));
@@ -1419,6 +1638,7 @@ export function App() {
         if (remoteSheets.length > 0) {
           setSheets(remoteSheets);
           setActiveId(remoteSheets[0].id);
+          setActiveTab(remoteSheets[0].isFinalized ? 'summary' : 'identity');
         }
       })
       .catch(() => {
@@ -1455,11 +1675,8 @@ export function App() {
     };
   }, [authUser, remoteLoaded, sheets]);
 
-  const baseAttackBonus = useMemo(() => {
-    return activeClass.baseAttackProgression === 'three-quarters'
-      ? Math.floor(activeSheet.totalLevel * 0.75)
-      : activeSheet.totalLevel;
-  }, [activeClass.baseAttackProgression, activeSheet.totalLevel]);
+  const baseAttackBonus = useMemo(() => calculateBaseAttackFromClassLevels(activeSheet.classLevels), [activeSheet.classLevels]);
+  const classDefenseBonuses = useMemo(() => calculateClassDefenseBonuses(activeSheet.classLevels), [activeSheet.classLevels]);
 
   const composedAbilities = Object.fromEntries(
     (Object.keys(activeSheet.abilities) as AbilityKey[]).map((key) => [
@@ -1478,21 +1695,21 @@ export function App() {
       heroic: activeSheet.totalLevel,
       ability: modifier(composedAbilities.dexterity.total),
       species: activeSpecies.defenseBonuses.reflex,
-      class: activeClass.defenseBonuses.reflex,
+      class: classDefenseBonuses.reflex,
     },
     fortitude: {
       base: 10,
       heroic: activeSheet.totalLevel,
       ability: modifier(composedAbilities.constitution.total),
       species: activeSpecies.defenseBonuses.fortitude,
-      class: activeClass.defenseBonuses.fortitude,
+      class: classDefenseBonuses.fortitude,
     },
     will: {
       base: 10,
       heroic: activeSheet.totalLevel,
       ability: modifier(composedAbilities.wisdom.total),
       species: activeSpecies.defenseBonuses.will,
-      class: activeClass.defenseBonuses.will,
+      class: classDefenseBonuses.will,
     },
   };
   const defenses = Object.fromEntries(
@@ -1513,6 +1730,38 @@ export function App() {
     updateActiveSheet((sheet) => ({ ...sheet, [key]: value }));
   }
 
+  function openSheet(sheet: CharacterSheet) {
+    setActiveId(sheet.id);
+    setLevelUpOpen(false);
+    setActiveTab(sheet.isFinalized ? 'summary' : 'identity');
+  }
+
+  function updateSheetById(sheetId: string, update: (sheet: CharacterSheet) => CharacterSheet) {
+    setSheets((current) =>
+      current.map((sheet) => (sheet.id === sheetId ? { ...update(sheet), updatedAt: new Date().toISOString() } : sheet)),
+    );
+  }
+
+  async function handlePortraitUpload(sheetId: string, file: File | null) {
+    if (!file) return;
+
+    setPortraitUploadingId(sheetId);
+    setPortraitError('');
+
+    try {
+      const portrait = await uploadCharacterPortrait({ characterId: sheetId, file });
+      updateSheetById(sheetId, (sheet) => ({
+        ...sheet,
+        portraitUrl: portrait.url,
+        portraitBlobPath: portrait.pathname,
+      }));
+    } catch (error) {
+      setPortraitError(error instanceof Error ? error.message : 'Não foi possível enviar o retrato.');
+    } finally {
+      setPortraitUploadingId('');
+    }
+  }
+
   function setSpeciesSlug(value: string) {
     const nextSpecies = speciesCatalog.find((item) => item.slug === value);
     updateActiveSheet((sheet) => ({
@@ -1530,6 +1779,7 @@ export function App() {
     updateActiveSheet((sheet) => ({
       ...sheet,
       classSlug: value,
+      classLevels: [{ classSlug: value, level: Math.max(1, sheet.totalLevel || 1) }],
       talents: sheet.talents.filter((slug) => talentDetailsCatalog.find((item) => item.slug === slug)?.classRestriction?.includes(value)),
       hitPointsMaximum: sheet.hitPointsMaximum === 0 ? suggestedHitPoints : sheet.hitPointsMaximum,
       hitPointsCurrent: sheet.hitPointsCurrent === 0 ? suggestedHitPoints : sheet.hitPointsCurrent,
@@ -1540,13 +1790,22 @@ export function App() {
     const sheet = createSheet();
     setSheets((current) => [sheet, ...current]);
     setActiveId(sheet.id);
+    setLevelUpOpen(false);
     setActiveTab('identity');
   }
 
   function duplicateSheet() {
-    const copy = { ...activeSheet, id: crypto.randomUUID(), characterName: `${activeSheet.characterName} copia` };
+    const copy = {
+      ...activeSheet,
+      id: crypto.randomUUID(),
+      characterName: `${activeSheet.characterName} copia`,
+      sheetVersions: activeSheet.sheetVersions ?? [],
+      isFinalized: false,
+    };
     setSheets((current) => [copy, ...current]);
     setActiveId(copy.id);
+    setLevelUpOpen(false);
+    setActiveTab('identity');
   }
 
   function deleteSheet() {
@@ -1563,7 +1822,7 @@ export function App() {
     }
     const remaining = sheets.filter((sheet) => sheet.id !== activeSheet.id);
     setSheets(remaining);
-    setActiveId(remaining[0].id);
+    openSheet(remaining[0]);
   }
 
   function exportSheet() {
@@ -1575,6 +1834,109 @@ export function App() {
     anchor.download = `${activeSheet.characterName.toLowerCase().replace(/\s+/g, '-')}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
+  }
+
+  function saveSheetVersion(summary: string, options: { finalized?: boolean } = {}) {
+    updateActiveSheet((sheet) => {
+      const version: SheetVersion = {
+        id: crypto.randomUUID(),
+        versionNumber: (sheet.sheetVersions?.length ?? 0) + 1,
+        level: sheet.totalLevel,
+        summary,
+        createdAt: new Date().toISOString(),
+        snapshot: buildSheetSnapshot(sheet),
+      };
+
+      return {
+        ...sheet,
+        sheetVersions: [version, ...(sheet.sheetVersions ?? [])],
+        versionNote: summary,
+        isFinalized: options.finalized ?? true,
+      };
+    });
+  }
+
+  function startSheetEdition() {
+    saveSheetVersion(activeSheet.versionNote || `Edição baseada no nível ${activeSheet.totalLevel}`, { finalized: false });
+    setLevelUpOpen(false);
+    setActiveTab('identity');
+  }
+
+  function applyLevelUp() {
+    const classData = heroicClassCatalog.find((item) => item.slug === levelUpClassSlug) ?? activeClass;
+    const nextLevel = activeSheet.totalLevel + 1;
+    const classCurrentLevel = getClassLevel(activeSheet, classData.slug);
+    const suggestedHp = dieAverage(classData.hitDie) + modifier(composedAbilities.constitution.total);
+    const hitPointGain = Math.max(1, levelUpHpGain || suggestedHp);
+    const abilityBoosts = levelRequiresAbilityBoost(nextLevel) && levelUpAbilityOne !== levelUpAbilityTwo
+      ? [levelUpAbilityOne, levelUpAbilityTwo]
+      : [];
+    const chosenTalent = levelUpTalentSlug ? talentDetailsCatalog.find((item) => item.slug === levelUpTalentSlug) : null;
+    const chosenFeat = levelUpFeatSlug
+      ? featCatalog.find((item) =>
+        item.slug === levelUpFeatSlug &&
+        !activeSheet.feats.includes(item.slug) &&
+        classData.bonusFeats.some((featName) => matchesFeatName(item, featName)))
+      : null;
+    const summary = `Nível ${nextLevel}: ${classData.name} ${classCurrentLevel + 1}; PV +${hitPointGain}${chosenTalent ? `; talento ${chosenTalent.name}` : ''}${chosenFeat ? `; aptidão ${chosenFeat.name}` : ''}.`;
+    const historyEntry: LevelHistoryEntry = {
+      id: crypto.randomUUID(),
+      level: nextLevel,
+      classSlug: classData.slug,
+      hitPointGain,
+      talentSlug: levelUpTalentSlug,
+      featSlug: chosenFeat?.slug ?? '',
+      abilityBoosts,
+      notes: levelUpNotes,
+      createdAt: new Date().toISOString(),
+    };
+
+    updateActiveSheet((sheet) => {
+      const nextClassLevels = sheet.classLevels.some((entry) => entry.classSlug === classData.slug)
+        ? sheet.classLevels.map((entry) => (entry.classSlug === classData.slug ? { ...entry, level: entry.level + 1 } : entry))
+        : [...sheet.classLevels, { classSlug: classData.slug, level: 1 }];
+      const nextAbilities = abilityBoosts.reduce(
+        (abilities, ability) => ({ ...abilities, [ability]: abilities[ability] + 1 }),
+        sheet.abilities,
+      );
+      const nextSheet: CharacterSheet = {
+        ...sheet,
+        classSlug: classData.slug,
+        classLevels: nextClassLevels,
+        totalLevel: nextLevel,
+        heroicLevel: nextLevel,
+        abilities: nextAbilities,
+        hitPointsMaximum: sheet.hitPointsMaximum + hitPointGain,
+        hitPointsCurrent: sheet.hitPointsCurrent + hitPointGain,
+        forcePoints: forcePointsForLevel(nextLevel),
+        feats: chosenFeat ? [...sheet.feats, chosenFeat.slug] : sheet.feats,
+        talents: levelUpTalentSlug && !sheet.talents.includes(levelUpTalentSlug) ? [...sheet.talents, levelUpTalentSlug] : sheet.talents,
+        progressionLog: [sheet.progressionLog, summary, levelUpNotes].filter(Boolean).join('\n'),
+        levelHistory: [historyEntry, ...(sheet.levelHistory ?? [])],
+        versionNote: summary,
+        isFinalized: true,
+      };
+      const version: SheetVersion = {
+        id: crypto.randomUUID(),
+        versionNumber: (sheet.sheetVersions?.length ?? 0) + 1,
+        level: nextLevel,
+        summary,
+        createdAt: new Date().toISOString(),
+        snapshot: buildSheetSnapshot(nextSheet),
+      };
+
+      return {
+        ...nextSheet,
+        sheetVersions: [version, ...(sheet.sheetVersions ?? [])],
+      };
+    });
+
+    setLevelUpHpGain(0);
+    setLevelUpTalentSlug('');
+    setLevelUpFeatSlug('');
+    setLevelUpNotes('');
+    setLevelUpOpen(false);
+    setActiveTab('summary');
   }
 
   function loginWithGoogle() {
@@ -1595,7 +1957,11 @@ export function App() {
 
   function goToNextStep() {
     if (!isLastStep) {
-      setActiveTab(sheetTabs[activeStepIndex + 1].id);
+      const nextTab = sheetTabs[activeStepIndex + 1].id;
+      if (nextTab === 'summary') {
+        updateActiveSheet((sheet) => ({ ...sheet, isFinalized: true }));
+      }
+      setActiveTab(nextTab);
     }
   }
 
@@ -1648,7 +2014,7 @@ export function App() {
         </div>
 
         <div className="account-card">
-          {authUser.picture ? <img alt="" src={authUser.picture} /> : <UserRound aria-hidden="true" />}
+          <GoogleAccountAvatar user={authUser} />
           <div>
             <span>{authUser.name}</span>
             <small>{authUser.email}</small>
@@ -1671,7 +2037,7 @@ export function App() {
 
         <div className="sheet-list" aria-label="Fichas salvas">
           {sheets.map((sheet) => (
-            <button className={sheet.id === activeSheet.id ? 'sheet-card active' : 'sheet-card'} key={sheet.id} type="button" onClick={() => setActiveId(sheet.id)}>
+            <button className={sheet.id === activeSheet.id ? 'sheet-card active' : 'sheet-card'} key={sheet.id} type="button" onClick={() => openSheet(sheet)}>
               <span>{sheet.characterName}</span>
               <small>
                 {labelFor(speciesCatalog, sheet.speciesSlug)} · {formatDate(sheet.updatedAt)}
@@ -1702,21 +2068,33 @@ export function App() {
           <div><CircleDot aria-hidden="true" /><span>BBA +{baseAttackBonus}</span></div>
         </section>
 
-        <section className="creation-flow" aria-label="Progresso da criação da ficha">
-          <div className="flow-heading">
-            <div>
-              <p>Passo {activeStepIndex + 1} de {sheetTabs.length}</p>
-              <h2>{activeStep.label}</h2>
-            </div>
-            <div className="flow-heading-actions">
-              <span>{Math.round(progressPercent)}%</span>
-              <StepControls compact />
-            </div>
+        <CharacterPortraitShowcase sheet={activeSheet} />
+
+        <CharacterDashboard />
+
+        {levelUpOpen && (
+          <div className="level-up-panel-wrap">
+            <LevelUpPanel />
           </div>
-          <div className="progress-track" aria-hidden="true">
-            <span style={{ width: `${progressPercent}%` }} />
-          </div>
-        </section>
+        )}
+
+        {activeTab !== 'summary' && (
+          <section className="creation-flow" aria-label="Progresso da criação da ficha">
+            <div className="flow-heading">
+              <div>
+                <p>Passo {activeStepIndex + 1} de {sheetTabs.length}</p>
+                <h2>{activeStep.label}</h2>
+              </div>
+              <div className="flow-heading-actions">
+                <span>{Math.round(progressPercent)}%</span>
+                <StepControls compact />
+              </div>
+            </div>
+            <div className="progress-track" aria-hidden="true">
+              <span style={{ width: `${progressPercent}%` }} />
+            </div>
+          </section>
+        )}
 
         <div className="grid">
           {activeTab === 'identity' && (
@@ -1735,6 +2113,7 @@ export function App() {
                 <TextInput label="Cabelo" value={activeSheet.hair} onChange={(value) => setField('hair', value)} />
                 <TextInput label="Pele" value={activeSheet.skin} onChange={(value) => setField('skin', value)} />
                 <TextInput label="Mundo natal" value={activeSheet.homeworld} onChange={(value) => setField('homeworld', value)} />
+                <TextInput label="Idiomas" value={activeSheet.languages} onChange={(value) => setField('languages', value)} />
                 <TextInput label="URL do retrato" value={activeSheet.portraitUrl} onChange={(value) => setField('portraitUrl', value)} />
               </div>
             </Panel>
@@ -1760,8 +2139,16 @@ export function App() {
                 <div className="detail-box class-source">
                   <strong>{activeClass.name}</strong>
                   <p>{activeClass.description}</p>
+                  <small>Papel: {activeClass.role}</small>
+                  <small>Perícias treinadas: {activeClass.trainedSkillBase} + Int</small>
+                  <small>Árvores: {activeClass.talentTrees.join(', ')}</small>
                   <small>Aptidões iniciais: {activeClass.startingFeats.join(', ')}</small>
                 </div>
+              </div>
+              <div className="level-track">
+                {activeSheet.classLevels.map((entry) => (
+                  <span key={entry.classSlug}>{labelFor(heroicClassCatalog, entry.classSlug)} {entry.level}</span>
+                ))}
               </div>
             </Panel>
           )}
@@ -1821,6 +2208,10 @@ export function App() {
 
           {activeTab === 'skills' && (
             <Panel className="skills-panel-full" icon={<Dice5 aria-hidden="true" />} title="Perícias">
+              <div className="skill-rule-note">
+                <strong>Conhecimento Comum</strong>
+                <p>Você pode responder uma pergunta simples sobre um tema relacionado à sua área de estudo com um teste CD 10.</p>
+              </div>
               <div className="skills-table skill-grid-table">
                 <div className="skill-header">
                   <span>Nome da perícia</span>
@@ -1844,7 +2235,11 @@ export function App() {
                   return (
                     <div className="skill-row" key={skill.skillSlug}>
                       <label className="career-toggle skill-check skill-training" title="Treinada"><input checked={skill.trained} type="checkbox" onChange={(event) => updateSkill(skill.skillSlug, { trained: event.target.checked })} /><span>{signed(trainingBonus)}</span></label>
-                      <div><strong>{catalog?.name}</strong><small>{abilityLabels[ability]}{catalog?.armor ? ' · penalidade de armadura' : ''}</small></div>
+                      <div>
+                        <strong>{catalog?.name}</strong>
+                        <small>{abilityLabels[ability]}{catalog?.armor ? ' - penalidade de armadura' : ''}</small>
+                        {catalog?.description && <small className="skill-description">{catalog.description}</small>}
+                      </div>
                       <label className="career-toggle skill-check skill-focus" title="Foco"><input checked={skill.focused} type="checkbox" onChange={(event) => updateSkill(skill.skillSlug, { focused: event.target.checked })} /><span>{signed(focusBonus)}</span></label>
                       <span className="dice-pool skill-total-cell">{signed(total)}</span>
                       <div className="formula-strip skill-formula">
@@ -1870,20 +2265,176 @@ export function App() {
           {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisão" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
           {activeTab === 'vehicles' && <GroupedRichSelectionPanel icon={<Car aria-hidden="true" />} title="Veículos" groupLabel="Subdivisão" itemLabel="Veículo" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
           {activeTab === 'droids' && <DroidsPanel />}
-          {(activeTab === 'notes' || activeTab === 'history' || activeTab === 'versions') && (
-            <Panel icon={<Save aria-hidden="true" />} title={activeTab === 'versions' ? 'Versões' : activeTab === 'history' ? 'Histórico' : 'Anotações'}>
-              <textarea value={activeTab === 'history' ? activeSheet.progressionLog : activeTab === 'versions' ? activeSheet.versionNote : activeSheet.notes} onChange={(event) => setField(activeTab === 'history' ? 'progressionLog' : activeTab === 'versions' ? 'versionNote' : 'notes', event.target.value)} />
+          {activeTab === 'notes' && (
+            <Panel icon={<Save aria-hidden="true" />} title="Anotações">
+              <textarea value={activeSheet.notes} onChange={(event) => setField('notes', event.target.value)} />
             </Panel>
           )}
+          {activeTab === 'history' && <HistoryPanel />}
+          {activeTab === 'versions' && <VersionsPanel />}
           {activeTab === 'summary' && <SummaryPanel />}
         </div>
 
-        <footer className="flow-controls">
-          <StepControls />
-        </footer>
+        {activeTab !== 'summary' && (
+          <footer className="flow-controls">
+            <StepControls />
+          </footer>
+        )}
       </section>
     </main>
   );
+
+  function CharacterPortraitShowcase({ sheet }: { sheet: CharacterSheet }) {
+    const isUploading = portraitUploadingId === sheet.id;
+
+    return (
+      <section className="character-portrait-showcase">
+        <div className="character-portrait-art">
+          {sheet.portraitUrl ? <img alt="" src={sheet.portraitUrl} /> : <UserRound aria-hidden="true" />}
+        </div>
+        <div className="character-portrait-copy">
+          <p>Retrato do personagem</p>
+          <h2>{sheet.characterName}</h2>
+          <div className="character-portrait-facts">
+            <span>{labelFor(speciesCatalog, sheet.speciesSlug)}</span>
+            <span>{labelFor(heroicClassCatalog, sheet.classSlug)} nível {sheet.totalLevel}</span>
+            <span>BBA +{baseAttackBonus}</span>
+          </div>
+          <label className="portrait-file">
+            {isUploading ? 'Enviando...' : sheet.portraitUrl ? 'Trocar imagem' : 'Enviar retrato'}
+            <input
+              accept="image/png,image/jpeg,image/webp,image/gif"
+              disabled={isUploading}
+              type="file"
+              onChange={(event) => {
+                void handlePortraitUpload(sheet.id, event.target.files?.[0] ?? null);
+                event.currentTarget.value = '';
+              }}
+            />
+          </label>
+          <button className="level-up-entry-button" type="button" onClick={() => setLevelUpOpen((open) => !open)}>
+            {levelUpOpen ? 'Fechar level up' : 'Subir nível'}
+          </button>
+          {portraitError && <small className="portrait-error">{portraitError}</small>}
+        </div>
+      </section>
+    );
+  }
+
+  function PortraitUploader({ sheet }: { sheet: CharacterSheet }) {
+    const isUploading = portraitUploadingId === sheet.id;
+
+    return (
+      <section className="portrait-uploader">
+        <div className="portrait-frame">
+          {sheet.portraitUrl ? <img alt="" src={sheet.portraitUrl} /> : <UserRound aria-hidden="true" />}
+        </div>
+        <div>
+          <strong>Retrato do personagem</strong>
+          <p>A imagem fica salva no Blob e vinculada ao personagem, não a uma versão específica da ficha.</p>
+          <label className="portrait-file">
+            {isUploading ? 'Enviando...' : 'Enviar imagem'}
+            <input
+              accept="image/png,image/jpeg,image/webp,image/gif"
+              disabled={isUploading}
+              type="file"
+              onChange={(event) => {
+                void handlePortraitUpload(sheet.id, event.target.files?.[0] ?? null);
+                event.currentTarget.value = '';
+              }}
+            />
+          </label>
+          {sheet.portraitBlobPath && <small>Blob: {sheet.portraitBlobPath}</small>}
+          {portraitError && <small className="portrait-error">{portraitError}</small>}
+        </div>
+      </section>
+    );
+  }
+
+  function CharacterDashboard() {
+    const sortedSheets = [...sheets].sort((left, right) => left.characterName.localeCompare(right.characterName, 'pt-BR'));
+
+    return (
+      <section className="character-dashboard" aria-label="Personagens">
+        <div className="dashboard-heading">
+          <div>
+            <p>Área logada</p>
+            <h2>Personagens</h2>
+          </div>
+          <button type="button" onClick={addSheet}>Novo personagem</button>
+        </div>
+        <div className="character-card-grid">
+          {sortedSheets.map((sheet) => {
+            const sheetSpecies = labelFor(speciesCatalog, sheet.speciesSlug);
+            const classSummary = sheet.classLevels.map((entry) => `${labelFor(heroicClassCatalog, entry.classSlug)} ${entry.level}`).join(' / ');
+            const versions = sheet.sheetVersions.length > 0
+              ? sheet.sheetVersions
+              : [{
+                id: `${sheet.id}-current`,
+                versionNumber: 0,
+                level: sheet.totalLevel,
+                summary: 'Ficha atual ainda sem versão publicada.',
+                createdAt: sheet.updatedAt,
+                snapshot: buildSheetSnapshot(sheet),
+              } satisfies SheetVersion];
+
+            return (
+              <article className={sheet.id === activeSheet.id ? 'character-card active' : 'character-card'} key={sheet.id}>
+                <div className="character-card-top">
+                  <button className="character-portrait-button" type="button" onClick={() => openSheet(sheet)}>
+                    {sheet.portraitUrl ? <img alt="" src={sheet.portraitUrl} /> : <UserRound aria-hidden="true" />}
+                  </button>
+                  <div>
+                    <strong>{sheet.characterName}</strong>
+                    <span>{sheetSpecies} · nível {sheet.totalLevel}</span>
+                    <small>{classSummary}</small>
+                  </div>
+                </div>
+                <div className="character-actions">
+                  <button type="button" onClick={() => openSheet(sheet)}>{sheet.isFinalized ? 'Ver resumo' : 'Editar personagem'}</button>
+                  <label>
+                    {portraitUploadingId === sheet.id ? 'Enviando...' : 'Retrato'}
+                    <input
+                      accept="image/png,image/jpeg,image/webp,image/gif"
+                      disabled={portraitUploadingId === sheet.id}
+                      type="file"
+                      onChange={(event) => {
+                        void handlePortraitUpload(sheet.id, event.target.files?.[0] ?? null);
+                        event.currentTarget.value = '';
+                      }}
+                    />
+                  </label>
+                </div>
+                <div className="character-version-accordion">
+                  {versions.map((version) => {
+                    const snapshot = version.snapshot as Partial<CharacterSheet>;
+                    const versionClasses = snapshot.classLevels?.map((entry) => `${labelFor(heroicClassCatalog, entry.classSlug)} ${entry.level}`).join(' / ') || classSummary;
+
+                    return (
+                      <details key={version.id}>
+                        <summary>
+                          <span>{version.versionNumber > 0 ? `Versão ${version.versionNumber}` : 'Ficha atual'}</span>
+                          <b>Nível {version.level}</b>
+                        </summary>
+                        <div className="character-version-details">
+                          <p>{version.summary}</p>
+                          <span>Classes: {versionClasses}</span>
+                          <span>Espécie: {labelFor(speciesCatalog, snapshot.speciesSlug ?? sheet.speciesSlug)}</span>
+                          <span>PV: {snapshot.hitPointsCurrent ?? sheet.hitPointsCurrent}/{snapshot.hitPointsMaximum ?? sheet.hitPointsMaximum}</span>
+                          <span>Salva em {formatDate(version.createdAt)}</span>
+                        </div>
+                      </details>
+                    );
+                  })}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        {portraitError && <p className="portrait-error dashboard-error">{portraitError}</p>}
+      </section>
+    );
+  }
 
   function StepControls({ compact = false }: { compact?: boolean }) {
     return (
@@ -1897,6 +2448,230 @@ export function App() {
           {isLastStep ? 'Resumo aberto' : 'Próximo'}
         </button>
       </div>
+    );
+  }
+
+  function LevelUpPanel() {
+    const nextLevel = activeSheet.totalLevel + 1;
+    const selectedClass = heroicClassCatalog.find((item) => item.slug === levelUpClassSlug) ?? activeClass;
+    const nextClassLevel = getClassLevel(activeSheet, selectedClass.slug) + 1;
+    const suggestedHp = Math.max(1, dieAverage(selectedClass.hitDie) + modifier(composedAbilities.constitution.total));
+    const classTalents = talentDetailsCatalog.filter((item) => item.classRestriction?.includes(selectedClass.slug));
+    const selectedClassBonusFeats = featCatalog.filter((item) =>
+      !activeSheet.feats.includes(item.slug) &&
+      selectedClass.bonusFeats.some((featName) => matchesFeatName(item, featName)));
+    const levelUpFeatValue = selectedClassBonusFeats.some((item) => item.slug === levelUpFeatSlug) ? levelUpFeatSlug : '';
+    const gains = [
+      `PV: ${selectedClass.hitDie} + Con. Sugestão média: +${suggestedHp}`,
+      `BBA após salvar: +${calculateBaseAttackFromClassLevels(
+        activeSheet.classLevels.some((entry) => entry.classSlug === selectedClass.slug)
+          ? activeSheet.classLevels.map((entry) => (entry.classSlug === selectedClass.slug ? { ...entry, level: entry.level + 1 } : entry))
+          : [...activeSheet.classLevels, { classSlug: selectedClass.slug, level: 1 }],
+      )}`,
+      `Pontos da Força serão recalculados para ${forcePointsForLevel(nextLevel)}`,
+      `${classProgressionGain(nextClassLevel)} em ${selectedClass.name}`,
+      levelRequiresAbilityBoost(nextLevel) ? '+1 em dois atributos diferentes' : 'Sem aumento de atributo neste nível',
+    ];
+
+    return (
+      <Panel className="wide-panel" icon={<ChevronRight aria-hidden="true" />} title={`Level up para o nível ${nextLevel}`}>
+        <div className="level-up-layout">
+          <section className="level-up-column">
+            <h3>1. Classe que subiu</h3>
+            <CatalogSelect label="Classe do novo nível" value={levelUpClassSlug} items={heroicClassCatalog} onChange={setLevelUpClassSlug} />
+            <div className="detail-box class-source">
+              <strong>{selectedClass.name} {nextClassLevel}</strong>
+              <p>{selectedClass.description}</p>
+              <small>Árvores: {selectedClass.talentTrees.join(', ')}</small>
+              <small>{selectedClassBonusFeats.length} aptidões bônus disponíveis para esta classe.</small>
+            </div>
+          </section>
+
+          <section className="level-up-column">
+            <h3>2. Ganhos automáticos</h3>
+            <div className="level-gain-list">
+              {gains.map((gain) => <span key={gain}>{gain}</span>)}
+            </div>
+            <NumberInput label={`PV ganho (${selectedClass.hitDie} + Con)`} value={levelUpHpGain || suggestedHp} min={1} onChange={setLevelUpHpGain} />
+            {levelRequiresAbilityBoost(nextLevel) && (
+              <div className="form-grid">
+                <AbilitySelect label="Atributo +1" value={levelUpAbilityOne} onChange={setLevelUpAbilityOne} />
+                <AbilitySelect label="Outro atributo +1" value={levelUpAbilityTwo} onChange={setLevelUpAbilityTwo} />
+              </div>
+            )}
+          </section>
+
+          <section className="level-up-column">
+            <h3>3. Escolhas</h3>
+            {nextClassLevel % 2 === 1 ? (
+              <LevelUpChoiceCards label="Escolha seu talento" type="talent" items={classTalents} value={levelUpTalentSlug} onChange={setLevelUpTalentSlug} />
+            ) : (
+              <LevelUpChoiceCards label="Escolha sua aptidão" type="feat" items={selectedClassBonusFeats} value={levelUpFeatValue} onChange={setLevelUpFeatSlug} />
+            )}
+            <textarea placeholder="Notas da progressão, rolagem de PV, justificativa narrativa..." value={levelUpNotes} onChange={(event) => setLevelUpNotes(event.target.value)} />
+            <button className="commit-level-button" type="button" onClick={applyLevelUp}>
+              Salvar level up e criar versão
+            </button>
+          </section>
+        </div>
+      </Panel>
+    );
+  }
+
+  function shortRuleText(text = '', maxLength = 260) {
+    return text
+      .replace(/[#*_`|>-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, maxLength);
+  }
+
+  function renderChoiceHighlight(text = '') {
+    const pattern = /([+-]\d+(?:d\d+)?(?:\s*(?:de\s*)?(?:dano|bônus|penalidade))?|\b\d+d\d+(?:[+-]\d+)?\b|\b(?:dano|bônus|penalidade|ação rápida|ação livre|ação padrão|reação|Defesa de Reflexos|Defesa de Fortitude|Defesa de Vontade|ataque|acerto|sucesso decisivo|Ponto da Força|Pontos da Força)\b)/gi;
+
+    return text.split(pattern).map((part, index) => {
+      if (!part) return null;
+      if (part.match(pattern)) {
+        return <b className="level-choice-highlight" key={`${part}-${index}`}>{part}</b>;
+      }
+      return part;
+    });
+  }
+
+  function LevelUpChoiceCards({
+    label,
+    type,
+    items,
+    value,
+    onChange,
+  }: {
+    label: string;
+    type: 'talent' | 'feat';
+    items: Array<DetailCatalogItem | FeatCatalogItem>;
+    value: string;
+    onChange: (value: string) => void;
+  }) {
+    if (items.length === 0) {
+      return <p className="summary-empty">Nenhuma opção disponível para esta escolha.</p>;
+    }
+
+    const selectedItem = items.find((item) => item.slug === value);
+    const changeLabel = type === 'feat' ? 'Alterar aptidão' : 'Alterar talento';
+
+    function renderChoiceCard(item: DetailCatalogItem | FeatCatalogItem, locked = false) {
+      const selected = value === item.slug;
+      const feat = item as FeatCatalogItem;
+      const detail = item as DetailCatalogItem;
+      const description = type === 'feat'
+        ? feat.benefit
+        : detail.summary || shortRuleText(detail.details, 220);
+      const meta = type === 'feat'
+        ? `Pré-requisito: ${feat.prerequisites || 'Nenhum'}`
+        : [detail.category, detail.classRestriction?.map((slug) => labelFor(heroicClassCatalog, slug)).join(', ')].filter(Boolean).join(' · ');
+      const normal = type === 'feat' ? feat.normal : '';
+      const special = type === 'feat' ? feat.special : '';
+
+      return (
+        <button
+          className={[selected ? 'level-choice-card selected' : 'level-choice-card', locked ? 'locked' : ''].filter(Boolean).join(' ')}
+          key={item.slug}
+          type="button"
+          onClick={() => {
+            if (!locked) onChange(selected ? '' : item.slug);
+          }}
+        >
+          <span className="level-choice-check" aria-hidden="true">
+            <input checked={selected} readOnly type="checkbox" />
+          </span>
+          <span className="level-choice-content">
+            <strong>{item.name}</strong>
+            {meta && <small className="level-choice-meta">{meta}</small>}
+            <p className={type === 'feat' ? 'level-choice-description full-text' : 'level-choice-description'}>{renderChoiceHighlight(description || 'Detalhes pendentes de catalogação.')}</p>
+            {normal && <small className="level-choice-extra full-text"><b>Normal:</b> {renderChoiceHighlight(normal)}</small>}
+            {special && <small className="level-choice-extra full-text"><b>Especial:</b> {renderChoiceHighlight(special)}</small>}
+            {type === 'feat' && item.slug === 'treinamento-em-pericia' && (
+              <small className="level-choice-action-note">
+                Depois de salvar ou antes de finalizar, abra a etapa de Perícias e marque uma nova perícia de classe como treinada.
+              </small>
+            )}
+            {type === 'talent' && detail.details && <small className="level-choice-extra">{renderChoiceHighlight(shortRuleText(detail.details, 160))}</small>}
+          </span>
+        </button>
+      );
+    }
+
+    return (
+      <div className="level-choice-field">
+        <strong>{label}</strong>
+        {selectedItem ? (
+          <div className="level-choice-selected">
+            {renderChoiceCard(selectedItem, true)}
+            <button className="level-choice-change" type="button" onClick={() => onChange('')}>
+              {changeLabel}
+            </button>
+          </div>
+        ) : (
+          <div className="level-choice-card-list">
+            {items.map((item) => renderChoiceCard(item))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  function AbilitySelect({ label, value, onChange }: { label: string; value: AbilityKey; onChange: (value: AbilityKey) => void }) {
+    return (
+      <label>
+        {label}
+        <select value={value} onChange={(event) => onChange(event.target.value as AbilityKey)}>
+          {(Object.keys(abilityLabels) as AbilityKey[]).map((key) => <option key={key} value={key}>{abilityLabels[key]}</option>)}
+        </select>
+      </label>
+    );
+  }
+
+  function HistoryPanel() {
+    return (
+      <Panel className="wide-panel" icon={<Save aria-hidden="true" />} title="Histórico de progressão">
+        <textarea value={activeSheet.progressionLog} onChange={(event) => setField('progressionLog', event.target.value)} />
+        <div className="version-list">
+          {activeSheet.levelHistory.length === 0 && <p className="summary-empty">Nenhum level up salvo ainda.</p>}
+          {activeSheet.levelHistory.map((entry) => (
+            <article className="version-card" key={entry.id}>
+              <strong>Nível {entry.level}: {labelFor(heroicClassCatalog, entry.classSlug)}</strong>
+              <span>PV +{entry.hitPointGain} · {formatDate(entry.createdAt)}</span>
+              {entry.talentSlug && <a href={`/wiki/star-wars-saga/${entry.talentSlug}`}>Talento: {labelFor(talentDetailsCatalog, entry.talentSlug)}</a>}
+              {entry.featSlug && <a href={`/wiki/star-wars-saga/${entry.featSlug}`}>Aptidão: {labelFor(featCatalog, entry.featSlug)}</a>}
+              {entry.abilityBoosts.length > 0 && <span>Atributos: {entry.abilityBoosts.map((key) => abilityLabels[key]).join(', ')}</span>}
+              {entry.notes && <p>{entry.notes}</p>}
+            </article>
+          ))}
+        </div>
+      </Panel>
+    );
+  }
+
+  function VersionsPanel() {
+    return (
+      <Panel className="wide-panel" icon={<Save aria-hidden="true" />} title="Versões da ficha">
+        <div className="feat-picker">
+          <label>
+            Resumo da versão manual
+            <input value={activeSheet.versionNote} onChange={(event) => setField('versionNote', event.target.value)} />
+          </label>
+          <button type="button" onClick={() => saveSheetVersion(activeSheet.versionNote || `Versão nível ${activeSheet.totalLevel}`)}>Criar versão</button>
+        </div>
+        <div className="version-list">
+          {activeSheet.sheetVersions.length === 0 && <p className="summary-empty">Nenhuma versão salva ainda. Use o level up ou crie uma versão manual.</p>}
+          {activeSheet.sheetVersions.map((version) => (
+            <article className="version-card" key={version.id}>
+              <strong>v{version.versionNumber} · nível {version.level}</strong>
+              <span>{formatDate(version.createdAt)}</span>
+              <p>{version.summary}</p>
+            </article>
+          ))}
+        </div>
+      </Panel>
     );
   }
 
@@ -1925,6 +2700,16 @@ export function App() {
 
     return (
       <Panel className="wide-panel summary-review" icon={<CheckCircle2 aria-hidden="true" />} title="Resumo da ficha">
+        <div className="summary-readonly-actions">
+          <div>
+            <strong>Ficha criada</strong>
+            <p>Este resumo é uma visualização fechada da ficha. Para alterar algo, crie uma nova edição ou use o level up.</p>
+          </div>
+          <div>
+            <button type="button" onClick={startSheetEdition}>Criar nova edição</button>
+            <button type="button" onClick={() => setLevelUpOpen(true)}>Fazer level up</button>
+          </div>
+        </div>
         <div className="summary-grid">
           <SummarySection title="Identidade" items={[
             ['Nome', activeSheet.characterName],
@@ -1940,16 +2725,18 @@ export function App() {
             ['Cabelo', activeSheet.hair],
             ['Pele', activeSheet.skin],
             ['Mundo natal', activeSheet.homeworld],
+            ['Idiomas', activeSheet.languages],
             ['Retrato', activeSheet.portraitUrl],
           ]} />
 
           <SummarySection title="Espécie e classe" items={[
             ['Espécie', activeSpecies.name],
-            ['Classe', activeClass.name],
+            ['Classes', activeSheet.classLevels.map((entry) => `${labelFor(heroicClassCatalog, entry.classSlug)} ${entry.level}`).join(' / ')],
             ['Nível total', activeSheet.totalLevel],
             ['Nível heroico', activeSheet.heroicLevel],
             ['Nível prestígio', activeSheet.prestigeLevel],
             ['Deslocamento', activeSheet.speed],
+            ['Versões salvas', activeSheet.sheetVersions.length],
           ]} />
 
           <SummarySection title="Atributos" items={(Object.keys(activeSheet.abilities) as AbilityKey[]).map((key) => [

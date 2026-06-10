@@ -1,0 +1,136 @@
+# STAR WARS RPG — APTIDÕES
+## PARTE 6 — OCR CORRIGIDO
+
+## Proficiência em Armaduras (Pesadas)
+
+Você é proficiente com armaduras médias (veja Tabela 8-7: Armaduras) e pode usá-las sem impedimento.
+
+Pré-requisitos:
+Proficiência em Armaduras (Leves), Proficiência em Armaduras (Médias).
+
+Benefício:
+Quando você usar armaduras pesadas, não receberá penalidade de armadura nas jogadas de ataque ou testes de perícia.
+
+Além disso, recebe todos os benefícios dos bônus especiais de equipamento especial da armadura (se houver).
+
+Normal:
+Um personagem que usar uma armadura pesada sem ter proficiência recebe -2 de penalidade de armadura nas jogadas de ataque, assim como nos testes das seguintes perícias:
+
+- Acrobacia
+- Escalar
+- Furtividade
+- Iniciativa
+- Natação
+- Saltar
+- Tolerância
+
+Além disto, o personagem não ganha nenhum dos bônus especiais de equipamento especiais da armadura.
+
+Página: 96
+
+---
+
+## Rajada de Tiros
+
+Quando usando uma arma à distância em modo de disparo automático você pode atirar uma pequena rajada em um único alvo.
+
+Pré-requisitos:
+Força 13, Proficiência em Armas (armas pesadas), proficiente na arma.
+
+Benefícios:
+Quando estiver usando uma arma à distância com capacidade de disparo automático e em modo de disparo automático, você pode atirar uma pequena rajada como um único ataque contra um alvo.
+
+Você recebe uma penalidade de -5 na jogada de ataque, mas causa +2 dados de dano.
+
+Por exemplo, uma arma que causa 3d10 pontos de dano, ao invés irá causar 5d10 de dano.
+
+Os efeitos desta aptidão não se acumulam com o dano extra provido pelas aptidões Certeiro e Tiro Rápido.
+
+Especial:
+Disparar uma rajada gasta 5 tiros e só pode ser feita se a arma tiver ao menos 5 disparos restantes.
+
+Normal:
+O modo de disparo automático usa 10 tiros, tem como alvo uma área de 2x2 quadrados, e não pode ser mirado em um único alvo.
+
+Sem esta aptidão, se você tentar um ataque em modo disparo automático contra um alvo específico, irá simplesmente contar como um ataque normal e todos os tiros extras serão desperdiçados.
+
+Página: 96
+
+---
+
+## Recuperação Rápida
+
+Você aprendeu a se recuperar de condições debilitantes.
+
+Pré-requisitos:
+Constituição 13, treinado na perícia Tolerância.
+
+Benefício:
+Você pode gastar duas ações rápidas, ao invés de três, para mover +1 passo em seu marcador de condição (veja Condições, página 148).
+
+Normal:
+Requer três ações rápidas para mover +1 passo em seu marcador de condição.
+
+Página: 96
+
+---
+
+## Reflexos em Combate
+
+Você é capaz de reagir rápida e repetidamente contra os oponentes que deixam a guarda baixa.
+
+Benefício:
+Quando os oponentes deixam a guarda aberta, você pode fazer um número de ataques de oportunidade adicionais igual ao seu modificador de Destreza.
+
+Por exemplo, um personagem com uma Destreza 15 pode fazer um total de três ataques de oportunidade em uma rodada: o ataque de oportunidade que todo personagem é capaz de fazer, mais dois ataques a mais pelo seu bônus de Destreza de +2.
+
+Se quatro stormtroopers se moverem pela área de ameaça do personagem, ele poderá fazer ataques de oportunidade em três dos quatro stormtroopers.
+
+Você ainda só é capaz de fazer apenas um ataque de oportunidade contra o mesmo alvo.
+
+Com esta aptidão, você pode fazer ataques de oportunidade mesmo quando estiver surpreendido.
+
+Normal:
+Um personagem sem a aptidão Reflexos em Combate pode fazer apenas um ataque de oportunidade por rodada e não poderá fazê-lo quando estiver surpreendido.
+
+(Veja Ataques de Oportunidade, página 155, para mais informação).
+
+Página: 96
+
+---
+
+## Saque Rápido
+
+Você pode sacar e por no coldre armas com uma velocidade impressionante.
+
+Pré-requisitos:
+Bônus de base de ataque +1.
+
+Benefício:
+Você pode sacar ou colocar no coldre uma arma utilizando uma ação rápida ao invés de uma ação de movimento.
+
+Página: 96
+
+---
+
+## Segundo Fôlego Extra
+
+Você tende a extrapolar os seus limites mais vezes que o normal.
+
+Pré-requisitos:
+Treinado na perícia Tolerância.
+
+Benefício:
+Você pode adquirir seu segundo fôlego uma vez a mais por dia, mas você ainda só poderá adquirir um segundo fôlego apenas uma vez por encontro (veja Segundo Fôlego, página 146).
+
+Normal:
+Um herói pode adquirir seu segundo fôlego uma vez por dia.
+
+Especial:
+Um personagem não-heróico que escolher esta aptidão pela primeira vez poderá adquirir um segundo fôlego uma vez a mais por dia.
+
+Você pode escolher esta aptidão várias vezes.
+
+Cada vez que o fizer, você poderá adquirir um segundo fôlego uma vez a mais por dia.
+
+Página: 96–97

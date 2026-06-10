@@ -1,0 +1,707 @@
+# STAR WARS SAGA EDITION — CLASSE: SOLDADO — ÁRVORES DE TALENTOS (PARTE 5)
+
+## Objetivo
+
+Os talentos do Soldado representam especializações de combate.
+
+Diferente do Batedor, o Soldado cresce principalmente através de:
+
+```text
+equipamentos
+combinações de talentos
+controle de campo
+especialização em armas
+```
+
+Talentos são recebidos em:
+
+```text
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+```
+
+---
+
+# ÁRVORE — ESPECIALISTA EM ARMADURAS
+
+## Tema
+
+Especialização em:
+
+```text
+armaduras
+absorção
+sobrevivência
+tanque
+```
+
+Ideal para:
+
+```text
+soldado pesado
+tanque
+guardião
+frontliner
+```
+
+---
+
+## DEFESA BLINDADA
+
+### Descrição
+
+Permite que armaduras escalem melhor no jogo.
+
+### Mecânica
+
+Ao calcular Defesa Reflexos:
+
+Escolher o maior entre:
+
+```text
+Nível Heroico
+OU
+Bônus da Armadura
+```
+
+Requisito:
+
+```text
+ser proficiente
+```
+
+---
+
+## DEFESA BLINDADA APRIMORADA
+
+### Descrição
+
+Melhora ainda mais o valor defensivo.
+
+### Mecânica
+
+Escolher o maior entre:
+
+```text
+Nível Heroico
+OU
+Nível Heroico
++
+metade armadura
+```
+
+### Pré-requisitos
+
+```text
+Defesa Blindada
+```
+
+---
+
+## JUGGERNAUT
+
+### Descrição
+
+Remove penalidades de movimentação.
+
+### Mecânica
+
+Ignora:
+
+```text
+redução de deslocamento
+
+penalidade ao correr
+```
+
+### Pré-requisitos
+
+```text
+Defesa Blindada
+```
+
+---
+
+## MAESTRIA COM ARMADURA
+
+### Descrição
+
+Aumenta mobilidade defensiva.
+
+### Mecânica
+
+```text
++1 Destreza máxima
+```
+
+### Pré-requisitos
+
+```text
+Defesa Blindada
+```
+
+---
+
+## SEGUNDA PELE
+
+### Descrição
+
+Você se adapta completamente à armadura.
+
+### Mecânica
+
+Recebe:
+
+```text
++1 Reflexos
+
++1 Fortitude
+```
+
+### Pré-requisitos
+
+```text
+Defesa Blindada
+```
+
+---
+
+# Fluxo — Armaduras
+
+```text
+Defesa Blindada
+├── Defesa Blindada Aprimorada
+├── Juggernaut
+├── Maestria Armadura
+└── Segunda Pele
+```
+
+---
+
+# ÁRVORE — LUTADOR (MELEE)
+
+## Tema
+
+Especialização em:
+
+```text
+combate próximo
+controle
+agressividade
+```
+
+Ideal para:
+
+```text
+brutamonte
+guarda
+gladiador
+```
+
+---
+
+## GOLPE DURO
+
+### Mecânica
+
+Recebe:
+
+```text
++1 dano
+```
+
+Somente:
+
+```text
+ataques corpo a corpo
+```
+
+---
+
+## ATAQUE ATORDOANTE
+
+### Descrição
+
+Empurra o alvo no marcador de condição.
+
+### Mecânica
+
+Se:
+
+```text
+ataque ≥ limite dano
+```
+
+Alvo recebe:
+
+```text
+−1 condição adicional
+```
+
+### Pré-requisitos
+
+```text
+Golpe Duro
+```
+
+---
+
+## CORONHADA
+
+### Descrição
+
+Transforma arma à distância em arma corpo a corpo.
+
+### Mecânica
+
+Ignora:
+
+```text
+−5 arma improvisada
+```
+
+Rifles com baioneta:
+
+```text
+arma dupla
+```
+
+---
+
+## ESPECIALISTA EM IMOBILIZAÇÃO
+
+### Mecânica
+
+Recebe:
+
+```text
++2 imobilizar
+```
+
+---
+
+## DESEQUILIBRAR OPONENTE
+
+### Descrição
+
+Reduz efetividade ofensiva do alvo.
+
+### Mecânica
+
+Escolha alvo.
+
+Ele perde:
+
+```text
+bônus FOR para acertar você
+```
+
+Ainda mantém:
+
+```text
+FOR no dano
+```
+
+### Pré-requisitos
+
+```text
+Especialista Imobilização
+```
+
+---
+
+# Fluxo — Lutador
+
+```text
+Golpe Duro
+└── Ataque Atordoante
+
+Especialista Imobilização
+└── Desequilibrar Oponente
+
+Coronhada
+```
+
+---
+
+# ÁRVORE — COMANDO
+
+## Tema
+
+Especialização em:
+
+```text
+liderança
+proteção
+controle tático
+```
+
+Ideal para:
+
+```text
+comandante
+capitão
+oficial
+```
+
+---
+
+## ANÁLISE DA BATALHA
+
+### Mecânica
+
+Ação rápida.
+
+Teste:
+
+```text
+Conhecimento (Táticas)
+
+ND 15
+```
+
+Descobre:
+
+```text
+quem está abaixo da metade da vida
+```
+
+---
+
+## TIRO DE COBERTURA
+
+### Mecânica
+
+Após ataque:
+
+Aliados próximos recebem:
+
+```text
++1 Reflexos
+```
+
+Duração:
+
+```text
+até próximo turno
+```
+
+### Pré-requisitos
+
+```text
+Análise da Batalha
+```
+
+---
+
+## DEMOLIDOR
+
+### Mecânica
+
+Explosivos causam:
+
+```text
++2 dados
+```
+
+Pode acumular.
+
+---
+
+## ATRAIR DISPAROS
+
+### Descrição
+
+Força inimigos a focarem você.
+
+### Mecânica
+
+Teste:
+
+```text
+Persuasão
+VS
+Vontade
+```
+
+Inimigo não pode atacar aliados.
+
+Duração:
+
+```text
+1 rodada
+```
+
+---
+
+## INTERPOR-SE
+
+### Mecânica
+
+Ação rápida.
+
+Recebe:
+
+```text
+todo dano do aliado
+```
+
+Limite:
+
+```text
+1 vez por rodada
+```
+
+### Pré-requisitos
+
+```text
+Iniciativa treinada
+```
+
+---
+
+## INDOMÁVEL
+
+### Mecânica
+
+1 vez por dia:
+
+```text
++5 condição
+```
+
+Não remove:
+
+```text
+condições permanentes
+```
+
+---
+
+## DURO DE MATAR
+
+### Mecânica
+
+Recebe:
+
+```text
+Segundo Fôlego adicional
+```
+
+Com aptidão:
+
+```text
+3 usos
+```
+
+---
+
+# Fluxo — Comando
+
+```text
+Análise da Batalha
+└── Tiro Cobertura
+
+Demolidor
+
+Atrair Disparos
+
+Interpor-se
+
+Indomável
+
+Duro de Matar
+```
+
+---
+
+# ÁRVORE — ESPECIALISTA EM ARMAS
+
+## Tema
+
+Especialização extrema.
+
+Ideal para:
+
+```text
+sniper
+atirador
+especialista
+```
+
+---
+
+## ATAQUE DEVASTADOR
+
+### Mecânica
+
+Escolher:
+
+```text
+arma
+ou
+grupo
+```
+
+Reduz:
+
+```text
+−5 limite dano inimigo
+```
+
+Pode repetir.
+
+---
+
+## ATAQUE PENETRANTE
+
+### Mecânica
+
+Ignora:
+
+```text
+−5 redução dano
+```
+
+### Pré-requisitos
+
+```text
+Foco em Arma
+```
+
+---
+
+## ESPECIALIZAÇÃO EM ARMA
+
+### Mecânica
+
+Recebe:
+
+```text
++2 dano
+```
+
+### Pré-requisitos
+
+```text
+Foco em Arma
+```
+
+---
+
+# Fluxo — Especialista em Armas
+
+```text
+Foco em Arma
+├── Ataque Penetrante
+└── Especialização em Arma
+
+Ataque Devastador
+```
+
+---
+
+# Builds Recomendadas
+
+## Tanque
+
+```text
+Defesa Blindada
+↓
+
+Segunda Pele
+↓
+
+Juggernaut
+```
+
+---
+
+## Comandante
+
+```text
+Análise Batalha
+↓
+
+Tiro Cobertura
+↓
+
+Interpor-se
+```
+
+---
+
+## Sniper
+
+```text
+Ataque Devastador
+↓
+
+Especialização Arma
+↓
+
+Ataque Penetrante
+```
+
+---
+
+## Gladiador
+
+```text
+Golpe Duro
+↓
+
+Ataque Atordoante
+↓
+
+Desequilibrar Oponente
+```
+
+---
+
+# Estrutura para UI
+
+```ts
+TalentTree {
+
+ id
+
+ classId
+
+ name
+
+ description
+
+ talents:[
+   {
+     id
+
+     prerequisites
+
+     effects
+   }
+ ]
+}
+```
+
+---
+
+# Próxima Parte
+
+PARTE 6 — CLASSE: NOBRE
+
+- visão geral
+- progressão
+- level up
+- talentos
+- liderança
+- suporte
+- árvores

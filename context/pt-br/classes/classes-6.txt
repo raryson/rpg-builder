@@ -1,0 +1,571 @@
+# STAR WARS SAGA EDITION — REBUILD — JEDI (PARTE 6)
+# ÁRVORE DE TALENTOS — SENTINELA JEDI
+# ÁRVORE DE TALENTOS — COMBATE COM SABRE DE LUZ
+
+[FONTE: OCR DO LIVRO — SOMENTE FORMATAÇÃO E ORGANIZAÇÃO]
+
+---
+
+# ÁRVORE DE TALENTOS DO SENTINELA JEDI
+
+## Descrição Geral
+
+Os Jedi que seguem o caminho do Sentinela são os verdadeiros inimigos do Lado Negro.
+
+Eles:
+
+```text
+caçam o mal
+
+impedem expansão da escuridão
+
+dominam sutileza
+
+resistem tentação do lado sombrio
+```
+
+---
+
+## FLAGELO DO LADO NEGRO
+
+### Descrição
+
+Contra criaturas com Valor do Lado Negro igual ou maior que 1, você causa dano adicional.
+
+### Efeito
+
+```text
+Dano extra em ataques corpo a corpo
+=
+bônus de Carisma
+(mínimo +1)
+```
+
+### Pré-requisitos
+
+```text
+Sentir o Lado Negro
+```
+
+---
+
+## LIMPAR A MENTE
+
+### Descrição
+
+Permite tentar novamente resistir à detecção por outros usuários da Força.
+
+### Efeito
+
+```text
+Nova jogada
+↓
+
+teste resistido de Usar a Força
+↓
+
+manter novo resultado
+(mesmo se pior)
+```
+
+---
+
+## NÉVOA DA FORÇA
+
+### Descrição
+
+Esconde você e aliados da percepção de outros.
+
+### Ativação
+
+```text
+Gastar 1 Ponto da Força
+
+Ação padrão
+```
+
+### Efeito
+
+```text
+Oculta criaturas
+=
+nível de classe
+```
+
+### Funcionamento
+
+```text
+Teste Usar a Força
+
+VS
+
+Defesa de Vontade inimigo
+```
+
+Se vencer:
+
+```text
+Ocultamento total
+```
+
+### Duração
+
+```text
+até 1 minuto
+```
+
+### Encerramento
+
+```text
+qualquer criatura escondida atacar
+↓
+
+efeito termina
+```
+
+### Pré-requisitos
+
+```text
+Limpar a Mente
+```
+
+---
+
+## RESISTIR AO LADO NEGRO
+
+### Descrição
+
+Resistência contra usuários do Lado Negro.
+
+### Efeito
+
+```text
++5 bônus Força
+em todas Defesas
+```
+
+Contra:
+
+```text
+Poderes [Lado Negro]
+
+OU
+
+Usuários do Lado Negro
+```
+
+### Pré-requisitos
+
+```text
+Sentir o Lado Negro
+```
+
+---
+
+## SENTIR O LADO NEGRO
+
+### Descrição
+
+Permite detectar presença e localização relativa de personagens corrompidos.
+
+### Efeito
+
+```text
+Nova jogada
+
+↓
+
+Usar Força
+
+↓
+
+manter novo resultado
+```
+
+Aplicável contra:
+
+```text
+Valor Lado Negro ≥ 1
+```
+
+---
+
+# Fluxo da Árvore
+
+```text
+Sentir o Lado Negro
+├── Resistir ao Lado Negro
+└── Flagelo do Lado Negro
+
+Limpar a Mente
+└── Névoa da Força
+```
+
+---
+
+# ÁRVORE DE TALENTOS — COMBATE COM SABRE DE LUZ
+
+## Descrição Geral
+
+O sabre de luz é a arma escolhida pelos Jedi.
+
+Esses talentos ampliam:
+
+```text
+ataque
+
+defesa
+
+controle
+
+precisão
+```
+
+---
+
+## ARREMESSAR SABRE DE LUZ
+
+### Ativação
+
+```text
+Ação padrão
+```
+
+### Efeito
+
+```text
+Usa sabre como arma de arremesso
+```
+
+### Regras
+
+```text
+penalidades normais alcance
+```
+
+Se alvo:
+
+```text
+até 6 quadrados
+```
+
+Retorno:
+
+```text
+ação rápida
+
+Usar Força ND 20
+```
+
+---
+
+## BLOQUEAR
+
+### Ativação
+
+```text
+Reação
+```
+
+### Efeito
+
+Teste:
+
+```text
+Usar Força
+
+ND =
+ataque recebido
+```
+
+Penalidade acumulativa:
+
+```text
+−5
+```
+
+Para cada uso de:
+
+```text
+Bloquear
+
+ou
+
+Defletir
+```
+
+Pode:
+
+```text
+negar ataque área corpo a corpo
+```
+
+Resultado:
+
+```text
+acertou → metade dano
+
+errou → sem dano
+```
+
+Pode gastar:
+
+```text
+1 Ponto da Força
+```
+
+Para proteger:
+
+```text
+personagem adjacente
+```
+
+Requisitos:
+
+```text
+sabre ativado
+
+consciente do ataque
+```
+
+---
+
+## DEFESA COM SABRE DE LUZ
+
+### Ativação
+
+```text
+Ação rápida
+```
+
+### Efeito
+
+```text
++1 bônus deflexão
+Defesa Reflexos
+```
+
+Duração:
+
+```text
+até próximo turno
+```
+
+Pode selecionar várias vezes.
+
+Máximo:
+
+```text
++3
+```
+
+---
+
+## DEFLETIR
+
+### Ativação
+
+```text
+Reação
+```
+
+### Efeito
+
+Teste:
+
+```text
+Usar Força
+
+VS
+
+ataque recebido
+```
+
+Mesma penalidade:
+
+```text
+−5 acumulativa
+```
+
+Pode gastar:
+
+```text
+1 Ponto da Força
+```
+
+Para defender aliado adjacente.
+
+Também funciona contra:
+
+```text
+modo automático
+
+Relâmpago da Força
+```
+
+Não funciona:
+
+```text
+granadas
+
+mísseis
+
+lança-chamas
+```
+
+Restrição:
+
+```text
+não funciona
+contra veículos Colossal (fragata)+
+```
+
+Exceção:
+
+```text
+arma defesa ponto
+```
+
+---
+
+## ESPECIALIZAÇÃO EM ARMA (SABRE DE LUZ)
+
+### Efeito
+
+```text
++2 dano corpo a corpo
+```
+
+### Pré-requisitos
+
+```text
+Foco em Arma (sabres de luz)
+```
+
+---
+
+## REDIRECIONAR DISPARO
+
+### Descrição
+
+Permite redirecionar disparos defletidos.
+
+### Limite
+
+```text
+1 vez rodada
+```
+
+### Requisitos
+
+```text
+Defletir
+
+BBA +5
+```
+
+### Efeito
+
+```text
+novo ataque distância
+
+↓
+
+causa dano normal
+```
+
+Restrições:
+
+```text
+somente disparos simples
+```
+
+---
+
+## CONSTRUIR UM SABRE DE LUZ
+
+Disponível:
+
+```text
+7º nível+
+```
+
+---
+
+## APTIDÕES BÔNUS DO JEDI
+
+Recebidas:
+
+```text
+2º
+
+4º
+
+6º
+
+...
+```
+
+Lista:
+
+```text
+Acuidade em Arma
+
+Artes Marciais I–III
+
+Ataque Acrobático
+
+Ataque Duplo
+
+Ataque Movimento
+
+Ataque Poderoso
+
+Ataque Rápido
+
+Ataque Triplo
+
+Crítico Triplicado
+
+Defender-se Corpo a Corpo
+
+Desarmar Aprimorado
+
+Esquiva
+
+Foco em Arma (sabre)
+
+Foco em Perícia
+
+Poderoso na Força
+
+Investida Aprimorada
+
+Investida Poderosa
+
+Maestria Duas Armas I–III
+
+Mobilidade
+
+Reflexos em Combate
+
+Saque Rápido
+
+Treinamento em Perícia
+
+Trespassar
+
+Trespassar Aprimorado
+```
+
+---
+
+## CRÉDITOS INICIAIS
+
+```text
+3d4 × 100
+```
+
+---
+
+[CONTINUA — PARTE 7 → NOBRE]

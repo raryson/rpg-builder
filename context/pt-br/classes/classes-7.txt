@@ -1,0 +1,376 @@
+# STAR WARS SAGA EDITION — REBUILD — NOBRE (PARTE 7)
+# ÁRVORES DE TALENTOS DO NOBRE
+
+[FONTE: OCR DO LIVRO — SOMENTE FORMATAÇÃO E ORGANIZAÇÃO]
+
+---
+
+# ÁRVORE DE TALENTOS — INFLUÊNCIA
+
+## Descrição Geral
+
+Os Nobres que seguem o caminho da Influência utilizam:
+
+```text
+presença
+
+autoridade
+
+controle social
+
+pressão psicológica
+```
+
+Seu objetivo é enfraquecer a determinação dos inimigos e conduzir situações sem confronto direto.
+
+---
+
+## PRESENÇA
+
+### Descrição
+
+Sua presença inspira aliados e impõe respeito.
+
+### Efeito
+
+Recebe bônus em:
+
+```text
+Persuasão
+```
+
+em determinadas situações sociais.
+
+---
+
+## ENFRAQUECER A DETERMINAÇÃO
+
+### Descrição
+
+Você consegue abalar emocionalmente um alvo.
+
+### Ativação
+
+```text
+Ação padrão
+```
+
+### Teste
+
+```text
+Persuasão
+
+VS
+
+Defesa de Vontade
+```
+
+### Resultado
+
+Se bem-sucedido:
+
+```text
+alvo sofre penalidade
+```
+
+---
+
+## ENFRAQUECER A DETERMINAÇÃO APRIMORADA
+
+### Descrição
+
+Versão avançada do talento anterior.
+
+### Pré-requisitos
+
+```text
+Enfraquecer a Determinação
+```
+
+### Efeito
+
+Amplia os efeitos do talento.
+
+---
+
+## EXIGIR RENDIÇÃO
+
+### Descrição
+
+Permite pressionar um inimigo a abandonar combate.
+
+### Ativação
+
+```text
+Ação padrão
+```
+
+### Teste
+
+```text
+Persuasão
+
+VS
+
+Defesa de Vontade
+```
+
+### Resultado
+
+O alvo pode:
+
+```text
+desistir
+
+render-se
+
+abandonar combate
+```
+
+### Pré-requisitos
+
+```text
+Presença
+```
+
+---
+
+# Fluxo — Influência
+
+```text
+Presença
+│
+├── Exigir Rendição
+│
+└── Enfraquecer Determinação
+      └── Enfraquecer Determinação Aprimorada
+```
+
+---
+
+# ÁRVORE DE TALENTOS — INSPIRAÇÃO
+
+## Descrição Geral
+
+Os Nobres que seguem Inspiração fortalecem seus aliados.
+
+Especialização em:
+
+```text
+motivação
+
+moral
+
+coordenação
+```
+
+---
+
+## FORTALECER ALIADO
+
+### Descrição
+
+Você melhora momentaneamente o desempenho de um aliado.
+
+### Efeito
+
+Escolha:
+
+```text
+1 aliado
+```
+
+Recebe bônus temporário.
+
+---
+
+## INSPIRAR CONFIANÇA
+
+### Descrição
+
+Você inspira segurança e determinação.
+
+### Resultado
+
+Aliados recebem bônus apropriados.
+
+---
+
+## INCITAR FERVOR
+
+### Descrição
+
+Transforma confiança em agressividade.
+
+### Resultado
+
+Aliados recebem benefícios ofensivos.
+
+---
+
+## INSPIRAR ARDOR
+
+### Descrição
+
+Permite continuar lutando sob pressão.
+
+### Resultado
+
+Aliados tornam-se mais resistentes.
+
+---
+
+## INSPIRAR RAPIDEZ
+
+### Descrição
+
+Aumenta ritmo e movimentação.
+
+### Resultado
+
+Aliados recebem benefícios de deslocamento.
+
+---
+
+# Fluxo — Inspiração
+
+```text
+Fortalecer Aliado
+↓
+
+Inspirar Confiança
+↓
+
+Incitar Fervor
+↓
+
+Inspirar Ardor
+↓
+
+Inspirar Rapidez
+```
+
+---
+
+# ÁRVORE DE TALENTOS — LIDERANÇA
+
+## Descrição Geral
+
+Os Nobres especializados em Liderança coordenam aliados.
+
+Especialização:
+
+```text
+organização
+
+ordens
+
+comando
+```
+
+---
+
+## COORDENAR
+
+### Descrição
+
+Você organiza aliados em combate.
+
+### Ativação
+
+```text
+Ação rápida
+```
+
+### Resultado
+
+Aliados recebem:
+
+```text
+bônus coordenação
+```
+
+---
+
+## CONFIANÇA
+
+### Descrição
+
+Aliados tornam-se mais eficientes sob sua liderança.
+
+---
+
+## COMANDAR À DISTÂNCIA
+
+### Descrição
+
+Permite utilizar liderança sem proximidade imediata.
+
+---
+
+## LÍDER NATO
+
+### Descrição
+
+Amplia todos os efeitos da árvore.
+
+---
+
+# Fluxo — Liderança
+
+```text
+Coordenar
+├── Confiança
+├── Comandar à Distância
+└── Líder Nato
+```
+
+---
+
+# APTIDÕES BÔNUS DO NOBRE
+
+Recebidas:
+
+```text
+2º
+
+4º
+
+6º
+
+...
+```
+
+Lista (conforme OCR):
+
+```text
+Foco em Perícia
+
+Linguista
+
+Treinamento em Perícia
+
+Esquiva
+
+Ataque Coordenado
+
+Combate Veicular
+
+Saque Rápido
+
+Tiro à Queima Roupa
+
+Tiro Preciso
+```
+
+---
+
+# CRÉDITOS INICIAIS
+
+```text
+5d4 × 250
+```
+
+---
+
+[CONTINUA — PARTE 8 → FORA-DA-LEI]

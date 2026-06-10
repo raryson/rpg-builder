@@ -1,0 +1,126 @@
+# STAR WARS RPG — APTIDÕES
+## PARTE 7 — OCR CORRIGIDO
+
+## Sensível à Força
+
+Você é sensível à Força, permitindo a você chamar a Força e aprender a manusear o seu poder.
+
+Pré-requisitos:
+Não pode ser um dróide.
+
+Benefício:
+Você pode fazer testes de Usar a Força, e Usar a Força é considerado agora uma perícia de classe.
+
+Além disto, toda vez que adquirir um novo talento você tem a opção de escolher um talento na Força.
+
+Ainda é necessário preencher os pré-requisitos dos talentos da Força para selecioná-los (veja Talentos da Força, página 100).
+
+Página: 97
+
+---
+
+## Tiro à Queima Roupa
+
+Você é hábil em fazer disparos bem colocados com armas à distância à queima roupa.
+
+Benefício:
+Você ganha +1 de bônus nas jogadas de ataque e dano com arma à distância contra oponentes dentro do alcance à queima roupa (veja a Tabela 8-5: Alcance de Armas, página 129).
+
+Página: 97
+
+---
+
+## Tiro Meticuloso
+
+Você é particularmente hábil em mirar seus ataques.
+
+Pré-requisitos:
+Tiro à Queima Roupa, bônus de base de ataque +2.
+
+Benefícios:
+Se você mirar antes de fazer um ataque à distância (veja Mirar na página 154), você ganha um bônus de +1 em sua jogada de ataque.
+
+Página: 97
+
+---
+
+## Tiro em Investida
+
+Você é apto a fazer ataques à distância durante uma investida.
+
+Pré-requisitos:
+Bônus de base de ataque +4.
+
+Benefícios:
+Quando estiver em investida, você pode fazer um ataque à distância ao invés de um ataque corpo a corpo ao término de seu movimento.
+
+Diferente da investida normal, ela não lhe ajuda a sobrepujar seu alvo, ou seja, você não ganha bônus na jogada de ataque.
+
+Como a investida normal, você ainda recebe -2 de penalidade em sua Defesa de Reflexos.
+
+Normal:
+Você pode fazer um único ataque corpo a corpo com um bônus de +2 em sua jogada de ataque no final de uma investida.
+
+Página: 97
+
+---
+
+## Tiro Preciso
+
+Você é hábil em ajustar seus ataques à distância de forma que você não acerte seus aliados por engano.
+
+Pré-requisitos:
+Tiro à Queima Roupa.
+
+Benefício:
+Você pode atirar ou arremessar uma arma à distância em um oponente engajado em combate corpo a corpo com um ou mais de seus aliados sem sofrer a penalidade normal de -5 (veja Atirando ou Arremessando em Corpo a Corpo, página 161).
+
+Página: 97
+
+---
+
+## Tiro Distante
+
+Você é melhor que a maioria quando está atirando em oponentes distantes.
+
+Pré-requisitos:
+Tiro à Queima Roupa.
+
+Benefício:
+Quando usar uma arma à distância contra alvos em curto, médio ou longo alcance, a categoria de alcance é considerada como uma a menos.
+
+Em outras palavras:
+
+- você não recebe penalidade nas jogadas de ataque à distância feitos contra alvos em curto alcance;
+- -2 de penalidade nas jogadas de ataque à distância feitos contra alvos em médio alcance;
+- -5 de penalidade nas jogadas de ataque à distância feitos contra alvos em longo alcance.
+
+Normal:
+Quando fazendo uma jogada de ataque à distância, um personagem recebe:
+
+- -2 de penalidade contra alvos em curto alcance;
+- -5 de penalidade contra alvos em médio alcance;
+- -10 de penalidade contra alvos em longo alcance.
+
+Página: 97
+
+---
+
+## Tiro Rápido
+
+Você pode realizar dois disparos rápidos com uma arma à distância como um único ataque.
+
+Pré-requisitos:
+Força 13, bônus de base de ataque +1, proficiência na arma.
+
+Benefício:
+Quando usar uma arma à distância, você pode disparar dois tiros como um único ataque contra um alvo.
+
+Você sofre -2 de penalidade em sua jogada de ataque, mas causa +1 dado de dano com um ataque bem sucedido.
+
+Especial:
+Usar esta aptidão dispara dois tiros e só pode ser realizada se a arma possui munição restante suficiente.
+
+Os efeitos desta aptidão não se acumulam com o dano extra provido pela aptidão Rajada de Tiros (página 82) ou Certeiro (página 84).
+
+Página: 97

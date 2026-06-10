@@ -1,0 +1,308 @@
+# STAR WARS SAGA EDITION — REBUILD — FORA DA LEI (PARTE 8)
+# CLASSE: FORA DA LEI (SCOUNDREL)
+
+[FONTE: OCR DO LIVRO — SOMENTE FORMATAÇÃO E ORGANIZAÇÃO]
+
+---
+
+# VISÃO GERAL
+
+## Descrição
+
+Fora da Lei dependem de:
+
+```text
+habilidade
+
+astúcia
+
+improviso
+
+criatividade
+```
+
+Ao contrário do Soldado, vencem através de:
+
+```text
+velocidade
+
+precisão
+
+vantagem
+
+oportunidade
+```
+
+---
+
+## Exemplos
+
+```text
+contrabandistas
+
+caçadores de recompensa
+
+criminosos
+
+trapaceiros
+
+exploradores
+```
+
+---
+
+# PAPEL NO GRUPO
+
+Especialização:
+
+```text
+perícias
+
+mobilidade
+
+interação social
+
+combate oportunista
+```
+
+---
+
+# DADOS DA CLASSE
+
+## Pontos de Vida no 1º Nível
+
+```text
+18 + modificador Constituição
+```
+
+---
+
+## Pontos de Vida por Nível
+
+```text
+1d6 + modificador Constituição
+```
+
+---
+
+## Limite de Dano
+
+```text
+igual Fortitude
+```
+
+---
+
+## Bônus de Defesa Inicial
+
+```text
+Reflexos +2
+
+Vontade +1
+```
+
+---
+
+## Ataque Base
+
+Progressão:
+
+```text
+média
+```
+
+---
+
+# PERÍCIAS TREINADAS
+
+Quantidade:
+
+```text
+6 + modificador INT
+```
+
+Escolher entre:
+
+```text
+Acrobacia
+
+Enganação
+
+Furtividade
+
+Iniciativa
+
+Mecânica
+
+Percepção
+
+Persuasão
+
+Pilotar
+
+Usar Computador
+```
+
+---
+
+# PROFICIÊNCIAS INICIAIS
+
+Recebe:
+
+```text
+Armas Simples
+
+Pistolas
+```
+
+---
+
+# CARACTERÍSTICA DE CLASSE
+
+# ATAQUE FURTIVO
+
+## Descrição
+
+Sempre que um alvo estiver vulnerável, o Fora da Lei causa dano adicional.
+
+---
+
+## Progressão
+
+|Nível|Dano Extra|
+|---|---|
+|1|+1d6|
+|3|+2d6|
+|5|+3d6|
+|7|+4d6|
+|9|+5d6|
+|11|+6d6|
+|13|+7d6|
+|15|+8d6|
+|17|+9d6|
+|19|+10d6|
+
+---
+
+## Condições Comuns
+
+Aplicável quando alvo estiver:
+
+```text
+desprevenido
+
+flanqueado
+
+vulnerável
+```
+
+---
+
+# TALENTOS
+
+Árvores disponíveis:
+
+```text
+Sorte
+
+Precisão
+
+Furtividade
+
+Manipulação
+```
+
+---
+
+# APTIDÕES BÔNUS
+
+Recebidas:
+
+```text
+2º
+
+4º
+
+6º
+
+...
+```
+
+Lista:
+
+```text
+Esquiva
+
+Ataque em Movimento
+
+Tiro Preciso
+
+Saque Rápido
+
+Foco em Perícia
+
+Treinamento em Perícia
+
+Tiro à Queima Roupa
+
+Ataque Duplo
+
+Franco-atirador
+
+Combate Veicular
+```
+
+---
+
+# CRÉDITOS INICIAIS
+
+```text
+4d4 × 250
+```
+
+---
+
+# LEVEL UP — FORA DA LEI
+
+Ao subir nível:
+
+```text
+Atualizar PV
+
+↓
+
+Receber Aptidão (níveis pares)
+
+↓
+
+Receber Talento (quando aplicável)
+
+↓
+
+Atualizar Ataque Furtivo
+```
+
+---
+
+# Estrutura para Builder
+
+```ts
+ScoundrelClass {
+
+ hitPoints
+
+ defenses
+
+ skills
+
+ sneakAttack
+
+ talents
+
+ feats
+}
+```
+
+---
+
+[CONTINUA — PARTE 9 → TALENTOS DO FORA DA LEI]

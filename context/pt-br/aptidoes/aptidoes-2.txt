@@ -1,0 +1,98 @@
+# STAR WARS RPG — APTIDÕES
+## PARTE 2 — OCR CORRIGIDO
+
+## Encontrão
+
+Você empurra seus oponentes pelo campo de batalha para ganhar uma vantagem tática.
+
+Pré-requisitos:
+Força 13, bônus de base de ataque +1.
+
+Benefício:
+Após fazer um ataque corpo a corpo bem sucedido contra um oponente até uma categoria de tamanho maior que a sua, você pode escolher mover este oponente 1 quadrado em qualquer direção utilizando uma ação livre.
+
+Um encontrão não pode ser realizado contra um oponente que esteja agarrado ou imobilizado, e você não pode empurrar seu oponente num objeto sólido ou no espaço de luta de outra criatura.
+
+Página: 92
+
+---
+
+## Especialista Cirúrgico
+
+Você pode realizar rapidamente, com habilidade, procedimentos cirúrgicos.
+
+Pré-requisitos:
+Treinado na perícia Tratar Ferimentos.
+
+Benefício:
+Você pode realizar uma cirurgia em 10 minutos.
+
+Normal:
+Realizar uma cirurgia, normalmente requer 1 hora (veja a perícia Tratar Ferimentos, página 74).
+
+Página: 92
+
+---
+
+## Especialista Técnico
+
+A aptidão Especialista Técnico possibilita ao herói realizar modificações personalizadas em armas, armaduras, dróides, aparelhos e veículos para que eles funcionem acima de suas especificações normais.
+
+Pré-requisito:
+Treinado na perícia Mecânica.
+
+Benefício:
+Você pode modificar um dispositivo, armadura, arma, dróide ou veículo dando-lhes um traço especial.
+
+### Modificações do Especialista Técnico
+
+| CARACTERÍSTICAS EM ARMADURA | BENEFÍCIO |
+|---|---|
+| Armadura Flexível | Aumenta o bônus máximo de Destreza da armadura em 1 |
+| Armadura Fortificada | Aumenta o bônus de equipamento da armadura na Defesa de Fortitude em 1 |
+| Armadura Protegida | Aumenta o bônus de armadura na Defesa de Reflexos em 1 |
+
+| TRAÇO DO DISPOSITIVO | BENEFÍCIO |
+|---|---|
+| Aparelho Obra-prima | Testes de perícia feitos usando esse aparelho ganham +1 de bônus de equipamento, ou o bônus de equipamento existente do aparelho aumenta em 1 |
+| Durabilidade Aprimorada | A redução de dano do aparelho aumenta em 1, e este ganha pontos de vida extras igual a um quarto dos seus pontos de vida base |
+| Força Ampliada | Aumenta o valor de Força do dispositivo em 2 |
+
+| TRAÇO DO DRÓIDE | BENEFÍCIO |
+|---|---|
+| Destreza Ampliada | Aumenta o valor de Destreza do dróide em 2 |
+| Inteligência Ampliada | Aumenta o valor de Inteligência do dróide em 2 |
+| Força Ampliada | Aumenta o valor de Força do dróide em 2 |
+
+| TRAÇO DO VEÍCULO | BENEFÍCIO |
+|---|---|
+| Deslocamento Aprimorado | Aumenta o deslocamento do veículo em um quarto do seu deslocamento base (mínimo 1 quadrado) |
+| Destreza Ampliada | Aumenta o valor de Destreza do veículo em 2 |
+| Escudos Aprimorados | Aumenta a taxa dos escudos do veículo em 5 |
+
+| TRAÇO DA ARMA | BENEFÍCIO |
+|---|---|
+| Dano Aprimorado | A arma causa +2 pontos de dano com um acerto bem sucedido. Se a arma possuir um multiplicador de dano (por exemplo, 6d10x2), aplique o dano extra antes de aplicar o multiplicador |
+| Precisão Aprimorada | A arma ganha +1 de bônus de equipamento nas jogadas de ataque |
+| Tiro Seletivo | Uma arma à distância apenas de modo Disparo Automático pode ser configurada para disparos únicos, ou uma arma de tiro único pode ser configurada para modo Disparo Automático |
+
+Antes de começar a modificação, você precisa pagar 1/10 do custo do dispositivo, conjunto de armadura, arma, dróide ou veículo que deseja modificar ou 1.000 créditos, o que for maior.
+
+Completar a modificação requer 1 dia por 1.000 créditos do custo de modificação.
+
+Ao final deste período, faça um teste de Mecânica contra uma CD 20; você não pode escolher 10 ou 20 neste teste.
+
+Se o teste for bem sucedido, a modificação é completada com sucesso, e o objeto adquire a característica desejada.
+
+Se o teste falhar, você perde todos os créditos gastos para fazer a modificação e o objeto não ganha a característica desejada; entretanto, você pode recomeçar se desejar.
+
+Outros personagens treinados na perícia Mecânica podem auxiliá-lo, reduzindo proporcionalmente o tempo necessário para completar a modificação.
+
+Ao término do processo de modificação, eles poderão fazer um teste de Mecânica para auxiliar seu teste.
+
+O preço de mercado de um item modificado é igual ao custo base do item mais o dobro do custo da modificação realizada (não inclusos os créditos desperdiçados em tentativas falhas de modificações).
+
+Especial:
+Esta aptidão é considerada uma aptidão bônus para as classes Nobre e Fora-da-Lei.
+
+Página: 92–93

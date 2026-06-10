@@ -1,0 +1,472 @@
+# STAR WARS SAGA EDITION — CONTEXTO GLOBAL DE CLASSES (PARTE 1)
+
+## Objetivo
+
+O sistema de classes do Star Wars Saga Edition representa o treinamento principal do personagem.
+
+Toda progressão do personagem acontece através de:
+
+- Ganho de nível
+- Escolha de talentos
+- Escolha de aptidões
+- Aumento de atributos
+- Possível multiclasse
+
+As classes definem:
+
+- Pontos de Vida
+- Defesas
+- Progressão de combate
+- Perícias disponíveis
+- Talentos
+- Aptidões bônus
+- Papel narrativo
+
+Este documento serve como base para o sistema de criação de ficha, level up e wiki.
+
+---
+
+# Estrutura Universal das Classes
+
+Todas as classes heróicas devem seguir esta estrutura.
+
+```ts
+interface HeroicClass {
+  id: string
+
+  name: string
+
+  description: string
+
+  role: string
+
+  keyAttributes: string[]
+
+  hitPoints: {
+    firstLevel: string
+    perLevel: string
+  }
+
+  forcePoints: string
+
+  defenses: {
+    reflex?: number
+    fortitude?: number
+    will?: number
+  }
+
+  classSkills: string[]
+
+  startingFeats: string[]
+
+  talentTrees: string[]
+
+  bonusFeats: {
+    levels: number[]
+    options: string[]
+  }
+
+  credits: string
+
+  progression: ClassProgression[]
+}
+```
+
+---
+
+# Estrutura do Level Up
+
+Toda vez que um personagem sobe de nível:
+
+```text
+1. Recebe pontos de vida
+2. Atualiza nível heroico
+3. Atualiza ataque base
+4. Atualiza defesas
+5. Verifica talento
+6. Verifica aptidão
+7. Atualiza pontos da força
+8. Salva nova versão da ficha
+```
+
+---
+
+# Sistema de Talentos
+
+Talentos representam especialização.
+
+Regra geral:
+
+```text
+Recebe talento:
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+```
+
+Sempre:
+
+```text
+Escolher 1 talento
+```
+
+Restrições:
+
+```text
+✔ Deve pertencer a uma árvore válida
+✔ Deve cumprir pré-requisitos
+✔ Não pode repetir (exceto quando permitido)
+```
+
+---
+
+# Sistema de Aptidões (Feats)
+
+Aptidões representam treinamento adicional.
+
+Regra geral:
+
+```text
+Recebe aptidão bônus:
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+```
+
+Regras:
+
+```text
+Escolher da lista da classe
+Cumprir pré-requisitos
+```
+
+---
+
+# Sistema de Pontos da Força
+
+Toda classe heróica utiliza:
+
+```text
+5 + metade do nível
+(arredondado para baixo)
+```
+
+Exemplos:
+
+| Nível | Pontos da Força |
+|--------|-----------------|
+| 1 | 5 |
+| 2 | 6 |
+| 4 | 7 |
+| 6 | 8 |
+| 8 | 9 |
+| 10 | 10 |
+| 20 | 15 |
+
+Regras:
+
+```text
+Ao subir de nível:
+→ Pontos restantes são perdidos
+→ Total é recalculado
+```
+
+---
+
+# Sistema de Pontos de Vida
+
+Cada classe define:
+
+```text
+Vida Inicial
++
+Vida por nível
+```
+
+Fórmula:
+
+```text
+PV Total =
+Vida Inicial
++
+Σ(Dado de Vida + Constituição)
+```
+
+Exemplo:
+
+```text
+Soldado:
+30 + CON
++
+1d10 + CON por nível
+```
+
+---
+
+# Aumento de Atributos
+
+Em:
+
+```text
+4
+8
+12
+16
+20
+```
+
+Recebe:
+
+```text
++1 em dois atributos diferentes
+```
+
+Exemplos:
+
+```text
+FOR +1
+DES +1
+```
+
+ou
+
+```text
+INT +1
+CAR +1
+```
+
+---
+
+# Sistema de Multiclasse
+
+Um personagem pode adquirir níveis em mais de uma classe.
+
+Exemplo:
+
+```text
+Soldado 3
++
+Batedor 2
+```
+
+Resultado:
+
+```text
+Soldado 3 / Batedor 2
+```
+
+Ganhos ao pegar nova classe:
+
+```text
+✔ Dado de vida da nova classe
+✔ Bônus de ataque
+✔ Talentos
+✔ Defesas
+✔ Acesso às perícias da classe
+```
+
+NÃO recebe:
+
+```text
+✘ Créditos iniciais
+✘ Vida tripla do nível 1
+✘ Todas aptidões iniciais
+```
+
+Recebe apenas:
+
+```text
+Escolher UMA aptidão inicial
+```
+
+---
+
+# Regras de Progressão Multiclasse
+
+## Ataque Base
+
+Somar todas as classes.
+
+Exemplo:
+
+```text
+Nobre 6 (+4)
+Soldado 2 (+2)
+
+Resultado:
++6
+```
+
+---
+
+## Pontos de Vida
+
+Cada nível usa o dado correspondente.
+
+Exemplo:
+
+```text
+Batedor 1
+→ +1d8
+
+Soldado 1
+→ +1d10
+```
+
+---
+
+## Talentos
+
+Talento deve vir da classe que subiu.
+
+Exemplo:
+
+```text
+Subiu Soldado
+
+→ escolhe talento de Soldado
+```
+
+---
+
+## Aptidões
+
+Aptidões normais seguem:
+
+```text
+nível do personagem
+não nível da classe
+```
+
+---
+
+# Estrutura Recomendada para o Builder
+
+## Fluxo — Criação
+
+```text
+Escolher Classe
+↓
+Mostrar Descrição
+↓
+Selecionar Perícias
+↓
+Aplicar Aptidões Iniciais
+↓
+Selecionar Talento Inicial
+↓
+Gerar Ficha
+↓
+Salvar Versão
+```
+
+---
+
+## Fluxo — Level Up
+
+```text
+Subir Nível
+↓
+Escolher Classe
+↓
+Rolar Vida
+↓
+Atualizar Combate
+↓
+Escolher Talento
+↓
+Escolher Aptidão
+↓
+Salvar Snapshot
+```
+
+---
+
+# Modelo de Banco (Mongo)
+
+```ts
+CharacterVersion {
+  characterId
+
+  level
+
+  heroicLevel
+
+  classes: [
+    {
+      classId
+      level
+    }
+  ]
+
+  hp
+
+  forcePoints
+
+  attackBonus
+
+  defenses
+
+  talents
+
+  feats
+
+  attributes
+
+  createdAt
+}
+```
+
+---
+
+# Regras de Persistência
+
+Nunca recalcular ficha antiga.
+
+Sempre salvar:
+
+```text
+estado completo
++
+decisões tomadas
++
+classe escolhida
++
+talentos
++
+aptidões
+```
+
+Permitir:
+
+```text
+visualizar histórico
+comparar versões
+restaurar nível antigo
+```
+
+---
+
+# Organização dos Próximos Documentos
+
+PARTE 2 → Classe: Batedor  
+PARTE 3 → Classe: Soldado  
+PARTE 4 → Classe: Nobre  
+PARTE 5 → Classe: Fora da Lei  
+PARTE 6 → Classe: Jedi  
+PARTE 7 → Multiclasse e Prestígio  
+PARTE 8 → Balanceamento e Builder

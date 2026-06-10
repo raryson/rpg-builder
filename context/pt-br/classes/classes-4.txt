@@ -1,0 +1,585 @@
+# STAR WARS SAGA EDITION — CLASSE: SOLDADO (PART 4)
+
+## Objetivo da Classe
+
+O Soldado representa o especialista em combate.
+
+É a classe focada em:
+
+- Combate direto
+- Resistência
+- Uso avançado de armas
+- Armaduras
+- Controle de campo
+- Liderança tática
+
+Narrativamente o Soldado é quem resolve conflitos através de treinamento militar e domínio marcial.
+
+Exemplos clássicos:
+
+- Almirante Ackbar
+- Capitão Panaka
+- Capitão Typho
+- General Crix Madine
+- Kyle Katarn
+- Wedge Antilles
+- Zam Wessel
+- Corran Horn
+
+---
+
+# Papel no Grupo
+
+## Função Primária
+
+```text
+Combatente
+```
+
+---
+
+## Função Secundária
+
+```text
+Defensor
+Controle
+Liderança
+```
+
+---
+
+## Estilo de Jogo
+
+```text
+Alta vida
+
+Maior ataque base
+
+Grande variedade de armas
+
+Excelente uso de armadura
+
+Escala muito bem em combate
+```
+
+---
+
+# Perfil Mecânico
+
+## Ataque Base
+
+Progressão máxima.
+
+Tabela:
+
+| Nível | Ataque Base |
+|-------|------------|
+|1|+1|
+|2|+2|
+|3|+3|
+|4|+4|
+|5|+5|
+|6|+6|
+|7|+7|
+|8|+8|
+|9|+9|
+|10|+10|
+|11|+11|
+|12|+12|
+|13|+13|
+|14|+14|
+|15|+15|
+|16|+16|
+|17|+17|
+|18|+18|
+|19|+19|
+|20|+20|
+
+---
+
+# Atributos Prioritários
+
+## Principal
+
+```text
+Destreza
+```
+
+Usado para:
+
+```text
+ataques à distância
+reflexos
+armas blaster
+```
+
+---
+
+## Secundários
+
+```text
+Constituição
+Força
+```
+
+Usados para:
+
+```text
+vida
+combate corpo a corpo
+resistência
+```
+
+---
+
+## Complementares
+
+```text
+Inteligência
+Sabedoria
+```
+
+Para:
+
+```text
+táticas
+mecânica
+pilotagem
+```
+
+---
+
+# Vida
+
+## Nível 1
+
+```text
+30 + Constituição
+```
+
+---
+
+## Demais níveis
+
+```text
+1d10 + Constituição
+```
+
+Maior sobrevivência entre classes básicas.
+
+---
+
+# Pontos da Força
+
+Fórmula:
+
+```text
+5 + metade do nível
+(arredondado para baixo)
+```
+
+Recalculado ao subir de nível.
+
+---
+
+# Bônus de Defesa
+
+Recebidos apenas no primeiro nível.
+
+```text
+Reflexos +1
+Fortitude +2
+```
+
+Perfil:
+
+```text
+muito resistente
+
+boa defesa geral
+```
+
+---
+
+# Perícias de Classe
+
+Escolher:
+
+```text
+3 + modificador de Inteligência
+```
+
+Lista:
+
+```text
+Conhecimento (Táticas)
+Escalar
+Iniciativa
+Mecânica
+Natação
+Percepção
+Pilotar
+Resistência
+Saltar
+Tratar Ferimentos
+Usar Computador
+```
+
+---
+
+# Aptidões Iniciais
+
+Recebidas somente ao iniciar como Soldado.
+
+```text
+Proficiência Armas Simples
+
+Proficiência Pistolas
+
+Proficiência Rifles
+
+Proficiência Armadura Leve
+
+Proficiência Armadura Média
+```
+
+---
+
+# Progressão
+
+## Níveis Ímpares
+
+Recebe:
+
+```text
+Talento
+```
+
+---
+
+## Níveis Pares
+
+Recebe:
+
+```text
+Aptidão bônus
+```
+
+---
+
+# Progressão Completa
+
+|Nível|Ataque|Ganho|
+|---|---:|---|
+|1|+1|Talento|
+|2|+2|Aptidão|
+|3|+3|Talento|
+|4|+4|Aptidão|
+|5|+5|Talento|
+|6|+6|Aptidão|
+|7|+7|Talento|
+|8|+8|Aptidão|
+|9|+9|Talento|
+|10|+10|Aptidão|
+|11|+11|Talento|
+|12|+12|Aptidão|
+|13|+13|Talento|
+|14|+14|Aptidão|
+|15|+15|Talento|
+|16|+16|Aptidão|
+|17|+17|Talento|
+|18|+18|Aptidão|
+|19|+19|Talento|
+|20|+20|Aptidão|
+
+---
+
+# Árvores de Talentos
+
+Disponíveis:
+
+```text
+Especialista em Armaduras
+
+Lutador
+
+Comando
+
+Especialista em Armas
+```
+
+(próxima parte detalha todas)
+
+---
+
+# Aptidões Bônus Disponíveis
+
+```text
+Arremessar
+
+Artes Marciais I
+
+Artes Marciais II
+
+Artes Marciais III
+
+Ataque Coordenado
+
+Ataque Duplo
+
+Ataque em Movimento
+
+Ataque Poderoso
+
+Ataque Rápido
+
+Ataque Triplo
+
+Impulso Eficaz
+
+Certeiro
+
+Combate Veicular
+
+Crítico Triplicado
+
+Defender-se Corpo a Corpo
+
+Derrubar
+
+Desarme Aprimorado
+
+Encontrão
+
+Esmagar
+
+Foco em Arma
+
+Foco em Perícia
+
+Franco-atirador
+
+Imobilizar
+
+Investida Aprimorada
+
+Maestria Duas Armas I
+
+Maestria Duas Armas II
+
+Maestria Duas Armas III
+
+Proficiência Armadura Pesada
+
+Proficiência Armas Exóticas
+
+Proficiência Armas Corpo a Corpo Avançadas
+
+Proficiência Armas Pesadas
+
+Recuperação Rápida
+
+Reflexos em Combate
+
+Saque Rápido
+
+Tiro à Queima Roupa
+
+Tiro Meticuloso
+
+Tiro em Investida
+
+Tiro Distante
+
+Tiro Preciso
+
+Tiro Rápido
+
+Treinamento em Perícia
+
+Trespassar
+
+Trespassar Aprimorado
+
+Vigoroso
+```
+
+---
+
+# Créditos Iniciais
+
+```text
+3d4 × 250
+```
+
+---
+
+# Arquétipos Comuns
+
+## Soldado Pesado
+
+Prioridade:
+
+```text
+CON
+FOR
+```
+
+Foco:
+
+```text
+armaduras
+armas pesadas
+```
+
+---
+
+## Atirador
+
+Prioridade:
+
+```text
+DES
+CON
+```
+
+Foco:
+
+```text
+rifles
+alcance
+```
+
+---
+
+## Comandante
+
+Prioridade:
+
+```text
+DES
+INT
+```
+
+Foco:
+
+```text
+comando
+controle
+```
+
+---
+
+## Duelista
+
+Prioridade:
+
+```text
+FOR
+DES
+```
+
+Foco:
+
+```text
+combate próximo
+```
+
+---
+
+# Regras para o Builder
+
+## Tela de Criação
+
+Fluxo:
+
+```text
+Selecionar Soldado
+↓
+
+Escolher perícias
+
+↓
+
+Aplicar aptidões iniciais
+
+↓
+
+Selecionar talento
+
+↓
+
+Gerar ficha
+```
+
+---
+
+## Tela de Level Up
+
+Fluxo:
+
+```text
+Subiu nível
+↓
+
+Atualiza ataque
+
+↓
+
+Atualiza vida
+
+↓
+
+Escolhe talento
+
+↓
+
+Escolhe aptidão
+
+↓
+
+Salvar snapshot
+```
+
+---
+
+# Modelo para Banco
+
+```ts
+SoldierClassData {
+
+ hpLevel1:"30+CON"
+
+ hpPerLevel:"1d10+CON"
+
+ defense:{
+   reflex:1,
+   fortitude:2
+ }
+
+ trainedSkills:3
+
+ talentTrees:[
+   "armor_specialist",
+   "fighter",
+   "command",
+   "weapon_specialist"
+ ]
+
+ bonusFeats:[]
+}
+```
+
+---
+
+# Próxima Parte
+
+PARTE 5 — SOLDADO — ÁRVORES DE TALENTOS
+
+- Especialista em Armaduras
+- Lutador
+- Comando
+- Especialista em Armas
+- dependências
+- builds
+- estrutura para UI
