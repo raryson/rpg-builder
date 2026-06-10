@@ -5,6 +5,21 @@
   "outputDirectory": "apps/web/dist",
   "rewrites": [
     {
+      "source": "/",
+      "has": [{ "type": "header", "key": "user-agent", "value": ".*(facebookexternalhit|Facebot|Twitterbot|Slackbot|Discordbot|WhatsApp|TelegramBot|LinkedInBot|Pinterest|Googlebot|bingbot).*" }],
+      "destination": "/api/og?path=/"
+    },
+    {
+      "source": "/app",
+      "has": [{ "type": "header", "key": "user-agent", "value": ".*(facebookexternalhit|Facebot|Twitterbot|Slackbot|Discordbot|WhatsApp|TelegramBot|LinkedInBot|Pinterest|Googlebot|bingbot).*" }],
+      "destination": "/api/og?path=/app"
+    },
+    {
+      "source": "/wiki/:path*",
+      "has": [{ "type": "header", "key": "user-agent", "value": ".*(facebookexternalhit|Facebot|Twitterbot|Slackbot|Discordbot|WhatsApp|TelegramBot|LinkedInBot|Pinterest|Googlebot|bingbot).*" }],
+      "destination": "/api/og?path=/wiki/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

@@ -193,6 +193,8 @@ type CharacterSheet = {
 
 const STORAGE_KEY = 'rpg-builder-star-wars-saga-sheets';
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
+const SITE_NAME = 'RPG Builder';
+const DEFAULT_DESCRIPTION = 'Crie fichas e consulte a wiki pública de Star Wars Saga Edition.';
 const wikiSystems: WikiSystem[] = [
   {
     slug: 'star-wars-saga',
@@ -564,6 +566,62 @@ function normalizeSheet(sheet: CharacterSheet): CharacterSheet {
 
 function apiUrl(path: string) {
   return `${API_BASE_URL}${path}`;
+}
+
+type SeoInput = {
+  title: string;
+  description: string;
+  image?: string;
+  path?: string;
+  type?: 'website' | 'article';
+};
+
+function absoluteUrl(pathOrUrl: string) {
+  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
+  return new URL(pathOrUrl, window.location.origin).toString();
+}
+
+function setMetaAttribute(attribute: 'name' | 'property', key: string, content: string) {
+  let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
+
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+}
+
+function applySeo({ title, description, image, path, type = 'website' }: SeoInput) {
+  const canonicalUrl = absoluteUrl(path ?? window.location.pathname);
+  const imageUrl = absoluteUrl(image ?? `/api/og-image?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(description)}`);
+
+  document.title = title;
+  setMetaAttribute('name', 'description', description);
+  setMetaAttribute('property', 'og:type', type);
+  setMetaAttribute('property', 'og:site_name', SITE_NAME);
+  setMetaAttribute('property', 'og:title', title);
+  setMetaAttribute('property', 'og:description', description);
+  setMetaAttribute('property', 'og:url', canonicalUrl);
+  setMetaAttribute('property', 'og:image', imageUrl);
+  setMetaAttribute('property', 'og:image:alt', title);
+  setMetaAttribute('property', 'og:image:width', '1200');
+  setMetaAttribute('property', 'og:image:height', '630');
+  setMetaAttribute('property', 'og:locale', 'pt_BR');
+  setMetaAttribute('name', 'twitter:card', 'summary_large_image');
+  setMetaAttribute('name', 'twitter:title', title);
+  setMetaAttribute('name', 'twitter:description', description);
+  setMetaAttribute('name', 'twitter:image', imageUrl);
+  setMetaAttribute('name', 'twitter:image:alt', title);
+
+  let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', canonicalUrl);
 }
 
 async function readRemoteSheets() {
@@ -1008,6 +1066,14 @@ function WikiApp({
     }
   }, [activeSystem.slug]);
 
+  useEffect(() => {
+    applySeo({
+      title: `${activeSystem.name} | Wiki RPG Builder`,
+      description: `Wiki pública de ${activeSystem.name} com equipamentos, talentos, veículos, dróides e regras catalogadas.`,
+      path: `/wiki/${activeSystem.slug}`,
+    });
+  }, [activeSystem.name, activeSystem.slug]);
+
   if (routeRuleSlug) {
     return (
       <WikiRuleDetail
@@ -1181,6 +1247,18 @@ function WikiRuleDetail({
     };
   }, [activeSystem.slug, slug]);
 
+  useEffect(() => {
+    if (!rule) return;
+
+    applySeo({
+      title: `${rule.name} | ${activeSystem.shortName}`,
+      description: rule.summary || `Consulte ${rule.name} na wiki pública de ${activeSystem.name}.`,
+      image: rule.imageUrl || undefined,
+      path: `/wiki/${activeSystem.slug}/${rule.slug}`,
+      type: 'article',
+    });
+  }, [activeSystem.name, activeSystem.shortName, activeSystem.slug, rule]);
+
   return (
     <main className="wiki-shell">
       <header className="global-header">
@@ -1293,6 +1371,16 @@ export function App() {
   const isFirstStep = activeStepIndex === 0;
   const isLastStep = activeStepIndex === sheetTabs.length - 1;
   const progressPercent = ((activeStepIndex + 1) / sheetTabs.length) * 100;
+
+  useEffect(() => {
+    if (isWikiRoute) return;
+
+    applySeo({
+      title: 'RPG Builder | Criador de fichas Star Wars Saga',
+      description: DEFAULT_DESCRIPTION,
+      path: window.location.pathname === '/' ? '/' : '/app',
+    });
+  }, [isWikiRoute]);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sheets));
