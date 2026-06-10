@@ -17,6 +17,8 @@ const RuleEntrySchema = new Schema(
     imageAttribution: { type: String, default: '' },
     imageProvider: { type: String, default: '' },
     imageUpdatedAt: { type: Date, default: null },
+    imageSearchStatus: { type: String, enum: ['pending', 'found', 'missed'], default: 'pending', index: true },
+    imageSearchUpdatedAt: { type: Date, default: null },
     visibility: { type: String, enum: ['public', 'private'], default: 'public', index: true },
     status: { type: String, enum: ['draft', 'published', 'archived'], default: 'published', index: true },
   },

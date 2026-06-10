@@ -79,6 +79,70 @@ function mapDetailItem(item, type) {
   };
 }
 
+function isDroidAssemblyItem(item) {
+  return String(item.slug ?? '').startsWith('droides-');
+}
+
+function buildDroidAssemblyEntry(items) {
+  const grouped = new Map();
+
+  for (const item of items) {
+    const category = item.category || 'Montagem';
+    if (!grouped.has(category)) grouped.set(category, []);
+    grouped.get(category).push(item);
+  }
+
+  const sections = Array.from(grouped.entries()).map(([category, categoryItems]) => {
+    const rules = categoryItems.map((item) => [
+      `### ${item.name}`,
+      '',
+      item.summary ? `**Resumo:** ${item.summary}` : '',
+      '',
+      item.details ?? '',
+    ].filter(Boolean).join('\n'));
+
+    return [`## ${category}`, '', ...rules].join('\n');
+  });
+
+  return {
+    systemSlug: 'star-wars-saga',
+    type: 'droid',
+    name: 'Montagem de Dróide',
+    slug: 'montagem-de-droide',
+    category: 'Construção de dróides',
+    summary: 'Regras de construção, tamanho, locomoção, armaduras, anexos, armazenamento interno e sistemas usados para montar ou modificar dróides.',
+    content: [
+      '# Montagem de Dróide',
+      '',
+      'Use esta página como referência central para construir, adaptar e equipar dróides. Ela reúne as regras de tamanho, locomoção, armadura, anexos, armazenamento interno e melhorias que antes ficavam espalhadas em várias páginas menores.',
+      '',
+      ...sections,
+    ].join('\n'),
+    stats: {
+      sections: items.length,
+    },
+    tags: [
+      'droid',
+      'montagem',
+      'construção',
+      'anexos',
+      'locomoção',
+      'armadura',
+      'sistemas',
+    ],
+    source: 'Fonte OCR: droides-pt-1.txt + droides-pt-5.txt',
+    imageUrl: 'https://www.theleonardo.org/wp-content/uploads/2017/02/Anakin-Building-C-3PO.jpg',
+    imageSourceUrl: 'https://theleonardo.org/androids-help-bridge-gap-fiction-real-life/',
+    imageAttribution: 'Anakin Building C-3PO',
+    imageProvider: 'The Leonardo',
+    imageUpdatedAt: new Date(),
+    imageSearchStatus: 'found',
+    imageSearchUpdatedAt: new Date(),
+    visibility: 'public',
+    status: 'published',
+  };
+}
+
 loadLocalEnv();
 
 if (!process.env.MONGODB_URI) {
@@ -86,11 +150,14 @@ if (!process.env.MONGODB_URI) {
 }
 
 const catalog = loadCatalog();
+const droidAssemblyItems = (catalog.sagaDroidDetailsCatalog ?? []).filter(isDroidAssemblyItem);
+const droidCatalogItems = (catalog.sagaDroidDetailsCatalog ?? []).filter((item) => !isDroidAssemblyItem(item));
 const entries = [
   ...(catalog.sagaTalentDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'talent')),
   ...(catalog.sagaEquipmentDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'equipment')),
   ...(catalog.sagaVehicleDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'vehicle')),
-  ...(catalog.sagaDroidDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'droid')),
+  ...droidCatalogItems.map((item) => mapDetailItem(item, 'droid')),
+  buildDroidAssemblyEntry(droidAssemblyItems),
 ];
 
 const schema = new mongoose.Schema(
@@ -110,6 +177,8 @@ const schema = new mongoose.Schema(
     imageAttribution: { type: String, default: '' },
     imageProvider: { type: String, default: '' },
     imageUpdatedAt: { type: Date, default: null },
+    imageSearchStatus: { type: String, enum: ['pending', 'found', 'missed'], default: 'pending', index: true },
+    imageSearchUpdatedAt: { type: Date, default: null },
     visibility: { type: String, enum: ['public', 'private'], default: 'public', index: true },
     status: { type: String, enum: ['draft', 'published', 'archived'], default: 'published', index: true },
   },
@@ -143,5 +212,18 @@ for (const entry of entries) {
   );
 }
 
-console.log(`Seeded ${entries.length} Star Wars Saga rule entries.`);
+const archivedAssemblyEntries = await RuleEntry.updateMany(
+  {
+    systemSlug: 'star-wars-saga',
+    type: 'droid',
+    slug: { $in: droidAssemblyItems.map((item) => item.slug) },
+  },
+  {
+    $set: {
+      status: 'archived',
+    },
+  },
+);
+
+console.log(`Seeded ${entries.length} Star Wars Saga rule entries. Archived ${archivedAssemblyEntries.modifiedCount} droid assembly fragments.`);
 await mongoose.disconnect();

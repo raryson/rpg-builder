@@ -95,6 +95,8 @@ function getRuleEntryModel() {
       imageAttribution: { type: String, default: '' },
       imageProvider: { type: String, default: '' },
       imageUpdatedAt: { type: Date, default: null },
+      imageSearchStatus: { type: String, enum: ['pending', 'found', 'missed'], default: 'pending', index: true },
+      imageSearchUpdatedAt: { type: Date, default: null },
       visibility: { type: String, enum: ['public', 'private'], default: 'public', index: true },
       status: { type: String, enum: ['draft', 'published', 'archived'], default: 'published', index: true },
     },
@@ -202,7 +204,7 @@ export async function listRuleEntries(input: {
   if (input.category) filter.category = input.category;
   if (input.query) filter.$text = { $search: input.query };
 
-  const limit = Math.min(Math.max(input.limit ?? 80, 1), 200);
+  const limit = Math.min(Math.max(input.limit ?? 120, 1), 500);
   const query = getRuleEntryModel()
     .find(filter)
     .sort(input.query ? { score: { $meta: 'textScore' }, name: 1 } : { type: 1, category: 1, name: 1 })
@@ -231,6 +233,8 @@ export async function listRuleEntries(input: {
     imageAttribution: entry.imageAttribution ?? '',
     imageProvider: entry.imageProvider ?? '',
     imageUpdatedAt: entry.imageUpdatedAt ?? null,
+    imageSearchStatus: entry.imageSearchStatus ?? 'pending',
+    imageSearchUpdatedAt: entry.imageSearchUpdatedAt ?? null,
     updatedAt: entry.updatedAt,
   }));
 }
@@ -253,6 +257,8 @@ function leanRuleEntry(entry: any) {
     imageAttribution: entry.imageAttribution ?? '',
     imageProvider: entry.imageProvider ?? '',
     imageUpdatedAt: entry.imageUpdatedAt ?? null,
+    imageSearchStatus: entry.imageSearchStatus ?? 'pending',
+    imageSearchUpdatedAt: entry.imageSearchUpdatedAt ?? null,
     updatedAt: entry.updatedAt,
   };
 }

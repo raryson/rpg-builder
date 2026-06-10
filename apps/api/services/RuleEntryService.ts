@@ -25,6 +25,8 @@ export type SaveRuleEntryInput = {
   imageAttribution?: string;
   imageProvider?: string;
   imageUpdatedAt?: Date | null;
+  imageSearchStatus?: 'pending' | 'found' | 'missed';
+  imageSearchUpdatedAt?: Date | null;
   visibility?: 'public' | 'private';
   status?: 'draft' | 'published' | 'archived';
 };
@@ -47,6 +49,8 @@ function leanRuleEntry(entry: any) {
     imageAttribution: entry.imageAttribution ?? '',
     imageProvider: entry.imageProvider ?? '',
     imageUpdatedAt: entry.imageUpdatedAt ?? null,
+    imageSearchStatus: entry.imageSearchStatus ?? 'pending',
+    imageSearchUpdatedAt: entry.imageSearchUpdatedAt ?? null,
     updatedAt: entry.updatedAt,
   };
 }
@@ -65,7 +69,7 @@ export class RuleEntryService {
     if (input.category) filter.category = input.category;
     if (input.query) filter.$text = { $search: input.query };
 
-    const limit = Math.min(Math.max(input.limit ?? 80, 1), 200);
+    const limit = Math.min(Math.max(input.limit ?? 120, 1), 500);
     const query = RuleEntryModel.find(filter)
       .sort(input.query ? { score: { $meta: 'textScore' }, name: 1 } : { type: 1, category: 1, name: 1 })
       .limit(limit);

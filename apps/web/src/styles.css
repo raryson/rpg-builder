@@ -308,7 +308,8 @@ button {
   border-radius: 6px;
   display: block;
   height: auto;
-  object-fit: cover;
+  max-height: 170px;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -411,7 +412,8 @@ button {
 .wiki-detail-image img {
   aspect-ratio: 16 / 9;
   display: block;
-  object-fit: cover;
+  max-height: 520px;
+  object-fit: contain;
   width: 100%;
 }
 
