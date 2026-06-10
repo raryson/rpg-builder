@@ -59,10 +59,62 @@ function applyPhraseTranslations(value = '') {
     [' sabre de luz ', ' lightsaber '],
     [' bastao eletrico ', ' electrostaff '],
     [' lanca chamas ', ' flamethrower '],
+    [' lanca ', ' spear '],
+    [' maca ', ' mace '],
+    [' arco ', ' bow '],
+    [' faca ', ' knife '],
+    [' funda ', ' sling '],
+    [' rede ', ' net '],
+    [' cajado eletrico ', ' electrostaff '],
+    [' cajado ', ' staff '],
+    [' baioneta ', ' bayonet '],
+    [' cassetete de atordoamento ', ' stun baton '],
+    [' cassetete ', ' baton '],
+    [' vibroadaga ', ' vibrodagger '],
+    [' vibrobaioneta ', ' vibrobayonet '],
+    [' vibrolamina ', ' vibroblade '],
+    [' vibromachado ', ' vibro-ax '],
     [' granada de fragmentacao ', ' fragmentation grenade '],
     [' granada de concussao ', ' concussion grenade '],
     [' granada ', ' grenade '],
     [' detonador termico ', ' thermal detonator '],
+    [' detonador termal ', ' thermal detonator '],
+    [' lancador de granadas ', ' grenade launcher '],
+    [' lancador de misseis ', ' rocket launcher '],
+    [' carga explosiva ', ' explosive charge '],
+    [' contador de tempo ', ' timer '],
+    [' cilindro de codigo ', ' code cylinder '],
+    [' computador portatil ', ' portable computer '],
+    [' misturador de frequencias portatil ', ' portable frequency jammer '],
+    [' audiogravador ', ' audio recorder '],
+    [' holoprojetor pessoal ', ' holoprojector '],
+    [' caixa de voz ', ' vocabulator '],
+    [' comunicador de curto alcance ', ' comlink '],
+    [' comunicador de longo alcance ', ' long-range comlink '],
+    [' conjunto de sensores ', ' sensor pack '],
+    [' eletrobinoculos ', ' electrobinoculars '],
+    [' hologravador ', ' holorecorder '],
+    [' lanterna de fusao ', ' fusion lantern '],
+    [' lanterna ', ' glow rod '],
+    [' videogravador ', ' holorecorder '],
+    [' estojo cirurgico ', ' surgical kit '],
+    [' estojo medico ', ' medical kit '],
+    [' protese cibernetica ', ' cybernetic prosthesis '],
+    [' corda sintetica ', ' syntherope '],
+    [' corrente ', ' chain '],
+    [' dispensador de cabo liquido ', ' liquid cable dispenser '],
+    [' kit de campo ', ' field kit '],
+    [' manto para todas as temperaturas ', ' all-temperature cloak '],
+    [' pacote de racao ', ' ration pack '],
+    [' propulsor pessoal ', ' jet pack '],
+    [' algemas ', ' binders '],
+    [' carga de energia ', ' power pack '],
+    [' carregador de energia ', ' energy charger '],
+    [' celula de energia ', ' energy cell '],
+    [' extintor de incendio ', ' fire extinguisher '],
+    [' fita de malha ', ' mesh tape '],
+    [' gerador de energia ', ' power generator '],
+    [' kit de seguranca ', ' security kit '],
     [' traje de piloto ', ' flight suit '],
     [' capacete ', ' helmet '],
     [' colete blindado ', ' armored vest '],
@@ -82,6 +134,16 @@ function applyPhraseTranslations(value = '') {
     [' droide sonda ', ' probe droid '],
     [' droide aranha anao ', ' dwarf spider droid '],
     [' droide caranguejo ', ' crab droid '],
+    [' caca droide abutre ', ' vulture droid starfighter '],
+    [' droide tri caca ', ' droid tri-fighter '],
+    [' caca tie ln ', ' TIE/LN starfighter '],
+    [' interceptador tie ', ' TIE interceptor '],
+    [' corveta corelliana ', ' CR90 corvette '],
+    [' speeder terrestre sorosuub x 34 ', ' X-34 landspeeder '],
+    [' speeder aereo incom t 47 ', ' T-47 airspeeder '],
+    [' canhoneira laat i ', ' LAAT/i gunship '],
+    [' arc 170 ', ' ARC-170 starfighter '],
+    [' tanque repulsor aat 1 ', ' AAT battle tank '],
     [' droide destrier ', ' droideka '],
     [' droide destroier ', ' droideka '],
     [' magnaguarda ', ' magnaguard '],
@@ -223,6 +285,44 @@ function genericImageTermsFor(entry) {
   const content = cleanSearchPart(entry.content).toLowerCase();
   const terms = [];
 
+  const genericEquipmentTerms = [
+    ['arco', ['bow weapon', 'archery bow']],
+    ['faca', ['knife weapon', 'combat knife']],
+    ['lanca', ['spear weapon']],
+    ['maca', ['mace weapon', 'medieval mace']],
+    ['rede', ['net weapon', 'throwing net']],
+    ['cajado', ['staff weapon']],
+    ['baioneta', ['bayonet weapon']],
+    ['cassetete', ['baton weapon']],
+    ['luvas de combate', ['combat gloves']],
+    ['coldre', ['holster']],
+    ['mira telescopica', ['rifle scope', 'telescopic sight']],
+    ['capacete', ['combat helmet']],
+    ['colete', ['armored vest']],
+    ['traje de piloto', ['flight suit']],
+    ['carregador de energia', ['battery charger', 'energy charger']],
+    ['kit de ferramentas', ['mechanic tools', 'toolbox tools']],
+    ['lanca chamas', ['flamethrower']],
+    ['lancador de granadas', ['grenade launcher']],
+    ['lancador de misseis', ['rocket launcher']],
+    ['misturador de frequencias portatil', ['portable frequency jammer', 'radio frequency jammer']],
+    ['audiogravador', ['audio recorder', 'voice recorder']],
+    ['protese cibernetica', ['cybernetic prosthesis', 'prosthetic arm']],
+    ['dispensador de cabo liquido', ['cable dispenser', 'rope dispenser']],
+    ['propulsor pessoal', ['jet pack', 'rocket pack']],
+    ['fita de malha', ['mesh tape', 'repair tape']],
+  ];
+
+  if (entry.type === 'equipment') {
+    for (const [match, matchTerms] of genericEquipmentTerms) {
+      if (match === 'lanca' || match === 'maca' || match === 'rede' || match === 'faca' || match === 'arco') {
+        if (name === match) terms.push(...matchTerms);
+      } else if (name.includes(match)) {
+        terms.push(...matchTerms);
+      }
+    }
+  }
+
   const isDroidPart = entry.type === 'droid' && (
     category.includes('anexo')
     || category.includes('armadura')
@@ -230,7 +330,7 @@ function genericImageTermsFor(entry) {
     || content.includes('sistemas instalados')
   );
 
-  if (!isDroidPart) return terms;
+  if (!isDroidPart) return Array.from(new Set(terms));
 
   if (name.includes('garra')) terms.push('robot claw gripper', 'mechanical claw gripper', 'robot gripper');
   if (name.includes('mao')) terms.push('robot hand', 'prosthetic robot hand');
@@ -302,7 +402,7 @@ function titleMatchesEntry(pageTitle = '', entry) {
   const titleTokens = new Set(importantTokens(pageTitle));
   const hintTokens = englishHintsFor(entry).flatMap(importantTokens);
   const nameTokens = importantTokens(entry.name);
-  const acceptedTokens = new Set([...hintTokens, ...nameTokens]);
+  const acceptedTokens = new Set(hintTokens.length > 0 ? hintTokens : nameTokens);
 
   if (acceptedTokens.size === 0) return false;
 
@@ -336,6 +436,17 @@ function sortCandidatePages(pages = []) {
       if (imageScore !== 0) return imageScore;
       return (a.index ?? 999) - (b.index ?? 999);
     });
+}
+
+function titleMatchesGenericTerm(pageTitle = '', term = '') {
+  const titleTokens = new Set(importantTokens(pageTitle.replace(/^File:/, '')));
+  const termTokens = importantTokens(term);
+
+  if (termTokens.length > 1) {
+    return termTokens.every((token) => titleTokens.has(token));
+  }
+
+  return termTokens.some((token) => titleTokens.has(token));
 }
 
 async function fetchJson(url) {
@@ -402,6 +513,8 @@ async function findGenericCommonsImage(entry) {
     const pages = sortCandidatePages(payload?.query?.pages ?? []);
 
     for (const page of pages) {
+      if (!titleMatchesGenericTerm(page.title, term)) continue;
+
       const imageInfo = page?.imageinfo?.[0];
       const imageUrl = imageInfo?.thumburl || imageInfo?.url;
       if (!isUsefulImageUrl(imageUrl)) continue;

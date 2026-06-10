@@ -10,6 +10,7 @@
     "apps/*"
   ],
   "dependencies": {
+    "@vercel/blob": "^2.4.0",
     "lucide-react": "^0.468.0"
   },
   "scripts": {
@@ -21,6 +22,7 @@
     "build": "npm run build --workspace @rpg-builder/web && npm run build --workspace @rpg-builder/api",
     "seed:rules": "node scripts/seed-rule-entries.mjs",
     "enrich:rule-images": "node scripts/enrich-rule-images.mjs",
+    "migrate:rule-images:blob": "node scripts/migrate-rule-images-to-blob.mjs",
     "lint": "npm run lint --workspaces --if-present"
   }
 }
