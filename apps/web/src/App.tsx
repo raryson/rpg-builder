@@ -657,6 +657,53 @@ function normalizeSheet(sheet: CharacterSheet): CharacterSheet {
   };
 }
 
+function isPristineSheet(sheet: CharacterSheet) {
+  return (
+    sheet.characterName === 'Novo personagem' &&
+    !sheet.isFinalized &&
+    sheet.sheetVersions.length === 0 &&
+    sheet.levelHistory.length === 0 &&
+    sheet.totalLevel <= 1 &&
+    sheet.feats.length === 0 &&
+    sheet.talents.length === 0 &&
+    sheet.forcePowers.length === 0 &&
+    sheet.inventory.length === 0 &&
+    sheet.notes.trim() === '' &&
+    Object.values(sheet.abilities).every((value) => value === 10)
+  );
+}
+
+function mergeSheets(localSheets: CharacterSheet[], remoteSheets: CharacterSheet[]): CharacterSheet[] {
+  // Nunca substitui fichas locais pelas remotas: fichas que só existem localmente
+  // ainda não foram sincronizadas e seriam perdidas. Em conflito de id, vence a
+  // edição mais recente.
+  const merged = new Map<string, CharacterSheet>();
+
+  for (const remote of remoteSheets) {
+    merged.set(remote.id, remote);
+  }
+
+  for (const local of localSheets) {
+    const remote = merged.get(local.id);
+    if (!remote) {
+      merged.set(local.id, local);
+      continue;
+    }
+
+    const localTime = Date.parse(local.updatedAt ?? '') || 0;
+    const remoteTime = Date.parse(remote.updatedAt ?? '') || 0;
+    if (localTime > remoteTime) {
+      merged.set(local.id, local);
+    }
+  }
+
+  const all = [...merged.values()];
+  const edited = all.filter((sheet) => !isPristineSheet(sheet));
+
+  if (edited.length > 0) return edited;
+  return all.length > 0 ? [all[0]] : [createSheet()];
+}
+
 function apiUrl(path: string) {
   return `${API_BASE_URL}${path}`;
 }
@@ -1693,15 +1740,16 @@ export function App() {
       .then((remoteSheets) => {
         if (cancelled) return;
 
-        if (remoteSheets.length > 0) {
-          setSheets(remoteSheets);
-          setActiveId(remoteSheets[0].id);
-          setActiveTab(remoteSheets[0].isFinalized ? 'summary' : 'identity');
-          setSummaryVersionId('');
-        }
+        // loadSheets() lê o localStorage, que o efeito de persistência mantém
+        // sempre atualizado com o estado mais recente.
+        const merged = mergeSheets(loadSheets(), remoteSheets);
+        setSheets(merged);
+        setActiveId((currentId) => (merged.some((sheet) => sheet.id === currentId) ? currentId : merged[0].id));
+        setSummaryVersionId('');
       })
-      .catch(() => {
+      .catch((error) => {
         // Mantém o cache local quando a API ou o Mongo estiverem indisponíveis.
+        console.warn('Não foi possível carregar fichas remotas; mantendo as fichas locais.', error);
       })
       .finally(() => {
         if (!cancelled) {
