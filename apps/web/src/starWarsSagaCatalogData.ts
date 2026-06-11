@@ -3827,3 +3827,169 @@ Níveis ímpares recebem talento de Jedi. Níveis pares recebem aptidão bônus 
     extra: 'Fonte OCR: classes-6.txt',
   },
 ];
+
+// Talentos da Força (Manual Edição Saga, p. 110-112). Disponíveis apenas a
+// personagens com a aptidão Sensível à Força, que podem escolhê-los no lugar
+// do talento de classe ganho em níveis ímpares.
+export const sagaForceTalentDetailsCatalog = [
+  {
+    name: 'Golpe Disciplinado',
+    slug: 'golpe-disciplinado',
+    summary: 'Exclui alvos dos efeitos de poderes da Força em cone.',
+    details:
+      'Ao usar um poder da Força com efeito de cone (como o Golpe da Força), você pode excluir alvos dos efeitos do poder.\n\nNúmero de alvos excluídos: igual ao seu modificador de Sabedoria (mínimo 1).',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Alterar',
+    extra: 'Fonte: Manual Edição Saga, p. 110\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Poder Telecinético',
+    slug: 'poder-telecinetico',
+    summary: 'Um 20 natural em poder telecinético permite repetir o poder de graça.',
+    details:
+      'Ao rolar um 20 natural no teste de Usar a Força para ativar Desarmar da Força, Empurrão da Força, Estrangulamento da Força, Golpe da Força ou Mover Objeto, você pode usar aquele poder de novo imediatamente, como ação livre, contra qualquer alvo dentro do alcance.',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Alterar',
+    extra: 'Fonte: Manual Edição Saga, p. 110\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Sabedoria Telecinética',
+    slug: 'sabedoria-telecinetica',
+    summary: 'Recupera um poder telecinético gasto, 1x por encontro, sem Ponto da Força.',
+    details:
+      'Uma vez por encontro, como ação rápida, recupere para o seu conjunto um destes poderes da Força sem gastar um Ponto da Força: Desarmar da Força, Empurrão da Força, Estrangulamento da Força, Golpe da Força ou Mover Objeto.\n\nPode ser escolhido várias vezes; cada escolha adiciona um uso por encontro.',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Alterar',
+    extra: 'Fonte: Manual Edição Saga, p. 110\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Redução de Dano 10',
+    slug: 'reducao-de-dano-10',
+    summary: 'Gasta um Ponto da Força para ganhar Redução de Dano 10 por 1 minuto.',
+    details:
+      'Como ação padrão, gaste um Ponto da Força para ganhar Redução de Dano 10 por 1 minuto (ver Redução de Dano, p. 158).',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Controlar',
+    extra: 'Fonte: Manual Edição Saga, p. 110\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Equilibrium',
+    slug: 'equilibrium',
+    summary: 'Gasta um Ponto da Força para limpar condições debilitantes.',
+    details:
+      'Como ação rápida, gaste um Ponto da Força para remover todas as condições debilitantes que o afetam e retornar ao estado normal (ver Condições, p. 148).',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Controlar',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Foco da Força',
+    slug: 'foco-da-forca',
+    summary: 'Teste de Usar a Força CD 15 para recuperar um poder gasto.',
+    details:
+      'Como ação completa, faça um teste de Usar a Força (CD 15). Se passar, recupere um poder da Força gasto à sua escolha.',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Controlar',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Recuperação pela Força',
+    slug: 'recuperacao-pela-forca',
+    summary: 'Segundo fôlego cura 1d6 extra por Ponto da Força que você possua.',
+    details:
+      'Sempre que utilizar seu segundo fôlego (p. 146), recupere pontos de vida adicionais: 1d6 por Ponto da Força que você possua (máximo 10d6).',
+    prerequisites: 'Sensível à Força; Equilibrium.',
+    category: 'Força — Árvore de Controlar',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Poder do Lado Negro',
+    slug: 'poder-do-lado-negro',
+    summary: 'Dado extra ao gastar Ponto da Força em ataque, ao custo de Lado Negro +1.',
+    details:
+      'Sempre que gastar um Ponto da Força para modificar uma jogada de ataque, você pode rolar um dado adicional e escolher o melhor resultado. Fazer isso aumenta seu Valor do Lado Negro em 1.\n\nA árvore do Lado Negro exige Valor do Lado Negro 1 ou maior; se ele cair a 0, você perde acesso aos talentos da árvore até que volte a subir.',
+    prerequisites: 'Sensível à Força; Valor do Lado Negro 1+.',
+    category: 'Força — Árvore do Lado Negro',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força e Valor do Lado Negro 1+',
+  },
+  {
+    name: 'Presença Sombria',
+    slug: 'presenca-sombria',
+    summary: 'Bônus da Força de +1 nas defesas para você e aliados próximos.',
+    details:
+      'Como ação padrão, você e todos os aliados em 6 quadrados centrados em você ganham bônus da Força de +1 em todas as defesas até o fim do encontro.\n\nOs bônus são perdidos se você ficar inconsciente ou morrer; aliados que saiam do alcance perdem o benefício enquanto estiverem fora.',
+    prerequisites: 'Sensível à Força; Carisma 13; Poder do Lado Negro; Valor do Lado Negro 1+.',
+    category: 'Força — Árvore do Lado Negro',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força e Valor do Lado Negro 1+',
+  },
+  {
+    name: 'Vingança',
+    slug: 'vinganca',
+    summary: '+2 em ataque e dano quando um aliado cai na sua linha de visão.',
+    details:
+      'Quando um aliado de nível igual ou maior que o seu for morto ou reduzido a 0 pontos de vida na sua linha de visão, você ganha bônus da Força de +2 em jogadas de ataque e dano até o fim do encontro.\n\nBônus da Força não se acumulam: mais de um aliado caindo não aumenta o bônus.',
+    prerequisites: 'Sensível à Força; Presença Sombria; Poder do Lado Negro; Valor do Lado Negro 1+.',
+    category: 'Força — Árvore do Lado Negro',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força e Valor do Lado Negro 1+',
+  },
+  {
+    name: 'Poder Rápido',
+    slug: 'poder-rapido',
+    summary: '1x por dia, usa um poder da Força como ação rápida.',
+    details:
+      'Uma vez por dia, use um poder da Força que normalmente exige ação padrão ou de movimento como uma ação rápida.',
+    prerequisites: 'Sensível à Força; Poder do Lado Negro; Valor do Lado Negro 1+.',
+    category: 'Força — Árvore do Lado Negro',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força e Valor do Lado Negro 1+',
+  },
+  {
+    name: 'Percepção da Força',
+    slug: 'percepcao-da-forca',
+    summary: 'Usa o teste de Usar a Força no lugar de Percepção.',
+    details:
+      'Você pode fazer testes de Usar a Força em vez de Percepção para evitar surpresa, notar inimigos, perceber trapaça ou sentir influência (perícia Percepção, p. 70). Conta como treinado em Percepção para este talento. Rerrolagens concedidas de Percepção podem ser feitas com Usar a Força, nas mesmas condições.',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Sentir',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Pilotar da Força',
+    slug: 'pilotar-da-forca',
+    summary: 'Usa o modificador de Usar a Força nos testes de Pilotar.',
+    details:
+      'Use seu modificador de Usar a Força em vez do de Pilotar nos testes de Pilotar. Conta como treinado em Pilotar para este talento. Rerrolagens concedidas de Pilotar podem ser feitas com Usar a Força, nas mesmas condições.',
+    prerequisites: 'Sensível à Força.',
+    category: 'Força — Árvore de Sentir',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Previsão',
+    slug: 'previsao',
+    summary: 'Ponto da Força para rerrolar Iniciativa; 20 natural devolve o ponto.',
+    details:
+      'Gaste um Ponto da Força para rerrolar um teste de Iniciativa, mantendo o melhor resultado. Se rolar um 20 natural na Iniciativa, recupere imediatamente o Ponto da Força gasto.',
+    prerequisites: 'Sensível à Força; Percepção da Força.',
+    category: 'Força — Árvore de Sentir',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Medir o Potencial da Força',
+    slug: 'medir-o-potencial-da-forca',
+    summary: 'Avalia o poder na Força de uma criatura na linha de visão.',
+    details:
+      'Como ação padrão, faça um teste de Usar a Força contra a Defesa de Vontade de uma criatura na linha de visão. Se passar, você descobre se ela tem a aptidão Sensível à Força, quantos poderes da Força conhece (não quais) e quantos Pontos da Força tem atualmente.',
+    prerequisites: 'Sensível à Força; Percepção da Força.',
+    category: 'Força — Árvore de Sentir',
+    extra: 'Fonte: Manual Edição Saga, p. 111\nRequer: aptidão Sensível à Força',
+  },
+  {
+    name: 'Visões',
+    slug: 'visoes',
+    summary: 'Visão Distante pode mostrar o passado ou o futuro do alvo.',
+    details:
+      'Ao usar o poder Visão Distante, gaste um Ponto da Força como ação rápida para ver o passado ou o futuro do alvo, em vez do presente. Declare a distância temporal, até 1 ano por nível de personagem. Informações do futuro estão sujeitas a mudança.',
+    prerequisites: 'Sensível à Força; Percepção da Força; poder Visão Distante.',
+    category: 'Força — Árvore de Sentir',
+    extra: 'Fonte: Manual Edição Saga, p. 112\nRequer: aptidão Sensível à Força',
+  },
+];
