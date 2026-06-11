@@ -2094,7 +2094,6 @@ textarea {
   border: 1px solid #d7cdb9;
   border-radius: 8px;
   color: inherit;
-  cursor: default;
   display: grid;
   gap: 5px;
   padding: 12px;
@@ -2102,16 +2101,37 @@ textarea {
   width: 100%;
 }
 
-button.version-card {
+.version-card-main {
   appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
   cursor: pointer;
+  display: grid;
   font: inherit;
+  gap: 5px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
 }
 
 .version-card.active,
-button.version-card:hover {
+.version-card:has(.version-card-main:hover) {
   border-color: #d54635;
   box-shadow: 0 0 0 2px rgba(213, 70, 53, 0.12);
+}
+
+.version-delete-button {
+  background: transparent;
+  border: 1px solid #d8b8ae;
+  border-radius: 6px;
+  color: #9d2f24;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 850;
+  justify-self: start;
+  min-height: 30px;
+  padding: 0 10px;
 }
 
 .version-card strong {
@@ -2545,6 +2565,23 @@ button.version-card:hover {
   overflow-wrap: anywhere;
 }
 
+.wiki-inline-link {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(213, 70, 53, 0.45);
+  text-underline-offset: 3px;
+}
+
+.wiki-inline-link:hover {
+  color: #d54635;
+}
+
+.summary-inline-token + .summary-inline-token::before {
+  content: " / ";
+  color: #7b817c;
+}
+
 .summary-list {
   display: flex;
   flex-wrap: wrap;
@@ -2556,9 +2593,27 @@ button.version-card:hover {
   border: 1px solid #e1d4bf;
   border-radius: 6px;
   color: #30363a;
+  display: grid;
+  gap: 3px;
   font-size: 0.8rem;
   font-weight: 800;
   padding: 7px 9px;
+}
+
+.summary-list.detailed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.summary-list.detailed span {
+  align-content: start;
+}
+
+.summary-list small {
+  color: #5d645f;
+  font-size: 0.73rem;
+  font-weight: 750;
+  line-height: 1.35;
 }
 
 .summary-empty,

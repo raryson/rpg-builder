@@ -1,0 +1,156 @@
+# PARTE 1 — PERÍCIAS
+
+---
+
+# Obter Informações (Car)
+
+Use esta perícia para fazer contatos, descobrir novidades sobre rumores e história local, e obter segredos.
+
+## Descobrir Novidades e Rumores
+
+As maiores novidades e os mais populares rumores locais podem ser descobertos com um teste de Obter Informações CD 10.
+
+Descobrir detalhes, fatos não confidenciais sobre uma novidade ou determinar a veracidade de um rumor requer:
+
+- Teste CD 20
+- 50 créditos em suborno
+
+---
+
+## Descobrir Informações Secretas
+
+"Informações secretas" incluem qualquer coisa não disponível ao público geral.
+
+Exemplos:
+
+- relatório secreto da polícia;
+- local escondido;
+- esquemas militares;
+- procedimento de segurança de instalações;
+- códigos de acesso a computadores.
+
+Descobrir uma parte de informação secreta normalmente requer:
+
+- CD 25
+- 5.000 créditos em suborno
+
+Informações específicas podem ser mais difíceis de obter.
+
+Exemplo:
+
+- esquemas técnicos da Estrela da Morte
+
+Nestes casos:
+
+- CD 30 ou maior
+- 50.000 créditos ou mais (de acordo com o GM)
+
+Se o teste falhar por 5 ou mais:
+
+- alguém notará que você está fazendo perguntas;
+- virá investigar;
+- prender;
+- ou silenciar você.
+
+---
+
+## Localizar Indivíduo
+
+Faça um teste de Obter Informações para localizar:
+
+- um indivíduo específico;
+- alguém conhecido pelo nome;
+- alguém com alguma perícia;
+- item;
+- ou informação desejada.
+
+CD:
+
+- 15 → alvo relativamente fácil de localizar
+- 25 → alvo pouco conhecido ou que tomou precauções para ocultar presença e atividades
+
+Custo adicional:
+
+- 500 créditos em suborno
+
+---
+
+## Especial
+
+Você pode escolher 10 em um teste de Obter Informações.
+
+Você não pode escolher 20.
+
+Um sucesso em Persuasão pode reduzir a despesa monetária de um teste de Obter Informações.
+
+Algumas informações estão além do alcance desta perícia.
+
+Exemplo:
+
+Um personagem procurando por Darth Vader não irá encontrá-lo conversando com tribos de Ewoks na lua florestal de Endor, independentemente da quantidade de perguntas feitas.
+
+---
+
+## Tempo
+
+Cada teste de Obter Informações representa:
+
+**1d6 horas**
+
+Exemplos:
+
+- conversando com informantes;
+- pesquisando novidades difundidas na HoloNet;
+- sondando quiosques de informação.
+
+---
+
+# Percepção (Sab)
+
+Use esta perícia para perceber ameaças assim como o que está ao seu redor.
+
+A distância entre você e o que quer que esteja tentando perceber afeta suas checagens de Percepção, assim como:
+
+- barreiras sólidas;
+- camuflagem.
+
+---
+
+## Evitar Surpresa
+
+Uma checagem de Percepção feita no início de uma batalha determina se você está ou não surpreso.
+
+Tipo:
+
+- Reação
+
+---
+
+## Escutar às Escondidas
+
+Uma checagem contra CD 10 permite escutar às escondidas uma conversa.
+
+Requisitos:
+
+- estar apto a entender a linguagem falada.
+
+Modificadores:
+
+- área relativamente barulhenta → CD 15
+- área particularmente barulhenta → CD 25
+
+Tipo:
+
+- ação padrão
+
+---
+
+## Ouvir Barulhos Distantes ou Ambientes
+
+Uma checagem de Percepção contra CD 10 permite detectar e identificar barulhos distantes ou do ambiente.
+
+Tipo:
+
+- ação padrão
+
+---

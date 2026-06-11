@@ -3379,6 +3379,209 @@ export const sagaDroidDetailsCatalog = [
   }
 ];
 
+export const sagaSkillDetailsCatalog = [
+  {
+    name: 'Acrobacia',
+    slug: 'acrobacia',
+    summary: 'Perícia de Destreza afetada por penalidade de armadura.',
+    details: 'Use Acrobacia para feitos de equilíbrio, manobras ágeis e movimentos acrobáticos. Na ficha, o total soma 1/2 nível, modificador de Destreza, treinamento, foco, bônus de espécie e outros bônus.',
+    category: 'Perícia',
+    extra: 'Habilidade: Destreza | Penalidade de armadura: sim',
+  },
+  {
+    name: 'Conhecimento',
+    slug: 'conhecimento',
+    summary: 'Perícia de Inteligência para áreas de estudo gerais.',
+    details: 'Use Conhecimento para responder perguntas sobre uma área estudada. Conhecimento Comum permite responder uma pergunta simples sobre sua área de estudo com CD 10.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Conhecimento (Sabedoria Galáctica)',
+    slug: 'conhecimento-sabedoria-galactica',
+    summary: 'Planetas, planeta natal, setores do espaço, história galáctica e a Força.',
+    details: 'Cobre planetas, planeta natal, setores do espaço, história galáctica e a Força. Conhecimento Comum: uma pergunta simples relacionada ao tema pode ser respondida com CD 10.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Conhecimento (Ciências de Vida)',
+    slug: 'conhecimento-ciencias-de-vida',
+    summary: 'Biologia, botânica, genética, arqueologia, xenobiologia, medicina e direito.',
+    details: 'Cobre biologia, botânica, genética, arqueologia, xenobiologia, medicina e direito. Conhecimento Comum: uma pergunta simples relacionada ao tema pode ser respondida com CD 10.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Conhecimento (Ciências Físicas)',
+    slug: 'conhecimento-ciencias-fisicas',
+    summary: 'Astronomia, astronavegação, química, matemática, física e engenharia.',
+    details: 'Cobre astronomia, astronavegação, química, matemática, física e engenharia. Conhecimento Comum: uma pergunta simples relacionada ao tema pode ser respondida com CD 10.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Conhecimento (Ciências Sociais)',
+    slug: 'conhecimento-ciencias-sociais',
+    summary: 'Sociologia, psicologia, filosofia, teologia e criminologia.',
+    details: 'Cobre sociologia, psicologia, filosofia, teologia e criminologia. Conhecimento Comum: uma pergunta simples relacionada ao tema pode ser respondida com CD 10.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Conhecimento (Táticas)',
+    slug: 'conhecimento-taticas',
+    summary: 'Técnicas e estratégias para posicionar e manobrar forças em combate.',
+    details: 'Cobre técnicas e estratégias para posicionar e manobrar forças em combate. Conhecimento Comum: uma pergunta simples relacionada ao tema pode ser respondida com CD 10.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Conhecimento (Tecnologia)',
+    slug: 'conhecimento-tecnologia',
+    summary: 'Função e princípios dos aparelhos tecnológicos, teorias de ponta e avanços.',
+    details: 'Cobre função e princípios dos aparelhos tecnológicos, assim como conhecimento sobre teorias de ponta e avanços. Conhecimento Comum: uma pergunta simples relacionada ao tema pode ser respondida com CD 10.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Dissimulação',
+    slug: 'dissimulacao',
+    summary: 'Perícia de Carisma para enganar, blefar e esconder intenções.',
+    details: 'Use Dissimulação para mentir, blefar, criar falsas impressões e ocultar intenções.',
+    category: 'Perícia',
+    extra: 'Habilidade: Carisma | Penalidade de armadura: não',
+  },
+  {
+    name: 'Escalar',
+    slug: 'escalar',
+    summary: 'Perícia de Força afetada por penalidade de armadura.',
+    details: 'Use Escalar para subir superfícies difíceis, vencer obstáculos verticais e manter apoio durante escaladas.',
+    category: 'Perícia',
+    extra: 'Habilidade: Força | Penalidade de armadura: sim',
+  },
+  {
+    name: 'Furtividade',
+    slug: 'furtividade',
+    summary: 'Perícia de Destreza afetada por penalidade de armadura.',
+    details: 'Use Furtividade para se esconder, mover-se sem chamar atenção e evitar detecção.',
+    category: 'Perícia',
+    extra: 'Habilidade: Destreza | Penalidade de armadura: sim',
+  },
+  {
+    name: 'Iniciativa',
+    slug: 'iniciativa',
+    summary: 'Perícia de Destreza para agir rapidamente em encontros.',
+    details: 'Use Iniciativa para definir sua prontidão e ordem de ação quando uma cena de tensão ou combate começa.',
+    category: 'Perícia',
+    extra: 'Habilidade: Destreza | Penalidade de armadura: não',
+  },
+  {
+    name: 'Mecânica',
+    slug: 'mecanica',
+    summary: 'Perícia de Inteligência para reparar, modificar e lidar com máquinas.',
+    details: 'Use Mecânica para reparar, modificar, desmontar, sabotar ou improvisar soluções com máquinas, dispositivos, veículos e dróides.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Montar',
+    slug: 'montar',
+    summary: 'Perícia de Destreza afetada por penalidade de armadura.',
+    details: 'Use Montar para cavalgar ou controlar montarias em situações de movimento, risco ou combate.',
+    category: 'Perícia',
+    extra: 'Habilidade: Destreza | Penalidade de armadura: sim',
+  },
+  {
+    name: 'Nadar',
+    slug: 'nadar',
+    summary: 'Perícia de Força afetada por penalidade de armadura.',
+    details: 'Use Nadar para se deslocar em água ou outros líquidos, resistir à correnteza e agir enquanto submerso.',
+    category: 'Perícia',
+    extra: 'Habilidade: Força | Penalidade de armadura: sim',
+  },
+  {
+    name: 'Obter Informações',
+    slug: 'obter-informacoes',
+    summary: 'Perícia de Carisma para investigar por contatos e conversa.',
+    details: 'Use Obter Informações para descobrir rumores, localizar pessoas, encontrar oportunidades e levantar fatos por meio de interação social.',
+    category: 'Perícia',
+    extra: 'Habilidade: Carisma | Penalidade de armadura: não',
+  },
+  {
+    name: 'Percepção',
+    slug: 'percepcao',
+    summary: 'Perícia de Sabedoria para notar detalhes, ameaças e pistas.',
+    details: 'Use Percepção para perceber emboscadas, ouvir sons, notar objetos escondidos, identificar detalhes importantes e reagir ao ambiente.',
+    category: 'Perícia',
+    extra: 'Habilidade: Sabedoria | Penalidade de armadura: não',
+  },
+  {
+    name: 'Persuasão',
+    slug: 'persuasao',
+    summary: 'Perícia de Carisma para convencer, negociar e influenciar.',
+    details: 'Use Persuasão para convencer, intimidar, negociar, pedir ajuda, fazer discursos e influenciar outras pessoas.',
+    category: 'Perícia',
+    extra: 'Habilidade: Carisma | Penalidade de armadura: não',
+  },
+  {
+    name: 'Pilotar',
+    slug: 'pilotar',
+    summary: 'Perícia de Destreza para operar veículos e naves.',
+    details: 'Use Pilotar para conduzir veículos, naves e outras máquinas de transporte em manobras comuns, difíceis ou perigosas.',
+    category: 'Perícia',
+    extra: 'Habilidade: Destreza | Penalidade de armadura: não',
+  },
+  {
+    name: 'Resistência',
+    slug: 'resistencia',
+    summary: 'Perícia de Constituição para suportar esforço, fadiga e condições duras.',
+    details: 'Use Resistência para aguentar esforço prolongado, condições ambientais severas, privação e desgaste físico.',
+    category: 'Perícia',
+    extra: 'Habilidade: Constituição | Penalidade de armadura: não',
+  },
+  {
+    name: 'Saltar',
+    slug: 'saltar',
+    summary: 'Perícia de Força afetada por penalidade de armadura.',
+    details: 'Use Saltar para vencer distâncias, obstáculos, desníveis e movimentação explosiva.',
+    category: 'Perícia',
+    extra: 'Habilidade: Força | Penalidade de armadura: sim',
+  },
+  {
+    name: 'Sobrevivência',
+    slug: 'sobrevivencia',
+    summary: 'Perícia de Sabedoria para rastrear, orientar-se e sobreviver em campo.',
+    details: 'Use Sobrevivência para encontrar comida e abrigo, seguir rastros, evitar perigos naturais e navegar em ambientes hostis.',
+    category: 'Perícia',
+    extra: 'Habilidade: Sabedoria | Penalidade de armadura: não',
+  },
+  {
+    name: 'Tratar Ferimentos',
+    slug: 'tratar-ferimentos',
+    summary: 'Perícia de Sabedoria para primeiros socorros e tratamento médico.',
+    details: 'Use Tratar Ferimentos para estabilizar, tratar lesões, realizar procedimentos médicos e ajudar personagens feridos.',
+    category: 'Perícia',
+    extra: 'Habilidade: Sabedoria | Penalidade de armadura: não',
+  },
+  {
+    name: 'Usar Computador',
+    slug: 'usar-computador',
+    summary: 'Perícia de Inteligência para operar, pesquisar e invadir sistemas.',
+    details: 'Use Usar Computador para operar sistemas, pesquisar dados, controlar redes, lidar com segurança digital e acessar informações.',
+    category: 'Perícia',
+    extra: 'Habilidade: Inteligência | Penalidade de armadura: não',
+  },
+  {
+    name: 'Usar a Força',
+    slug: 'usar-a-forca',
+    summary: 'Perícia de Carisma para sentir, canalizar e manipular a Força.',
+    details: 'Use Usar a Força para ativar poderes, sentir presenças, entrar em transe, perceber distúrbios e realizar feitos ligados à Força.',
+    category: 'Perícia',
+    extra: 'Habilidade: Carisma | Penalidade de armadura: não',
+  },
+];
+
 export const sagaClassDetailsCatalog = [
   {
     name: 'Level up e progressão de personagem',
@@ -3387,14 +3590,16 @@ export const sagaClassDetailsCatalog = [
     details: `## Fluxo de level up
 
 1. Escolha a classe que recebeu o novo nível.
-2. Some PV da classe: dado de vida + modificador de Constituição.
-3. Atualize ataque base conforme a progressão da classe.
-4. Atualize defesas usando bônus de classe, espécie, nível e atributos.
-5. Em níveis ímpares da classe, escolha um talento de classe.
-6. Em níveis pares da classe, escolha uma aptidão bônus da lista da classe.
-7. Recalcule Pontos da Força como **5 + metade do nível total**.
-8. Nos níveis 4, 8, 12, 16 e 20, aumente dois atributos diferentes em +1.
-9. Salve uma nova versão da ficha.
+2. Some PV da classe usando o valor máximo do dado de vida + modificador de Constituição.
+3. Aumente o BBA em +1.
+4. Atualize defesas usando bônus de classe, espécie, nível e atributos; na prática, o novo nível adiciona +1 às defesas.
+5. Aumente o dano de todas as armas em +1.
+6. Em níveis ímpares da classe, escolha um talento de classe.
+7. Em níveis pares da classe, escolha uma aptidão bônus da lista da classe.
+8. Defina Pontos da Força como **6**; não acumula com pontos não gastos.
+9. Defina Pontos de Destino como **2**; não acumula com pontos não gastos.
+10. Nos níveis 4, 8, 12, 16 e 20, aumente dois atributos diferentes em +1.
+11. Salve uma nova versão da ficha.
 
 ## Multiclasse
 
@@ -3417,7 +3622,7 @@ O Batedor é o explorador do grupo: percebe perigos, encontra caminhos, sobreviv
 | Campo | Valor |
 | --- | --- |
 | PV inicial | 24 + Con |
-| PV por nível | 1d8 + Con |
+| PV por nível | 8 + Con |
 | Ataque base | médio |
 | Defesas | Reflexos +2, Fortitude +1 |
 | Perícias treinadas | 5 + Int |
@@ -3435,7 +3640,7 @@ Sobrevivente: [Corredor](/wiki/star-wars-saga/corredor), [Esforço Extremo](/wik
 
 ## Aptidões bônus
 
-[Ataque em Movimento](/wiki/star-wars-saga/ataque-em-movimento), [Certeiro](/wiki/star-wars-saga/certeiro), [Combate Veicular](/wiki/star-wars-saga/combate-veicular), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Franco-atirador](/wiki/star-wars-saga/franco-atirador), [Linguista](/wiki/star-wars-saga/linguista), [Proficiência Armadura Leve](/wiki/star-wars-saga/proficiencia-em-armaduras-leves), [Tiro Distante](/wiki/star-wars-saga/tiro-distante), [Tiro Meticuloso](/wiki/star-wars-saga/tiro-meticuloso), [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Tiro Rápido](/wiki/star-wars-saga/tiro-rapido), [Tiro à Queima Roupa](/wiki/star-wars-saga/tiro-a-queima-roupa), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
+[Ataque em Movimento](/wiki/star-wars-saga/ataque-em-movimento), [Certeiro](/wiki/star-wars-saga/certeiro), [Combate Veicular](/wiki/star-wars-saga/combate-veicular), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Franco-atirador](/wiki/star-wars-saga/franco-atirador), [Linguista](/wiki/star-wars-saga/linguista), [Mobilidade](/wiki/star-wars-saga/mobilidade), [Proficiência em Armaduras (Leves)](/wiki/star-wars-saga/proficiencia-em-armaduras-leves), [Proficiência em Armaduras (Médias)](/wiki/star-wars-saga/proficiencia-em-armaduras-medias), [Proficiência em Armaduras (Pesadas)](/wiki/star-wars-saga/proficiencia-em-armaduras-pesadas), [Proficiência em Armas](/wiki/star-wars-saga/proficiencia-em-armas), [Tiro Distante](/wiki/star-wars-saga/tiro-distante), [Tiro Meticuloso](/wiki/star-wars-saga/tiro-meticuloso), [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Tiro Rápido](/wiki/star-wars-saga/tiro-rapido), [Tiro à Queima Roupa](/wiki/star-wars-saga/tiro-a-queima-roupa), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
 
 ## Level up
 
@@ -3461,7 +3666,7 @@ O Soldado é o combatente mais direto: alta vida, melhor ataque base e grande va
 | Campo | Valor |
 | --- | --- |
 | PV inicial | 30 + Con |
-| PV por nível | 1d10 + Con |
+| PV por nível | 10 + Con |
 | Ataque base | máximo |
 | Defesas | Reflexos +1, Fortitude +2 |
 | Perícias treinadas | 3 + Int |
@@ -3505,7 +3710,7 @@ O Nobre resolve problemas com presença, autoridade, contatos e coordenação de
 | Campo | Valor |
 | --- | --- |
 | PV inicial | 18 + Con |
-| PV por nível | 1d6 + Con |
+| PV por nível | 6 + Con |
 | Ataque base | médio |
 | Defesas | Reflexos +1, Vontade +2 |
 | Perícias treinadas | 6 + Int |
@@ -3521,7 +3726,7 @@ Liderança: [Coordenar](/wiki/star-wars-saga/coordenar), [Confiança](/wiki/star
 
 ## Aptidões bônus
 
-[Ataque Coordenado](/wiki/star-wars-saga/ataque-coordenado), [Combate Veicular](/wiki/star-wars-saga/combate-veicular), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Linguista](/wiki/star-wars-saga/linguista), [Saque Rápido](/wiki/star-wars-saga/saque-rapido), [Tiro Preciso](/wiki/star-wars-saga/tiro-preciso), [Tiro à Queima Roupa](/wiki/star-wars-saga/tiro-a-queima-roupa), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
+[Acuidade com Arma](/wiki/star-wars-saga/acuidade-com-arma), [Instalar Prótese Cibernética](/wiki/star-wars-saga/instalar-protese-cibernetica), [Especialista Cirúrgico](/wiki/star-wars-saga/especialista-cirurgico), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Linguista](/wiki/star-wars-saga/linguista), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia), [Proficiência em Armaduras (Leves)](/wiki/star-wars-saga/proficiencia-em-armaduras-leves), [Proficiência em Armas](/wiki/star-wars-saga/proficiencia-em-armas), [Proficiência em Armas Exóticas](/wiki/star-wars-saga/proficiencia-em-armas-exoticas), [Especialista Técnico](/wiki/star-wars-saga/especialista-tecnico).
 
 ## Level up
 
@@ -3547,7 +3752,7 @@ Fora-da-Lei vence por astúcia, sorte, oportunidade, precisão e improviso.
 | Campo | Valor |
 | --- | --- |
 | PV inicial | 18 + Con |
-| PV por nível | 1d6 + Con |
+| PV por nível | 6 + Con |
 | Ataque base | médio |
 | Defesas | Reflexos +2, Vontade +1 |
 | Perícias treinadas | 6 + Int |
@@ -3595,7 +3800,7 @@ O Jedi combina combate, percepção da Força e disciplina espiritual.
 | Campo | Valor |
 | --- | --- |
 | PV inicial | 30 + Con |
-| PV por nível | 1d10 + Con |
+| PV por nível | 10 + Con |
 | Ataque base | máximo |
 | Defesas | Reflexos +1, Fortitude +1, Vontade +1 |
 | Créditos iniciais | 3d4 x 100 |
@@ -3608,7 +3813,7 @@ Combate com Sabre de Luz: [Arremessar Sabre de Luz](/wiki/star-wars-saga/arremes
 
 ## Aptidões bônus
 
-[Acuidade com Arma](/wiki/star-wars-saga/acuidade-com-arma), [Ataque Duplo](/wiki/star-wars-saga/ataque-duplo), [Ataque Poderoso](/wiki/star-wars-saga/ataque-poderoso), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Arma](/wiki/star-wars-saga/foco-em-arma), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Poderoso na Força](/wiki/star-wars-saga/poderoso-na-forca), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
+[Acuidade com Arma](/wiki/star-wars-saga/acuidade-com-arma), [Artes Marciais I](/wiki/star-wars-saga/artes-marciais-i), [Ataque Duplo](/wiki/star-wars-saga/ataque-duplo), [Ataque em Movimento](/wiki/star-wars-saga/ataque-em-movimento), [Ataque Poderoso](/wiki/star-wars-saga/ataque-poderoso), [Ataque Rápido](/wiki/star-wars-saga/ataque-rapido), [Crítico Triplicado](/wiki/star-wars-saga/critico-triplicado), [Esquiva](/wiki/star-wars-saga/esquiva), [Foco em Arma](/wiki/star-wars-saga/foco-em-arma), [Foco em Perícia](/wiki/star-wars-saga/foco-em-pericia), [Poderoso na Força](/wiki/star-wars-saga/poderoso-na-forca), [Investida Aprimorada](/wiki/star-wars-saga/investida-aprimorada), [Investida Poderosa](/wiki/star-wars-saga/investida-poderosa), [Maestria com Duas Armas I](/wiki/star-wars-saga/maestria-com-duas-armas-i), [Maestria com Duas Armas II](/wiki/star-wars-saga/maestria-com-duas-armas-ii), [Maestria com Duas Armas III](/wiki/star-wars-saga/maestria-com-duas-armas-iii), [Mobilidade](/wiki/star-wars-saga/mobilidade), [Reflexos em Combate](/wiki/star-wars-saga/reflexos-em-combate), [Saque Rápido](/wiki/star-wars-saga/saque-rapido), [Treinamento em Perícia](/wiki/star-wars-saga/treinamento-em-pericia).
 
 ## Level up
 

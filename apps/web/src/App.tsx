@@ -234,6 +234,12 @@ type CharacterSheet = {
   updatedAt: string;
 };
 
+type SummaryListItem = {
+  label: string;
+  slug?: string;
+  meta?: string;
+};
+
 const STORAGE_KEY = 'rpg-builder-star-wars-saga-sheets';
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
 const SITE_NAME = 'RPG Builder';
@@ -316,7 +322,7 @@ const heroicClassCatalog: ClassCatalogItem[] = [
     keyAttributes: ['wisdom', 'charisma', 'dexterity'],
     trainedSkillBase: 2,
     talentTrees: ['Sentinela Jedi', 'Combate com Sabre de Luz'],
-    bonusFeats: ['Acuidade com Arma', 'Ataque Duplo', 'Ataque Poderoso', 'Esquiva', 'Foco em Arma', 'Foco em Perícia', 'Poderoso na Força', 'Treinamento em Perícia'],
+    bonusFeats: ['Acuidade com Arma', 'Artes Marciais I', 'Ataque Duplo', 'Ataque em Movimento', 'Ataque Poderoso', 'Ataque Rápido', 'Crítico Triplicado', 'Esquiva', 'Foco em Arma', 'Foco em Perícia', 'Poderoso na Força', 'Investida Aprimorada', 'Investida Poderosa', 'Maestria com Duas Armas I', 'Maestria com Duas Armas II', 'Maestria com Duas Armas III', 'Mobilidade', 'Reflexos em Combate', 'Saque Rápido', 'Treinamento em Perícia'],
     credits: '3d4 × 100',
   }),
   heroicClass({
@@ -331,7 +337,7 @@ const heroicClassCatalog: ClassCatalogItem[] = [
     keyAttributes: ['charisma', 'intelligence', 'wisdom'],
     trainedSkillBase: 6,
     talentTrees: ['Influência', 'Inspiração', 'Liderança'],
-    bonusFeats: ['Ataque Coordenado', 'Combate Veicular', 'Esquiva', 'Foco em Perícia', 'Linguista', 'Saque Rápido', 'Tiro Preciso', 'Tiro à Queima Roupa', 'Treinamento em Perícia'],
+    bonusFeats: ['Acuidade com Arma', 'Cirurgia Cibernética', 'Especialista Cirúrgico', 'Foco em Perícia', 'Linguista', 'Treinamento em Perícia', 'Proficiência em Armaduras (Leves)', 'Proficiência em Armas', 'Proficiência em Armas Exóticas', 'Especialista Técnico'],
     credits: '5d4 × 250',
   }),
   heroicClass({
@@ -361,7 +367,7 @@ const heroicClassCatalog: ClassCatalogItem[] = [
     keyAttributes: ['dexterity', 'wisdom', 'intelligence'],
     trainedSkillBase: 5,
     talentTrees: ['Consciência', 'Camuflagem', 'Improvisador', 'Sobrevivente'],
-    bonusFeats: ['Ataque em Movimento', 'Certeiro', 'Combate Veicular', 'Esquiva', 'Foco em Perícia', 'Franco-atirador', 'Linguista', 'Proficiência Armadura Leve', 'Tiro Distante', 'Tiro Meticuloso', 'Tiro Preciso', 'Tiro Rápido', 'Tiro à Queima Roupa', 'Treinamento em Perícia'],
+    bonusFeats: ['Ataque em Movimento', 'Certeiro', 'Combate Veicular', 'Esquiva', 'Foco em Perícia', 'Franco-atirador', 'Linguista', 'Mobilidade', 'Proficiência em Armaduras (Leves)', 'Proficiência em Armaduras (Médias)', 'Proficiência em Armaduras (Pesadas)', 'Proficiência em Armas', 'Tiro à Queima Roupa', 'Tiro Distante', 'Tiro Meticuloso', 'Tiro Preciso', 'Tiro Rápido', 'Treinamento em Perícia'],
     credits: '3d4 × 250',
   }),
   heroicClass({
@@ -587,8 +593,8 @@ function createSheet(): CharacterSheet {
     damageTaken: 0,
     conditionStep: 0,
     speed: 6,
-    destinyPoints: 0,
-    forcePoints: 5,
+    destinyPoints: 2,
+    forcePoints: 6,
     darkSideScore: 0,
     skills: skillCatalog.map((skill) => ({ skillSlug: skill.slug, trained: false, focused: false, misc: 0 })),
     feats: [],
@@ -925,8 +931,7 @@ function calculateBaseAttackFromClassLevels(classLevels: ClassLevelEntry[]) {
   return classLevels.reduce((total, classLevel) => {
     const classData = heroicClassCatalog.find((item) => item.slug === classLevel.classSlug);
     if (!classData) return total;
-    const progression = classData.baseAttackProgression === 'full' ? classLevel.level : Math.floor(classLevel.level * 0.75);
-    return total + progression;
+    return total + classLevel.level;
   }, 0);
 }
 
@@ -947,13 +952,48 @@ function calculateClassDefenseBonuses(classLevels: ClassLevelEntry[]) {
   );
 }
 
-function dieAverage(hitDie: string) {
+function dieMaximum(hitDie: string) {
   const sides = Number(hitDie.replace(/\D/g, '')) || 6;
-  return Math.ceil((sides + 1) / 2);
+  return sides;
 }
 
 function forcePointsForLevel(level: number) {
-  return 5 + Math.floor(level / 2);
+  return level > 0 ? 6 : 0;
+}
+
+function destinyPointsForLevel(level: number) {
+  return level > 0 ? 2 : 0;
+}
+
+function calculateSkillBreakdown(
+  sheet: CharacterSheet,
+  species: SpeciesCatalogItem,
+  abilities: Record<AbilityKey, { base: number; species: number; total: number }>,
+  skill: SkillEntry,
+) {
+  const catalog = skillCatalog.find((item) => item.slug === skill.skillSlug);
+  const ability = catalog?.ability ?? 'strength';
+  const speciesSkillBonus = species.skillBonuses[skill.skillSlug] ?? 0;
+  const halfLevelBonus = Math.floor(sheet.totalLevel / 2);
+  const abilityModifier = modifier(abilities[ability].total);
+  const levelAndAbilityBonus = halfLevelBonus + abilityModifier;
+  const trainingBonus = skill.trained ? 5 : 0;
+  const focusBonus = skill.focused ? 5 : 0;
+  const otherBonus = speciesSkillBonus + skill.misc;
+  const total = levelAndAbilityBonus + trainingBonus + focusBonus + otherBonus;
+
+  return {
+    ability,
+    abilityModifier,
+    catalog,
+    focusBonus,
+    halfLevelBonus,
+    levelAndAbilityBonus,
+    otherBonus,
+    speciesSkillBonus,
+    total,
+    trainingBonus,
+  };
 }
 
 function classProgressionGain(level: number) {
@@ -998,12 +1038,26 @@ function labelFor(items: CatalogItem[], slug: string) {
   return items.find((item) => item.slug === slug)?.name ?? slug;
 }
 
+function wikiHref(slug: string) {
+  return `/wiki/star-wars-saga/${slug}`;
+}
+
+function WikiLink({ slug, children, className = 'wiki-inline-link' }: { slug?: string; children: ReactNode; className?: string }) {
+  if (!slug) return <>{children}</>;
+  return <a className={className} href={wikiHref(slug)}>{children}</a>;
+}
+
 const featNameAliases: Record<string, string> = {
   'sensitivo-a-forca': 'sensivel-a-forca',
   'proficiencia-armadura-leve': 'proficiencia-em-armaduras-leves',
   'proficiencia-armadura-media': 'proficiencia-em-armaduras-medias',
   'proficiencia-armadura-pesada': 'proficiencia-em-armaduras-pesadas',
+  'proficiencia-em-armaduras-leves': 'proficiencia-em-armaduras-leves',
+  'proficiencia-em-armaduras-medias': 'proficiencia-em-armaduras-medias',
+  'proficiencia-em-armaduras-pesadas': 'proficiencia-em-armaduras-pesadas',
   'proficiencia-armas-exoticas': 'proficiencia-em-armas-exoticas',
+  'cirurgia-cibernetica': 'instalar-protese-cibernetica',
+  'tecnico-especialista': 'especialista-tecnico',
 };
 
 function matchesFeatName(item: FeatCatalogItem, name: string) {
@@ -1886,6 +1940,25 @@ export function App() {
     });
   }
 
+  function deleteSheetVersion(versionId: string) {
+    const nextSheet: CharacterSheet = {
+      ...activeSheet,
+      sheetVersions: activeSheet.sheetVersions.filter((version) => version.id !== versionId),
+      updatedAt: new Date().toISOString(),
+    };
+
+    setSheets((current) => current.map((sheet) => (sheet.id === activeSheet.id ? nextSheet : sheet)));
+    if (summaryVersionId === versionId) {
+      setSummaryVersionId('');
+    }
+
+    if (authUser) {
+      void saveRemoteSheet(nextSheet).catch(() => {
+        // O cache local continua sendo a fonte imediata se o Mongo falhar momentaneamente.
+      });
+    }
+  }
+
   function startSheetEdition() {
     saveSheetVersion(activeSheet.versionNote || `Edição baseada no nível ${activeSheet.totalLevel}`, { finalized: false });
     setSummaryVersionId('');
@@ -1899,7 +1972,7 @@ export function App() {
     const classData = heroicClassCatalog.find((item) => item.slug === levelUpClassSlug) ?? activeClass;
     const nextLevel = activeSheet.totalLevel + 1;
     const classCurrentLevel = getClassLevel(activeSheet, classData.slug);
-    const suggestedHp = dieAverage(classData.hitDie) + modifier(composedAbilities.constitution.total);
+    const suggestedHp = dieMaximum(classData.hitDie) + modifier(composedAbilities.constitution.total);
     const hitPointGain = Math.max(1, levelUpHpGain || suggestedHp);
     const abilityBoosts = levelRequiresAbilityBoost(nextLevel) && levelUpAbilityOne !== levelUpAbilityTwo
       ? [levelUpAbilityOne, levelUpAbilityTwo]
@@ -1941,6 +2014,7 @@ export function App() {
       hitPointsMaximum: activeSheet.hitPointsMaximum + hitPointGain,
       hitPointsCurrent: activeSheet.hitPointsCurrent + hitPointGain,
       forcePoints: forcePointsForLevel(nextLevel),
+      destinyPoints: destinyPointsForLevel(nextLevel),
       feats: chosenFeat ? [...activeSheet.feats, chosenFeat.slug] : activeSheet.feats,
       talents: levelUpTalentSlug && !activeSheet.talents.includes(levelUpTalentSlug) ? [...activeSheet.talents, levelUpTalentSlug] : activeSheet.talents,
       progressionLog: [activeSheet.progressionLog, summary, levelUpNotes].filter(Boolean).join('\n'),
@@ -2176,13 +2250,13 @@ export function App() {
               </div>
               <div className="source-details">
                 <div className="detail-box species-source">
-                  <strong>{activeSpecies.name}</strong>
+                  <strong><WikiLink slug={activeSpecies.slug}>{activeSpecies.name}</WikiLink></strong>
                   <p>{activeSpecies.description}</p>
                   <small>{activeSpecies.size}, deslocamento racial {activeSpecies.speed}</small>
                   <small>Tracos: {activeSpecies.traits.join(', ')}</small>
                 </div>
                 <div className="detail-box class-source">
-                  <strong>{activeClass.name}</strong>
+                  <strong><WikiLink slug={activeClass.slug}>{activeClass.name}</WikiLink></strong>
                   <p>{activeClass.description}</p>
                   <small>Papel: {activeClass.role}</small>
                   <small>Perícias treinadas: {activeClass.trainedSkillBase} + Int</small>
@@ -2267,21 +2341,23 @@ export function App() {
                   <span>Outros</span>
                 </div>
                 {activeSheet.skills.map((skill) => {
-                  const catalog = skillCatalog.find((item) => item.slug === skill.skillSlug);
-                  const ability = catalog?.ability ?? 'strength';
-                  const speciesSkillBonus = activeSpecies.skillBonuses[skill.skillSlug] ?? 0;
-                  const halfLevelBonus = Math.floor(activeSheet.totalLevel / 2);
-                  const abilityModifier = modifier(composedAbilities[ability].total);
-                  const levelAndAbilityBonus = halfLevelBonus + abilityModifier;
-                  const trainingBonus = skill.trained ? 5 : 0;
-                  const focusBonus = skill.focused ? 5 : 0;
-                  const otherBonus = speciesSkillBonus + skill.misc;
-                  const total = levelAndAbilityBonus + trainingBonus + focusBonus + otherBonus;
+                  const {
+                    ability,
+                    abilityModifier,
+                    catalog,
+                    focusBonus,
+                    halfLevelBonus,
+                    levelAndAbilityBonus,
+                    otherBonus,
+                    speciesSkillBonus,
+                    total,
+                    trainingBonus,
+                  } = calculateSkillBreakdown(activeSheet, activeSpecies, composedAbilities, skill);
                   return (
                     <div className="skill-row" key={skill.skillSlug}>
                       <label className="career-toggle skill-check skill-training" title="Treinada"><input checked={skill.trained} type="checkbox" onChange={(event) => updateSkill(skill.skillSlug, { trained: event.target.checked })} /><span>{signed(trainingBonus)}</span></label>
                       <div>
-                        <strong>{catalog?.name}</strong>
+                        <strong><WikiLink slug={skill.skillSlug}>{catalog?.name ?? skill.skillSlug}</WikiLink></strong>
                         <small>{abilityLabels[ability]}{catalog?.armor ? ' - penalidade de armadura' : ''}</small>
                         {catalog?.description && <small className="skill-description">{catalog.description}</small>}
                       </div>
@@ -2503,20 +2579,22 @@ export function App() {
     const nextLevel = activeSheet.totalLevel + 1;
     const selectedClass = heroicClassCatalog.find((item) => item.slug === levelUpClassSlug) ?? activeClass;
     const nextClassLevel = getClassLevel(activeSheet, selectedClass.slug) + 1;
-    const suggestedHp = Math.max(1, dieAverage(selectedClass.hitDie) + modifier(composedAbilities.constitution.total));
+    const suggestedHp = Math.max(1, dieMaximum(selectedClass.hitDie) + modifier(composedAbilities.constitution.total));
     const classTalents = talentDetailsCatalog.filter((item) => item.classRestriction?.includes(selectedClass.slug));
     const selectedClassBonusFeats = featCatalog.filter((item) =>
       !activeSheet.feats.includes(item.slug) &&
       selectedClass.bonusFeats.some((featName) => matchesFeatName(item, featName)));
     const levelUpFeatValue = selectedClassBonusFeats.some((item) => item.slug === levelUpFeatSlug) ? levelUpFeatSlug : '';
     const gains = [
-      `PV: ${selectedClass.hitDie} + Con. Sugestão média: +${suggestedHp}`,
+      `PV: máximo do ${selectedClass.hitDie} + Con. Sugestão: +${suggestedHp}`,
       `BBA após salvar: +${calculateBaseAttackFromClassLevels(
         activeSheet.classLevels.some((entry) => entry.classSlug === selectedClass.slug)
           ? activeSheet.classLevels.map((entry) => (entry.classSlug === selectedClass.slug ? { ...entry, level: entry.level + 1 } : entry))
           : [...activeSheet.classLevels, { classSlug: selectedClass.slug, level: 1 }],
       )}`,
-      `Pontos da Força serão recalculados para ${forcePointsForLevel(nextLevel)}`,
+      'Dano de todas as armas: +1',
+      `Pontos da Força serão definidos como ${forcePointsForLevel(nextLevel)} (não acumula)`,
+      `Pontos de Destino serão definidos como ${destinyPointsForLevel(nextLevel)} (não acumula)`,
       `${classProgressionGain(nextClassLevel)} em ${selectedClass.name}`,
       levelRequiresAbilityBoost(nextLevel) ? '+1 em dois atributos diferentes' : 'Sem aumento de atributo neste nível',
     ];
@@ -2633,7 +2711,7 @@ export function App() {
             <input checked={selected} readOnly type="checkbox" />
           </span>
           <span className="level-choice-content">
-            <strong>{item.name}</strong>
+            <strong><WikiLink slug={item.slug}>{item.name}</WikiLink></strong>
             {meta && <small className="level-choice-meta">{meta}</small>}
             <p className={type === 'feat' ? 'level-choice-description full-text' : 'level-choice-description'}>{renderChoiceHighlight(description || 'Detalhes pendentes de catalogação.')}</p>
             {normal && <small className="level-choice-extra full-text"><b>Normal:</b> {renderChoiceHighlight(normal)}</small>}
@@ -2713,16 +2791,16 @@ export function App() {
         <div className="version-list">
           {activeSheet.sheetVersions.length === 0 && <p className="summary-empty">Nenhuma versão salva ainda. Use o level up ou crie uma versão manual.</p>}
           {activeSheet.sheetVersions.map((version) => (
-            <button
-              className={summaryVersionId === version.id ? 'version-card active' : 'version-card'}
-              key={version.id}
-              type="button"
-              onClick={() => viewSheetVersion(activeSheet, version.id)}
-            >
-              <strong>v{version.versionNumber} · nível {version.level}</strong>
-              <span>{formatDate(version.createdAt)}</span>
-              <p>{version.summary}</p>
-            </button>
+            <article className={summaryVersionId === version.id ? 'version-card active' : 'version-card'} key={version.id}>
+              <button className="version-card-main" type="button" onClick={() => viewSheetVersion(activeSheet, version.id)}>
+                <strong>v{version.versionNumber} · nível {version.level}</strong>
+                <span>{formatDate(version.createdAt)}</span>
+                <p>{version.summary}</p>
+              </button>
+              <button className="version-delete-button" type="button" onClick={() => deleteSheetVersion(version.id)}>
+                Excluir versão
+              </button>
+            </article>
           ))}
         </div>
       </Panel>
@@ -2774,27 +2852,31 @@ export function App() {
       ]),
     ) as Record<DefenseKey, number>;
     const summaryBaseAttackBonus = calculateBaseAttackFromClassLevels(summarySheet.classLevels);
-    const selectedFeats = summarySheet.feats.map((slug) => labelFor(featCatalog, slug));
-    const selectedTalents = summarySheet.talents.map((slug) => labelFor(talentDetailsCatalog, slug));
-    const selectedForcePowers = summarySheet.forcePowers.map((slug) => labelFor(forcePowerDetailsCatalog, slug));
-    const selectedForceTechniques = summarySheet.forceTechniques.map((slug) => labelFor(forceTechniqueDetailsCatalog, slug));
-    const selectedForceSecrets = summarySheet.forceSecrets.map((slug) => labelFor(forceSecretDetailsCatalog, slug));
-    const selectedEquipment = summarySheet.inventory.map((slug) => labelFor(equipmentDetailsCatalog, slug));
-    const selectedVehicles = summarySheet.vehicles.map((slug) => labelFor(vehicleDetailsCatalog, slug));
-    const selectedDroids = summarySheet.droidSystems.map((slug) =>
-      labelFor([...droidBuilderDetailsCatalog, ...readyDroidDetailsCatalog], slug),
-    );
-    const notableSkills = summarySheet.skills
-      .filter((skill) => skill.trained || skill.focused || skill.misc !== 0)
-      .map((skill) => {
-        const catalog = skillCatalog.find((item) => item.slug === skill.skillSlug);
-        const tags = [
-          skill.trained ? 'treinada' : '',
-          skill.focused ? 'foco' : '',
-          skill.misc !== 0 ? `outros ${signed(skill.misc)}` : '',
-        ].filter(Boolean);
-        return `${catalog?.name ?? skill.skillSlug} (${tags.join(', ')})`;
-      });
+    const selectedFeats = summarySheet.feats.map((slug) => ({ label: labelFor(featCatalog, slug), slug }));
+    const selectedTalents = summarySheet.talents.map((slug) => ({ label: labelFor(talentDetailsCatalog, slug), slug }));
+    const selectedForcePowers = summarySheet.forcePowers.map((slug) => ({ label: `Poder: ${labelFor(forcePowerDetailsCatalog, slug)}`, slug }));
+    const selectedForceTechniques = summarySheet.forceTechniques.map((slug) => ({ label: `Técnica: ${labelFor(forceTechniqueDetailsCatalog, slug)}`, slug }));
+    const selectedForceSecrets = summarySheet.forceSecrets.map((slug) => ({ label: `Segredo: ${labelFor(forceSecretDetailsCatalog, slug)}`, slug }));
+    const selectedEquipment = summarySheet.inventory.map((slug) => ({ label: labelFor(equipmentDetailsCatalog, slug), slug }));
+    const selectedVehicles = summarySheet.vehicles.map((slug) => ({ label: labelFor(vehicleDetailsCatalog, slug), slug }));
+    const droidCatalog = [...droidBuilderDetailsCatalog, ...readyDroidDetailsCatalog];
+    const selectedDroids = summarySheet.droidSystems.map((slug) => ({ label: labelFor(droidCatalog, slug), slug }));
+    const summarySkills = summarySheet.skills.map((skill) => {
+      const breakdown = calculateSkillBreakdown(summarySheet, summarySpecies, summaryAbilities, skill);
+      const tags = [
+        `${abilityLabels[breakdown.ability]} ${signed(breakdown.abilityModifier)}`,
+        `1/2 nível ${signed(breakdown.halfLevelBonus)}`,
+        skill.trained ? 'treinada +5' : 'sem treino',
+        skill.focused ? 'foco +5' : 'sem foco',
+        breakdown.otherBonus !== 0 ? `outros ${signed(breakdown.otherBonus)}` : '',
+      ].filter(Boolean);
+
+      return {
+        label: breakdown.catalog?.name ?? skill.skillSlug,
+        slug: skill.skillSlug,
+        meta: `${signed(breakdown.total)} · ${tags.join(' · ')}`,
+      };
+    });
 
     return (
       <Panel className="wide-panel summary-review" icon={<CheckCircle2 aria-hidden="true" />} title="Resumo da ficha">
@@ -2824,6 +2906,7 @@ export function App() {
           <div>
             <button type="button" onClick={startSheetEdition}>Criar nova edição</button>
             <button type="button" onClick={() => setLevelUpOpen(true)}>Fazer level up</button>
+            {selectedVersion && <button className="delete-version-action" type="button" onClick={() => deleteSheetVersion(selectedVersion.id)}>Excluir versão</button>}
           </div>
         </div>
         <div className="summary-grid">
@@ -2846,8 +2929,12 @@ export function App() {
           ]} />
 
           <SummarySection title="Espécie e classe" items={[
-            ['Espécie', summarySpecies.name],
-            ['Classes', summarySheet.classLevels.map((entry) => `${labelFor(heroicClassCatalog, entry.classSlug)} ${entry.level}`).join(' / ')],
+            ['Espécie', <WikiLink slug={summarySpecies.slug}>{summarySpecies.name}</WikiLink>],
+            ['Classes', summarySheet.classLevels.map((entry) => (
+              <span className="summary-inline-token" key={entry.classSlug}>
+                <WikiLink slug={entry.classSlug}>{labelFor(heroicClassCatalog, entry.classSlug)} {entry.level}</WikiLink>
+              </span>
+            ))],
             ['Nível total', summarySheet.totalLevel],
             ['Nível heroico', summarySheet.heroicLevel],
             ['Nível prestígio', summarySheet.prestigeLevel],
@@ -2875,16 +2962,16 @@ export function App() {
             ['BBA', `+${summaryBaseAttackBonus}`],
           ]} />
 
-          <SummaryList title="Perícias destacadas" items={notableSkills} empty="Nenhuma perícia marcada." />
+          <SummaryList title="Perícias" items={summarySkills} empty="Nenhuma perícia cadastrada." detailed />
           <SummaryList title="Aptidões" items={selectedFeats} empty="Nenhuma aptidão adicionada." />
           <SummaryList title="Talentos" items={selectedTalents} empty="Nenhum talento adicionado." />
           <SummaryList title="Força" items={[
-            summarySheet.forceSensitivity ? 'Sensível à Força' : 'Não sensível à Força',
-            summarySheet.forceTradition ? `Tradição: ${labelFor(['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem), summarySheet.forceTradition)}` : '',
-            ...selectedForcePowers.map((item) => `Poder: ${item}`),
-            ...selectedForceTechniques.map((item) => `Técnica: ${item}`),
-            ...selectedForceSecrets.map((item) => `Segredo: ${item}`),
-          ].filter(Boolean)} empty="Nenhuma informação da Força adicionada." />
+            summarySheet.forceSensitivity ? { label: 'Sensível à Força', slug: 'sensivel-a-forca' } : { label: 'Não sensível à Força' },
+            summarySheet.forceTradition ? { label: `Tradição: ${labelFor(['Jedi', 'Sith', 'Bruxas de Dathomir', 'Jensaarai'].map(toCatalogItem), summarySheet.forceTradition)}` } : null,
+            ...selectedForcePowers,
+            ...selectedForceTechniques,
+            ...selectedForceSecrets,
+          ].filter((item): item is SummaryListItem => Boolean(item))} empty="Nenhuma informação da Força adicionada." />
           <SummaryList title="Equipamentos" items={selectedEquipment} empty="Nenhum equipamento adicionado." />
           <SummaryList title="Veículos" items={selectedVehicles} empty="Nenhum veículo adicionado." />
           <SummaryList title="Dróides" items={selectedDroids} empty="Nenhum dróide adicionado." />
@@ -2897,7 +2984,7 @@ export function App() {
     );
   }
 
-  function SummarySection({ title, items }: { title: string; items: Array<[string, string | number]> }) {
+  function SummarySection({ title, items }: { title: string; items: Array<[string, ReactNode]> }) {
     return (
       <section className="summary-section">
         <h3>{title}</h3>
@@ -2905,7 +2992,7 @@ export function App() {
           {items.map(([label, value]) => (
             <div className="summary-item" key={label}>
               <span>{label}</span>
-              <strong>{String(value || 'Não preenchido')}</strong>
+              <strong>{value || 'Não preenchido'}</strong>
             </div>
           ))}
         </div>
@@ -2913,13 +3000,18 @@ export function App() {
     );
   }
 
-  function SummaryList({ title, items, empty }: { title: string; items: string[]; empty: string }) {
+  function SummaryList({ title, items, empty, detailed = false }: { title: string; items: SummaryListItem[]; empty: string; detailed?: boolean }) {
     return (
       <section className="summary-section">
         <h3>{title}</h3>
         {items.length > 0 ? (
-          <div className="summary-list">
-            {items.map((item) => <span key={item}>{item}</span>)}
+          <div className={detailed ? 'summary-list detailed' : 'summary-list'}>
+            {items.map((item) => (
+              <span key={`${item.slug ?? item.label}-${item.meta ?? ''}`}>
+                <WikiLink slug={item.slug}>{item.label}</WikiLink>
+                {item.meta && <small>{item.meta}</small>}
+              </span>
+            ))}
           </div>
         ) : (
           <p className="summary-empty">{empty}</p>
@@ -3144,7 +3236,7 @@ export function App() {
         </div>
 
         <div className="feat-preview">
-          <strong>{selectedFeat.name}</strong>
+          <strong><WikiLink slug={selectedFeat.slug}>{selectedFeat.name}</WikiLink></strong>
           <RuleHighlights item={selectedFeat} />
           <p>{selectedFeat.benefit}</p>
           <small>Pré-requisitos: {selectedFeat.prerequisites}</small>
@@ -3155,7 +3247,7 @@ export function App() {
             <article className="feat-card" key={featItem.slug}>
               <div className="feat-card-header">
                 <div>
-                  <strong>{featItem.name}</strong>
+                  <strong><WikiLink slug={featItem.slug}>{featItem.name}</WikiLink></strong>
                   <RuleHighlights item={featItem} compact />
                   <small>{featItem.benefit}</small>
                 </div>
@@ -3218,7 +3310,7 @@ export function App() {
 
         {selectedItem && (
           <div className="feat-preview">
-            <strong>{selectedItem.name}</strong>
+            <strong><WikiLink slug={selectedItem.slug}>{selectedItem.name}</WikiLink></strong>
             <RuleHighlights item={selectedItem} />
             {renderFormattedText(selectedItem.details)}
             {selectedItem.category && <small>Categoria: {selectedItem.category}</small>}
@@ -3233,7 +3325,7 @@ export function App() {
             <article className="feat-card" key={item.slug}>
               <div className="feat-card-header">
                 <div>
-                  <strong>{item.name}</strong>
+                  <strong><WikiLink slug={item.slug}>{item.name}</WikiLink></strong>
                   <RuleHighlights item={item} compact />
                   <small>{item.summary}</small>
                 </div>
@@ -3334,7 +3426,7 @@ export function App() {
         {selectedItem && (
           <div className="feat-preview">
             <div className="preview-heading">
-              <strong>{selectedItem.name}</strong>
+              <strong><WikiLink slug={selectedItem.slug}>{selectedItem.name}</WikiLink></strong>
               {selectedItem.category && <small>{selectedItem.category}</small>}
             </div>
             <RuleHighlights item={selectedItem} />
@@ -3348,7 +3440,7 @@ export function App() {
             <article className="feat-card" key={item.slug}>
               <div className="feat-card-header">
                 <div>
-                  <strong>{item.name}</strong>
+                  <strong><WikiLink slug={item.slug}>{item.name}</WikiLink></strong>
                   <RuleHighlights item={item} compact />
                   <small>{item.category || item.summary}</small>
                 </div>
@@ -3381,7 +3473,9 @@ export function App() {
         </div>
         <div className="token-list">
           {selected.map((slug) => (
-            <button key={slug} type="button" onClick={() => onChange(selected.filter((item) => item !== slug))}>{labelFor(items, slug)}</button>
+            <button key={slug} type="button" onClick={() => onChange(selected.filter((item) => item !== slug))}>
+              <WikiLink slug={slug}>{labelFor(items, slug)}</WikiLink>
+            </button>
           ))}
         </div>
       </section>

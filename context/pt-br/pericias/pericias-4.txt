@@ -1,0 +1,570 @@
+# PARTE 3 — PERÍCIAS
+
+---
+
+# Persuasão (Car) — Continuação
+
+## Pechinchar
+
+Sempre que você usar a perícia Obter Informação, você pode tentar uma checagem de Persuasão como:
+
+- ação rápida
+
+E reduzir pela metade a quantidade paga para adquirir a informação.
+
+Além disso, você pode usar esta perícia como:
+
+- ação completa
+
+Para:
+
+- aumentar o preço em 50%;
+- reduzir o preço em 50%.
+
+A CD depende da atitude do indivíduo.
+
+| Atitude | CD |
+|---|---:|
+| Inamigável | 30 |
+| Indiferente | 25 |
+| Amigável | 20 |
+| Prestativo | 15 |
+
+Restrições:
+
+- não funciona com criaturas hostis;
+- não funciona com Inteligência 2 ou menor.
+
+Uma criatura nunca pagará acima do preço normal por algo facilmente encontrado.
+
+---
+
+## Intimidar
+
+Como ação completa:
+
+faça uma checagem de Persuasão para forçar uma única criatura com Inteligência 1 ou maior a:
+
+- afastar-se de confronto;
+- entregar posses;
+- revelar informação secreta;
+- fugir de você por algum tempo.
+
+Requisito:
+
+- o alvo precisa estar apto a vê-lo.
+
+Resultado necessário:
+
+**Persuasão ≥ Defesa de Vontade**
+
+Modificadores:
+
+| Situação | Modificador |
+|---|---:|
+| Alvo indefeso ou totalmente à sua mercê | +5 |
+| Alvo cercado ou em desvantagem | +0 |
+| Alvo em pé de igualdade | -5 |
+| Você cercado ou em desvantagem | -10 |
+| Você indefeso ou totalmente à mercê do alvo | -15 |
+
+Restrições:
+
+Você não pode obrigar o alvo a:
+
+- obedecer qualquer comando;
+- colocar em risco a própria vida;
+- colocar em risco aliados.
+
+Após deixar de ser ameaça iminente:
+
+a criatura torna-se:
+
+**1 passo mais hostil**
+
+(veja tabela 4-4)
+
+---
+
+## Tentar Novamente
+
+Se falhar em Persuasão:
+
+- não poderá tentar novamente contra o mesmo alvo por 24 horas.
+
+---
+
+## Especial
+
+Você pode:
+
+- tirar 10
+
+Você não pode:
+
+- tirar 20
+
+---
+
+## Tabela 4-4 — Escala de Comportamento
+
+| Comportamento | A Criatura... |
+|---|---|
+| Hostil | Assume riscos para te ferir, geralmente atacando logo de saída |
+| Inamigável | Deseja-te mal, mas não irá se desviar de seus afazeres para te ferir |
+| Indiferente | Não te considera ameaça ou aliado e provavelmente não o atacará |
+| Amigável | Deseja-te bem, mas não assumirá risco de vida para ajudá-lo |
+| Prestativo | Assume riscos para ajudá-lo |
+
+---
+
+# Pilotar (Des)
+
+Use esta perícia para operar veículos.
+
+Operações básicas:
+
+- não requerem checagem;
+- não requerem treinamento.
+
+Manobras evasivas e arriscadas:
+
+- exigem testes.
+
+Sempre que fizer uma checagem de Pilotar:
+
+aplique o modificador de tamanho do veículo.
+
+(ver tabela 10-1)
+
+---
+
+## Evitar Colisão
+
+Faça:
+
+**Pilotar CD 15**
+
+Tipo:
+
+- reação
+
+Permite:
+
+- reduzir dano;
+- negar dano de colisão.
+
+---
+
+## Duelo de Proximidade
+
+Ao operar veículo voador:
+
+Faça uma checagem de Pilotar como:
+
+- ação padrão
+
+Para:
+
+- engajar em duelo de proximidade.
+
+---
+
+## Engajar o Inimigo (Treinado Apenas)
+
+Quando pilotando em combate:
+
+Você pode fazer:
+
+- Pilotar
+
+ao invés de:
+
+- Iniciativa
+
+para determinar ordem de combate.
+
+---
+
+## Aumentar Velocidade do Veículo (Treinado Apenas)
+
+Faça:
+
+**Pilotar CD 20**
+
+Tipo:
+
+- ação rápida
+
+Restrições:
+
+- não pode tirar 10
+
+Se falhar:
+
+- velocidade não aumenta;
+- veículo move −1 passo no marcador de condição.
+
+Se obtiver sucesso:
+
+- velocidade aumenta em 1 quadrado
+- até o início do próximo turno.
+
+Para cada:
+
++5 acima da CD
+
+ganha:
+
++1 quadrado adicional
+
+---
+
+## Abalroar
+
+Você pode fazer uma checagem de Pilotar como parte de:
+
+- ação completa
+
+Para:
+
+- colidir intencionalmente com o alvo.
+
+---
+
+## Especial
+
+Você pode tirar 10 em Pilotar.
+
+Exceção:
+
+- aumentar velocidade.
+
+Você não pode tirar 20.
+
+---
+
+# PARTE 4 — PERÍCIAS
+
+---
+
+# Resistência (Con)
+
+**Penalidade por Armadura**
+
+Você pode esforçar-se além dos seus limites físicos normais.
+
+---
+
+## Marcha Forçada
+
+Após 8 horas de caminhada:
+
+cada hora adicional requer:
+
+**Resistência CD 10**
+
+Modificador:
+
+- +2 por hora após a primeira
+
+Se falhar:
+
+- move −1 passo persistente no marcador de condição
+
+Remoção:
+
+- somente após descansar 8 horas
+
+---
+
+## Segurar o Fôlego
+
+Você pode segurar o fôlego por:
+
+**número de rodadas = valor de Constituição**
+
+Após isso:
+
+teste de:
+
+**Resistência CD 10**
+
+Para continuar segurando.
+
+A CD aumenta:
+
+- +2 por rodada adicional
+
+Se falhar:
+
+- deve respirar
+
+ou
+
+- mover −1 passo persistente no marcador de condição
+
+Se alcançar a base do marcador:
+
+- fica inconsciente
+
+Se continuar sem respirar no turno seguinte:
+
+- morre
+
+---
+
+## Ignorar a Fome
+
+Você pode ficar sem comida por:
+
+**número de dias = modificador de Constituição**
+(mínimo 1 dia)
+
+Após isso:
+
+teste diário de Resistência.
+
+Se falhar:
+
+- move −1 passo persistente no marcador de condição
+
+Remoção:
+
+- somente após refeição nutritiva
+
+CD:
+
+- primeiro dia → 10
+- +2 por dia subsequente
+
+---
+
+## Ignorar a Sede
+
+Você pode ficar sem água por:
+
+**3 × valor de Constituição (em horas)**
+
+Após isso:
+
+teste de Resistência por hora.
+
+Se falhar:
+
+- move −1 passo persistente no marcador de condição
+
+Remoção:
+
+- beber 1 litro de água
+
+Criaturas fora do tamanho médio:
+
+- multiplica ×10 para cada categoria acima
+- divide ÷10 para cada categoria abaixo
+
+CD:
+
+- primeiro dia → 10
+- +2 por dia subsequente
+
+---
+
+## Correr
+
+Você pode correr como:
+
+- ação de rodada completa
+
+Movimento:
+
+- 4× deslocamento em linha reta
+
+ou
+
+- 3× deslocamento
+
+(se armadura pesada ou carga pesada)
+
+Enquanto corre:
+
+- perde bônus de Destreza na Defesa de Reflexos
+
+Você pode correr por:
+
+**rodadas = valor de Constituição**
+
+Após isso:
+
+teste:
+
+**Resistência CD 10**
+
+Repete:
+
+- todo turno adicional correndo
+
+A CD aumenta:
+
+- +1 por teste anterior
+
+Se falhar:
+
+- move −1 passo persistente no marcador de condição
+
+Remoção:
+
+- descansar o mesmo tempo gasto correndo
+
+Durante o descanso:
+
+- pode mover apenas deslocamento normal
+
+---
+
+## Dormir de Armadura
+
+Você pode dormir vestindo armadura.
+
+Teste:
+
+| Armadura | CD |
+|---|---:|
+| Leve | 10 |
+| Média | 15 |
+| Pesada | 20 |
+
+Se falhar:
+
+- não consegue dormir
+- move −1 passo persistente no marcador de condição
+
+Remoção:
+
+- dormir 8 horas
+
+---
+
+## Nadar / Boiar
+
+A cada hora nadando:
+
+**Resistência CD 15**
+
+Se falhar:
+
+- move −1 passo persistente no marcador de condição
+
+Remoção:
+
+- descansar (sem nadar ou boiar)
+- pelo mesmo tempo gasto nadando
+
+Cada hora consecutiva:
+
+- +2 na CD
+
+Se estiver apenas boiando:
+
+- reduz CD em 5
+
+---
+
+# Saltar (For)
+
+**Penalidade por Armadura**
+
+Use esta perícia para:
+
+- pular sobre buracos;
+- transpor cercas baixas;
+- descer dos galhos mais baixos de uma árvore.
+
+---
+
+## Salto Longo
+
+CD:
+
+**distância pretendida (em metros) × 3**
+
+Exemplo:
+
+- 3 metros (2 quadrados)
+- CD 9
+
+Sem corrida inicial mínima de 4 quadrados:
+
+- CD dobra
+
+---
+
+## Saltar Acima
+
+CD:
+
+**distância pretendida (em metros) × 12**
+
+Exemplo:
+
+- alcançar 1,5 metros acima
+- CD 18
+
+Usando vara adequada:
+
+- CD reduz pela metade
+
+Sem corrida inicial mínima de 4 quadrados:
+
+- CD dobra
+
+---
+
+## Saltar Abaixo
+
+Ao pular intencionalmente:
+
+Teste:
+
+**Saltar CD 15**
+
+Resultado:
+
+- recebe dano como se tivesse caído 3 metros (2 quadrados) a menos
+
+Se não receber dano:
+
+- aterrissa com segurança
+
+Para cada:
+
++10 acima da CD
+
+Reduz:
+
+- mais 3 metros para cálculo de dano
+
+---
+
+## Especial
+
+Você pode escolher 10 em Saltar.
+
+Pode escolher 20:
+
+- se não houver perigo associado.
+
+A distância de:
+
+- salto longo;
+- salto acima;
+
+conta no deslocamento.
+
+A distância de:
+
+- salto abaixo;
+
+não conta.
+
+---

@@ -1,0 +1,279 @@
+# PARTE 5 — PERÍCIAS
+
+---
+
+# Sobrevivência (Sab)
+
+Use esta perícia para:
+
+- caçar e fazer incursões;
+- guiar um grupo seguramente através de terras ermas e áridas;
+- identificar sinais de gundarks;
+- evitar tempestades de areia;
+- evitar outros perigos naturais.
+
+---
+
+## Sobrevivência Básica
+
+Uma vez por dia:
+
+faça uma checagem de Sobrevivência:
+
+**CD 15**
+
+Permite manter:
+
+- você;
+- seus aliados;
+
+seguros e alimentados por:
+
+**24 horas**
+
+Você pode prover comida e água para:
+
+- +1 pessoa
+
+a cada:
+
+**2 pontos acima de 10**
+
+---
+
+## Suportar Temperaturas Extremas  
+(requer kit de campo)
+
+Uma vez por dia:
+
+Faça:
+
+**Sobrevivência CD 20**
+
+Permite ignorar:
+
+- frio extremo;
+- calor extremo;
+
+pelas próximas:
+
+**24 horas**
+
+(ver Temperaturas Extremas)
+
+---
+
+## Saber a Direção
+
+Como:
+
+- ação completa
+
+Faça:
+
+**Sobrevivência CD 10**
+
+Permite determinar:
+
+- onde fica o norte
+
+(apenas quando direções cardeais forem relevantes)
+
+---
+
+## Rastrear  
+(Treinado Apenas)
+
+Encontrar ou seguir rastros requer:
+
+- ação completa
+- teste de Sobrevivência
+
+A CD depende da superfície e circunstâncias.
+
+Você deve realizar novas checagens sempre que:
+
+- rastros ficarem difíceis;
+- outros rastros cruzarem;
+- o terreno mudar.
+
+Enquanto rastreia:
+
+- move-se à metade da velocidade
+
+Você pode mover velocidade normal:
+
+mas recebe:
+
+- −5 em Sobrevivência
+
+---
+
+### Superfície
+
+| Superfície | CD |
+|---|---:|
+| Solo macio | 10 |
+| Solo firme | 20 |
+| Solo duro | 30 |
+
+#### Solo Macio
+
+Qualquer superfície que mantenha pegadas claramente.
+
+Exemplos:
+
+- neve recente;
+- cinzas grossas;
+- lodo molhado.
+
+---
+
+#### Solo Firme
+
+Superfícies externas ou internas capazes de registrar passagem.
+
+Exemplos:
+
+- gramados;
+- campos;
+- madeiras;
+- chão empoeirado;
+- carpetes grossos.
+
+---
+
+#### Solo Duro
+
+Superfícies que não deixam pegadas.
+
+Exemplos:
+
+- pedra;
+- concreto;
+- metal.
+
+---
+
+### Circunstâncias
+
+| Circunstância | Modificador |
+|---|---:|
+| Para cada três criaturas sendo rastreadas | -1 |
+| Cada dia desde criação do rastro | +1 |
+| Cada hora de chuva | +1 |
+| Cobertura recente de neve | +5 |
+| Visibilidade ruim | +5 |
+| Alvo esconde rastros e move metade do deslocamento | +5 |
+
+---
+
+### Maior criatura rastreada
+
+| Tamanho | Modificador |
+|---|---:|
+| Enorme ou maior | -10 |
+| Grande | -5 |
+| Médio | +0 |
+| Pequeno | +5 |
+| Miúdo ou menor | +10 |
+
+---
+
+## Especial
+
+Você pode:
+
+- tirar 10
+
+Pode tirar 20:
+
+- se não houver risco ou penalidade.
+
+Tirar 20:
+
+- demora vinte vezes mais.
+
+---
+
+# Tratar Ferimentos (Sab)
+
+Use esta perícia para:
+
+- impedir que um aliado morra;
+- curar machucados;
+- tratar doenças;
+- tratar venenos.
+
+---
+
+## Primeiros Socorros  
+(requer aparato médico — medpac)
+
+Como:
+
+- ação completa
+
+Você pode prestar primeiros socorros para criatura:
+
+- ferida;
+- inconsciente.
+
+Teste:
+
+**Tratar Ferimentos CD 15**
+
+Resultado:
+
+A criatura recupera:
+
+- nível de personagem em PV
+
+mais:
+
+- +1 para cada ponto acima da CD
+
+Usar caixa de medicamentos:
+
+- +2 bônus de equipamento
+
+Limitação:
+
+Após sucesso:
+
+- não recebe novos primeiros socorros por 24 horas.
+
+Você pode tratar a si mesmo:
+
+- penalidade −5
+
+---
+
+## Cuidados de Longo Termo
+
+Atender criatura por:
+
+**8 horas consecutivas**
+
+Resultado:
+
+Recupera:
+
+- PV igual ao nível
+
+além da cura natural.
+
+Limite:
+
+- uma vez por 24 horas.
+
+Capacidade:
+
+- destreinado → 1 criatura
+- treinado → até 6 criaturas
+
+Você não pode:
+
+- prestar em si mesmo
+
+---

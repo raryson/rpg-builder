@@ -1,0 +1,242 @@
+# PARTE 8 — PERÍCIAS
+
+---
+
+# Usar Computadores (Int) — Continuação
+
+## Astronavegação  
+(Somente Treinado)
+
+Você pode traçar:
+
+- uma rota segura pelo hiperespaço.
+
+Tempo:
+
+- 1 minuto
+
+Ao final:
+
+faça um teste de:
+
+**Usar Computadores**
+
+Diversos fatores influenciam a CD.
+
+(ver Astronavegação)
+
+---
+
+## Desativar ou Apagar Programa  
+(Somente Treinado; requer atitude do computador prestativo)
+
+Você pode:
+
+- desativar programa;
+- apagar programa.
+
+Requisito:
+
+- computador com atitude prestativa.
+
+Tempo:
+
+- 10 minutos
+
+Teste:
+
+**Usar Computadores CD 15**
+
+---
+
+## Melhorar Nível de Acesso  
+(Treinado Apenas)
+
+Como:
+
+- ação de rodada completa
+
+Faça:
+
+- teste de Usar Computadores
+
+Objetivo:
+
+- melhorar atitude do computador;
+- obter acesso aos programas;
+- obter acesso às informações.
+
+Você deve conseguir comunicar-se com o computador:
+
+Exemplos:
+
+- teclado;
+- interface direta;
+- rede apropriada;
+- Holonet.
+
+---
+
+### Modificador por Atitude
+
+| Atitude | Modificador |
+|---|---:|
+| Hostil | -10 |
+| Arredio | -5 |
+| Indiferente | -2 |
+| Amistoso | +0 |
+
+(veja Tabela 4-5)
+
+Se o resultado:
+
+≥ Defesa de Vontade do computador
+
+Resultado:
+
+- atitude melhora 1 passo.
+
+---
+
+Se falhar por:
+
+**4 ou menos**
+
+Resultado:
+
+- atitude não muda.
+
+Se falhar por margem maior:
+
+Resultado:
+
+- atitude piora 1 passo;
+- administrador é notificado.
+
+Exemplo:
+
+Indiferente → Arredio
+
+---
+
+## Computador Hostil
+
+Um computador hostil pode:
+
+- rastrear sua localização;
+- notificar segurança próxima.
+
+Se falha por:
+
+**5 ou mais**
+
+Resultado:
+
+- conexão isolada;
+- acesso rejeitado por 24 horas.
+
+---
+
+## Executar Rotina  
+(requer atitude amistosa ou prestativa)
+
+Como:
+
+- ação padrão
+
+Você pode executar rotinas.
+
+Exemplos:
+
+- ligar;
+- desligar;
+- visualizar documentos;
+- editar documentos;
+- visualizar gravações;
+- imprimir em flimplast;
+- abrir portas;
+- fechar portas.
+
+Normalmente:
+
+- não requer teste.
+
+---
+
+Se outro usuário emitir comando contraditório:
+
+vence quem possuir:
+
+- melhor nível de acesso.
+
+Exemplo:
+
+- prestativo vence amistoso.
+
+Se possuírem mesmo nível:
+
+Faça:
+
+**Usar Computadores × Usar Computadores**
+
+O vencedor:
+
+- tem o comando executado.
+
+---
+
+## Reprogramar Dróides  
+(Treinado apenas; requer Kit de Ferramentas)
+
+Você pode:
+
+- reprogramar dróide;
+- trocar mestre;
+- copiar dados;
+- alterar perícias treinadas;
+- apagar memória.
+
+CD:
+
+**Defesa de Vontade do Dróide**
+
+Tempo:
+
+- 10 minutos
+
+---
+
+## Especial
+
+Você pode:
+
+- escolher 10
+
+Pode escolher 20:
+
+- exceto ao aumentar nível de acesso.
+
+Quando o computador tiver atitude:
+
+- amistosa;
+- amigável;
+
+Você recebe:
+
+bônus de equipamento em Usar Computadores igual ao:
+
+**bônus de Inteligência do computador**
+
+---
+
+## Tabela 4-5 — Escala de Comportamento do Computador
+
+| Comportamento | O Computador... |
+|---|---|
+| Hostil | O trata como invasor hostil e tenta rastrear sua localização e isolar sua conexão |
+| Arredio | O trata como usuário não autorizado e bloqueia acesso aos programas e informações |
+| Indiferente | O trata como visitante e garante acesso a programas e informações não secretos, desde que não entre em conflito com comandos anteriores |
+| Amigável | O trata como usuário autorizado e garante acesso a todos os programas e às informações não secretas, desde que não entre em conflito com comandos anteriores. Você pode adicionar bônus de equipamento provido pelo computador aos testes |
+| Prestativo | O trata como dono ou administrador, garantindo acesso a todos os programas e informações, mesmo passando por cima de comandos anteriores. Você pode adicionar bônus de equipamento provido pelo computador aos testes |
+
+---

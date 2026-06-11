@@ -1,0 +1,316 @@
+# PARTE 6 — PERÍCIAS
+
+---
+
+# Tratar Ferimentos (Sab) — Continuação
+
+## Realizar Cirurgia  
+(Treinado apenas; requer ferramentas de cirurgia)
+
+Você pode realizar cirurgia para:
+
+- curar dano;
+- remover condição persistente;
+- instalar prótese cibernética.
+
+Cada operação requer:
+
+- 1 hora ininterrupta
+
+Ao final:
+
+- faça uma checagem de Tratar Ferimentos.
+
+Se falhar:
+
+- nenhum benefício é obtido;
+- recursos utilizados são perdidos.
+
+Se falhar por 5 ou mais:
+
+- a criatura recebe dano igual ao próprio limite de dano.
+
+Se reduzir a criatura para 0 pontos de vida:
+
+- ela morre.
+
+---
+
+## Curar Dano
+
+Faça:
+
+**Tratar Ferimentos CD 20**
+
+Resultado:
+
+cura quantidade de dano igual a:
+
+**bônus de Constituição × nível da criatura**
+(mínimo 1)
+
+Se falhar:
+
+- a criatura recebe dano igual ao limite de dano.
+
+Se já estava com 0 pontos de vida:
+
+- morre
+
+exceto se:
+
+- gastar um Ponto da Força.
+
+Você pode realizar em si mesmo:
+
+- penalidade −5
+
+Curar dano também:
+
+- remove condição persistente.
+
+---
+
+## Instalar uma Prótese Cibernética
+
+Requisito:
+
+- aptidão Cirurgia Cibernética
+
+Ao final:
+
+Teste:
+
+**Tratar Ferimentos CD 20**
+
+Sucesso:
+
+- prótese instalada corretamente
+
+Falha:
+
+- instalação incorreta
+
+Pode tentar novamente:
+
+- após mais 1 hora de cirurgia
+
+Você pode instalar em si mesmo:
+
+- penalidade −5
+
+---
+
+## Revivendo  
+(Treinado apenas; requer aparato médico — medpac)
+
+Como:
+
+- ação completa
+
+Permite reviver criatura recém-morta.
+
+Requisitos:
+
+- alcançar criatura dentro de 1 round
+- Tratar Ferimentos CD 25
+
+Usar caixa de medicamentos:
+
+- +2 bônus de equipamento
+
+Sucesso:
+
+- criatura fica inconsciente ao invés de morta
+
+Falha:
+
+- não pode mais revivê-la
+
+---
+
+## Tratar Doença  
+(Treinado apenas; requer aparato médico — medpac)
+
+Duração:
+
+- 8 horas
+
+Ao final:
+
+Teste:
+
+**Tratar Ferimentos × CD da doença**
+
+Sucesso:
+
+- paciente curado
+- remove sintomas
+- remove condições persistentes
+
+Capacidade:
+
+- até 6 pessoas simultaneamente
+
+---
+
+## Tratar Veneno  
+(Treinado apenas; requer aparato médico — medpac)
+
+Como:
+
+- ação completa
+
+Faça:
+
+**Tratar Ferimentos × CD do veneno**
+
+Sucesso:
+
+- desintoxica o paciente
+- remove sintomas
+- remove condições persistentes
+
+---
+
+## Tratar Radiação  
+(Treinado apenas; requer aparato médico — medpac)
+
+Duração:
+
+- 8 horas
+
+Ao final:
+
+Teste:
+
+**Tratar Ferimentos × CD da radiação**
+
+Sucesso:
+
+- paciente curado
+- remove sintomas
+- remove condições persistentes
+
+Capacidade:
+
+- até 6 criaturas simultaneamente
+
+---
+
+## Especial
+
+Você pode:
+
+- tirar 10
+
+Você não pode:
+
+- tirar 20
+
+---
+
+# Usar a Força (Car)
+
+**Requer a aptidão Sensitivo a Força**
+
+Você canaliza a Força para ajudá-lo a:
+
+- curar ferimentos;
+- intuir;
+- realizar feitos marcantes.
+
+Você precisa possuir:
+
+- Sensitivo a Força
+
+para ser treinado nesta perícia.
+
+---
+
+## Ativar Poderes da Força  
+(Somente Treinado)
+
+Faça:
+
+- teste de Usar a Força
+
+para utilizar:
+
+- Poder da Força
+
+Este uso:
+
+- não requer ação
+
+---
+
+## Transe da Força  
+(Somente Treinado)
+
+Como:
+
+- ação de rodada completa
+
+Faça:
+
+**Usar a Força CD 10**
+
+Enquanto em transe:
+
+- permanece consciente dos arredores;
+- recupera PV igual ao nível por hora.
+
+Encerrar:
+
+- ação rápida
+
+Após:
+
+**4 horas consecutivas**
+
+Você emerge:
+
+- totalmente descansado
+- como se tivesse descansado 8 horas
+
+Enquanto estiver em transe:
+
+- suporta 10× mais tempo sem comida ou água
+
+---
+
+## Mover Objetos Leves  
+(Somente Treinado)
+
+Como:
+
+- ação de movimento
+
+Faça:
+
+**Usar a Força CD 10**
+
+Permite mover:
+
+- objeto até 5 kg
+
+Distância:
+
+- até 6 quadrados
+
+Como ação padrão:
+
+pode usar o objeto como projétil.
+
+Nova CD:
+
+**15**
+
+Se atingir Defesa de Reflexos:
+
+Dano:
+
+- 1d6 contusão
+
+---

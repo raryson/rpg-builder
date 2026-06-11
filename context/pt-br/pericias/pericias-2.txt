@@ -1,0 +1,243 @@
+# PARTE 2 — PERÍCIAS
+
+---
+
+# Percepção (Sab) — Continuação
+
+## Notar Alvos
+
+Uma checagem de Percepção permite:
+
+- ouvir ou ver outros alvos;
+- detectar alguém ou alguma coisa se aproximando sorrateiramente pelas suas costas.
+
+Se o alvo estiver ativamente tentando permanecer indetectável:
+
+**Percepção × Furtividade**
+
+Se o alvo não estiver fazendo esforço especial para evitar detecção:
+
+| Tamanho do Alvo | CD |
+|---|---:|
+| Colossal | -15 |
+| Imenso | -10 |
+| Enorme | -5 |
+| Grande | 0 |
+| Médio | 5 |
+| Pequeno | 10 |
+| Miúdo | 15 |
+| Diminutivo | 20 |
+| Minúsculo | 25 |
+
+### Distância
+
+Para cada 10 quadrados entre você e o alvo:
+
+- −5 na checagem de Percepção
+
+Cobertura:
+
+- alvo camuflado ou encoberto → −5
+- camuflagem total ou cobertura total → −10
+
+Detectar um alvo entrando na linha de visão:
+
+Tipo:
+
+- Reação
+
+Olhar ou ouvir ativamente procurando inimigos escondidos:
+
+Tipo:
+
+- ação padrão
+
+---
+
+Também é possível notar:
+
+- armas escondidas;
+- objetos ocultos.
+
+É feita:
+
+**Percepção × Furtividade**
+
+Se vencer:
+
+- percebe o objeto escondido.
+
+Se vencer por 5 ou mais:
+
+- identifica o tipo do objeto.
+
+Exemplo:
+
+- distinguir um blaster de um datapad.
+
+---
+
+## Procurar
+
+Você pode examinar cuidadosamente:
+
+- 1 quadrado;
+- ou 1 metro cúbico de substância.
+
+Tipo:
+
+- ação completa
+
+Uma checagem de Percepção CD 15 permite encontrar:
+
+- dicas;
+- compartimentos escondidos;
+- portas secretas;
+- armadilhas;
+- irregularidades;
+- detalhes não aparentes.
+
+O mestre pode aumentar a CD para objetos especialmente obscuros ou escondidos.
+
+---
+
+Você também pode procurar em um personagem:
+
+- armas escondidas;
+- objetos ocultos.
+
+É feita:
+
+**Percepção × Furtividade**
+
+Se vencer:
+
+- encontra o objeto.
+
+Recebe:
+
+**+10 de bônus circunstancial**
+
+se tocar fisicamente o alvo durante a busca.
+
+Restrições:
+
+- requer ação completa;
+- alvo voluntário;
+- alvo imobilizado;
+- ou incapaz de reagir.
+
+---
+
+## Sentir Dissimulação
+
+Você pode usar Percepção para ver através de aparências dissimuladas obtidas usando a perícia Dissimulação.
+
+Se sua checagem de Percepção:
+
+≥ resultado de Dissimulação
+
+Então:
+
+- percebe que estão tentando enganá-lo.
+
+Tipo:
+
+- reação
+
+---
+
+## Sentir Influência
+
+Faça uma checagem de Percepção para determinar se alguém está sob influência de:
+
+- poder da Força de efeito mental;
+- outro método de coerção.
+
+(assumindo que o efeito seja óbvio)
+
+Requisitos:
+
+- ação completa
+- CD 20
+
+---
+
+## Tentar Novamente
+
+Você pode fazer uma checagem de Percepção toda vez que tiver oportunidade de notar alguém como reação.
+
+Como ação rápida:
+
+- tentar ver;
+- ou ouvir algo que acredita ter deixado passar anteriormente.
+
+---
+
+## Especial
+
+Você pode:
+
+- tirar 10;
+- tirar 20.
+
+Tirar 20 significa:
+
+- gastar 2 minutos tentando notar algo que pode ou não estar ali.
+
+---
+
+# Persuasão (Car)
+
+Você pode influenciar outros com:
+
+- tato;
+- subterfúgio;
+- graça social;
+
+ou ameaçá-los para que sejam mais cooperativos.
+
+---
+
+## Mudar Atitude
+
+Como ação completa:
+
+faça uma checagem de Persuasão para melhorar a atitude de criaturas com Inteligência 2 ou maior.
+
+Métodos:
+
+- palavras;
+- linguagem corporal;
+- combinação dos dois.
+
+O alvo precisa estar apto a vê-lo.
+
+Modificador baseado na atitude:
+
+| Atitude | Modificador |
+|---|---:|
+| Hostil | -10 |
+| Inamigável | -5 |
+| Indiferente | -2 |
+| Amigável | +0 |
+
+(veja tabela 4-4: Escalas de Comportamento)
+
+Se o resultado:
+
+≥ Defesa de Vontade do alvo
+
+A atitude melhora:
+
+**1 passo a seu favor**
+
+Se o alvo não puder ouvi-lo:
+
+- penalidade −5
+
+Limite:
+
+- apenas uma tentativa por encontro.
+
+---

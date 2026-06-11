@@ -1,0 +1,264 @@
+# PARTE 7 — PERÍCIAS
+
+---
+
+# Usar a Força (Car) — Continuação
+
+## Premonição
+
+Como:
+
+- ação de rodada completa
+
+Faça:
+
+**Usar a Força CD 15**
+
+Permite saber se uma ação específica trará:
+
+- resultados favoráveis;
+- resultados desfavoráveis;
+
+para você em um futuro próximo.
+
+Limite:
+
+- até 10 minutos no futuro
+
+Exemplo:
+
+Determinar se destruir um artefato do Lado Negro causará repercussões imediatas.
+
+A premonição:
+
+- não considera consequências de longo prazo.
+
+Exemplo:
+
+Um teste bem sucedido não revelaria um encontro futuro com usuários do Lado Negro buscando vingança.
+
+O GM deve fornecer as consequências imediatas da ação baseado nas circunstâncias.
+
+---
+
+## Sentir a Força  
+(Somente Treinado)
+
+Você automaticamente percebe perturbações na Força.
+
+Exemplos:
+
+- local forte no Lado Negro → até 1 quilômetro
+- amigo, companheiro ou parente em sofrimento → até 10.000 anos-luz
+- destruição de um planeta ou sofrimento de uma ordem inteira → qualquer lugar da galáxia
+
+---
+
+Como:
+
+- ação de rodada completa
+
+Faça:
+
+**Usar a Força CD 15**
+
+Permite determinar:
+
+- distância;
+- direção relativa da perturbação.
+
+---
+
+Também como:
+
+- ação de rodada completa
+
+Você pode tentar perceber usuários da Força.
+
+Alcance:
+
+- 100 quilômetros
+
+Teste:
+
+**Usar a Força CD 15**
+
+Sucesso revela:
+
+- quantos são;
+- distância aproximada;
+- direção;
+- se já foram encontrados anteriormente.
+
+Outro usuário da Força pode ocultar presença:
+
+**Usar a Força × Usar a Força**
+
+Se igualar ou superar:
+
+- não será percebido.
+
+---
+
+## Sentir os Arredores
+
+Como:
+
+- ação rápida
+
+Faça:
+
+**Usar a Força CD 15**
+
+Permite ignorar:
+
+- cobertura;
+- camuflagem;
+
+quando realizar:
+
+- Percepção
+
+contra um alvo.
+
+Se cobertura total:
+
+- aumentar CD em +5
+
+---
+
+## Telepatia
+
+Como:
+
+- ação padrão
+
+Você pode estabelecer:
+
+- elo telepático
+
+com criatura distante.
+
+Através do elo:
+
+- emoções;
+- pensamentos simples.
+
+Exemplos:
+
+- "Vai!"
+- "Socorro!"
+- "Perigo!"
+
+Requisitos do alvo:
+
+- Inteligência mínima 2
+
+Distância determina CD:
+
+| Distância Telepática | CD |
+|---|---:|
+| Mesmo planeta | 15 |
+| Mesmo sistema | 20 |
+| Mesma região/quadrante da galáxia | 25 |
+| Região/quadrante diferente | 30 |
+
+Contra alvo não voluntário:
+
+Faça:
+
+**Usar a Força × Defesa de Vontade**
+
+Falha:
+
+- não estabelece elo;
+- não pode tentar novamente por 24 horas
+
+Exceto:
+
+- se o alvo passar a desejar o elo.
+
+---
+
+## Especial
+
+Você não pode fazer teste de Usar a Força sem:
+
+- aptidão Sensível a Força
+
+Usar a Força é considerada:
+
+- perícia de classe
+
+para personagens com essa aptidão.
+
+Você pode:
+
+- escolher 10
+
+Você não pode:
+
+- escolher 20
+
+---
+
+# Usar Computadores (Int)
+
+Use esta perícia para:
+
+- acessar arquivos protegidos;
+- derrotar sistemas de segurança.
+
+---
+
+## Acessar Informação  
+(requer atitude do computador de no mínimo indiferente)
+
+Conseguir informações requer:
+
+- conectar-se a rede apropriada;
+- localizar arquivo desejado.
+
+Exemplos:
+
+- Holonet;
+- equivalentes em outras eras.
+
+Conectar em rede:
+
+- ação de rodada completa
+
+Normalmente:
+
+- não requer teste
+
+Conectar usando computador remoto:
+
+**Usar Computadores CD 10**
+
+Você também pode acessar:
+
+- memória local do computador
+
+O GM decide quais informações existem.
+
+---
+
+Encontrar informação exige tempo.
+
+| Informação | CD | Tempo Necessário |
+|---|---:|---|
+| Geral | 15 | 1 minuto (10 rodadas) |
+| Específica | 20 | 10 minutos |
+| Privada | 25 | 1 hora |
+| Secreta* | 30 | 1 dia (8 horas) |
+
+\* Informações secretas só podem ser acessadas de um computador prestativo.
+
+Exemplos:
+
+- informação geral → data de nascimento de senador
+- informação específica → canal privado do comunicador
+- informação secreta → códigos privados
+
+---

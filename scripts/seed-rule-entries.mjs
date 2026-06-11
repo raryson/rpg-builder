@@ -167,6 +167,7 @@ const archivedRuleSlugs = [
 ];
 const entries = [
   ...(catalog.sagaClassDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'class')),
+  ...(catalog.sagaSkillDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'skill')),
   ...(catalog.sagaFeatDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'feat')),
   ...(catalog.sagaTalentDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'talent')),
   ...(catalog.sagaEquipmentDetailsCatalog ?? []).map((item) => mapDetailItem(item, 'equipment')),
