@@ -26,6 +26,7 @@ import {
   sagaDroidDetailsCatalog,
   sagaEquipmentDetailsCatalog,
   sagaFeatDetailsCatalog,
+  sagaForceTalentDetailsCatalog,
   sagaTalentDetailsCatalog,
   sagaVehicleDetailsCatalog,
 } from './starWarsSagaCatalogData';
@@ -451,7 +452,8 @@ const baseForcePowerCatalog = [
 
 const vehicleCatalog = ['X-wing', 'TIE Fighter', 'Y-wing', 'Millennium Falcon', 'Speeder bike', 'AT-ST'].map(toCatalogItem);
 
-const talentDetailsCatalog: DetailCatalogItem[] = [...sagaTalentDetailsCatalog];
+const forceTalentDetailsCatalog: DetailCatalogItem[] = [...sagaForceTalentDetailsCatalog];
+const talentDetailsCatalog: DetailCatalogItem[] = [...sagaTalentDetailsCatalog, ...forceTalentDetailsCatalog];
 
 const forcePowerDetailsCatalog: DetailCatalogItem[] = [
   detailItem('Estrangulamento da Força', 'Poder da Força', 'Restringe uma criatura e causa dano conforme o teste de Usar a Força.', 'Lado Negro'),
@@ -2749,7 +2751,12 @@ export function App() {
     const selectedClass = heroicClassCatalog.find((item) => item.slug === levelUpClassSlug) ?? activeClass;
     const nextClassLevel = getClassLevel(activeSheet, selectedClass.slug) + 1;
     const suggestedHp = Math.max(1, dieMaximum(selectedClass.hitDie) + modifier(composedAbilities.constitution.total));
-    const classTalents = talentDetailsCatalog.filter((item) => item.classRestriction?.includes(selectedClass.slug));
+    const levelUpForceSensitive = activeSheet.forceSensitivity || activeSheet.feats.includes('sensivel-a-forca');
+    // Sensível à Força pode escolher um talento da Força no lugar do talento de classe (Manual, p. 110).
+    const classTalents = [
+      ...talentDetailsCatalog.filter((item) => item.classRestriction?.includes(selectedClass.slug)),
+      ...(levelUpForceSensitive ? forceTalentDetailsCatalog : []),
+    ];
     const selectedClassBonusFeats = featCatalog.filter((item) =>
       !activeSheet.feats.includes(item.slug) &&
       selectedClass.bonusFeats.some((featName) => matchesFeatName(item, featName)));
@@ -3340,28 +3347,33 @@ export function App() {
 
   function TalentsPanel() {
     const selectedClassSlug = activeSheet.classSlug;
-    const availableTalents = talentDetailsCatalog.filter((item) => item.classRestriction?.includes(selectedClassSlug));
+    const isForceSensitive = activeSheet.forceSensitivity || activeSheet.feats.includes('sensivel-a-forca');
+    const availableTalents = [
+      ...talentDetailsCatalog.filter((item) => item.classRestriction?.includes(selectedClassSlug)),
+      ...(isForceSensitive ? forceTalentDetailsCatalog : []),
+    ];
     const selectedClassTalents = activeSheet.talents.filter((slug) => availableTalents.some((item) => item.slug === slug));
     const unavailable = activeSheet.talents
       .map((slug) => talentDetailsCatalog.find((item) => item.slug === slug))
       .filter((item): item is DetailCatalogItem => Boolean(item))
-      .filter((item) => item.classRestriction && item.classRestriction.length > 0 && !item.classRestriction.includes(selectedClassSlug));
+      .filter((item) => !availableTalents.some((available) => available.slug === item.slug));
 
     return (
       <Panel icon={<Sparkles aria-hidden="true" />} title="Talentos">
         <div className="rule-note">
           <strong>Regra de classe</strong>
           <p>Talentos são escolhidos das árvores da classe em que você ganhou o nível. Aptidões são gerais, mas aptidões bônus de classe usam listas específicas da classe.</p>
+          <p>Personagens com a aptidão Sensível à Força também podem escolher talentos da Força no lugar do talento de classe (Manual, p. 110). As árvores da Força aparecem na lista quando a ficha é sensível à Força; a árvore do Lado Negro ainda exige Valor do Lado Negro 1+.</p>
         </div>
         {unavailable.length > 0 && (
           <div className="warning-note">
-            <strong>Conferir multiclasse</strong>
-            <p>{unavailable.length} talento(s) já salvo(s) não pertencem à classe atual e foram ocultados desta lista. Isso pode estar correto se foram ganhos por multiclasse.</p>
+            <strong>Conferir talentos ocultos</strong>
+            <p>{unavailable.length} talento(s) já salvo(s) não estão disponíveis para a classe atual (ou exigem sensibilidade à Força) e foram ocultados desta lista. Isso pode estar correto se foram ganhos por multiclasse.</p>
           </div>
         )}
         <GroupedRichSelectionPanel
           compact
-          title={`Talentos de ${labelFor(heroicClassCatalog, selectedClassSlug)}`}
+          title={isForceSensitive ? `Talentos de ${labelFor(heroicClassCatalog, selectedClassSlug)} e da Força` : `Talentos de ${labelFor(heroicClassCatalog, selectedClassSlug)}`}
           icon={<Sparkles aria-hidden="true" />}
           groupLabel="Árvore de talento"
           itemLabel="Talento"
