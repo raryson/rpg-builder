@@ -218,6 +218,7 @@ type CharacterSheet = {
   forceSecrets: string[];
   forceTradition: string;
   inventory: string[];
+  customEquipment: DetailCatalogItem[];
   equippedWeapons: string[];
   equippedArmor: string;
   credits: number;
@@ -605,6 +606,7 @@ function createSheet(): CharacterSheet {
     forceSecrets: [],
     forceTradition: '',
     inventory: [],
+    customEquipment: [],
     equippedWeapons: [],
     equippedArmor: '',
     credits: 0,
@@ -651,6 +653,7 @@ function normalizeSheet(sheet: CharacterSheet): CharacterSheet {
     totalLevel: totalLevel || sheet.totalLevel || 1,
     heroicLevel: totalLevel || sheet.heroicLevel || sheet.totalLevel || 1,
     skills: skillCatalog.map((skill) => existingSkills.get(skill.slug) ?? { skillSlug: skill.slug, trained: false, focused: false, misc: 0 }),
+    customEquipment: sheet.customEquipment ?? [],
     levelHistory: sheet.levelHistory ?? [],
     sheetVersions: sheet.sheetVersions ?? [],
     isFinalized: sheet.isFinalized ?? ((sheet.sheetVersions?.length ?? 0) > 0),
@@ -1090,7 +1093,8 @@ function wikiHref(slug: string) {
 }
 
 function WikiLink({ slug, children, className = 'wiki-inline-link' }: { slug?: string; children: ReactNode; className?: string }) {
-  if (!slug) return <>{children}</>;
+  // Itens customizados não existem na wiki pública.
+  if (!slug || slug.startsWith('custom-')) return <>{children}</>;
   return <a className={className} href={wikiHref(slug)}>{children}</a>;
 }
 
@@ -1307,6 +1311,91 @@ function RuleHighlights({ item, text, chips, compact = false }: { item?: Partial
         </span>
       ))}
     </div>
+  );
+}
+
+function CustomEquipmentForm({ categories, onCreate }: { categories: string[]; onCreate: (item: DetailCatalogItem) => void }) {
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('Customizados');
+  const [price, setPrice] = useState('');
+  const [damage, setDamage] = useState('');
+  const [weight, setWeight] = useState('');
+  const [availability, setAvailability] = useState('');
+  const [description, setDescription] = useState('');
+
+  function createItem() {
+    const trimmedName = name.trim();
+    if (!trimmedName) return;
+
+    const trimmedCategory = category.trim() || 'Customizados';
+    const extraLines = [
+      'Fonte: Customizado',
+      price.trim() && `Preço: ${price.trim()}`,
+      damage.trim() && `Dano: ${damage.trim()}`,
+      weight.trim() && `Peso: ${weight.trim()}`,
+      availability.trim() && `Disponibilidade: ${availability.trim()}`,
+    ].filter((line): line is string => Boolean(line));
+
+    onCreate({
+      name: trimmedName,
+      slug: `custom-${slugify(trimmedName)}-${crypto.randomUUID().slice(0, 8)}`,
+      summary: trimmedCategory,
+      details: description.trim() || 'Equipamento customizado criado pelo jogador.',
+      category: trimmedCategory,
+      extra: extraLines.join('\n'),
+    });
+
+    setName('');
+    setPrice('');
+    setDamage('');
+    setWeight('');
+    setAvailability('');
+    setDescription('');
+  }
+
+  return (
+    <section className="panel identity-panel">
+      <div className="panel-title"><BadgePlus aria-hidden="true" /><h2>Equipamento customizado</h2></div>
+      <p>Crie itens fora do catálogo do manual. Eles ficam salvos nesta ficha e entram na lista de equipamentos como qualquer outro item.</p>
+      <div className="grouped-picker">
+        <label>
+          Nome
+          <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Ex.: Vibroespada ancestral" />
+        </label>
+        <label>
+          Subdivisão
+          <input list="custom-equipment-categories" value={category} onChange={(event) => setCategory(event.target.value)} />
+          <datalist id="custom-equipment-categories">
+            {categories.map((categoryName) => <option key={categoryName} value={categoryName} />)}
+          </datalist>
+        </label>
+      </div>
+      <div className="grouped-picker">
+        <label>
+          Preço
+          <input value={price} onChange={(event) => setPrice(event.target.value)} placeholder="Ex.: 1.200" />
+        </label>
+        <label>
+          Dano
+          <input value={damage} onChange={(event) => setDamage(event.target.value)} placeholder="Ex.: 2d8" />
+        </label>
+      </div>
+      <div className="grouped-picker">
+        <label>
+          Peso
+          <input value={weight} onChange={(event) => setWeight(event.target.value)} placeholder="Ex.: 1,5 kg" />
+        </label>
+        <label>
+          Disponibilidade
+          <input value={availability} onChange={(event) => setAvailability(event.target.value)} placeholder="Ex.: Comum, Militar, Rara" />
+        </label>
+      </div>
+      <label>
+        Descrição
+        <textarea value={description} onChange={(event) => setDescription(event.target.value)} rows={3} placeholder="Regras, efeitos e detalhes do item" />
+      </label>
+      <button type="button" onClick={createItem} disabled={!name.trim()}>Criar e adicionar à ficha</button>
+    </section>
   );
 }
 
@@ -1835,6 +1924,33 @@ export function App() {
 
   function setField<K extends keyof CharacterSheet>(key: K, value: CharacterSheet[K]) {
     updateActiveSheet((sheet) => ({ ...sheet, [key]: value }));
+  }
+
+  const equipmentCatalogForSheet = useMemo(
+    () => [...equipmentDetailsCatalog, ...activeSheet.customEquipment],
+    [activeSheet.customEquipment],
+  );
+
+  const equipmentCategoryOptions = useMemo(() => {
+    const fromCatalog = equipmentDetailsCatalog.map((item) => item.category || 'Geral');
+    return Array.from(new Set(['Customizados', ...fromCatalog])).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+  }, []);
+
+  function addCustomEquipment(item: DetailCatalogItem) {
+    updateActiveSheet((sheet) => ({
+      ...sheet,
+      customEquipment: [...sheet.customEquipment, item],
+      inventory: [...sheet.inventory, item.slug],
+    }));
+  }
+
+  function updateInventory(value: string[]) {
+    updateActiveSheet((sheet) => ({
+      ...sheet,
+      inventory: value,
+      // Item customizado removido do inventário também sai da definição da ficha.
+      customEquipment: sheet.customEquipment.filter((item) => value.includes(item.slug)),
+    }));
   }
 
   function openSheet(sheet: CharacterSheet) {
@@ -2431,7 +2547,12 @@ export function App() {
           {activeTab === 'feats' && <FeatsPanel />}
           {activeTab === 'talents' && <TalentsPanel />}
           {activeTab === 'force' && <ForcePanel />}
-          {activeTab === 'equipment' && <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisão" itemLabel="Equipamento" items={equipmentDetailsCatalog} selected={activeSheet.inventory} onChange={(value) => setField('inventory', value)} />}
+          {activeTab === 'equipment' && (
+            <>
+              <GroupedRichSelectionPanel icon={<Package aria-hidden="true" />} title="Equipamentos" groupLabel="Subdivisão" itemLabel="Equipamento" items={equipmentCatalogForSheet} selected={activeSheet.inventory} onChange={updateInventory} />
+              <CustomEquipmentForm categories={equipmentCategoryOptions} onCreate={addCustomEquipment} />
+            </>
+          )}
           {activeTab === 'vehicles' && <GroupedRichSelectionPanel icon={<Car aria-hidden="true" />} title="Veículos" groupLabel="Subdivisão" itemLabel="Veículo" items={vehicleDetailsCatalog} selected={activeSheet.vehicles} onChange={(value) => setField('vehicles', value)} />}
           {activeTab === 'droids' && <DroidsPanel />}
           {activeTab === 'notes' && (
@@ -2905,7 +3026,7 @@ export function App() {
     const selectedForcePowers = summarySheet.forcePowers.map((slug) => ({ label: `Poder: ${labelFor(forcePowerDetailsCatalog, slug)}`, slug }));
     const selectedForceTechniques = summarySheet.forceTechniques.map((slug) => ({ label: `Técnica: ${labelFor(forceTechniqueDetailsCatalog, slug)}`, slug }));
     const selectedForceSecrets = summarySheet.forceSecrets.map((slug) => ({ label: `Segredo: ${labelFor(forceSecretDetailsCatalog, slug)}`, slug }));
-    const selectedEquipment = summarySheet.inventory.map((slug) => ({ label: labelFor(equipmentDetailsCatalog, slug), slug }));
+    const selectedEquipment = summarySheet.inventory.map((slug) => ({ label: labelFor([...equipmentDetailsCatalog, ...(summarySheet.customEquipment ?? [])], slug), slug }));
     const selectedVehicles = summarySheet.vehicles.map((slug) => ({ label: labelFor(vehicleDetailsCatalog, slug), slug }));
     const droidCatalog = [...droidBuilderDetailsCatalog, ...readyDroidDetailsCatalog];
     const selectedDroids = summarySheet.droidSystems.map((slug) => ({ label: labelFor(droidCatalog, slug), slug }));
